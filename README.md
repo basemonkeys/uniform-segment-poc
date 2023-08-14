@@ -1,5 +1,4 @@
 # uniform
-Seth Git Test
 
 ## Getting started
 
