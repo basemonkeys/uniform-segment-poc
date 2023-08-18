@@ -1,5 +1,3 @@
-import dynamic from "next/dynamic";
-
 export function Footer() {
   return (
     <div>

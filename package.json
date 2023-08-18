@@ -19,7 +19,7 @@
     "uniform:push:project-map-definitions": "uniform project-map definition push ./content/package.json",
     "uniform:push:project-map-nodes": "uniform project-map node push ./content/package.json",
     "uniform:publish": "uniform canvas composition push ./content/package.json --state published",
-    "uniform:push": "run-s uniform:push:signals uniform:push:components uniform:push:compositions uniform:push:project-map-definitions uniform:push:project-map-nodes"
+    "uniform:push": "run-s uniform:push:signals uniform:push:components uniform:push:compositions uniform:push:project-map-definitions uniform:push:project-map-nodes",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -28,6 +28,8 @@
     "@types/react": "18.2.3",
     "@types/react-dom": "18.2.4",
     "@uniformdev/canvas-next-rsc": "^19.30.0",
+    "@uniformdev/project-map": "^19.45.0",
+    "classnames": "^2.3.2",
     "next": "13.4.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -38,6 +40,7 @@
     "@storybook/addon-interactions": "^7.3.1",
     "@storybook/addon-links": "^7.3.1",
     "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/addon-styling": "^1.3.6",
     "@storybook/blocks": "^7.3.1",
     "@storybook/nextjs": "^7.3.1",
     "@storybook/react": "^7.3.1",
