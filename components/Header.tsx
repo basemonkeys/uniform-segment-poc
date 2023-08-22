@@ -1,4 +1,4 @@
-import { Button } from './Button';
+import {Button} from '@nextui-org/button';
 
 type User = {
   name: string;
@@ -39,12 +39,18 @@ export const Header = ({ user, onLogin, onLogout, onCheckEligibility }: HeaderPr
             <span className="mr-6 text-lg">
               Welcome, <b>{user.name}</b>
             </span>
-            <Button className="ml-6" size="sm" type="link" onClick={onLogout} label="Log out"/>
+            <Button variant="light" onClick={onLogout} className="ml-6" >
+              Log out 
+            </Button>
           </>
         ) : (
           <>
-            <Button size="sm" type="info" label="Log in" onClick={onLogin} />
-            <Button className="ml-6" primary={true} type="info" size="sm" label="Check Eligibility" onClick={onCheckEligibility}/>
+            <Button color="primary" variant="bordered" onClick={onLogin}>
+              Log in
+            </Button>
+            <Button color="primary" onClick={onCheckEligibility} className="ml-6" >
+              Check Eligibility
+            </Button>
           </>
         )}
       </div>

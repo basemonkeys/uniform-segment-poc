@@ -1,14 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '../components/Button';
+import { SSButton } from '../components/SSButton';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
   title: 'Example/Button',
-  component: Button,
+  component: SSButton,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
-    layout: 'centered',
     // backgrounds: {
     //   default: 'brand',
     //   values: [
@@ -26,10 +25,22 @@ const meta = {
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  // argTypes: {
-  //   backgroundColor: { control: 'color' },
-  // },
-} satisfies Meta<typeof Button>;
+  argTypes: {
+    color: {
+      table: {
+        disable: true,
+      }
+    },
+    size: {
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      control: { type: 'radio'},
+    },
+    radius: {
+      options: ['md', 'full'],
+      control: { type: 'radio'},
+    },
+  },
+} satisfies Meta<typeof SSButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -37,39 +48,36 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {
   args: {
-    primary: true,
-    type: 'info',
-    label: 'Primary',
+    children: 'Button Text',
+    color: 'primary',
+    size: 'lg',
+    radius: 'md',
+  },
+};
+
+export const PrimaryWhite: Story = {
+  args: {
+    children: 'Button Text',
+    color: 'primaryWhite',
+    size: 'lg',
+    radius: 'md',
   },
 };
 
 export const Secondary: Story = {
   args: {
-    label: 'Secondary',
-  },
-};
-
-export const Large: Story = {
-  args: {
+    children: 'Button Text',
+    color: 'secondary',
     size: 'lg',
-    primary: true,
-    type: 'info',
-    label: 'Large Button',
+    radius: 'md',
   },
 };
 
-export const Small: Story = {
+export const SecondaryWhite: Story = {
   args: {
-    size: 'sm',
-    primary: true,
-    label: 'Small Button',
+    children: 'Button Text',
+    color: 'secondaryWhite',
+    size: 'lg',
+    radius: 'md',
   },
 };
-
-export const Warning: Story = {
-  args: {
-    primary: true,
-    type: 'warning',
-    label: 'Delete Now',
-  }
-}

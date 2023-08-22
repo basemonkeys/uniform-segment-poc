@@ -1,3 +1,5 @@
+import {Providers} from "./providers";
+
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -18,9 +20,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className='sstheme'>
       <body className={inter.className}>
-        <main className="main">{children}</main>
+        <main className="main">
+          <Providers>
+            {children}
+          </Providers>
+          </main>
         <Footer/>
       </body>
     </html>
