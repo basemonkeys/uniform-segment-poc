@@ -5,13 +5,8 @@ import {
 } from "@uniformdev/canvas-next-rsc";
 
 export async function Page(props: ComponentProps) {
-  const { component } = props || {};
-  return (
-    <div>
-    {/* <pre>{JSON.stringify(component.slots?.content[0]._pattern)}</pre> */}
-    <UniformSlot name="content" data={component} />;
-    </div>
-  )
+  const { component, context } = props || {};
+  return <UniformSlot name="content" data={component} context={context} />;
 }
 
 registerUniformComponent({

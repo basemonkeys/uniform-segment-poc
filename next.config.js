@@ -1,15 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-images: {
+  images: {
     remotePatterns: [
-        {
-        protocol: 'https',
-        hostname: 'images.ctfassets.net',
+      {
+        protocol: "https",
+        hostname: "images.ctfassets.net",
         // port: '',
         // pathname: '/account123/**',
-        },
+      },
     ],
-    },
-}
+  },
 
-module.exports = nextConfig
+  // experimental: {
+  //   serverActions: true,
+  // },
+};
+
+module.exports = nextConfig;

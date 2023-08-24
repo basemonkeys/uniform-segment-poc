@@ -1,59 +1,143 @@
-import {Button} from '@nextui-org/button';
+"use client";
+
+import { useState } from "react";
+
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenuToggle,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+  DropdownSection,
+} from "@nextui-org/react";
+
+import Image from "next/image";
+import Link from "next/link";
+
+import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
+
+import { SSButton } from "./SSButton";
+
+import { getImageUrl } from "@/utils";
+
+// TODO: replace with Cloudinary
+import logo from "../public/logo_wordmark.svg";
 
 type User = {
   name: string;
 };
 
 interface HeaderProps {
-  user?: User;
-  onLogin: () => void;
-  onLogout: () => void;
-  onCheckEligibility: () => void;
+  children: React.ReactNode;
 }
 
-export const Header = ({ user, onLogin, onLogout, onCheckEligibility }: HeaderProps) => (
-  <header>
-    <div className="flex justify-between items-center p-10">
-      <div>
-        <svg className="inline-block align-top" width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-          <g fill="none" fillRule="evenodd">
-            <path
-              d="M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z"
-              fill="#FFF"
+const Header = ({ children }: HeaderProps) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [user, setUser] = useState<User>();
+
+  return (
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      maxWidth="xl"
+      isBordered
+      className="border-gray-300"
+    >
+      {/* Responsive Branding and Main Navigation */}
+      <NavbarContent
+        className="border-r-1 border-solid border-gray-300 lg:border-none"
+        justify="center"
+      >
+        <NavbarBrand>
+          <Link className="py-6 pr-3" href="/">
+            <Image
+              src={getImageUrl(logo.src)}
+              width={125}
+              height={57}
+              alt="Silver Sneakers"
             />
-            <path
-              d="M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z"
-              fill="#555AB9"
-            />
-            <path
-              d="M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z"
-              fill="#91BAF8"
-            />
-          </g>
-        </svg>
-        <h1 className="inline-block align-top text-xl font-bold my-1 ml-4">Acme</h1>
-      </div>
-      <div>
+          </Link>
+        </NavbarBrand>
+        {/* Main Navigation */}
+        <div className="hidden lg:flex">{children}</div>
+      </NavbarContent>
+
+      {/* Responsive Menu Toggle */}
+      <NavbarContent className="lg:hidden gap-1" justify="start">
+        Menu
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="lg:hidden"
+          icon={
+            isMenuOpen ? (
+              <ChevronUpIcon className="w-5" />
+            ) : (
+              <ChevronDownIcon className="w-5" />
+            )
+          }
+        />
+      </NavbarContent>
+
+      {/* <NavbarContent className="hidden md:flex gap-4"></NavbarContent> */}
+
+      {/* Header CTAs */}
+      <NavbarContent className="gap-3" justify="end">
         {user ? (
           <>
-            <span className="mr-6 text-lg">
-              Welcome, <b>{user.name}</b>
-            </span>
-            <Button variant="light" onClick={onLogout} className="ml-6" >
-              Log out 
-            </Button>
+            <NavbarItem>
+              <Dropdown>
+                <DropdownTrigger>
+                  <SSButton color="primary" size="md" className="ml-6">
+                    Profile
+                  </SSButton>
+                </DropdownTrigger>
+                <DropdownMenu aria-label="Static Actions">
+                  <DropdownSection showDivider>
+                    <DropdownItem key="new">Member ID</DropdownItem>
+                    <DropdownItem key="copy">Personal Info</DropdownItem>
+                    <DropdownItem key="edit">Activity Tracker</DropdownItem>
+                  </DropdownSection>
+                  <DropdownSection>
+                    <DropdownItem
+                      className="text-danger"
+                      color="danger"
+                      onClick={() => setUser(undefined)}
+                    >
+                      Log Off
+                    </DropdownItem>
+                  </DropdownSection>
+                </DropdownMenu>
+              </Dropdown>
+            </NavbarItem>
           </>
         ) : (
           <>
-            <Button color="primary" variant="bordered" onClick={onLogin}>
-              Log in
-            </Button>
-            <Button color="primary" onClick={onCheckEligibility} className="ml-6" >
-              Check Eligibility
-            </Button>
+            <NavbarItem>
+              <SSButton
+                color="secondaryWhite"
+                size="md"
+                onClick={() => setUser({ name: "Jane Doe" })}
+              >
+                Log in
+              </SSButton>
+            </NavbarItem>
+            <NavbarItem>
+              <SSButton
+                color="primary"
+                size="md"
+                onClick={() => setUser({ name: "Jane Doe" })}
+              >
+                Check Eligibility
+              </SSButton>
+            </NavbarItem>
           </>
         )}
-      </div>
-    </div>
-  </header>
-);
+      </NavbarContent>
+    </Navbar>
+  );
+};
+
+export default Header;
