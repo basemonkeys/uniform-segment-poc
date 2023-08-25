@@ -32,10 +32,11 @@ type User = {
 };
 
 interface HeaderProps {
-  children: React.ReactNode;
+  // children: React.ReactNode;
+  links: Types.ProjectMapLinks;
 }
 
-const Header = ({ children }: HeaderProps) => {
+const Header = ({ links }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState<User>();
 
@@ -62,7 +63,7 @@ const Header = ({ children }: HeaderProps) => {
           </Link>
         </NavbarBrand>
         {/* Main Navigation */}
-        <div className="hidden lg:flex">{children}</div>
+        <div className="hidden lg:flex">{links}</div>
       </NavbarContent>
 
       {/* Responsive Menu Toggle */}

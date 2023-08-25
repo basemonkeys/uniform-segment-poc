@@ -127,9 +127,9 @@ const Hero: React.FC<HeroProps> = ({
                 {heading}
               </h1>
               <span className="mb-6 xs:mb-10 lg:mb-10 w-24 max-sm:mx-auto sm:max-w-[100px] border-3 border-orange-500"></span>
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-10 sm:gap-5">
                 <p className="max-sm:m-auto">{description}</p>
-                <div className="flex justify-center sm:justify-start gap-3 md:gap-8 w-full">
+                <div className="flex justify-center sm:justify-start gap-3 md:gap-8 w-full mb-5">
                   <SSButton
                     color={background == "light" ? "primary" : "primaryWhite"}
                   >

@@ -1,12 +1,21 @@
 declare namespace Types {
-    type ProjectMapLink = {
+  type ProjectMapLink = {
+    path: string;
+    type?: string;
+    isRoot?: boolean;
+    name?: string;
+  };
+
+  type CloudinaryImage = {
+    url: string;
+  }[];
+
+  type ProjectMapLinks = Promise<
+    {
+      name: string;
       path: string;
-      type?: string;
-      isRoot?: boolean;
-      name?: string;
-    };
-  
-    type CloudinaryImage = {
-      url: string;
-    }[];  
+      type: "composition" | "redirect" | "placeholder";
+      isRoot: boolean;
+    }[]
+  >;
 }
