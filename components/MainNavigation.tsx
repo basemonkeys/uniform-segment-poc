@@ -1,4 +1,4 @@
-// TODO: this server component is currently limited because it prevents the use of components that require client side actions like useEffect of useState. Ideally, we would get this data on the server in `layout.tsx` then pass the data as a prop and migrate all of this code to Header.tsx. This would allow all MainNav actions to happen client side.
+// TODO: this server component is currently limited because it prevents the use of components that require client side actions like useEffect of useState. Ideally, we would get this data on the server in `layout.tsx` then pass the data as a prop and migrate all of this code to Header.tsx. This would allow all MainNavigation actions to happen client side.
 
 import {
   ComponentProps,
@@ -10,6 +10,7 @@ import {
 } from "@uniformdev/canvas-next-rsc";
 
 // I also need to set an active class on the link, which requires client side rendering. https://www.slingacademy.com/article/how-to-highlight-currently-active-link-in-next-js/#Using_App_Router
+// https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#checking-active-links
 import Link from "next/link";
 
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
@@ -56,7 +57,8 @@ export const getProjectNodes = async ({
   }));
 };
 
-const MainNav = async ({ context }: Props) => {
+// TODO: this is causing an issue context is undefined
+const MainNavigation = async ({ context }: Props) => {
   const links =
     (await getProjectNodes({
       compositionId: context?.composition._id,
@@ -76,7 +78,7 @@ const MainNav = async ({ context }: Props) => {
                 <NavbarItem key={link?.path}>
                   <Link
                     href="#"
-                    className="p-5 flex gap-1 justify-between hover:bg-gray-200"
+                    className="py-5 px-3 flex gap-1 justify-between hover:bg-gray-200"
                   >
                     {link.name}
                     <ChevronDownIcon className="w-5" />
@@ -102,34 +104,58 @@ const MainNav = async ({ context }: Props) => {
             </Dropdown>
           ) : (
             <NavbarItem key={link?.path}>
-              <Link href={link?.path} className="p-5 hover:bg-gray-200">
+              <Link href={link?.path} className="py-5 px-3 hover:bg-gray-200">
                 {link.name}
               </Link>
             </NavbarItem>
           )}
         </>
       ))}
-      <NavbarMenu>
+      <NavbarMenu className="">
         {links?.map((link: Types.ProjectMapLink, index: number) => (
-          <NavbarMenuItem key={link?.path}>
-            <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === links.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              // className="w-full"
-              href={link?.path}
-            >
-              {link.name}
-            </Link>
-          </NavbarMenuItem>
+          <>
+            {link?.type === "placeholder" ? (
+              <Dropdown>
+                <DropdownTrigger>
+                  <NavbarItem key={link?.path}>
+                    <Link
+                      href="#"
+                      className="py-5 px-3 flex gap-1 justify-between hover:bg-gray-200"
+                    >
+                      {link.name}
+                      <ChevronDownIcon className="w-5" />
+                    </Link>
+                  </NavbarItem>
+                </DropdownTrigger>
+                <DropdownMenu
+                  aria-label="ACME features"
+                  className="w-[340px]"
+                  itemClasses={{
+                    base: "gap-4",
+                  }}
+                >
+                  <DropdownItem
+                    key="autoscaling"
+                    title="test"
+                    description="ACME scales apps to meet user demand, automagically, based on load."
+                    startContent={"icon"}
+                  >
+                    Autoscaling
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            ) : (
+              <NavbarMenuItem key={link?.path}>
+                <Link href={link?.path} className="py-5 px-3 hover:bg-gray-200">
+                  {link.name}
+                </Link>
+              </NavbarMenuItem>
+            )}
+          </>
         ))}
       </NavbarMenu>
     </div>
   );
 };
 
-export default MainNav;
+export default MainNavigation;

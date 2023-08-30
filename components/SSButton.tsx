@@ -1,4 +1,5 @@
 "use client";
+
 import { extendVariants, Button } from "@nextui-org/react";
 
 export const SSButton = extendVariants(Button, {

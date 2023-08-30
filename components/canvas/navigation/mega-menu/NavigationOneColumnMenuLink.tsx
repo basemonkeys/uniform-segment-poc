@@ -49,7 +49,7 @@ const NavigationOneColumnMenuLink: FC<LinkProps> = ({
               )}
             </div>
             <div className="flex items-center justify-center mt-1 rounded-md w-11">
-              {imageIrl && (
+              {/* {imageIrl && (
                 <Image
                   width={100}
                   height={100}
@@ -57,7 +57,7 @@ const NavigationOneColumnMenuLink: FC<LinkProps> = ({
                   className="w-10 h-10 text-indigo-50 "
                   src={imageIrl}
                 />
-              )}
+              )} */}
             </div>
           </div>
         </div>

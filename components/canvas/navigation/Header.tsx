@@ -87,12 +87,12 @@ const Header: FC<HeaderProps> = ({
             </ul>
           </div>
           <Link className="ml-8 lg:ml-0" href="/">
-            <Image
+            {/* <Image
               src={getImageUrl(logo)}
               width="270"
               height="43"
               alt="Uniform"
-            />
+            /> */}
           </Link>
           <div
             className={classNames(

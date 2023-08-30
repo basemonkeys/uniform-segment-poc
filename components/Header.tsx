@@ -3,10 +3,17 @@
 import { useState } from "react";
 
 import {
+  ComponentProps,
+  registerUniformComponent,
+} from "@uniformdev/canvas-next-rsc";
+
+import {
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
+  NavbarMenu,
+  NavbarMenuItem,
   NavbarMenuToggle,
   Dropdown,
   DropdownTrigger,
@@ -18,11 +25,11 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
+import { getImageUrl } from "@/utils";
+
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 
 import { SSButton } from "./SSButton";
-
-import { getImageUrl } from "@/utils";
 
 // TODO: replace with Cloudinary
 import logo from "../public/logo_wordmark.svg";
@@ -31,12 +38,12 @@ type User = {
   name: string;
 };
 
-interface HeaderProps {
+type Props = ComponentProps & {
   // children: React.ReactNode;
   links: Types.ProjectMapLinks;
-}
+};
 
-const Header = ({ links }: HeaderProps) => {
+const Header = ({ links }: Props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState<User>();
 
@@ -62,8 +69,105 @@ const Header = ({ links }: HeaderProps) => {
             />
           </Link>
         </NavbarBrand>
+
         {/* Main Navigation */}
-        <div className="hidden lg:flex">{links}</div>
+        <div className="hidden lg:flex">
+          <div
+            key={`links-${links.length}`}
+            className="flex justify-between items-center"
+          >
+            {links?.map((link: Types.ProjectMapLink, index: number) => (
+              <>
+                {link?.type === "placeholder" ? (
+                  <Dropdown>
+                    <DropdownTrigger>
+                      <NavbarItem key={link?.path}>
+                        <Link
+                          href="#"
+                          className="py-5 px-3 flex gap-1 justify-between hover:bg-gray-200"
+                        >
+                          {link.name}
+                          <ChevronDownIcon className="w-5" />
+                        </Link>
+                      </NavbarItem>
+                    </DropdownTrigger>
+                    <DropdownMenu
+                      aria-label="ACME features"
+                      className="w-[340px]"
+                      itemClasses={{
+                        base: "gap-4",
+                      }}
+                    >
+                      <DropdownItem
+                        key="autoscaling"
+                        title="test"
+                        description="ACME scales apps to meet user demand, automagically, based on load."
+                        startContent={"icon"}
+                      >
+                        Autoscaling
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
+                ) : (
+                  <NavbarItem key={link?.path}>
+                    <Link
+                      href={link?.path}
+                      className="py-5 px-3 hover:bg-gray-200"
+                    >
+                      {link.name}
+                    </Link>
+                  </NavbarItem>
+                )}
+              </>
+            ))}
+            <NavbarMenu className="">
+              {links?.map((link: Types.ProjectMapLink, index: number) => (
+                <>
+                  {link?.type === "placeholder" ? (
+                    <Dropdown>
+                      <DropdownTrigger>
+                        <NavbarItem key={link?.path}>
+                          <Link
+                            href="#"
+                            className="py-5 px-3 flex gap-1 justify-between hover:bg-gray-200"
+                          >
+                            {link.name}
+                            <ChevronDownIcon className="w-5" />
+                          </Link>
+                        </NavbarItem>
+                      </DropdownTrigger>
+                      <DropdownMenu
+                        aria-label="ACME features"
+                        className="w-[340px]"
+                        itemClasses={{
+                          base: "gap-4",
+                        }}
+                      >
+                        <DropdownItem
+                          key="autoscaling"
+                          title="test"
+                          description="ACME scales apps to meet user demand, automagically, based on load."
+                          startContent={"icon"}
+                        >
+                          Autoscaling
+                        </DropdownItem>
+                      </DropdownMenu>
+                    </Dropdown>
+                  ) : (
+                    <NavbarMenuItem key={link?.path}>
+                      <Link
+                        href={link?.path}
+                        className="py-5 px-3 hover:bg-gray-200"
+                      >
+                        {link.name}
+                      </Link>
+                    </NavbarMenuItem>
+                  )}
+                </>
+              ))}
+            </NavbarMenu>
+          </div>
+        </div>
       </NavbarContent>
 
       {/* Responsive Menu Toggle */}
@@ -82,8 +186,6 @@ const Header = ({ links }: HeaderProps) => {
         />
       </NavbarContent>
 
-      {/* <NavbarContent className="hidden md:flex gap-4"></NavbarContent> */}
-
       {/* Header CTAs */}
       <NavbarContent className="gap-3" justify="end">
         {user ? (
@@ -91,7 +193,7 @@ const Header = ({ links }: HeaderProps) => {
             <NavbarItem>
               <Dropdown>
                 <DropdownTrigger>
-                  <SSButton color="primary" size="md" className="ml-6">
+                  <SSButton color="primary" size="lg" className="ml-6">
                     Profile
                   </SSButton>
                 </DropdownTrigger>
@@ -119,7 +221,7 @@ const Header = ({ links }: HeaderProps) => {
             <NavbarItem>
               <SSButton
                 color="secondaryWhite"
-                size="md"
+                size="lg"
                 onClick={() => setUser({ name: "Jane Doe" })}
               >
                 Log in
@@ -128,7 +230,7 @@ const Header = ({ links }: HeaderProps) => {
             <NavbarItem>
               <SSButton
                 color="primary"
-                size="md"
+                size="lg"
                 onClick={() => setUser({ name: "Jane Doe" })}
               >
                 Check Eligibility
@@ -140,5 +242,10 @@ const Header = ({ links }: HeaderProps) => {
     </Navbar>
   );
 };
+
+registerUniformComponent({
+  type: "header",
+  component: Header,
+});
 
 export default Header;

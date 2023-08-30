@@ -19,9 +19,6 @@ module.exports = {
       white: "#FFFFFF",
       black: "#000000",
     },
-    fontFamily: {
-      sans: ["Open Sans", "system-ui", "ui-sans-serif"],
-    },
     fontSize: {
       // ['font-size', 'line-height']
       // defaults 1rem/16px unless specified
@@ -56,6 +53,9 @@ module.exports = {
       8: "8px",
     },
     extend: {
+      fontFamily: {
+        sans: ["Lato", "system-ui", "ui-sans-serif"],
+      },
       spacing: {
         128: "32rem",
         144: "36rem",

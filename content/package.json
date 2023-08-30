@@ -26,13 +26,13 @@
   ],
   "components": [
     {
-      "id": "hero",
-      "name": "Hero",
-      "icon": "image-text",
+      "id": "featuredHero",
+      "name": "Featured Hero",
+      "icon": "rectangle-rounded",
       "parameters": [
         {
-          "id": "title",
-          "name": "Title",
+          "id": "heading",
+          "name": "Heading",
           "type": "text",
           "helpText": "",
           "typeConfig": {
@@ -45,17 +45,122 @@
           "type": "text",
           "helpText": "",
           "typeConfig": {
+            "required": true,
             "multiline": true,
             "linesCount": "4"
           }
+        },
+        {
+          "id": "primarycta",
+          "name": "PrimaryCTA",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "image",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
         }
       ],
+      "description": "",
+      "previewImageUrl": "",
       "useTeamPermissions": true,
       "slots": [],
-      "titleParameter": "title",
+      "titleParameter": "heading",
       "canBeComposition": false,
-      "created": "2023-06-29T04:47:25.223883+00:00",
-      "updated": "2023-06-29T04:47:25.223883+00:00"
+      "created": "2023-08-26T03:29:28.908233+00:00",
+      "updated": "2023-08-28T18:19:41.018466+00:00"
+    },
+    {
+      "id": "hero",
+      "name": "Hero",
+      "icon": "display-fullwidth",
+      "parameters": [
+        {
+          "id": "heading",
+          "name": "Heading",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true,
+            "multiline": true,
+            "linesCount": "4"
+          }
+        },
+        {
+          "id": "primarycta",
+          "name": "PrimaryCTA",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "secondarycta",
+          "name": "SecondaryCTA",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": false
+          }
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "image",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
+      "description": "",
+      "previewImageUrl": "",
+      "useTeamPermissions": true,
+      "slots": [],
+      "titleParameter": "heading",
+      "canBeComposition": false,
+      "created": "2023-08-17T03:32:57.924037+00:00",
+      "updated": "2023-08-29T05:39:56.111018+00:00",
+      "variants": [
+        {
+          "id": "backgroundImage",
+          "name": "Background Image"
+        },
+        {
+          "id": "leftLight",
+          "name": "Left Image / Light Background"
+        },
+        {
+          "id": "leftDark",
+          "name": "Left Image / Dark Background"
+        },
+        {
+          "id": "rightLight",
+          "name": "Right Image / Light Background"
+        },
+        {
+          "id": "rightDark",
+          "name": "Right Image / Dark Background"
+        }
+      ]
     },
     {
       "id": "page",
@@ -83,6 +188,8 @@
           }
         }
       ],
+      "description": "",
+      "previewImageUrl": "",
       "useTeamPermissions": true,
       "slots": [
         {
@@ -94,7 +201,9 @@
             "$test",
             "$localization"
           ],
-          "inheritAllowedComponents": false
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
         }
       ],
       "slugSettings": {
@@ -105,11 +214,50 @@
       },
       "titleParameter": "metaTitle",
       "canBeComposition": true,
-      "created": "2023-06-29T04:47:25.676613+00:00",
-      "updated": "2023-06-29T04:47:25.676613+00:00"
+      "created": "2023-08-17T03:32:58.040731+00:00",
+      "updated": "2023-08-29T04:30:01.925648+00:00"
     }
   ],
   "compositions": [
+    {
+      "composition": {
+        "_name": "Featured Hero Pattern",
+        "_id": "17ce81ba-1fd2-4c72-a9db-dc9861ddac21",
+        "type": "featuredHero",
+        "parameters": {
+          "image": {
+            "type": "image",
+            "value": "${#jptr:/Hero Content/fields/backgroundImage/fields/file/url}"
+          },
+          "heading": {
+            "type": "text",
+            "value": "${#jptr:/Hero Content/fields/heading}"
+          },
+          "primarycta": {
+            "type": "text",
+            "value": "${#jptr:/Hero Content/fields/primaryCta}"
+          },
+          "description": {
+            "type": "text",
+            "value": "${#jptr:/Hero Content/fields/description}"
+          }
+        },
+        "_dataResources": {
+          "Hero Content": {
+            "type": "hero",
+            "variables": {
+              "locale": "",
+              "entryIds": "3D5U1JbpPTdcJzcq1UrDtx"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": false
+          }
+        }
+      },
+      "created": "2023-08-28T17:52:59.151183+00:00",
+      "modified": "2023-08-28T22:28:13.442764+00:00",
+      "pattern": true
+    },
     {
       "composition": {
         "_name": "Home",
@@ -125,69 +273,337 @@
         "slots": {
           "content": [
             {
-              "_id": "9c3a3ced-4086-4fb0-92e1-bc5065233b42",
-              "type": "$personalization",
-              "slots": {
-                "pz": [
-                  {
-                    "_id": "7be09ea0-f7f2-40e9-868e-36865cc57b97",
-                    "type": "hero",
-                    "parameters": {
-                      "title": {
-                        "type": "text",
-                        "value": "We are launched!"
-                      },
-                      "$pzCrit": {
-                        "type": "$pzCrit",
-                        "value": {
-                          "crit": [
-                            {
-                              "l": "launchCampaign",
-                              "r": 0,
-                              "op": ">"
-                            }
-                          ],
-                          "name": "Hero: We are launched!"
-                        }
-                      },
-                      "description": {
-                        "type": "text",
-                        "value": "You are seeing a personalized message."
-                      }
-                    }
-                  },
-                  {
-                    "_id": "3f20cbcc-b3d9-4213-9729-bfa79b201080",
-                    "type": "hero",
-                    "parameters": {
-                      "title": {
-                        "type": "text",
-                        "value": "Welcome!"
-                      },
-                      "description": {
-                        "type": "text",
-                        "value": "Trigger campaign-based personalization <a href=\"/?utm_campaign=launch\">now</a>."
-                      }
-                    }
+              "_id": "e9bf0ab3-d6e0-4ca4-8002-dfa7a0ab05a4",
+              "type": "hero",
+              "_pattern": "a703f357-57e8-4fe5-8d4d-47e29e12ba32"
+            },
+            {
+              "_id": "a383364d-17fe-4d25-a131-03260cd9485d",
+              "type": "hero",
+              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47"
+            },
+            {
+              "_id": "900ff3a5-3ca8-42df-9a3c-7dd8f35a7272",
+              "type": "hero",
+              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+              "_dataResources": {
+                "Hero": {
+                  "type": "hero",
+                  "variables": {
+                    "locale": "",
+                    "entryIds": "30E1XFX5RuD77C9u4BE2L9"
                   }
-                ]
-              },
-              "parameters": {
-                "count": {
-                  "type": "number",
-                  "value": "1"
-                },
-                "trackingEventName": {
-                  "type": "text",
-                  "value": "Home Hero"
+                }
+              }
+            },
+            {
+              "_id": "df006382-4fff-40c5-a413-7008c06e4bad",
+              "type": "hero",
+              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+              "_dataResources": {
+                "Hero": {
+                  "type": "hero",
+                  "variables": {
+                    "locale": "",
+                    "entryIds": "7rLGoCp6jzXeFclA7pOFbx"
+                  }
+                }
+              }
+            },
+            {
+              "_id": "2f4be6a4-b781-4672-87bb-3d64abd6fc09",
+              "type": "hero",
+              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+              "_dataResources": {
+                "Hero": {
+                  "type": "hero",
+                  "variables": {
+                    "locale": "",
+                    "entryIds": "3toBs09pRel26o6lXzt199"
+                  }
+                }
+              }
+            },
+            {
+              "_id": "b3118e4a-0f48-419e-bc4e-1cf55a36790d",
+              "type": "hero",
+              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+              "_dataResources": {
+                "Hero": {
+                  "type": "hero",
+                  "variables": {
+                    "locale": "",
+                    "entryIds": "72UeEeEsyRxpk1CkBHax6u"
+                  }
+                }
+              }
+            },
+            {
+              "_id": "f867b912-1560-457d-9e11-a7dc79334678",
+              "type": "hero",
+              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+              "_dataResources": {
+                "Hero": {
+                  "type": "hero",
+                  "variables": {
+                    "locale": "",
+                    "entryIds": "45yeDPGkOARxmufdKjtHaC"
+                  }
+                }
+              }
+            },
+            {
+              "_id": "bdf5acd9-dad9-4207-8323-9d434c8cde4c",
+              "type": "hero",
+              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+              "_dataResources": {
+                "Hero": {
+                  "type": "hero",
+                  "variables": {
+                    "locale": "",
+                    "entryIds": "3ALVWJ8pMV3klXNTnA1xPh"
+                  }
+                }
+              }
+            },
+            {
+              "_id": "bd3148f2-1aa0-4fd0-bab4-f30612dee881",
+              "type": "hero",
+              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+              "_dataResources": {
+                "Hero": {
+                  "type": "hero",
+                  "variables": {
+                    "locale": "",
+                    "entryIds": "3LVxGsk9PGSzgfIY0jb6J5"
+                  }
                 }
               }
             }
           ]
+        },
+        "_overrides": {
+          "2f4be6a4-b781-4672-87bb-3d64abd6fc09": {
+            "variant": "rightLight"
+          },
+          "900ff3a5-3ca8-42df-9a3c-7dd8f35a7272": {
+            "variant": "rightLight"
+          },
+          "a383364d-17fe-4d25-a131-03260cd9485d": {
+            "variant": "leftDark"
+          },
+          "b3118e4a-0f48-419e-bc4e-1cf55a36790d": {
+            "variant": "leftDark"
+          },
+          "bd3148f2-1aa0-4fd0-bab4-f30612dee881": {
+            "variant": "rightLight"
+          },
+          "bdf5acd9-dad9-4207-8323-9d434c8cde4c": {
+            "variant": "leftDark"
+          },
+          "df006382-4fff-40c5-a413-7008c06e4bad": {
+            "variant": "leftDark"
+          },
+          "e9bf0ab3-d6e0-4ca4-8002-dfa7a0ab05a4": {
+            "variant": "backgroundImage"
+          },
+          "f867b912-1560-457d-9e11-a7dc79334678": {
+            "variant": "rightLight"
+          }
         }
       },
-      "created": "2023-06-29T04:47:27.348771+00:00",
-      "modified": "2023-06-29T04:47:27.348771+00:00",
+      "created": "2023-08-17T03:33:00.395722+00:00",
+      "modified": "2023-08-29T05:41:16.721032+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Participating Locations",
+        "_id": "8fb1559d-0551-4e10-98c3-473cee3571f5",
+        "_slug": "participating-locations",
+        "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Participating Locations"
+          }
+        }
+      },
+      "created": "2023-08-22T21:12:57.450917+00:00",
+      "modified": "2023-08-22T21:13:07.817827+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Hero Pattern",
+        "_id": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+        "type": "hero",
+        "variant": "leftDark",
+        "parameters": {
+          "image": {
+            "type": "image",
+            "value": "${#jptr:/Hero/fields/image/fields/file/url}"
+          },
+          "heading": {
+            "type": "text",
+            "value": "${#jptr:/Hero/fields/heading}"
+          },
+          "primarycta": {
+            "type": "text",
+            "value": "${#jptr:/Hero/fields/primaryCta}"
+          },
+          "description": {
+            "type": "text",
+            "value": "${#jptr:/Hero/fields/description}"
+          },
+          "secondarycta": {
+            "type": "text",
+            "value": "${#jptr:/Hero/fields/secondaryCta}"
+          }
+        },
+        "_dataResources": {
+          "Hero": {
+            "type": "hero",
+            "variables": {
+              "locale": "",
+              "entryIds": "3ttTQnOaQfyba6GVXJ1gF6"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": false
+          }
+        },
+        "_overridability": {
+          "variants": true,
+          "parameters": {
+            "title": "no",
+            "variant": "yes",
+            "alignment": "yes",
+            "background": "yes",
+            "description": "no",
+            "backgroundVariant": "yes"
+          }
+        }
+      },
+      "created": "2023-08-18T05:13:45.9326+00:00",
+      "modified": "2023-08-29T05:40:15.081526+00:00",
+      "pattern": true
+    },
+    {
+      "composition": {
+        "_name": "Featured Hero Pattern",
+        "_id": "a703f357-57e8-4fe5-8d4d-47e29e12ba32",
+        "type": "hero",
+        "variant": "backgroundImage",
+        "parameters": {
+          "image": {
+            "type": "image",
+            "value": "${#jptr:/Hero Content/fields/backgroundImage/fields/file/url}"
+          },
+          "heading": {
+            "type": "text",
+            "value": "${#jptr:/Hero Content/fields/heading}"
+          },
+          "primarycta": {
+            "type": "text",
+            "value": "${#jptr:/Hero Content/fields/primaryCta}"
+          },
+          "description": {
+            "type": "text",
+            "value": "${#jptr:/Hero Content/fields/description}"
+          }
+        },
+        "_dataResources": {
+          "Hero Content": {
+            "type": "hero",
+            "variables": {
+              "locale": "",
+              "entryIds": "3D5U1JbpPTdcJzcq1UrDtx"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": false
+          }
+        },
+        "_overridability": {
+          "variants": true,
+          "parameters": {
+            "alignment": "no",
+            "background": "no"
+          }
+        }
+      },
+      "created": "2023-08-29T04:26:24.030654+00:00",
+      "modified": "2023-08-29T05:40:27.80098+00:00",
+      "pattern": true
+    },
+    {
+      "composition": {
+        "_name": "Partner Hero Pattern",
+        "_id": "abcd32be-5961-4103-9540-183229d50364",
+        "type": "hero",
+        "variant": "backgroundImage",
+        "parameters": {
+          "image": {
+            "type": "image",
+            "value": "${#jptr:/Hero Content/fields/backgroundImage/fields/file/url}"
+          },
+          "heading": {
+            "type": "text",
+            "value": "${#jptr:/Hero Content/fields/heading}"
+          },
+          "primarycta": {
+            "type": "text",
+            "value": "${#jptr:/Hero Content/fields/primaryCta}"
+          },
+          "description": {
+            "type": "text",
+            "value": "${#jptr:/Hero Content/fields/description}"
+          },
+          "secondarycta": {
+            "type": "text",
+            "value": "${#jptr:/Hero Content/fields/secondaryCta}"
+          }
+        },
+        "_dataResources": {
+          "Hero Content": {
+            "type": "hero",
+            "variables": {
+              "locale": "",
+              "entryIds": "5oo1gGhKm7eA1nhYbuOMkG"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": false
+          }
+        },
+        "_overridability": {
+          "variants": true
+        }
+      },
+      "created": "2023-08-29T19:50:59.302016+00:00",
+      "modified": "2023-08-29T19:50:59.302016+00:00",
+      "pattern": true
+    },
+    {
+      "composition": {
+        "_name": "LIVE Online",
+        "_id": "b5236f4f-01f9-43f6-b081-f7063b0f3066",
+        "_slug": "live-online",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-08-24T06:35:57.043749+00:00",
+      "modified": "2023-08-24T06:35:57.043749+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "LIVE Class Schedule",
+        "_id": "c194bc87-2d60-43e1-b43a-668deb2daa2c",
+        "_slug": "live-class-schedule",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-08-26T03:13:35.890987+00:00",
+      "modified": "2023-08-26T03:13:35.890987+00:00",
       "pattern": false
     }
   ],
@@ -200,6 +616,16 @@
   ],
   "projectMapNodes": [
     {
+      "id": "078b012b-7cf3-4af5-8619-90af993687df",
+      "name": "More",
+      "type": "placeholder",
+      "data": {},
+      "order": 600,
+      "path": "/more",
+      "pathSegment": "more",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
       "id": "1dc5da6f-a5c6-4655-9bff-71e768907f47",
       "name": "Home",
       "type": "composition",
@@ -208,6 +634,38 @@
       "path": "/",
       "compositionId": "26667348-5cd1-4185-b5a0-8413e1e87117",
       "pathSegment": "",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "4a7aa3a5-3d38-4b44-b392-01103acd536e",
+      "name": "Classes",
+      "type": "placeholder",
+      "data": {},
+      "order": 500,
+      "path": "/classes",
+      "pathSegment": "classes",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "648fc6eb-081e-4222-a8c5-79c57ca79e16",
+      "name": "Participating Locations",
+      "type": "composition",
+      "data": {},
+      "order": 550,
+      "path": "/participating-locations",
+      "compositionId": "8fb1559d-0551-4e10-98c3-473cee3571f5",
+      "pathSegment": "participating-locations",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "c84bee58-1d85-4bf0-b63b-824faadef4b5",
+      "name": "LIVE Class Schedule",
+      "type": "composition",
+      "data": {},
+      "order": 500,
+      "path": "/classes/live-class-schedule",
+      "compositionId": "c194bc87-2d60-43e1-b43a-668deb2daa2c",
+      "pathSegment": "live-class-schedule",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     }
   ]

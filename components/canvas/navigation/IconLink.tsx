@@ -21,7 +21,7 @@ const IconLink: FC<IconLinkProps> = ({ icon, link }) => {
       className="[&:not(:last-child)]:mr-3 shrink-0"
       href={link?.path || "#"}
     >
-      <Image src={imageUrl} width="32" height="32" alt="iconLink" />
+      {/* <Image src={imageUrl} width="32" height="32" alt="iconLink" /> */}
     </Link>
   );
 };

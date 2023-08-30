@@ -4,9 +4,31 @@ import {
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
+import Header from "../Header";
+// import MainNavigation from "../MainNavigation";
+
+import { getMainNavigationLinks } from "@/utils/getMainNavigationLinks";
+
 export async function Page(props: ComponentProps) {
   const { component, context } = props || {};
-  return <UniformSlot name="content" data={component} context={context} />;
+
+  const links = getMainNavigationLinks;
+  console.log(links);
+
+  return (
+    <>
+      {/* <Header>
+        <MainNavigation />
+      </Header> */}
+      <Header links={links}></Header>
+      <main className="main">
+        <UniformSlot name="content" data={component} context={context} />;
+      </main>
+      <footer className="text-center font-bold pb-5">
+        This is the footer!!!
+      </footer>
+    </>
+  );
 }
 
 registerUniformComponent({

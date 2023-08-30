@@ -1,15 +1,16 @@
-// A layout.js and page.js file can be defined in the same folder. The layout will wrap the page.
-
-import {
-  UniformComposition,
-  GoogleTagManagerAnalytics,
-  UniformCompositionProps,
-} from "@uniformdev/canvas-next-rsc";
-
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
+import "./globals.css";
+
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
+
 import { Providers } from "./providers";
+
+// Import all Uniform Canvas Components
+import "../components/canvas";
 
 export const metadata = {
   title: "Silver Sneakers",
@@ -20,27 +21,12 @@ export const metadata = {
 type Props = {
   children: React.ReactNode;
 };
-type SlugProps = Pick<UniformCompositionProps, "params" | "searchParams">;
-type RootLayoutProps = Props & SlugProps;
 
-export default async function RootLayout({
-  children,
-  ...props
-}: RootLayoutProps) {
+export default async function RootLayout({ children }: Props) {
   return (
     <html lang="en" className="sstheme">
       <body className={inter.className}>
-        <Providers>
-          <UniformComposition {...props}>
-            <GoogleTagManagerAnalytics />
-            {children}
-          </UniformComposition>
-        </Providers>
-        {/* TODO: This is a placeholder but ... some Tailwind styles are not accessible here, like text color and padding.
-          This must be related to themeing. Maybe this will not be an issue once Footer component is styled. */}
-        <footer className="text-center font-bold py-24">
-          This is the footer!!!
-        </footer>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
