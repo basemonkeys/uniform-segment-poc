@@ -26,59 +26,6 @@
   ],
   "components": [
     {
-      "id": "featuredHero",
-      "name": "Featured Hero",
-      "icon": "rectangle-rounded",
-      "parameters": [
-        {
-          "id": "heading",
-          "name": "Heading",
-          "type": "text",
-          "helpText": "",
-          "typeConfig": {
-            "required": true
-          }
-        },
-        {
-          "id": "description",
-          "name": "Description",
-          "type": "text",
-          "helpText": "",
-          "typeConfig": {
-            "required": true,
-            "multiline": true,
-            "linesCount": "4"
-          }
-        },
-        {
-          "id": "primarycta",
-          "name": "PrimaryCTA",
-          "type": "text",
-          "helpText": "",
-          "typeConfig": {
-            "required": true
-          }
-        },
-        {
-          "id": "image",
-          "name": "Image",
-          "type": "image",
-          "helpText": "",
-          "typeConfig": {
-            "required": true
-          }
-        }
-      ],
-      "description": "",
-      "previewImageUrl": "",
-      "useTeamPermissions": true,
-      "slots": [],
-      "titleParameter": "heading",
-      "canBeComposition": false,
-      "created": "2023-08-26T03:29:28.908233+00:00",
-      "updated": "2023-08-28T18:19:41.018466+00:00"
-    },
-    {
       "id": "hero",
       "name": "Hero",
       "icon": "display-fullwidth",
@@ -95,12 +42,10 @@
         {
           "id": "description",
           "name": "Description",
-          "type": "text",
+          "type": "json",
           "helpText": "",
           "typeConfig": {
-            "required": true,
-            "multiline": true,
-            "linesCount": "4"
+            "required": true
           }
         },
         {
@@ -129,6 +74,13 @@
           "typeConfig": {
             "required": true
           }
+        },
+        {
+          "id": "logo",
+          "name": "Logo",
+          "type": "image",
+          "helpText": "",
+          "typeConfig": null
         }
       ],
       "description": "",
@@ -137,8 +89,8 @@
       "slots": [],
       "titleParameter": "heading",
       "canBeComposition": false,
-      "created": "2023-08-17T03:32:57.924037+00:00",
-      "updated": "2023-08-29T05:39:56.111018+00:00",
+      "created": "2023-08-29T20:06:35.107289+00:00",
+      "updated": "2023-08-30T17:41:41.231053+00:00",
       "variants": [
         {
           "id": "backgroundImage",
@@ -221,45 +173,6 @@
   "compositions": [
     {
       "composition": {
-        "_name": "Featured Hero Pattern",
-        "_id": "17ce81ba-1fd2-4c72-a9db-dc9861ddac21",
-        "type": "featuredHero",
-        "parameters": {
-          "image": {
-            "type": "image",
-            "value": "${#jptr:/Hero Content/fields/backgroundImage/fields/file/url}"
-          },
-          "heading": {
-            "type": "text",
-            "value": "${#jptr:/Hero Content/fields/heading}"
-          },
-          "primarycta": {
-            "type": "text",
-            "value": "${#jptr:/Hero Content/fields/primaryCta}"
-          },
-          "description": {
-            "type": "text",
-            "value": "${#jptr:/Hero Content/fields/description}"
-          }
-        },
-        "_dataResources": {
-          "Hero Content": {
-            "type": "hero",
-            "variables": {
-              "locale": "",
-              "entryIds": "3D5U1JbpPTdcJzcq1UrDtx"
-            },
-            "isPatternParameter": true,
-            "ignorePatternParameterDefault": false
-          }
-        }
-      },
-      "created": "2023-08-28T17:52:59.151183+00:00",
-      "modified": "2023-08-28T22:28:13.442764+00:00",
-      "pattern": true
-    },
-    {
-      "composition": {
         "_name": "Home",
         "_id": "26667348-5cd1-4185-b5a0-8413e1e87117",
         "_slug": "/",
@@ -273,9 +186,23 @@
         "slots": {
           "content": [
             {
+              "_id": "38ef21a7-1d07-4d0d-9c3c-728ba2008ca7",
+              "type": "hero",
+              "_pattern": "abcd32be-5961-4103-9540-183229d50364"
+            },
+            {
               "_id": "e9bf0ab3-d6e0-4ca4-8002-dfa7a0ab05a4",
               "type": "hero",
-              "_pattern": "a703f357-57e8-4fe5-8d4d-47e29e12ba32"
+              "_pattern": "a703f357-57e8-4fe5-8d4d-47e29e12ba32",
+              "_dataResources": {
+                "Hero Content": {
+                  "type": "hero",
+                  "variables": {
+                    "locale": "",
+                    "entryIds": "3D5U1JbpPTdcJzcq1UrDtx"
+                  }
+                }
+              }
             },
             {
               "_id": "a383364d-17fe-4d25-a131-03260cd9485d",
@@ -412,8 +339,8 @@
           }
         }
       },
-      "created": "2023-08-17T03:33:00.395722+00:00",
-      "modified": "2023-08-29T05:41:16.721032+00:00",
+      "created": "2023-08-29T20:06:37.965621+00:00",
+      "modified": "2023-08-30T04:00:04.389548+00:00",
       "pattern": false
     },
     {
@@ -453,7 +380,7 @@
             "value": "${#jptr:/Hero/fields/primaryCta}"
           },
           "description": {
-            "type": "text",
+            "type": "json",
             "value": "${#jptr:/Hero/fields/description}"
           },
           "secondarycta": {
@@ -484,8 +411,8 @@
           }
         }
       },
-      "created": "2023-08-18T05:13:45.9326+00:00",
-      "modified": "2023-08-29T05:40:15.081526+00:00",
+      "created": "2023-08-29T20:06:37.045329+00:00",
+      "modified": "2023-08-30T03:58:40.602872+00:00",
       "pattern": true
     },
     {
@@ -508,7 +435,7 @@
             "value": "${#jptr:/Hero Content/fields/primaryCta}"
           },
           "description": {
-            "type": "text",
+            "type": "json",
             "value": "${#jptr:/Hero Content/fields/description}"
           }
         },
@@ -517,10 +444,10 @@
             "type": "hero",
             "variables": {
               "locale": "",
-              "entryIds": "3D5U1JbpPTdcJzcq1UrDtx"
+              "entryIds": "5oo1gGhKm7eA1nhYbuOMkG"
             },
             "isPatternParameter": true,
-            "ignorePatternParameterDefault": false
+            "ignorePatternParameterDefault": true
           }
         },
         "_overridability": {
@@ -531,8 +458,8 @@
           }
         }
       },
-      "created": "2023-08-29T04:26:24.030654+00:00",
-      "modified": "2023-08-29T05:40:27.80098+00:00",
+      "created": "2023-08-29T20:06:36.884443+00:00",
+      "modified": "2023-08-30T03:57:05.258308+00:00",
       "pattern": true
     },
     {
@@ -542,6 +469,10 @@
         "type": "hero",
         "variant": "backgroundImage",
         "parameters": {
+          "logo": {
+            "type": "image",
+            "value": "${#jptr:/Hero Content/fields/logo/fields/file/url}"
+          },
           "image": {
             "type": "image",
             "value": "${#jptr:/Hero Content/fields/backgroundImage/fields/file/url}"
@@ -555,7 +486,7 @@
             "value": "${#jptr:/Hero Content/fields/primaryCta}"
           },
           "description": {
-            "type": "text",
+            "type": "json",
             "value": "${#jptr:/Hero Content/fields/description}"
           },
           "secondarycta": {
@@ -578,8 +509,8 @@
           "variants": true
         }
       },
-      "created": "2023-08-29T19:50:59.302016+00:00",
-      "modified": "2023-08-29T19:50:59.302016+00:00",
+      "created": "2023-08-29T20:06:37.439265+00:00",
+      "modified": "2023-08-30T17:42:07.911973+00:00",
       "pattern": true
     },
     {

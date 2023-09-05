@@ -1,8 +1,42 @@
 "use client";
 
-import { extendVariants, Button } from "@nextui-org/react";
+import React from "react";
+import { forwardRef } from "react";
 
-export const SSButton = extendVariants(Button, {
+import { useButton, extendVariants, Drip, Spinner } from "@nextui-org/react";
+
+const CustomButton = forwardRef((props, ref) => {
+  const {
+    domRef,
+    children,
+    className,
+    // drips,
+    spinnerSize,
+    spinner = <Spinner color="current" size={spinnerSize} />,
+    spinnerPlacement,
+    startContent,
+    endContent,
+    isLoading,
+    // disableRipple,
+    getButtonProps,
+  } = useButton({
+    ref,
+    ...props,
+  });
+
+  return (
+    <button ref={domRef} className={className} {...getButtonProps()}>
+      {startContent}
+      {isLoading && spinnerPlacement === "start" && spinner}
+      {children}
+      {isLoading && spinnerPlacement === "end" && spinner}
+      {endContent}
+      {/* {!disableRipple && <Drip drips={drips} />} */}
+    </button>
+  );
+});
+
+export const SSButton = extendVariants(CustomButton, {
   variants: {
     variant: {
       icon: "",
@@ -14,6 +48,9 @@ export const SSButton = extendVariants(Button, {
       secondary: "bg-primary text-white font-bold border-2 border-white",
       secondaryWhite:
         "bg-white text-primary font-bold border-2 border-primary shadow-[0_0_4px_0px_rgba(0,0,0,0.25)]",
+      success: "bg-success-dark text-white font-bold",
+      warning: "bg-warning text-white font-bold",
+      danger: "bg-danger-dark text-white font-bold",
     },
     size: {
       xs: "px-3 py-3 text-xs h-4",
@@ -28,6 +65,9 @@ export const SSButton = extendVariants(Button, {
       lg: "rounded-lg",
       full: "rounded-full",
     },
+    isDisabled: {
+      true: "opacity-50 pointer-events-none",
+    },
   },
   defaultVariants: {
     color: "primary",
@@ -35,3 +75,5 @@ export const SSButton = extendVariants(Button, {
     radius: "md",
   },
 });
+
+// SSButton.displayName = "SSButton";

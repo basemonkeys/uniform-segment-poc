@@ -6,6 +6,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
     screens: {
       xs: "376px",
@@ -15,9 +16,16 @@ module.exports = {
       xl: "1280px",
       "2xl": "1366px",
     },
-    colors: {
-      white: "#FFFFFF",
-      black: "#000000",
+    colors: {},
+    fontFamily: {
+      sans: ["Open Sans", "system-ui", "ui-sans-serif"],
+    },
+    fontWeight: {
+      light: "300",
+      normal: "400",
+      semibold: "600",
+      bold: "700",
+      extrabold: "800",
     },
     fontSize: {
       // ['font-size', 'line-height']
@@ -36,13 +44,6 @@ module.exports = {
       "8xl": "6rem" /*96px*/,
       "9xl": "8rem" /*128px*/,
     },
-    fontWeight: {
-      light: "300",
-      normal: "400",
-      semibold: "600",
-      bold: "700",
-      extrabold: "800",
-    },
     borderWidth: {
       0: "0",
       DEFAULT: "1px",
@@ -52,22 +53,11 @@ module.exports = {
       6: "6px",
       8: "8px",
     },
-    extend: {
-      fontFamily: {
-        sans: ["Lato", "system-ui", "ui-sans-serif"],
-      },
-      spacing: {
-        128: "32rem",
-        144: "36rem",
-      },
-      borderRadius: {
-        "4xl": "2rem",
-      },
-    },
   },
-  darkMode: "class",
+
   plugins: [
     nextui({
+      defaultTheme: "sstheme",
       layout: {
         radius: {
           small: "2px",
@@ -88,19 +78,16 @@ module.exports = {
           colors: {},
         },
         sstheme: {
-          // extend: 'dark',
+          // extend: "light",
           colors: {
             background: "#EFEFEF",
             foreground: "##2A2A2A",
+            white: "#FFFFFF",
+            black: "#000000",
             primary: {
               DEFAULT: "#0076CA",
               light: "#93C5FD",
               dark: "#0064AC",
-            },
-            secondary: {
-              DEFAULT: "#FFFFFF",
-              light: "blue",
-              dark: "red",
             },
             tertiary: {
               DEFAULT: "#F97316",

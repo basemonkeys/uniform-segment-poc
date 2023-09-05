@@ -1,25 +1,29 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Header } from '../components/Header_old';
+import type { Meta, StoryObj } from "@storybook/react";
+import Header from "../components/Header";
 
-const meta = {
-  title: 'Header',
+const meta: Meta<typeof Header> = {
+  title: "Components/Header",
   component: Header,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-} satisfies Meta<typeof Header>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const LoggedIn: Story = {
   args: {
     user: {
-      name: 'Jane Doe',
+      name: "User Name",
+    },
+  },
+  argTypes: {
+    user: {
+      description: "User object",
+      control: {
+        type: "object",
+      },
     },
   },
 };
+
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const LoggedOut: Story = {};

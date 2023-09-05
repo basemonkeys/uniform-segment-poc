@@ -13,14 +13,15 @@ export async function Page(props: ComponentProps) {
   const { component, context } = props || {};
 
   const links = getMainNavigationLinks;
-  console.log(links);
+  // console.log(links);
 
   return (
     <>
       {/* <Header>
         <MainNavigation />
       </Header> */}
-      <Header links={links}></Header>
+      {/* <Header links={links}></Header> */}
+      <Header />
       <main className="main">
         <UniformSlot name="content" data={component} context={context} />;
       </main>

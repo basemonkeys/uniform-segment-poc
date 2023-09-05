@@ -19,15 +19,15 @@ import graySwooshOne from "../../public/gray-swoosh-1.svg";
 import graySwooshTwo from "../../public/gray-swoosh-2.svg";
 
 export type HeroProps = ComponentProps<{
-  variant: string;
   heading: string;
   description: any;
   primarycta: string;
-  secondarycta: string;
-  image: Types.CloudinaryImage;
+  secondarycta?: string;
+  image?: Types.CloudinaryImage;
+  logo?: Types.CloudinaryImage;
 }>;
 
-enum HeroVariant {
+export enum HeroVariant {
   BackgroundImage = "backgroundImage",
   LeftLight = "leftLight",
   LeftDark = "leftDark",
@@ -74,6 +74,7 @@ const Hero: React.FC<HeroProps> = ({
   primarycta,
   secondarycta,
   image,
+  logo,
 }) => {
   const { variant } = component;
   const hasBackground = variant === HeroVariant.BackgroundImage;
@@ -88,8 +89,8 @@ const Hero: React.FC<HeroProps> = ({
       {/* Gradient Opacity Layer */}
       {variant === HeroVariant.BackgroundImage && (
         <>
-          <div className="absolute w-screen h-full bg-gradient-to-r from-black from-26% to-98% opacity-90"></div>
-          <div className="absolute w-screen h-full -z-10 bg-left-top bg-no-repeat bg-cover">
+          <div className="absolute w-full h-full bg-gradient-to-r from-black from-26% to-98% opacity-90 z-20"></div>
+          <div className="absolute w-full h-full z-10 bg-left-top bg-no-repeat bg-cover">
             <Image
               fill
               src={getImageUrl(image)}
@@ -102,7 +103,7 @@ const Hero: React.FC<HeroProps> = ({
       {variant !== HeroVariant.BackgroundImage &&
         (variant === HeroVariant.LeftLight ||
         variant === HeroVariant.RightLight ? (
-          <div className="absolute w-screen h-full bg-white -z-10 bg-left-top bg-no-repeat bg-cover">
+          <div className="absolute w-full h-full bg-white -z-10 bg-left-top bg-no-repeat bg-cover">
             <Image
               fill
               src={graySwooshOne}
@@ -117,7 +118,7 @@ const Hero: React.FC<HeroProps> = ({
             />
           </div>
         ) : (
-          <div className="absolute w-screen h-full bg-primary -z-10 bg-left-top bg-no-repeat bg-cover">
+          <div className="absolute w-full h-full bg-primary -z-10 bg-left-top bg-no-repeat bg-cover">
             <Image
               fill
               src={blueSwooshOne}
@@ -135,7 +136,7 @@ const Hero: React.FC<HeroProps> = ({
       <Container>
         <div
           className={classNames(
-            "relative flex flex-col justify-between gap-3 md:gap-7 lg:gap-16 p-10 lg:py-32 lg:px-16",
+            "z-30 relative flex flex-col justify-between gap-3 md:gap-7 lg:gap-16 p-10 lg:py-32 lg:px-16",
             getAlignmentClass(variant),
           )}
         >
@@ -147,12 +148,12 @@ const Hero: React.FC<HeroProps> = ({
             {variant !== HeroVariant.BackgroundImage && (
               <>
                 <Image
-                  src={`https:${image}`}
+                  src={getImageUrl(image)}
                   width={1000}
                   height={1000}
                   alt="Live Classes"
                 />
-                <video>
+                {/* <video>
                   <source
                     src="/Content/videos/class-montage.mp4"
                     type="video/mp4"
@@ -161,7 +162,7 @@ const Hero: React.FC<HeroProps> = ({
                     src="/Content/videos/class-montage.webm"
                     type="video/webm"
                   />
-                </video>
+                </video> */}
               </>
             )}
           </div>
@@ -177,6 +178,14 @@ const Hero: React.FC<HeroProps> = ({
                 !hasBackground && "text-center",
               )}
             >
+              {logo && (
+                <Image
+                  src={getImageUrl(logo)}
+                  width={280}
+                  height={100}
+                  alt="Silver Sneakers"
+                />
+              )}
               <h1 className="pb-5 max-md:text-2xl max-lg:text-4xl max-sm:m-auto max-w-lg">
                 {heading}
               </h1>

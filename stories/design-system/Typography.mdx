@@ -1,0 +1,139 @@
+import { Meta, Typeset } from "@storybook/blocks";
+
+<Meta title="Design System/Typography" />
+
+export const typography = {
+  type: {
+    primary: '"Open Sans", "system-ui", "ui-sans-serif", sans-serif',
+  },
+  weight: {
+    light: "300",
+    normal: "400",
+    semibold: "600",
+    bold: "700",
+    extrabold: "800",
+  },
+  size: {
+    xs: 12,
+    sm: 14,
+    base: 16,
+    lg: 18,
+    xl: 20,
+    xl2: 24,
+    xl3: 30,
+    xl4: 36,
+    xl5: 48,
+    xl6: 60,
+    xl7: 72,
+    xl8: 96,
+    xl9: 128,
+
+},
+};
+
+export const SampleText =
+  "With SilverSneakers, you're free to move. Available at no cost for adults 65+ through select Medicare plans.";
+
+# Typography
+
+**Font:** Open Sans
+
+**Weights:** 300(light), 400(regular), 600(semibold), 700(bold), 800(extrabold)
+
+<Typeset
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.normal}
+  fontSizes={["12px"]}
+/>
+
+<Typeset
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.normal}
+  fontSizes={["14px"]}
+  style={{ lineHeight: "20px" }}
+/>
+
+<Typeset
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.normal}
+  fontSizes={["16px"]}
+  style={{ lineHeight: "24px" }}
+/>
+
+<Typeset
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.normal}
+  fontSizes={["18px"]}
+  style={{ lineHeight: "28px" }}
+/>
+
+<Typeset
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.normal}
+  fontSizes={["20px"]}
+  style={{ lineHeight: "28px" }}
+/>
+
+<Typeset
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.normal}
+  fontSizes={["24px"]}
+  style={{ lineHeight: "32px" }}
+/>
+
+<Typeset
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.normal}
+  fontSizes={["30px"]}
+  style={{ lineHeight: "36px" }}
+/>
+
+<Typeset
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.normal}
+  fontSizes={["36px"]}
+  style={{ lineHeight: "40px" }}
+/>
+
+<Typeset
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.normal}
+  fontSizes={["48px"]}
+/>
+
+<Typeset
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.normal}
+  fontSizes={["60px"]}
+/>
+
+<Typeset
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.normal}
+  fontSizes={["72px"]}
+/>
+
+<Typeset
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.normal}
+  fontSizes={["96px"]}
+/>
+
+<Typeset
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+  fontWeight={typography.weight.normal}
+  fontSizes={["128px"]}
+/>

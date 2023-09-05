@@ -22,28 +22,77 @@ import {
   DropdownSection,
 } from "@nextui-org/react";
 
-import Image from "next/image";
 import Link from "next/link";
-
-import { getImageUrl } from "@/utils";
 
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 
+import { SSLogo } from "./Logo";
 import { SSButton } from "./SSButton";
-
-// TODO: replace with Cloudinary
-import logo from "../public/logo_wordmark.svg";
 
 type User = {
   name: string;
 };
 
 type Props = ComponentProps & {
-  // children: React.ReactNode;
-  links: Types.ProjectMapLinks;
+  // links: Types.ProjectMapLink[];
 };
 
-const Header = ({ links }: Props) => {
+const links = [
+  {
+    name: "Home",
+    path: "/",
+  },
+  {
+    name: "Classes",
+    path: "/classes",
+    type: "placeholder",
+    subItems: [
+      {
+        name: "Live Online",
+        description: "Fitness from the comfort of your home",
+        path: "/classes/live-online",
+      },
+      {
+        name: "Local Community",
+        description: "Online and in-person classes in your area",
+        path: "/classes/local-community",
+      },
+      {
+        name: "On Demand Videos",
+        description: "Workouts wherever you are",
+        path: "/classes/on-demand-videos",
+      },
+    ],
+  },
+  {
+    name: "Fitness Locations",
+    path: "/locations",
+  },
+  {
+    name: "More",
+    path: "/",
+    type: "placeholder",
+    subItems: [
+      {
+        name: "Articles",
+        description: "Daily workout tips, recipes, and more",
+        path: "/articles",
+      },
+      {
+        name: "Health Plan Partners",
+        description: "Find a participating plan with SilverSneakers",
+        path: "/health-plan-partners",
+      },
+      {
+        name: "FAQs",
+        description: "Answer your frequently asked questions",
+        path: "/faqs",
+      },
+    ],
+  },
+];
+
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState<User>();
 
@@ -60,14 +109,7 @@ const Header = ({ links }: Props) => {
         justify="center"
       >
         <NavbarBrand>
-          <Link className="py-6 pr-3" href="/">
-            <Image
-              src={getImageUrl(logo.src)}
-              width={125}
-              height={57}
-              alt="Silver Sneakers"
-            />
-          </Link>
+          <SSLogo isLink href="/" className="py-6 pr-3" />
         </NavbarBrand>
 
         {/* Main Navigation */}
@@ -98,14 +140,16 @@ const Header = ({ links }: Props) => {
                         base: "gap-4",
                       }}
                     >
-                      <DropdownItem
-                        key="autoscaling"
-                        title="test"
-                        description="ACME scales apps to meet user demand, automagically, based on load."
-                        startContent={"icon"}
-                      >
-                        Autoscaling
-                      </DropdownItem>
+                      {link?.subItems?.map(
+                        (subLink: Types.ProjectMapLink, index: number) => (
+                          <DropdownItem
+                            key={index}
+                            title={subLink.name}
+                            description={subLink.description}
+                            className="text-primary !font-bold"
+                          />
+                        ),
+                      )}
                     </DropdownMenu>
                   </Dropdown>
                 ) : (
@@ -193,7 +237,13 @@ const Header = ({ links }: Props) => {
             <NavbarItem>
               <Dropdown>
                 <DropdownTrigger>
-                  <SSButton color="primary" size="lg" className="ml-6">
+                  <SSButton
+                    disableRipple
+                    className="ml-6 p-0 bg-transparent data-[hover=true]:bg-transparent text-black"
+                    endContent={<ChevronDownIcon className="w-5" />}
+                    color="primary"
+                    size="lg"
+                  >
                     Profile
                   </SSButton>
                 </DropdownTrigger>
@@ -222,7 +272,7 @@ const Header = ({ links }: Props) => {
               <SSButton
                 color="secondaryWhite"
                 size="lg"
-                onClick={() => setUser({ name: "Jane Doe" })}
+                onClick={() => setUser({ name: "User Name" })}
               >
                 Log in
               </SSButton>
@@ -231,7 +281,7 @@ const Header = ({ links }: Props) => {
               <SSButton
                 color="primary"
                 size="lg"
-                onClick={() => setUser({ name: "Jane Doe" })}
+                onClick={() => setUser(undefined)}
               >
                 Check Eligibility
               </SSButton>
