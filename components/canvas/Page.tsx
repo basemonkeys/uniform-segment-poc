@@ -25,6 +25,8 @@ export async function Page(props: ComponentProps) {
       <main className="main">
         <UniformSlot name="content" data={component} context={context} />;
       </main>
+      {/* TODO: should the footer live in Uniform for business users to manage? */}
+      {/* https://docs.uniform.app/docs/get-started/starters/component-starter-kit#configure-global-template */}
       <footer className="text-center font-bold pb-5">
         This is the footer!!!
       </footer>
