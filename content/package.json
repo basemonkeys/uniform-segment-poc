@@ -74,7 +74,7 @@
       "titleParameter": "message",
       "canBeComposition": false,
       "created": "2023-09-05T22:21:16.499136+00:00",
-      "updated": "2023-09-06T06:17:57.751489+00:00",
+      "updated": "2023-09-11T15:04:10.49943+00:00",
       "variants": [
         {
           "id": "primary",
@@ -131,7 +131,7 @@
       ],
       "canBeComposition": false,
       "created": "2023-09-09T01:13:57.862212+00:00",
-      "updated": "2023-09-11T01:46:15.560799+00:00"
+      "updated": "2023-09-11T15:04:10.49943+00:00"
     },
     {
       "id": "hero",
@@ -221,7 +221,7 @@
       "titleParameter": "heading",
       "canBeComposition": false,
       "created": "2023-08-29T20:06:35.107289+00:00",
-      "updated": "2023-09-07T18:54:02.812356+00:00",
+      "updated": "2023-09-11T15:04:10.49943+00:00",
       "variants": [
         {
           "id": "imageBackground",
@@ -274,7 +274,7 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-09-09T23:58:15.054095+00:00",
-      "updated": "2023-09-11T01:35:42.870488+00:00"
+      "updated": "2023-09-11T15:04:10.49943+00:00"
     },
     {
       "id": "navigationLink",
@@ -318,7 +318,7 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-09-09T23:56:21.493968+00:00",
-      "updated": "2023-09-10T09:31:32.177381+00:00",
+      "updated": "2023-09-11T15:04:10.49943+00:00",
       "variants": [
         {
           "id": "header",
@@ -407,7 +407,7 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-08-29T20:06:33.571497+00:00",
-      "updated": "2023-09-10T00:19:44.607838+00:00"
+      "updated": "2023-09-11T15:04:10.49943+00:00"
     }
   ],
   "compositions": [
@@ -853,8 +853,8 @@
         "type": "page",
         "parameters": {}
       },
-      "created": "2023-08-24T06:35:57.043749+00:00",
-      "modified": "2023-08-24T06:35:57.043749+00:00",
+      "created": "2023-08-29T20:06:37.166451+00:00",
+      "modified": "2023-08-29T20:06:37.166451+00:00",
       "pattern": false
     },
     {
@@ -913,8 +913,8 @@
         "type": "page",
         "parameters": {}
       },
-      "created": "2023-08-26T03:13:35.890987+00:00",
-      "modified": "2023-08-26T03:13:35.890987+00:00",
+      "created": "2023-08-29T20:06:39.528811+00:00",
+      "modified": "2023-08-29T20:06:39.528811+00:00",
       "pattern": false
     },
     {
