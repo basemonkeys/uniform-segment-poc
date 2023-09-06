@@ -1,12 +1,12 @@
 import classNames from "classnames";
-import Image from "next/image";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import {
   registerUniformComponent,
   ComponentProps,
 } from "@uniformdev/canvas-next-rsc";
 
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Image from "next/image";
 
 import Container from "../Container";
 import { SSButton } from "../SSButton";

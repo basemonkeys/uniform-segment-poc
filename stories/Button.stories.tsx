@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { SSButton } from "../components/SSButton";
 
 const meta: Meta<typeof SSButton> = {
-  title: "Component/Buttons",
+  title: "Components/Buttons",
   component: SSButton,
   parameters: {
     controls: { include: ["children", "color", "size", "radius"] },
@@ -18,7 +18,7 @@ const meta: Meta<typeof SSButton> = {
   },
   argTypes: {
     color: {
-      options: ["primary", "primaryWhite", "success", "warning", "danger"],
+      options: ["primary", "primaryWhite", "success", "warning", "error"],
     },
     size: {
       control: { type: "select" },

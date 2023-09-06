@@ -102,10 +102,15 @@ module.exports = {
               light: "#FFFBEB",
               dark: "#B45309",
             },
-            danger: {
+            error: {
               DEFAULT: "#F87171",
               light: "#FEF2F2",
               dark: "#B91C1C",
+            },
+            info: {
+              DEFAULT: "#60A5FA",
+              light: "#EFF6FF",
+              dark: "#1D4ED8",
             },
             gray: {
               50: "#F9FAFB",

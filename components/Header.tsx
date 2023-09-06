@@ -28,6 +28,7 @@ import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 
 import { SSLogo } from "./Logo";
 import { SSButton } from "./SSButton";
+// import CustomButton from "./SSButton";
 
 type User = {
   name: string;
@@ -141,12 +142,19 @@ const Header = () => {
                       }}
                     >
                       {link?.subItems?.map(
-                        (subLink: Types.ProjectMapLink, index: number) => (
+                        (
+                          subItemsLink: Types.ProjectMapSubLink,
+                          index: number,
+                        ) => (
                           <DropdownItem
                             key={index}
-                            title={subLink.name}
-                            description={subLink.description}
-                            className="text-primary !font-bold"
+                            title={subItemsLink.name}
+                            description={subItemsLink.description}
+                            // TODO: this prop is not working, the styles are not being applied.
+                            classNames={{
+                              base: "text-primary font-bold",
+                              description: "!text-gray-600 !text-sm",
+                            }}
                           />
                         ),
                       )}
@@ -189,7 +197,7 @@ const Header = () => {
                       >
                         <DropdownItem
                           key="autoscaling"
-                          title="test"
+                          title=""
                           description="ACME scales apps to meet user demand, automagically, based on load."
                           startContent={"icon"}
                         >
@@ -234,7 +242,8 @@ const Header = () => {
       <NavbarContent className="gap-3" justify="end">
         {user ? (
           <>
-            <NavbarItem>
+            {/* TODO: fix these keys */}
+            <NavbarItem key={"1"}>
               <Dropdown>
                 <DropdownTrigger>
                   <SSButton
@@ -255,7 +264,7 @@ const Header = () => {
                   </DropdownSection>
                   <DropdownSection>
                     <DropdownItem
-                      className="text-danger"
+                      className="text-error"
                       color="danger"
                       onClick={() => setUser(undefined)}
                     >
@@ -268,7 +277,7 @@ const Header = () => {
           </>
         ) : (
           <>
-            <NavbarItem>
+            <NavbarItem key={"1"}>
               <SSButton
                 color="secondaryWhite"
                 size="lg"
@@ -277,7 +286,7 @@ const Header = () => {
                 Log in
               </SSButton>
             </NavbarItem>
-            <NavbarItem>
+            <NavbarItem key={"2"}>
               <SSButton
                 color="primary"
                 size="lg"
@@ -285,6 +294,7 @@ const Header = () => {
               >
                 Check Eligibility
               </SSButton>
+              {/* <CustomButton /> */}
             </NavbarItem>
           </>
         )}

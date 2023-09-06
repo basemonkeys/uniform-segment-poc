@@ -26,6 +26,68 @@
   ],
   "components": [
     {
+      "id": "banner",
+      "name": "Banner",
+      "icon": "toolbar-top",
+      "parameters": [
+        {
+          "id": "message",
+          "name": "Message",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "callToAction",
+          "name": "Call To Action",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": null
+        },
+        {
+          "id": "callToActionLink",
+          "name": "Call To Action Link",
+          "type": "link",
+          "helpText": "",
+          "typeConfig": {
+            "linkTypes": {
+              "tel": false,
+              "email": false,
+              "projectMapNode": false
+            }
+          }
+        }
+      ],
+      "description": "",
+      "previewImageUrl": "",
+      "useTeamPermissions": true,
+      "slots": [],
+      "titleParameter": "message",
+      "canBeComposition": false,
+      "created": "2023-09-05T22:21:16.499136+00:00",
+      "updated": "2023-09-05T22:21:16.499136+00:00",
+      "variants": [
+        {
+          "id": "success",
+          "name": "Success"
+        },
+        {
+          "id": "error",
+          "name": "Error"
+        },
+        {
+          "id": "warning",
+          "name": "Warning"
+        },
+        {
+          "id": "info",
+          "name": "Info"
+        }
+      ]
+    },
+    {
       "id": "hero",
       "name": "Hero",
       "icon": "display-fullwidth",
@@ -151,7 +213,8 @@
             "hero",
             "$personalization",
             "$test",
-            "$localization"
+            "$localization",
+            "banner"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -166,8 +229,8 @@
       },
       "titleParameter": "metaTitle",
       "canBeComposition": true,
-      "created": "2023-08-17T03:32:58.040731+00:00",
-      "updated": "2023-08-29T04:30:01.925648+00:00"
+      "created": "2023-08-29T20:06:33.571497+00:00",
+      "updated": "2023-09-05T22:21:53.119758+00:00"
     }
   ],
   "compositions": [
@@ -186,9 +249,25 @@
         "slots": {
           "content": [
             {
-              "_id": "38ef21a7-1d07-4d0d-9c3c-728ba2008ca7",
-              "type": "hero",
-              "_pattern": "abcd32be-5961-4103-9540-183229d50364"
+              "_id": "b2ee518d-73aa-48e0-9812-4ed98c54dfa8",
+              "type": "banner",
+              "parameters": {
+                "message": {
+                  "type": "text",
+                  "value": "Already a SilverSneakers Member?"
+                },
+                "callToAction": {
+                  "type": "text",
+                  "value": "Activate your online account"
+                },
+                "callToActionLink": {
+                  "type": "link",
+                  "value": {
+                    "path": "https://tools.silversneakers.com/Eligibility/StartHere",
+                    "type": "url"
+                  }
+                }
+              }
             },
             {
               "_id": "e9bf0ab3-d6e0-4ca4-8002-dfa7a0ab05a4",
@@ -340,7 +419,7 @@
         }
       },
       "created": "2023-08-29T20:06:37.965621+00:00",
-      "modified": "2023-08-30T04:00:04.389548+00:00",
+      "modified": "2023-09-05T22:26:35.217587+00:00",
       "pattern": false
     },
     {

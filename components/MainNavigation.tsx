@@ -94,7 +94,7 @@ const MainNavigation = async ({ context }: Props) => {
               >
                 <DropdownItem
                   key="autoscaling"
-                  title="test"
+                  title=""
                   description="ACME scales apps to meet user demand, automagically, based on load."
                   startContent={"icon"}
                 >
@@ -136,7 +136,7 @@ const MainNavigation = async ({ context }: Props) => {
                 >
                   <DropdownItem
                     key="autoscaling"
-                    title="test"
+                    title=""
                     description="ACME scales apps to meet user demand, automagically, based on load."
                     startContent={"icon"}
                   >
