@@ -21,15 +21,15 @@ import {
 } from "@heroicons/react/20/solid";
 
 type BannerProps = ComponentProps<{
-  dismissable?: boolean;
   message: string;
   callToAction?: string;
   callToActionLink?: {
     path: string;
   };
+  dismissable?: boolean;
 }>;
 
-enum BannerVariant {
+export enum BannerVariant {
   Primary = "primary",
   Success = "success",
   Error = "error",
@@ -90,10 +90,10 @@ const getStateClasses = (variantId?: string) => {
 
 const Banner: React.FC<BannerProps> = ({
   component,
-  dismissable,
   message,
   callToAction,
   callToActionLink,
+  dismissable,
 }) => {
   const { variant } = component;
   console.log(callToActionLink);

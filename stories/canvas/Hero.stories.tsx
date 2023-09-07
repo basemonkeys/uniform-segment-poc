@@ -8,16 +8,21 @@ const meta: Meta<typeof Hero> = {
   tags: ["autodocs"],
   parameters: {
     controls: {
-      include: ["heading", "primarycta", "secondarycta"],
+      include: [
+        "component",
+        "textAlignment",
+        "heading",
+        "primarycta",
+        "secondarycta",
+      ],
     },
   },
   args: {
     component: {
       type: "hero",
-      variant: HeroVariant.LeftDark,
+      variant: HeroVariant.DarkBackground,
     },
-    image:
-      "https://images.ctfassets.net/td2wy1ruze5q/2Wnlu249GGyPJWs1P08S3j/61993c470bcff7e7d05ffd6066e42738/homepage-live-classes.png" as any,
+    textAlignment: "left",
     heading: "LIVE online classes and workshops",
     description: {
       nodeType: "document",
@@ -40,6 +45,17 @@ const meta: Meta<typeof Hero> = {
     },
     primarycta: "Learn More",
     secondarycta: "Check Elegibility",
+    image:
+      "https://images.ctfassets.net/td2wy1ruze5q/2Wnlu249GGyPJWs1P08S3j/61993c470bcff7e7d05ffd6066e42738/homepage-live-classes.png" as any,
+  },
+  argTypes: {
+    component: {
+      control: { type: "object" },
+    },
+    textAlignment: {
+      control: { type: "select" },
+      options: ["left", "center", "right"],
+    },
   },
   decorators: [
     (Story) => (
@@ -54,42 +70,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * Image aligned to the left with a dark background. This is the default Hero.
+ * The default Hero can have a dark or light background and a left or right text alignment.
  */
-export const LeftDark: Story = {};
-
-/**
- * Image aligned to the right with a dark background.
- */
-export const RightDark: Story = {
-  args: {
-    component: {
-      type: "hero",
-      variant: HeroVariant.RightDark,
-    },
-  },
-};
-
-/**
- * Image aligned to the left with a light background.
- */
-export const LeftLight: Story = {
-  args: {
-    component: {
-      type: "hero",
-      variant: HeroVariant.LeftLight,
-    },
-  },
-};
-
-/**
- * Image aligned to the right with a light background.
- */
-export const RightLight: Story = {
-  args: {
-    component: {
-      type: "hero",
-      variant: HeroVariant.RightLight,
+export const Default: Story = {
+  argTypes: {
+    textAlignment: {
+      control: { type: "select" },
+      options: ["left", "right"],
     },
   },
 };
@@ -101,10 +88,8 @@ export const Featured: Story = {
   args: {
     component: {
       type: "hero",
-      variant: HeroVariant.BackgroundImage,
+      variant: HeroVariant.ImageBackground,
     },
-    image:
-      "https://tools.silversneakers.com/Content/images/live/headphones-exercise-ball-2000.jpg" as any,
     heading: "Take online classes from home or visit us at the gym",
     description: {
       nodeType: "document",
@@ -140,6 +125,8 @@ export const Featured: Story = {
     },
     primarycta: "Check My Eligibility",
     secondarycta: "",
+    image:
+      "https://tools.silversneakers.com/Content/images/live/headphones-exercise-ball-2000.jpg" as any,
   },
 };
 
@@ -150,11 +137,8 @@ export const Partner: Story = {
   args: {
     component: {
       type: "hero",
-      variant: HeroVariant.BackgroundImage,
+      variant: HeroVariant.ImageBackground,
     },
-    logo: "https://tools.silversneakers.com/Content/images/burnalong/wordmark.png" as any,
-    image:
-      "https://tools.silversneakers.com/Content/images/burnalong/hero.jpg" as any,
     heading: "Online fitness classes and so much more",
     description: {
       nodeType: "document",
@@ -190,5 +174,8 @@ export const Partner: Story = {
     },
     primarycta: "Log In",
     secondarycta: "Check Elegibility",
+    logo: "https://tools.silversneakers.com/Content/images/burnalong/wordmark.png" as any,
+    image:
+      "https://tools.silversneakers.com/Content/images/burnalong/hero.jpg" as any,
   },
 };
