@@ -84,6 +84,7 @@ module.exports = {
             foreground: "##2A2A2A",
             white: "#FFFFFF",
             black: "#000000",
+            transparent: "transparent",
             primary: {
               DEFAULT: "#0076CA",
               light: "#93C5FD",
@@ -92,25 +93,42 @@ module.exports = {
             tertiary: {
               DEFAULT: "#F97316",
             },
+            default: {
+              DEFAULT: "#9CA3AF",
+              light: "#E5E7EB",
+              dark: "#374151",
+              hover: "#E5E7EB",
+            },
             success: {
               DEFAULT: "#34D399",
-              light: "#ECFDF5",
+              light: "#A7F3D0",
               dark: "#047857",
-            },
-            warning: {
-              DEFAULT: "#FBBF24",
-              light: "#FFFBEB",
-              dark: "#B45309",
+              hover: "#D1FAE5",
             },
             error: {
               DEFAULT: "#F87171",
-              light: "#FEF2F2",
+              light: "#FECACA",
               dark: "#B91C1C",
+              hover: "#FEE2E2",
+            },
+            // TODO: this is a hack to work around NextUI. See 'danger' on 'Log Off' in the header.
+            danger: {
+              DEFAULT: "#F87171",
+              light: "#FECACA",
+              dark: "#B91C1C",
+              hover: "#FEE2E2",
+            },
+            warning: {
+              DEFAULT: "#FBBF24",
+              light: "#FDE68A",
+              dark: "#B45309",
+              hover: "#FEF3C7",
             },
             info: {
               DEFAULT: "#60A5FA",
-              light: "#EFF6FF",
+              light: "#BFDBFE",
               dark: "#1D4ED8",
+              hover: "#DBEAFE",
             },
             gray: {
               50: "#F9FAFB",

@@ -138,7 +138,8 @@ const Header = () => {
                       aria-label="ACME features"
                       className="w-[340px]"
                       itemClasses={{
-                        base: "gap-4",
+                        base: "gap-4 text-primary",
+                        description: "!text-gray-600 !text-sm",
                       }}
                     >
                       {link?.subItems?.map(
@@ -151,10 +152,6 @@ const Header = () => {
                             title={subItemsLink.name}
                             description={subItemsLink.description}
                             // TODO: this prop is not working, the styles are not being applied.
-                            classNames={{
-                              base: "text-primary font-bold",
-                              description: "!text-gray-600 !text-sm",
-                            }}
                           />
                         ),
                       )}

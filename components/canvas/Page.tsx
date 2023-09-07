@@ -23,7 +23,8 @@ export async function Page(props: ComponentProps) {
       {/* <Header links={links}></Header> */}
       <Header />
       <main className="main">
-        <UniformSlot name="content" data={component} context={context} />;
+        <UniformSlot name="banners" data={component} context={context} />
+        <UniformSlot name="content" data={component} context={context} />
       </main>
       {/* TODO: should the footer live in Uniform for business users to manage? */}
       {/* https://docs.uniform.app/docs/get-started/starters/component-starter-kit#configure-global-template */}

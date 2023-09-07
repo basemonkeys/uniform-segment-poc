@@ -17,8 +17,10 @@ import blueSwooshOne from "../../public/blue-swoosh-1.svg";
 import blueSwooshTwo from "../../public/blue-swoosh-2.svg";
 import graySwooshOne from "../../public/gray-swoosh-1.svg";
 import graySwooshTwo from "../../public/gray-swoosh-2.svg";
+import { text } from "body-parser";
 
 export type HeroProps = ComponentProps<{
+  textAlignment?: string;
   heading: string;
   description: any;
   primarycta: string;
@@ -28,47 +30,41 @@ export type HeroProps = ComponentProps<{
 }>;
 
 export enum HeroVariant {
-  BackgroundImage = "backgroundImage",
-  LeftLight = "leftLight",
-  LeftDark = "leftDark",
-  RightLight = "rightLight",
-  RightDark = "rightDark",
+  ImageBackground = "imageBackground",
+  VideoBackground = "videoBackground",
+  DarkBackground = "darkBackground",
+  LightBackground = "lightBackground",
 }
 
-const getAlignmentClass = (variantId?: string) => {
-  switch (variantId) {
-    case HeroVariant.LeftLight:
-      return "md:flex-row";
-    case HeroVariant.LeftDark:
-      return "md:flex-row";
-    case HeroVariant.RightLight:
-      return "md:flex-row-reverse";
-    case HeroVariant.RightDark:
-      return "md:flex-row-reverse";
-    default:
-      return "";
-  }
-};
+export enum HeroAlignment {
+  Left = "left",
+  Center = "center",
+  Right = "right",
+}
 
 const getBackgroundClass = (variantId?: string) => {
   switch (variantId) {
-    case HeroVariant.BackgroundImage:
-      return "text-white";
-    case HeroVariant.LeftLight:
+    case HeroVariant.LightBackground:
       return "text-black";
-    case HeroVariant.LeftDark:
-      return "text-white";
-    case HeroVariant.RightLight:
-      return "text-black";
-    case HeroVariant.RightDark:
-      return "text-white";
     default:
-      return "";
+      return "text-white";
+  }
+};
+
+const getAlignmentClass = (alignmentId?: string) => {
+  switch (alignmentId) {
+    case HeroAlignment.Center:
+      return "justify-center";
+    case HeroAlignment.Right:
+      return "md:flex-row";
+    default:
+      return "md:flex-row-reverse";
   }
 };
 
 const Hero: React.FC<HeroProps> = ({
   component,
+  textAlignment,
   heading,
   description,
   primarycta,
@@ -77,17 +73,17 @@ const Hero: React.FC<HeroProps> = ({
   logo,
 }) => {
   const { variant } = component;
-  const hasBackground = variant === HeroVariant.BackgroundImage;
+  const isCentered = textAlignment === HeroAlignment.Center;
 
   return (
     <div
       className={classNames(
         "relative",
-        variant === HeroVariant.BackgroundImage && "min-h-[calc(100vh-100px)]",
+        variant === HeroVariant.ImageBackground && "min-h-[calc(100vh-100px)]",
       )}
     >
       {/* Gradient Opacity Layer */}
-      {variant === HeroVariant.BackgroundImage && (
+      {variant === HeroVariant.ImageBackground && (
         <>
           <div className="absolute w-full h-full bg-gradient-to-r from-black from-26% to-98% opacity-90 z-20"></div>
           <div className="absolute w-full h-full z-10 bg-left-top bg-no-repeat bg-cover">
@@ -100,9 +96,8 @@ const Hero: React.FC<HeroProps> = ({
           </div>
         </>
       )}
-      {variant !== HeroVariant.BackgroundImage &&
-        (variant === HeroVariant.LeftLight ||
-        variant === HeroVariant.RightLight ? (
+      {variant !== HeroVariant.ImageBackground &&
+        (variant === HeroVariant.LightBackground ? (
           <div className="absolute w-full h-full bg-white -z-10 bg-left-top bg-no-repeat bg-cover">
             <Image
               fill
@@ -137,7 +132,7 @@ const Hero: React.FC<HeroProps> = ({
         <div
           className={classNames(
             "z-30 relative flex flex-col justify-between gap-3 md:gap-7 lg:gap-16 p-10 lg:py-32 lg:px-16",
-            getAlignmentClass(variant),
+            getAlignmentClass(textAlignment),
           )}
         >
           <div
@@ -145,7 +140,7 @@ const Hero: React.FC<HeroProps> = ({
               "order-2 md:order-1 sm:basis-9/12 md:basis-1/2 m-auto",
             )}
           >
-            {variant !== HeroVariant.BackgroundImage && (
+            {variant !== HeroVariant.ImageBackground && (
               <>
                 <Image
                   src={getImageUrl(image)}
@@ -168,14 +163,15 @@ const Hero: React.FC<HeroProps> = ({
           </div>
           <div
             className={classNames(
-              "order-1 md:order-2 sm:basis-3/12 md:basis-1/2 max-w-xl",
+              "order-1 md:order-2 sm:basis-3/12 md:basis-1/2 max-w-[540px]",
               getBackgroundClass(variant),
+              isCentered && "w-[737px] max-w-[737px]",
             )}
           >
             <div
               className={classNames(
                 "flex flex-col sm:text-left mb-3",
-                !hasBackground && "text-center",
+                isCentered && "text-center",
               )}
             >
               {logo && (
@@ -192,7 +188,7 @@ const Hero: React.FC<HeroProps> = ({
               <span
                 className={classNames(
                   "mb-6 xs:mb-10 lg:mb-10 w-24 sm:max-w-[100px] border-3 border-orange-500",
-                  !hasBackground && "max-sm:mx-auto",
+                  isCentered && "max-sm:mx-auto",
                 )}
               ></span>
               <div className="flex flex-col gap-10 sm:gap-5">
@@ -200,13 +196,12 @@ const Hero: React.FC<HeroProps> = ({
                 <div
                   className={classNames(
                     "flex sm:justify-start gap-3 md:gap-8 w-full mb-5",
-                    !hasBackground && "justify-center ",
+                    isCentered && "justify-center ",
                   )}
                 >
                   <SSButton
                     color={
-                      variant === HeroVariant.LeftLight ||
-                      variant === HeroVariant.RightLight
+                      variant === HeroVariant.LightBackground
                         ? "primary"
                         : "primaryWhite"
                     }
@@ -216,8 +211,7 @@ const Hero: React.FC<HeroProps> = ({
                   {secondarycta ? (
                     <SSButton
                       color={
-                        variant === HeroVariant.LeftLight ||
-                        variant === HeroVariant.RightLight
+                        variant === HeroVariant.LightBackground
                           ? "secondaryWhite"
                           : "secondary"
                       }
@@ -237,11 +231,10 @@ const Hero: React.FC<HeroProps> = ({
 
 [
   undefined,
-  HeroVariant.BackgroundImage,
-  HeroVariant.LeftLight,
-  HeroVariant.LeftDark,
-  HeroVariant.RightLight,
-  HeroVariant.RightDark,
+  HeroVariant.ImageBackground,
+  HeroVariant.VideoBackground,
+  HeroVariant.DarkBackground,
+  HeroVariant.LightBackground,
 ].forEach((variantId) => {
   registerUniformComponent({
     type: "hero",

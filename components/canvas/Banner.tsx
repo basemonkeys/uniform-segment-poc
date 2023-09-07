@@ -37,14 +37,14 @@ enum BannerVariant {
   Info = "info",
 }
 
-const getBannerVariantBackgroundClass = (variantId?: string) => {
+const getBackgroundClass = (variantId?: string) => {
   switch (variantId) {
     case BannerVariant.Primary:
       return "bg-primary";
     case BannerVariant.Success:
       return "bg-success-light";
     case BannerVariant.Error:
-      return "bg-danger-light";
+      return "bg-error-light";
     case BannerVariant.Warning:
       return "bg-warning-light";
     case BannerVariant.Info:
@@ -54,7 +54,7 @@ const getBannerVariantBackgroundClass = (variantId?: string) => {
   }
 };
 
-const getBannerVariantTextClass = (variantId?: string) => {
+const getTextClass = (variantId?: string) => {
   switch (variantId) {
     case BannerVariant.Primary:
       return "!text-white";
@@ -71,6 +71,23 @@ const getBannerVariantTextClass = (variantId?: string) => {
   }
 };
 
+const getStateClasses = (variantId?: string) => {
+  switch (variantId) {
+    case BannerVariant.Primary:
+      return "hover:bg-primary-dark active:border-1 active:shadow-inner";
+    case BannerVariant.Success:
+      return "hover:bg-success-hover active:border-1 active:border-success-dark";
+    case BannerVariant.Error:
+      return "hover:bg-error-hover active:border-1 active:border-error-dark";
+    case BannerVariant.Warning:
+      return "hover:bg-warning-hover active:border-1 active:border-warning-dark";
+    case BannerVariant.Info:
+      return "hover:bg-info-hover active:border-1 active:border-info-dark";
+    default:
+      return "hover:bg-default-hover active:border-1 active:shadow-inner";
+  }
+};
+
 const Banner: React.FC<BannerProps> = ({
   component,
   dismissable,
@@ -82,9 +99,7 @@ const Banner: React.FC<BannerProps> = ({
   console.log(callToActionLink);
 
   return (
-    <div
-      className={classNames("w-full", getBannerVariantBackgroundClass(variant))}
-    >
+    <div className={classNames("w-full", getBackgroundClass(variant))}>
       <Container className="px-10 lg:px-16 py-2">
         <div className="flex justify-center items-center gap-3">
           {variant === BannerVariant.Success && (
@@ -102,7 +117,7 @@ const Banner: React.FC<BannerProps> = ({
           <p
             className={classNames(
               "text-sm md:text-base text-black",
-              getBannerVariantTextClass(variant),
+              getTextClass(variant),
             )}
           >
             {message}
@@ -112,23 +127,30 @@ const Banner: React.FC<BannerProps> = ({
               href={callToActionLink.path}
               className={classNames(
                 "text-sm md:text-base text-primary font-semibold underline",
-                getBannerVariantTextClass(variant),
+                getTextClass(variant),
               )}
             >
               {callToAction}
             </Link>
           )}
           {dismissable && (
-            <XMarkIcon
+            <div
               className={classNames(
-                "w-4 h-4 font-extrabold cursor-pointer",
-                getBannerVariantTextClass(variant),
+                "p-1 rounded-lg border-1 border-transparent",
+                getStateClasses(variant),
               )}
-              // must be in a 'use client' component but this is a Uniform/server component
-              // onClick={() => {
-              //   console.log("close");
-              // }}
-            />
+            >
+              <XMarkIcon
+                className={classNames(
+                  "w-4 h-4 font-extrabold cursor-pointer",
+                  getTextClass(variant),
+                )}
+                // must be in a 'use client' component but this is a Uniform/server component
+                // onClick={() => {
+                //   console.log("close");
+                // }}
+              />
+            </div>
           )}
         </div>
       </Container>

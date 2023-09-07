@@ -58,6 +58,13 @@
               "projectMapNode": false
             }
           }
+        },
+        {
+          "id": "dismissable",
+          "name": "Dismissable",
+          "type": "checkbox",
+          "helpText": "Check this box if you want this banner to be dismissable.",
+          "typeConfig": null
         }
       ],
       "description": "",
@@ -67,8 +74,12 @@
       "titleParameter": "message",
       "canBeComposition": false,
       "created": "2023-09-05T22:21:16.499136+00:00",
-      "updated": "2023-09-05T22:21:16.499136+00:00",
+      "updated": "2023-09-06T06:17:57.751489+00:00",
       "variants": [
+        {
+          "id": "primary",
+          "name": "Primary"
+        },
         {
           "id": "success",
           "name": "Success"
@@ -207,6 +218,18 @@
       "useTeamPermissions": true,
       "slots": [
         {
+          "id": "banners",
+          "name": "Banners",
+          "allowedComponents": [
+            "banner",
+            "$test",
+            "$personalization"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
+        },
+        {
           "id": "content",
           "name": "Content",
           "allowedComponents": [
@@ -214,7 +237,8 @@
             "$personalization",
             "$test",
             "$localization",
-            "banner"
+            "banner",
+            "test"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -230,7 +254,7 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-08-29T20:06:33.571497+00:00",
-      "updated": "2023-09-05T22:21:53.119758+00:00"
+      "updated": "2023-09-06T20:55:32.865664+00:00"
     }
   ],
   "compositions": [
@@ -247,18 +271,28 @@
           }
         },
         "slots": {
-          "content": [
+          "banners": [
             {
-              "_id": "b2ee518d-73aa-48e0-9812-4ed98c54dfa8",
+              "_id": "13dd08c4-1a14-4305-84cc-0ceeb4ea7cae",
               "type": "banner",
+              "_pattern": "c17a6892-fb26-49f3-8880-19cd217f150f"
+            },
+            {
+              "_id": "2f54fa56-ed61-4077-8cab-fe4cdf9d6a39",
+              "type": "banner",
+              "variant": "success",
               "parameters": {
                 "message": {
                   "type": "text",
-                  "value": "Already a SilverSneakers Member?"
+                  "value": "Congrats! Your submission was a success!"
+                },
+                "dismissable": {
+                  "type": "checkbox",
+                  "value": true
                 },
                 "callToAction": {
                   "type": "text",
-                  "value": "Activate your online account"
+                  "value": "Claim your reward!"
                 },
                 "callToActionLink": {
                   "type": "link",
@@ -269,6 +303,60 @@
                 }
               }
             },
+            {
+              "_id": "892dc54e-95b0-4a9f-83a6-558b23a1d8b7",
+              "type": "banner",
+              "variant": "error",
+              "parameters": {
+                "message": {
+                  "type": "text",
+                  "value": "Something went wrong."
+                },
+                "dismissable": {
+                  "type": "checkbox",
+                  "value": true
+                },
+                "callToAction": {
+                  "type": "text",
+                  "value": "Click here to fix it"
+                },
+                "callToActionLink": {
+                  "type": "link",
+                  "value": {
+                    "path": "https://tools.silversneakers.com/Eligibility/StartHere",
+                    "type": "url"
+                  }
+                }
+              }
+            },
+            {
+              "_id": "bcc8a7d8-9f04-4822-85a6-a880f244ab02",
+              "type": "banner",
+              "variant": "info",
+              "parameters": {
+                "message": {
+                  "type": "text",
+                  "value": "This is very important information."
+                },
+                "dismissable": {
+                  "type": "checkbox",
+                  "value": true
+                },
+                "callToAction": {
+                  "type": "text",
+                  "value": "Read More"
+                },
+                "callToActionLink": {
+                  "type": "link",
+                  "value": {
+                    "path": "https://tools.silversneakers.com/Eligibility/StartHere",
+                    "type": "url"
+                  }
+                }
+              }
+            }
+          ],
+          "content": [
             {
               "_id": "e9bf0ab3-d6e0-4ca4-8002-dfa7a0ab05a4",
               "type": "hero",
@@ -285,6 +373,11 @@
             },
             {
               "_id": "a383364d-17fe-4d25-a131-03260cd9485d",
+              "type": "hero",
+              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47"
+            },
+            {
+              "_id": "7120ca71-26d4-4210-8230-9b832131f77d",
               "type": "hero",
               "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47"
             },
@@ -389,8 +482,20 @@
           ]
         },
         "_overrides": {
+          "13dd08c4-1a14-4305-84cc-0ceeb4ea7cae": {
+            "variant": "",
+            "parameters": {
+              "dismissable": {
+                "type": "checkbox",
+                "value": true
+              }
+            }
+          },
           "2f4be6a4-b781-4672-87bb-3d64abd6fc09": {
             "variant": "rightLight"
+          },
+          "7120ca71-26d4-4210-8230-9b832131f77d": {
+            "variant": "rightDark"
           },
           "900ff3a5-3ca8-42df-9a3c-7dd8f35a7272": {
             "variant": "rightLight"
@@ -410,16 +515,13 @@
           "df006382-4fff-40c5-a413-7008c06e4bad": {
             "variant": "leftDark"
           },
-          "e9bf0ab3-d6e0-4ca4-8002-dfa7a0ab05a4": {
-            "variant": "backgroundImage"
-          },
           "f867b912-1560-457d-9e11-a7dc79334678": {
             "variant": "rightLight"
           }
         }
       },
       "created": "2023-08-29T20:06:37.965621+00:00",
-      "modified": "2023-09-05T22:26:35.217587+00:00",
+      "modified": "2023-09-06T22:02:46.012878+00:00",
       "pattern": false
     },
     {
@@ -441,7 +543,7 @@
     },
     {
       "composition": {
-        "_name": "Hero Pattern",
+        "_name": "Contentful Hero",
         "_id": "9eb8e241-54a0-48a5-a408-287ea4394f47",
         "type": "hero",
         "variant": "leftDark",
@@ -491,12 +593,12 @@
         }
       },
       "created": "2023-08-29T20:06:37.045329+00:00",
-      "modified": "2023-08-30T03:58:40.602872+00:00",
+      "modified": "2023-09-06T06:31:16.534984+00:00",
       "pattern": true
     },
     {
       "composition": {
-        "_name": "Featured Hero Pattern",
+        "_name": "Featured Contentful Hero",
         "_id": "a703f357-57e8-4fe5-8d4d-47e29e12ba32",
         "type": "hero",
         "variant": "backgroundImage",
@@ -538,12 +640,12 @@
         }
       },
       "created": "2023-08-29T20:06:36.884443+00:00",
-      "modified": "2023-08-30T03:57:05.258308+00:00",
+      "modified": "2023-09-06T06:32:04.392791+00:00",
       "pattern": true
     },
     {
       "composition": {
-        "_name": "Partner Hero Pattern",
+        "_name": "Partner Contentful Hero",
         "_id": "abcd32be-5961-4103-9540-183229d50364",
         "type": "hero",
         "variant": "backgroundImage",
@@ -589,7 +691,7 @@
         }
       },
       "created": "2023-08-29T20:06:37.439265+00:00",
-      "modified": "2023-08-30T17:42:07.911973+00:00",
+      "modified": "2023-09-06T06:32:24.110068+00:00",
       "pattern": true
     },
     {
@@ -603,6 +705,54 @@
       "created": "2023-08-24T06:35:57.043749+00:00",
       "modified": "2023-08-24T06:35:57.043749+00:00",
       "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Contentful Banner",
+        "_id": "c17a6892-fb26-49f3-8880-19cd217f150f",
+        "type": "banner",
+        "parameters": {
+          "message": {
+            "type": "text",
+            "value": "${#jptr:/Banner/fields/message}"
+          },
+          "dismissable": {
+            "type": "checkbox",
+            "value": true
+          },
+          "callToAction": {
+            "type": "text",
+            "value": "${#jptr:/Banner/fields/callToAction}"
+          },
+          "callToActionLink": {
+            "type": "link",
+            "value": {
+              "path": "${#jptr:/Banner/fields/callToActionLink}",
+              "type": "url"
+            }
+          }
+        },
+        "_dataResources": {
+          "Banner": {
+            "type": "banner",
+            "variables": {
+              "locale": "",
+              "entryIds": "78CPTHpmtgiTTVvrmbUQjr"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": false
+          }
+        },
+        "_overridability": {
+          "variants": true,
+          "parameters": {
+            "dismissable": "yes"
+          }
+        }
+      },
+      "created": "2023-09-06T06:23:02.186899+00:00",
+      "modified": "2023-09-06T06:23:02.186899+00:00",
+      "pattern": true
     },
     {
       "composition": {
