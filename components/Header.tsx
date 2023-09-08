@@ -117,7 +117,7 @@ const Header = () => {
         <div className="hidden lg:flex">
           <div
             key={`links-${links.length}`}
-            className="flex justify-between items-center"
+            className="flex items-center justify-between"
           >
             {links?.map((link: Types.ProjectMapLink, index: number) => (
               <>
@@ -127,7 +127,7 @@ const Header = () => {
                       <NavbarItem key={link?.path}>
                         <Link
                           href="#"
-                          className="py-5 px-3 flex gap-1 justify-between hover:bg-gray-200"
+                          className="flex justify-between gap-1 px-3 py-5 hover:bg-gray-200"
                         >
                           {link.name}
                           <ChevronDownIcon className="w-5" />
@@ -161,7 +161,7 @@ const Header = () => {
                   <NavbarItem key={link?.path}>
                     <Link
                       href={link?.path}
-                      className="py-5 px-3 hover:bg-gray-200"
+                      className="px-3 py-5 hover:bg-gray-200"
                     >
                       {link.name}
                     </Link>
@@ -178,7 +178,7 @@ const Header = () => {
                         <NavbarItem key={link?.path}>
                           <Link
                             href="#"
-                            className="py-5 px-3 flex gap-1 justify-between hover:bg-gray-200"
+                            className="flex justify-between gap-1 px-3 py-5 hover:bg-gray-200"
                           >
                             {link.name}
                             <ChevronDownIcon className="w-5" />
@@ -206,7 +206,7 @@ const Header = () => {
                     <NavbarMenuItem key={link?.path}>
                       <Link
                         href={link?.path}
-                        className="py-5 px-3 hover:bg-gray-200"
+                        className="px-3 py-5 hover:bg-gray-200"
                       >
                         {link.name}
                       </Link>
@@ -220,7 +220,7 @@ const Header = () => {
       </NavbarContent>
 
       {/* Responsive Menu Toggle */}
-      <NavbarContent className="lg:hidden gap-1" justify="start">
+      <NavbarContent className="gap-1 lg:hidden" justify="start">
         Menu
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -245,7 +245,7 @@ const Header = () => {
                 <DropdownTrigger>
                   <SSButton
                     disableRipple
-                    className="ml-6 p-0 bg-transparent data-[hover=true]:bg-transparent text-black"
+                    className="ml-6 bg-transparent p-0 text-black data-[hover=true]:bg-transparent"
                     endContent={<ChevronDownIcon className="w-5" />}
                     color="primary"
                     size="lg"

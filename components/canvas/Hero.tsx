@@ -54,7 +54,7 @@ const getBackgroundClass = (variantId?: string) => {
 const getAlignmentClass = (alignmentId?: string) => {
   switch (alignmentId) {
     case HeroAlignment.Center:
-      return "justify-center";
+      return "items-center justify-center";
     case HeroAlignment.Right:
       return "md:flex-row";
     default:
@@ -85,8 +85,8 @@ const Hero: React.FC<HeroProps> = ({
       {/* Gradient Opacity Layer */}
       {variant === HeroVariant.ImageBackground && (
         <>
-          <div className="absolute w-full h-full bg-gradient-to-r from-black from-26% to-98% opacity-90 z-20"></div>
-          <div className="absolute w-full h-full z-10 bg-left-top bg-no-repeat bg-cover">
+          <div className="from-26% to-98% absolute z-20 h-full w-full bg-gradient-to-r from-black opacity-90"></div>
+          <div className="absolute z-10 h-full w-full bg-cover bg-left-top bg-no-repeat">
             <Image
               fill
               src={getImageUrl(image)}
@@ -98,7 +98,7 @@ const Hero: React.FC<HeroProps> = ({
       )}
       {variant !== HeroVariant.ImageBackground &&
         (variant === HeroVariant.LightBackground ? (
-          <div className="absolute w-full h-full bg-white -z-10 bg-left-top bg-no-repeat bg-cover">
+          <div className="absolute -z-10 h-full w-full bg-white bg-cover bg-left-top bg-no-repeat">
             <Image
               fill
               src={graySwooshOne}
@@ -113,7 +113,7 @@ const Hero: React.FC<HeroProps> = ({
             />
           </div>
         ) : (
-          <div className="absolute w-full h-full bg-primary -z-10 bg-left-top bg-no-repeat bg-cover">
+          <div className="absolute -z-10 h-full w-full bg-primary bg-cover bg-left-top bg-no-repeat">
             <Image
               fill
               src={blueSwooshOne}
@@ -131,13 +131,13 @@ const Hero: React.FC<HeroProps> = ({
       <Container>
         <div
           className={classNames(
-            "z-30 relative flex flex-col justify-between gap-3 md:gap-7 lg:gap-16 p-10 lg:py-32 lg:px-16",
+            "relative z-30 flex flex-col justify-between gap-3 p-10 md:gap-7 lg:gap-16 lg:px-16 lg:py-32",
             getAlignmentClass(textAlignment),
           )}
         >
           <div
             className={classNames(
-              "order-2 md:order-1 sm:basis-9/12 md:basis-1/2 m-auto",
+              "order-2 m-auto sm:basis-9/12 md:order-1 md:basis-1/2",
             )}
           >
             {variant !== HeroVariant.ImageBackground && (
@@ -163,15 +163,15 @@ const Hero: React.FC<HeroProps> = ({
           </div>
           <div
             className={classNames(
-              "order-1 md:order-2 sm:basis-3/12 md:basis-1/2 max-w-[540px]",
+              "order-1 max-w-[540px] sm:basis-3/12 md:order-2 md:basis-1/2",
               getBackgroundClass(variant),
-              isCentered && "w-[737px] max-w-[737px]",
+              isCentered && "w-[737px] max-w-[737px] basis-full",
             )}
           >
             <div
               className={classNames(
-                "flex flex-col sm:text-left mb-3",
-                isCentered && "text-center",
+                "mb-3 flex flex-col sm:text-left",
+                isCentered && "!text-center",
               )}
             >
               {logo && (
@@ -182,12 +182,18 @@ const Hero: React.FC<HeroProps> = ({
                   alt="Silver Sneakers"
                 />
               )}
-              <h1 className="pb-5 max-md:text-2xl max-lg:text-4xl max-sm:m-auto max-w-lg">
+              <h1
+                className={classNames(
+                  "max-w-lg pb-5 max-lg:text-4xl max-md:text-2xl max-sm:m-auto",
+                  isCentered && "!max-w-full",
+                )}
+              >
                 {heading}
               </h1>
+              <div className="flex font-sans"></div>
               <span
                 className={classNames(
-                  "mb-6 xs:mb-10 lg:mb-10 w-24 sm:max-w-[100px] border-3 border-orange-500",
+                  "mb-6 w-24 border-3 border-orange-500 xs:mb-10 sm:max-w-[100px] lg:mb-10",
                   isCentered && "max-sm:mx-auto",
                 )}
               ></span>
@@ -195,8 +201,8 @@ const Hero: React.FC<HeroProps> = ({
                 {documentToReactComponents(description)}
                 <div
                   className={classNames(
-                    "flex sm:justify-start gap-3 md:gap-8 w-full mb-5",
-                    isCentered && "justify-center ",
+                    "mb-5 flex w-full gap-3 sm:justify-start md:gap-8",
+                    isCentered && "sm:justify-center",
                   )}
                 >
                   <SSButton

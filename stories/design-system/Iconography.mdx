@@ -1,16 +1,39 @@
 import { Meta, Title, IconGallery, IconItem } from "@storybook/blocks";
 
-import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
+import {
+  ChevronUpIcon,
+  ChevronDownIcon,
+  CheckCircleIcon,
+  XCircleIcon,
+  ExclamationTriangleIcon,
+  InformationCircleIcon,
+  XMarkIcon,
+} from "@heroicons/react/20/solid";
 
 <Meta title="Design System/Iconography" />
 
 # Iconography
 
 <IconGallery>
-  <IconItem name="chevron up">
+  <IconItem name="chevron-up">
     <ChevronUpIcon />
   </IconItem>
-  <IconItem name="chevron down">
+  <IconItem name="chevron-down">
     <ChevronDownIcon />
+  </IconItem>
+  <IconItem name="x-mark">
+    <XMarkIcon />
+  </IconItem>
+  <IconItem name="check-circle">
+    <CheckCircleIcon />
+  </IconItem>
+  <IconItem name="x-circle">
+    <XCircleIcon />
+  </IconItem>
+  <IconItem name="exclamation-triangle">
+    <ExclamationTriangleIcon />
+  </IconItem>
+  <IconItem name="information-circle">
+    <InformationCircleIcon />
   </IconItem>
 </IconGallery>

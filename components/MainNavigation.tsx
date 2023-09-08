@@ -68,7 +68,7 @@ const MainNavigation = async ({ context }: Props) => {
   return (
     <div
       key={`links-${links.length}`}
-      className="flex justify-between items-center"
+      className="flex items-center justify-between"
     >
       {links?.map((link: Types.ProjectMapLink, index: number) => (
         <>
@@ -78,7 +78,7 @@ const MainNavigation = async ({ context }: Props) => {
                 <NavbarItem key={link?.path}>
                   <Link
                     href="#"
-                    className="py-5 px-3 flex gap-1 justify-between hover:bg-gray-200"
+                    className="flex justify-between gap-1 px-3 py-5 hover:bg-gray-200"
                   >
                     {link.name}
                     <ChevronDownIcon className="w-5" />
@@ -104,7 +104,7 @@ const MainNavigation = async ({ context }: Props) => {
             </Dropdown>
           ) : (
             <NavbarItem key={link?.path}>
-              <Link href={link?.path} className="py-5 px-3 hover:bg-gray-200">
+              <Link href={link?.path} className="px-3 py-5 hover:bg-gray-200">
                 {link.name}
               </Link>
             </NavbarItem>
@@ -120,7 +120,7 @@ const MainNavigation = async ({ context }: Props) => {
                   <NavbarItem key={link?.path}>
                     <Link
                       href="#"
-                      className="py-5 px-3 flex gap-1 justify-between hover:bg-gray-200"
+                      className="flex justify-between gap-1 px-3 py-5 hover:bg-gray-200"
                     >
                       {link.name}
                       <ChevronDownIcon className="w-5" />
@@ -146,7 +146,7 @@ const MainNavigation = async ({ context }: Props) => {
               </Dropdown>
             ) : (
               <NavbarMenuItem key={link?.path}>
-                <Link href={link?.path} className="py-5 px-3 hover:bg-gray-200">
+                <Link href={link?.path} className="px-3 py-5 hover:bg-gray-200">
                   {link.name}
                 </Link>
               </NavbarMenuItem>

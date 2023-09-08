@@ -100,23 +100,23 @@ const Banner: React.FC<BannerProps> = ({
 
   return (
     <div className={classNames("w-full", getBackgroundClass(variant))}>
-      <Container className="px-10 lg:px-16 py-2">
-        <div className="flex justify-center items-center gap-3">
+      <Container className="px-10 py-2 lg:px-16">
+        <div className="flex items-center justify-center gap-3">
           {variant === BannerVariant.Success && (
-            <CheckCircleIcon className="w-4 h-4 text-success" />
+            <CheckCircleIcon className="h-4 w-4 text-success" />
           )}
           {variant === BannerVariant.Error && (
-            <XCircleIcon className="w-4 h-4 text-error" />
+            <XCircleIcon className="h-4 w-4 text-error" />
           )}
           {variant === BannerVariant.Warning && (
-            <ExclamationTriangleIcon className="w-4 h-4 text-warning" />
+            <ExclamationTriangleIcon className="h-4 w-4 text-warning" />
           )}
           {variant === BannerVariant.Info && (
-            <InformationCircleIcon className="w-4 h-4 text-info" />
+            <InformationCircleIcon className="h-4 w-4 text-info" />
           )}
           <p
             className={classNames(
-              "text-sm md:text-base text-black",
+              "text-sm text-black md:text-base",
               getTextClass(variant),
             )}
           >
@@ -126,7 +126,7 @@ const Banner: React.FC<BannerProps> = ({
             <Link
               href={callToActionLink.path}
               className={classNames(
-                "text-sm md:text-base text-primary font-semibold underline",
+                "text-sm font-semibold text-primary underline md:text-base",
                 getTextClass(variant),
               )}
             >
@@ -136,13 +136,13 @@ const Banner: React.FC<BannerProps> = ({
           {dismissable && (
             <div
               className={classNames(
-                "p-1 rounded-lg border-1 border-transparent",
+                "rounded-lg border-1 border-transparent p-1",
                 getStateClasses(variant),
               )}
             >
               <XMarkIcon
                 className={classNames(
-                  "w-4 h-4 font-extrabold cursor-pointer",
+                  "h-4 w-4 cursor-pointer font-extrabold",
                   getTextClass(variant),
                 )}
                 // must be in a 'use client' component but this is a Uniform/server component
