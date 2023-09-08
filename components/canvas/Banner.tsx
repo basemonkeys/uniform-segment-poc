@@ -7,6 +7,7 @@ import {
 
 // import Link from "next/link";
 import { Link } from "@nextui-org/link";
+import NextLink from "next/link";
 
 import Container from "../Container";
 import { DismissButton } from "../DismissButton";
@@ -122,11 +123,13 @@ const Banner: React.FC<BannerProps> = ({
           </p>
           {callToAction && callToActionLink && (
             <Link
+              as={NextLink}
               href={callToActionLink.path}
               className={classNames(
                 "text-sm font-semibold text-primary underline md:text-base",
                 getTextClass(variant),
               )}
+              isDisabled
             >
               {callToAction}
             </Link>
