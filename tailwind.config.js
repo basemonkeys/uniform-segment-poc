@@ -1,4 +1,5 @@
 const { nextui } = require("@nextui-org/react");
+const { error } = require("console");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -95,40 +96,40 @@ module.exports = {
             },
             default: {
               DEFAULT: "#9CA3AF",
-              light: "#E5E7EB",
+              light: "#F9FAFB",
               dark: "#374151",
               hover: "#E5E7EB",
             },
             success: {
               DEFAULT: "#34D399",
-              light: "#A7F3D0",
+              light: "#ECFDF5",
               dark: "#047857",
-              hover: "#D1FAE5",
+              hover: "#A7F3D0",
             },
             error: {
               DEFAULT: "#F87171",
-              light: "#FECACA",
+              light: "#FEF2F2",
               dark: "#B91C1C",
-              hover: "#FEE2E2",
+              hover: "#FECACA",
             },
-            // TODO: this is a hack to work around NextUI. See 'danger' on 'Log Off' in the header.
+            // TODO: this is a hack to work around NextUI's requirement of 'danger' color on some components. See 'danger' on 'Log Off' in the header.
             danger: {
-              DEFAULT: "#F87171",
-              light: "#FECACA",
-              dark: "#B91C1C",
-              hover: "#FEE2E2",
+              DEFAULT: error.DEFAULT,
+              light: error.light,
+              dark: error.dark,
+              hover: error.hover,
             },
             warning: {
               DEFAULT: "#FBBF24",
-              light: "#FDE68A",
+              light: "#FFFBEB",
               dark: "#B45309",
-              hover: "#FEF3C7",
+              hover: "#FDE68A",
             },
             info: {
               DEFAULT: "#60A5FA",
-              light: "#BFDBFE",
+              light: "#EFF6FF",
               dark: "#1D4ED8",
-              hover: "#DBEAFE",
+              hover: "#BFDBFE",
             },
             gray: {
               50: "#F9FAFB",

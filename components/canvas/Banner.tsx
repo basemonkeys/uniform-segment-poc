@@ -10,6 +10,7 @@ import {
 } from "@uniformdev/canvas-next-rsc";
 
 import Link from "next/link";
+// import { Link } from "@nextui-org/react";
 
 import Container from "../Container";
 import {
@@ -50,7 +51,7 @@ const getBackgroundClass = (variantId?: string) => {
     case BannerVariant.Info:
       return "bg-info-light";
     default:
-      return "bg-gray-100";
+      return "bg-gray-light";
   }
 };
 
@@ -74,17 +75,17 @@ const getTextClass = (variantId?: string) => {
 const getStateClasses = (variantId?: string) => {
   switch (variantId) {
     case BannerVariant.Primary:
-      return "hover:bg-primary-dark active:border-1 active:shadow-inner";
+      return "hover:bg-primary-dark active:shadow-inner";
     case BannerVariant.Success:
-      return "hover:bg-success-hover active:border-1 active:border-success-dark";
+      return "hover:bg-success-hover active:shadow-inner";
     case BannerVariant.Error:
-      return "hover:bg-error-hover active:border-1 active:border-error-dark";
+      return "hover:bg-error-hover active:shadow-inner";
     case BannerVariant.Warning:
-      return "hover:bg-warning-hover active:border-1 active:border-warning-dark";
+      return "hover:bg-warning-hover active:shadow-inner";
     case BannerVariant.Info:
-      return "hover:bg-info-hover active:border-1 active:border-info-dark";
+      return "hover:bg-info-hover active:shadow-inner";
     default:
-      return "hover:bg-default-hover active:border-1 active:shadow-inner";
+      return "hover:bg-default-hover active:shadow-inner";
   }
 };
 

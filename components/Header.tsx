@@ -151,7 +151,6 @@ const Header = () => {
                             key={index}
                             title={subItemsLink.name}
                             description={subItemsLink.description}
-                            // TODO: this prop is not working, the styles are not being applied.
                           />
                         ),
                       )}
