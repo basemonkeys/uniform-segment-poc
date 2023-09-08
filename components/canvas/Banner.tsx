@@ -5,7 +5,6 @@ import {
   ComponentProps,
 } from "@uniformdev/canvas-next-rsc";
 
-// import Link from "next/link";
 import { Link } from "@nextui-org/link";
 
 import Container from "../Container";
@@ -48,7 +47,7 @@ const getBackgroundClass = (variantId?: string) => {
     case BannerVariant.Info:
       return "bg-info-light";
     default:
-      return "bg-gray-light";
+      return "bg-default-light";
   }
 };
 

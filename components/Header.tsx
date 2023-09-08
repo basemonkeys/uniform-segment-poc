@@ -20,9 +20,13 @@ import {
   DropdownMenu,
   DropdownItem,
   DropdownSection,
+  Link,
+  Button,
 } from "@nextui-org/react";
 
-import Link from "next/link";
+// import { Link } from "@nextui-org/react";
+// import NextLink from "next/link";
+// import Link from "next/link";
 
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 
@@ -123,17 +127,18 @@ const Header = () => {
               <>
                 {link?.type === "placeholder" ? (
                   <Dropdown>
-                    <DropdownTrigger>
-                      <NavbarItem key={link?.path}>
-                        <Link
+                    <NavbarItem key={link?.path}>
+                      <DropdownTrigger>
+                        <Button
+                          disableRipple
+                          endContent={<ChevronDownIcon className="w-5" />}
                           href="#"
-                          className="flex justify-between gap-1 px-3 py-5 hover:bg-gray-200"
+                          className="flex justify-between gap-1 bg-transparent p-0 px-3 py-5 hover:bg-default-hover"
                         >
                           {link.name}
-                          <ChevronDownIcon className="w-5" />
-                        </Link>
-                      </NavbarItem>
-                    </DropdownTrigger>
+                        </Button>
+                      </DropdownTrigger>
+                    </NavbarItem>
                     <DropdownMenu
                       aria-label="ACME features"
                       className="w-[340px]"
@@ -160,7 +165,8 @@ const Header = () => {
                   <NavbarItem key={link?.path}>
                     <Link
                       href={link?.path}
-                      className="px-3 py-5 hover:bg-gray-200"
+                      className="px-3 py-5 hover:bg-default-hover"
+                      color="foreground"
                     >
                       {link.name}
                     </Link>
@@ -175,13 +181,14 @@ const Header = () => {
                     <Dropdown>
                       <DropdownTrigger>
                         <NavbarItem key={link?.path}>
-                          <Link
+                          <Button
+                            disableRipple
+                            endContent={<ChevronDownIcon className="w-5" />}
                             href="#"
-                            className="flex justify-between gap-1 px-3 py-5 hover:bg-gray-200"
+                            className="data-[hover=true] flex justify-between gap-1 bg-transparent p-0 px-3 py-5 hover:bg-default-hover"
                           >
                             {link.name}
-                            <ChevronDownIcon className="w-5" />
-                          </Link>
+                          </Button>
                         </NavbarItem>
                       </DropdownTrigger>
                       <DropdownMenu
@@ -205,7 +212,8 @@ const Header = () => {
                     <NavbarMenuItem key={link?.path}>
                       <Link
                         href={link?.path}
-                        className="px-3 py-5 hover:bg-gray-200"
+                        className="px-3 py-5 hover:bg-default-hover"
+                        color="foreground"
                       >
                         {link.name}
                       </Link>

@@ -10,6 +10,7 @@ import Image from "next/image";
 
 import Container from "../Container";
 import { SSButton } from "../SSButton";
+import { Link } from "@nextui-org/link";
 
 import { getImageUrl } from "@/utils";
 
@@ -205,6 +206,9 @@ const Hero: React.FC<HeroProps> = ({
                   )}
                 >
                   <SSButton
+                    href="https://google.com"
+                    as={Link}
+                    showAnchorIcon
                     color={
                       variant === HeroVariant.LightBackground
                         ? "primary"
@@ -213,8 +217,21 @@ const Hero: React.FC<HeroProps> = ({
                   >
                     {primarycta}
                   </SSButton>
+                  {/* TODO: fix this SSButton as Link */}
+                  <SSButton
+                    href="https://github.com/nextui-org/nextui"
+                    as={Link}
+                    color="primary"
+                    showAnchorIcon
+                    variant="solid"
+                  >
+                    This is a SSButton as Link
+                  </SSButton>
                   {secondarycta ? (
                     <SSButton
+                      href="/"
+                      as={Link}
+                      showAnchorIcon
                       color={
                         variant === HeroVariant.LightBackground
                           ? "secondaryWhite"

@@ -82,7 +82,7 @@ module.exports = {
           // extend: "light",
           colors: {
             background: "#EFEFEF",
-            foreground: "##2A2A2A",
+            foreground: "#2A2A2A",
             white: "#FFFFFF",
             black: "#000000",
             transparent: "transparent",

@@ -45,6 +45,11 @@ export const Default: Story = {
       variant: "",
     },
   },
+  parameters: {
+    backgrounds: {
+      default: "darkGray",
+    },
+  },
 };
 
 export const Primary: Story = {

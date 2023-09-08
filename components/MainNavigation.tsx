@@ -78,7 +78,7 @@ const MainNavigation = async ({ context }: Props) => {
                 <NavbarItem key={link?.path}>
                   <Link
                     href="#"
-                    className="flex justify-between gap-1 px-3 py-5 hover:bg-gray-200"
+                    className="flex justify-between gap-1 px-3 py-5 hover:bg-default-hover"
                   >
                     {link.name}
                     <ChevronDownIcon className="w-5" />
@@ -104,7 +104,10 @@ const MainNavigation = async ({ context }: Props) => {
             </Dropdown>
           ) : (
             <NavbarItem key={link?.path}>
-              <Link href={link?.path} className="px-3 py-5 hover:bg-gray-200">
+              <Link
+                href={link?.path}
+                className="px-3 py-5 hover:bg-default-hover"
+              >
                 {link.name}
               </Link>
             </NavbarItem>
@@ -120,7 +123,7 @@ const MainNavigation = async ({ context }: Props) => {
                   <NavbarItem key={link?.path}>
                     <Link
                       href="#"
-                      className="flex justify-between gap-1 px-3 py-5 hover:bg-gray-200"
+                      className="flex justify-between gap-1 px-3 py-5 hover:bg-default-hover"
                     >
                       {link.name}
                       <ChevronDownIcon className="w-5" />
@@ -146,7 +149,10 @@ const MainNavigation = async ({ context }: Props) => {
               </Dropdown>
             ) : (
               <NavbarMenuItem key={link?.path}>
-                <Link href={link?.path} className="px-3 py-5 hover:bg-gray-200">
+                <Link
+                  href={link?.path}
+                  className="px-3 py-5 hover:bg-default-hover"
+                >
                   {link.name}
                 </Link>
               </NavbarMenuItem>

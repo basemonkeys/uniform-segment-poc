@@ -16,6 +16,19 @@ const preview: Preview = {
         order: ["Intro", "Design System", "Pages", "Components", ["Uniform"]],
       },
     },
+    backgrounds: {
+      default: "white",
+      values: [
+        {
+          name: "white",
+          value: "#FFFFFF",
+        },
+        {
+          name: "darkGray",
+          value: "#6B7280",
+        },
+      ],
+    },
     // backgrounds: { disable: true },
   },
 };
