@@ -1,42 +1,40 @@
 "use client";
 
-// import React from "react";
-// import { forwardRef } from "react";
+import { useButton, extendVariants, Spinner } from "@nextui-org/react";
+import { forwardRef } from "@nextui-org/system";
 
-// import { useButton, extendVariants, Drip, Spinner } from "@nextui-org/react";
-import { Button, extendVariants } from "@nextui-org/react";
+const CustomButton = forwardRef((props, ref) => {
+  const {
+    domRef,
+    children,
+    // classNames,
+    // drips,
+    spinnerSize,
+    spinner = <Spinner color="current" size={spinnerSize} />,
+    spinnerPlacement,
+    startContent,
+    endContent,
+    isLoading,
+    disableRipple,
+    getButtonProps,
+  } = useButton({
+    ref,
+    ...props,
+  });
 
-// const CustomButton = forwardRef((props, ref) => {
-//   const {
-//     domRef,
-//     children,
-//     // drips,
-//     spinnerSize,
-//     spinner = <Spinner color="current" size={spinnerSize} />,
-//     spinnerPlacement,
-//     startContent,
-//     endContent,
-//     isLoading,
-//     // disableRipple,
-//     getButtonProps,
-//   } = useButton({
-//     ref,
-//     ...props,
-//   });
+  return (
+    <button ref={domRef} {...getButtonProps()}>
+      {startContent}
+      {isLoading && spinnerPlacement === "start" && spinner}
+      {children}
+      {isLoading && spinnerPlacement === "end" && spinner}
+      {endContent}
+      {/* {!disableRipple && <Drip drips={drips} />} */}
+    </button>
+  );
+});
 
-//   return (
-//     <button ref={domRef} {...getButtonProps()}>
-//       {startContent}
-//       {isLoading && spinnerPlacement === "start" && spinner}
-//       {children}
-//       {isLoading && spinnerPlacement === "end" && spinner}
-//       {endContent}
-//       {/* {!disableRipple && <Drip drips={drips} />} */}
-//     </button>
-//   );
-// });
-
-export const SSButton = extendVariants(Button, {
+export const SSButton = extendVariants(CustomButton, {
   variants: {
     variant: {
       icon: "",
@@ -76,6 +74,5 @@ export const SSButton = extendVariants(Button, {
   },
 });
 
-// CustomButton.displayName = "CustomButton";
-
-// export default CustomButton;
+// SSButton.displayName = "SSButton";
+// export default SSButton;
