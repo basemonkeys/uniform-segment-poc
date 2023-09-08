@@ -1,7 +1,3 @@
-// TODO: I need this for an on click, but this also needs to be a default server component since it uses registerUniformComponent.
-
-// "use client";
-
 import classNames from "classnames";
 
 import {
@@ -9,16 +5,17 @@ import {
   ComponentProps,
 } from "@uniformdev/canvas-next-rsc";
 
-import Link from "next/link";
-// import { Link } from "@nextui-org/react";
+// import Link from "next/link";
+import { Link } from "@nextui-org/link";
 
 import Container from "../Container";
+import { DismissButton } from "../DismissButton";
+
 import {
   CheckCircleIcon,
   XCircleIcon,
   ExclamationTriangleIcon,
   InformationCircleIcon,
-  XMarkIcon,
 } from "@heroicons/react/20/solid";
 
 type BannerProps = ComponentProps<{
@@ -55,7 +52,7 @@ const getBackgroundClass = (variantId?: string) => {
   }
 };
 
-const getTextClass = (variantId?: string) => {
+export const getTextClass = (variantId?: string) => {
   switch (variantId) {
     case BannerVariant.Primary:
       return "!text-white";
@@ -72,7 +69,7 @@ const getTextClass = (variantId?: string) => {
   }
 };
 
-const getStateClasses = (variantId?: string) => {
+export const getStateClasses = (variantId?: string) => {
   switch (variantId) {
     case BannerVariant.Primary:
       return "hover:bg-primary-dark active:shadow-inner";
@@ -134,25 +131,7 @@ const Banner: React.FC<BannerProps> = ({
               {callToAction}
             </Link>
           )}
-          {dismissable && (
-            <div
-              className={classNames(
-                "rounded-lg border-1 border-transparent p-1",
-                getStateClasses(variant),
-              )}
-            >
-              <XMarkIcon
-                className={classNames(
-                  "h-4 w-4 cursor-pointer font-extrabold",
-                  getTextClass(variant),
-                )}
-                // must be in a 'use client' component but this is a Uniform/server component
-                // onClick={() => {
-                //   console.log("close");
-                // }}
-              />
-            </div>
-          )}
+          {dismissable && <DismissButton component={component} />}
         </div>
       </Container>
     </div>
