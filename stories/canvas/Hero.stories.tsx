@@ -54,7 +54,7 @@ const meta: Meta<typeof Hero> = {
     },
     textAlignment: {
       control: { type: "select" },
-      options: ["left", "center", "right"],
+      options: ["left", "right"],
     },
   },
   decorators: [
@@ -128,6 +128,12 @@ export const Featured: Story = {
     image:
       "https://tools.silversneakers.com/Content/images/live/headphones-exercise-ball-2000.jpg" as any,
   },
+  argTypes: {
+    textAlignment: {
+      control: { type: "select" },
+      options: ["left", "center"],
+    },
+  },
 };
 
 /**
@@ -177,5 +183,11 @@ export const Partner: Story = {
     logo: "https://tools.silversneakers.com/Content/images/burnalong/wordmark.png" as any,
     image:
       "https://tools.silversneakers.com/Content/images/burnalong/hero.jpg" as any,
+  },
+  argTypes: {
+    textAlignment: {
+      control: { type: "select" },
+      options: ["left", "center"],
+    },
   },
 };

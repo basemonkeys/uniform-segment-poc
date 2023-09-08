@@ -165,13 +165,13 @@ const Hero: React.FC<HeroProps> = ({
             className={classNames(
               "order-1 max-w-[540px] sm:basis-3/12 md:order-2 md:basis-1/2",
               getBackgroundClass(variant),
-              isCentered && "w-[737px] max-w-[737px] basis-full",
+              // isCentered && "w-[737px] max-w-[737px]",
             )}
           >
             <div
               className={classNames(
                 "mb-3 flex flex-col sm:text-left",
-                isCentered && "!text-center",
+                isCentered && "items-center !text-center",
               )}
             >
               {logo && (
@@ -190,19 +190,18 @@ const Hero: React.FC<HeroProps> = ({
               >
                 {heading}
               </h1>
-              <div className="flex font-sans"></div>
               <span
                 className={classNames(
                   "mb-6 w-24 border-3 border-orange-500 xs:mb-10 sm:max-w-[100px] lg:mb-10",
                   isCentered && "max-sm:mx-auto",
                 )}
               ></span>
-              <div className="flex flex-col gap-10 sm:gap-5">
+              <div className={classNames("flex flex-col gap-10 sm:gap-5")}>
                 {documentToReactComponents(description)}
                 <div
                   className={classNames(
                     "mb-5 flex w-full gap-3 sm:justify-start md:gap-8",
-                    isCentered && "sm:justify-center",
+                    isCentered && "!justify-center",
                   )}
                 >
                   <SSButton
