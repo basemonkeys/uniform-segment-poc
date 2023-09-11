@@ -382,53 +382,54 @@ const routeModule = new AppPageRouteModule({
 
 /***/ }),
 
-/***/ 3286:
+/***/ 96776:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 22478));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 39037));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 35402));
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 3280, 23));
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 69274, 23));
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 3349, 23));
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 89708, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 39037));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 35402));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 79991));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 13308));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 51831));
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 73380, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 13623));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 81019));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4634));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 99268));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 76898));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 99268));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 13623));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 50954, 23));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 78566));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 12209))
 
 /***/ }),
 
-/***/ 73275:
+/***/ 10502:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 39037));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 35402));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 31232, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 52987, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 50831, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 56926, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 44282, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 16505, 23))
+
+/***/ }),
+
+/***/ 27557:
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 3280, 23));
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 69274, 23));
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 3349, 23));
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 89708, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 39037));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 35402));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 79991));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 13308))
-
-/***/ }),
-
-/***/ 23103:
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
-
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 31232, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 50831, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 56926, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 44282, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 52987, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 16505, 23))
 
 /***/ }),
 
@@ -475,6 +476,9 @@ var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
 var registerUniformComponent = __webpack_require__(53246);
 // EXTERNAL MODULE: ./node_modules/@nextui-org/link/dist/chunk-MPX6TMFQ.mjs + 1 modules
 var chunk_MPX6TMFQ = __webpack_require__(95123);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(11440);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 ;// CONCATENATED MODULE: ./components/Container.tsx
 
 
@@ -499,6 +503,7 @@ var InformationCircleIcon = __webpack_require__(87944);
 
 
 // import Link from "next/link";
+
 
 
 
@@ -589,8 +594,10 @@ const Banner = ({ component, message, callToAction, callToActionLink, dismissabl
                         children: message
                     }),
                     callToAction && callToActionLink && /*#__PURE__*/ jsx_runtime_.jsx(chunk_MPX6TMFQ/* link_default */.O, {
+                        as: (link_default()),
                         href: callToActionLink.path,
                         className: classnames_default()("text-sm font-semibold text-primary underline md:text-base", getTextClass(variant)),
+                        isDisabled: true,
                         children: callToAction
                     }),
                     dismissable && /*#__PURE__*/ jsx_runtime_.jsx(DismissButton, {
@@ -1285,6 +1292,9 @@ var classnames = __webpack_require__(28097);
 var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
 // EXTERNAL MODULE: ./node_modules/@nextui-org/link/dist/index.mjs
 var link_dist = __webpack_require__(72692);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(25124);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 ;// CONCATENATED MODULE: ./components/Container.tsx
 
 
@@ -1322,6 +1332,7 @@ var InformationCircleIcon = __webpack_require__(24338);
 
 
 // import Link from "next/link";
+
 
 
 
@@ -1412,8 +1423,10 @@ const Banner = ({ component, message, callToAction, callToActionLink, dismissabl
                         children: message
                     }),
                     callToAction && callToActionLink && /*#__PURE__*/ jsx_runtime_.jsx(link_dist/* Link */.rU, {
+                        as: (link_default()),
                         href: callToActionLink.path,
                         className: classnames_default()("text-sm font-semibold text-primary underline md:text-base", getTextClass(variant)),
+                        isDisabled: true,
                         children: callToAction
                     }),
                     dismissable && /*#__PURE__*/ jsx_runtime_.jsx(DismissButton_e0, {
@@ -1770,7 +1783,7 @@ __webpack_require__.r(__webpack_exports__);
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [166,876,282], () => (__webpack_exec__(64082)));
+var __webpack_exports__ = __webpack_require__.X(0, [166,876,273], () => (__webpack_exec__(64082)));
 module.exports = __webpack_exports__;
 
 })();

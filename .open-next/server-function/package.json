@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "open-next:build": "open-next build",
     "start": "next start",
     "lint": "next lint",
+    "open-next:build": "open-next build",
+    "create-artifacts": "scripts/create-artifacts.sh",
+    "serverless:build": "turbo run create-artifacts",
     "uniform:pull:signals": "uniform context signal pull ./content/package.json",
     "uniform:pull:components": "uniform canvas component pull ./content/package.json",
     "uniform:pull:compositions": "uniform canvas composition pull ./content/package.json",
