@@ -1,5 +1,0 @@
-{
-  "/favicon.ico/route": "/favicon.ico",
-  "/[[...slug]]/page": "/[[...slug]]",
-  "/api/uniform/route": "/api/uniform"
-}

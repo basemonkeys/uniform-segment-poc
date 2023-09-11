@@ -37,7 +37,7 @@ next-env.d.ts
 stories/*
 
 # open-next
-.open-next
+.open-next/
 
 # AWS
 artifacts
