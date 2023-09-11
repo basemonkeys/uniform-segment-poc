@@ -99,10 +99,68 @@
       ]
     },
     {
+      "id": "header",
+      "name": "Header",
+      "icon": "border-top",
+      "parameters": [
+        {
+          "id": "logo",
+          "name": "Logo",
+          "type": "image",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
+      "description": "",
+      "previewImageUrl": "",
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "navigation",
+          "name": "Navigation",
+          "allowedComponents": [
+            "navigationGroup",
+            "navigationLink"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
+        }
+      ],
+      "canBeComposition": false,
+      "created": "2023-09-09T01:13:57.862212+00:00",
+      "updated": "2023-09-11T01:46:15.560799+00:00"
+    },
+    {
       "id": "hero",
       "name": "Hero",
       "icon": "display-fullwidth",
       "parameters": [
+        {
+          "id": "textAlignment",
+          "name": "Text Alignment",
+          "type": "select",
+          "helpText": "",
+          "typeConfig": {
+            "options": [
+              {
+                "text": "Left",
+                "value": "left"
+              },
+              {
+                "text": "Center",
+                "value": "center"
+              },
+              {
+                "text": "Right",
+                "value": "right"
+              }
+            ],
+            "required": true
+          }
+        },
         {
           "id": "heading",
           "name": "Heading",
@@ -163,27 +221,112 @@
       "titleParameter": "heading",
       "canBeComposition": false,
       "created": "2023-08-29T20:06:35.107289+00:00",
-      "updated": "2023-08-30T17:41:41.231053+00:00",
+      "updated": "2023-09-07T18:54:02.812356+00:00",
       "variants": [
         {
-          "id": "backgroundImage",
-          "name": "Background Image"
+          "id": "imageBackground",
+          "name": "Image Background"
         },
         {
-          "id": "leftLight",
-          "name": "Left Image / Light Background"
+          "id": "videoBackground",
+          "name": "Video Background"
         },
         {
-          "id": "leftDark",
-          "name": "Left Image / Dark Background"
+          "id": "darkBackground",
+          "name": "Dark Background"
         },
         {
-          "id": "rightLight",
-          "name": "Right Image / Light Background"
+          "id": "lightBackground",
+          "name": "Light Background"
+        }
+      ]
+    },
+    {
+      "id": "navigationGroup",
+      "name": "Navigation Group",
+      "icon": "border-top",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
+      "description": "",
+      "previewImageUrl": "",
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "subNavItems",
+          "name": "SubNav Items",
+          "allowedComponents": [
+            "navigationLink"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
+        }
+      ],
+      "titleParameter": "title",
+      "canBeComposition": false,
+      "created": "2023-09-09T23:58:15.054095+00:00",
+      "updated": "2023-09-11T01:35:42.870488+00:00"
+    },
+    {
+      "id": "navigationLink",
+      "name": "Navigation Link",
+      "icon": "border-top",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
         },
         {
-          "id": "rightDark",
-          "name": "Right Image / Dark Background"
+          "id": "link",
+          "name": "Link",
+          "type": "link",
+          "helpText": "",
+          "typeConfig": {
+            "required": false,
+            "linkTypes": {
+              "tel": false,
+              "email": false
+            }
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": null
+        }
+      ],
+      "description": "",
+      "previewImageUrl": "",
+      "useTeamPermissions": true,
+      "slots": [],
+      "titleParameter": "title",
+      "canBeComposition": false,
+      "created": "2023-09-09T23:56:21.493968+00:00",
+      "updated": "2023-09-10T09:31:32.177381+00:00",
+      "variants": [
+        {
+          "id": "header",
+          "name": "Header"
+        },
+        {
+          "id": "footer",
+          "name": "Footer"
         }
       ]
     },
@@ -217,6 +360,16 @@
       "previewImageUrl": "",
       "useTeamPermissions": true,
       "slots": [
+        {
+          "id": "header",
+          "name": "Header",
+          "allowedComponents": [
+            "header"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
+        },
         {
           "id": "banners",
           "name": "Banners",
@@ -254,10 +407,31 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-08-29T20:06:33.571497+00:00",
-      "updated": "2023-09-06T20:55:32.865664+00:00"
+      "updated": "2023-09-10T00:19:44.607838+00:00"
     }
   ],
   "compositions": [
+    {
+      "composition": {
+        "_name": "Articles",
+        "_id": "12eb6931-cb84-461c-99ee-8f2047b23388",
+        "_slug": "articles",
+        "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Articles"
+          },
+          "metaDescription": {
+            "type": "text",
+            "value": "This is the Articles page"
+          }
+        }
+      },
+      "created": "2023-09-11T04:42:51.887782+00:00",
+      "modified": "2023-09-11T04:43:16.364277+00:00",
+      "pattern": false
+    },
     {
       "composition": {
         "_name": "Home",
@@ -271,89 +445,18 @@
           }
         },
         "slots": {
+          "header": [
+            {
+              "_id": "3fa2adc4-cb58-4b6c-8c83-e29d99f52e21",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ],
           "banners": [
             {
-              "_id": "13dd08c4-1a14-4305-84cc-0ceeb4ea7cae",
+              "_id": "d54834d4-f825-4d8b-8397-44eae41d4e8f",
               "type": "banner",
               "_pattern": "c17a6892-fb26-49f3-8880-19cd217f150f"
-            },
-            {
-              "_id": "2f54fa56-ed61-4077-8cab-fe4cdf9d6a39",
-              "type": "banner",
-              "variant": "success",
-              "parameters": {
-                "message": {
-                  "type": "text",
-                  "value": "Congrats! Your submission was a success!"
-                },
-                "dismissable": {
-                  "type": "checkbox",
-                  "value": true
-                },
-                "callToAction": {
-                  "type": "text",
-                  "value": "Claim your reward!"
-                },
-                "callToActionLink": {
-                  "type": "link",
-                  "value": {
-                    "path": "https://tools.silversneakers.com/Eligibility/StartHere",
-                    "type": "url"
-                  }
-                }
-              }
-            },
-            {
-              "_id": "892dc54e-95b0-4a9f-83a6-558b23a1d8b7",
-              "type": "banner",
-              "variant": "error",
-              "parameters": {
-                "message": {
-                  "type": "text",
-                  "value": "Something went wrong."
-                },
-                "dismissable": {
-                  "type": "checkbox",
-                  "value": true
-                },
-                "callToAction": {
-                  "type": "text",
-                  "value": "Click here to fix it"
-                },
-                "callToActionLink": {
-                  "type": "link",
-                  "value": {
-                    "path": "https://tools.silversneakers.com/Eligibility/StartHere",
-                    "type": "url"
-                  }
-                }
-              }
-            },
-            {
-              "_id": "bcc8a7d8-9f04-4822-85a6-a880f244ab02",
-              "type": "banner",
-              "variant": "info",
-              "parameters": {
-                "message": {
-                  "type": "text",
-                  "value": "This is very important information."
-                },
-                "dismissable": {
-                  "type": "checkbox",
-                  "value": true
-                },
-                "callToAction": {
-                  "type": "text",
-                  "value": "Read More"
-                },
-                "callToActionLink": {
-                  "type": "link",
-                  "value": {
-                    "path": "https://tools.silversneakers.com/Eligibility/StartHere",
-                    "type": "url"
-                  }
-                }
-              }
             }
           ],
           "content": [
@@ -373,11 +476,6 @@
             },
             {
               "_id": "a383364d-17fe-4d25-a131-03260cd9485d",
-              "type": "hero",
-              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47"
-            },
-            {
-              "_id": "7120ca71-26d4-4210-8230-9b832131f77d",
               "type": "hero",
               "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47"
             },
@@ -482,46 +580,73 @@
           ]
         },
         "_overrides": {
-          "13dd08c4-1a14-4305-84cc-0ceeb4ea7cae": {
-            "variant": "",
+          "2f4be6a4-b781-4672-87bb-3d64abd6fc09": {
+            "variant": "lightBackground"
+          },
+          "900ff3a5-3ca8-42df-9a3c-7dd8f35a7272": {
+            "variant": "lightBackground",
             "parameters": {
-              "dismissable": {
-                "type": "checkbox",
-                "value": true
+              "textAlignment": {
+                "type": "select",
+                "value": "left"
               }
             }
           },
-          "2f4be6a4-b781-4672-87bb-3d64abd6fc09": {
-            "variant": "rightLight"
-          },
-          "7120ca71-26d4-4210-8230-9b832131f77d": {
-            "variant": "rightDark"
-          },
-          "900ff3a5-3ca8-42df-9a3c-7dd8f35a7272": {
-            "variant": "rightLight"
-          },
           "a383364d-17fe-4d25-a131-03260cd9485d": {
-            "variant": "leftDark"
+            "variant": "darkBackground",
+            "parameters": {
+              "textAlignment": {
+                "type": "select",
+                "value": "right"
+              }
+            }
           },
           "b3118e4a-0f48-419e-bc4e-1cf55a36790d": {
-            "variant": "leftDark"
+            "variant": "darkBackground",
+            "parameters": {
+              "textAlignment": {
+                "type": "select",
+                "value": "right"
+              }
+            }
           },
           "bd3148f2-1aa0-4fd0-bab4-f30612dee881": {
-            "variant": "rightLight"
+            "variant": "lightBackground"
           },
           "bdf5acd9-dad9-4207-8323-9d434c8cde4c": {
-            "variant": "leftDark"
+            "variant": "darkBackground",
+            "parameters": {
+              "textAlignment": {
+                "type": "select",
+                "value": "right"
+              }
+            }
           },
           "df006382-4fff-40c5-a413-7008c06e4bad": {
-            "variant": "leftDark"
+            "variant": "darkBackground",
+            "parameters": {
+              "textAlignment": {
+                "type": "select",
+                "value": "right"
+              }
+            }
+          },
+          "e9bf0ab3-d6e0-4ca4-8002-dfa7a0ab05a4": {
+            "variant": "imageBackground",
+            "parameters": {
+              "textAlignment": {
+                "type": "select",
+                "value": "center"
+              }
+            }
           },
           "f867b912-1560-457d-9e11-a7dc79334678": {
-            "variant": "rightLight"
+            "variant": "lightBackground"
           }
         }
       },
       "created": "2023-08-29T20:06:37.965621+00:00",
-      "modified": "2023-09-06T22:02:46.012878+00:00",
+      "modified": "2023-09-10T00:33:13.125728+00:00",
       "pattern": false
     },
     {
@@ -535,10 +660,19 @@
             "type": "text",
             "value": "Participating Locations"
           }
+        },
+        "slots": {
+          "header": [
+            {
+              "_id": "4fa14719-7568-4df4-a207-ec2c22aa01d8",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
         }
       },
-      "created": "2023-08-22T21:12:57.450917+00:00",
-      "modified": "2023-08-22T21:13:07.817827+00:00",
+      "created": "2023-08-29T20:06:38.951155+00:00",
+      "modified": "2023-09-11T02:37:06.689724+00:00",
       "pattern": false
     },
     {
@@ -546,7 +680,7 @@
         "_name": "Contentful Hero",
         "_id": "9eb8e241-54a0-48a5-a408-287ea4394f47",
         "type": "hero",
-        "variant": "leftDark",
+        "variant": "darkBackground",
         "parameters": {
           "image": {
             "type": "image",
@@ -567,6 +701,10 @@
           "secondarycta": {
             "type": "text",
             "value": "${#jptr:/Hero/fields/secondaryCta}"
+          },
+          "textAlignment": {
+            "type": "select",
+            "value": "left"
           }
         },
         "_dataResources": {
@@ -588,12 +726,13 @@
             "alignment": "yes",
             "background": "yes",
             "description": "no",
+            "textAlignment": "yes",
             "backgroundVariant": "yes"
           }
         }
       },
       "created": "2023-08-29T20:06:37.045329+00:00",
-      "modified": "2023-09-06T06:31:16.534984+00:00",
+      "modified": "2023-09-07T18:49:47.931288+00:00",
       "pattern": true
     },
     {
@@ -601,7 +740,7 @@
         "_name": "Featured Contentful Hero",
         "_id": "a703f357-57e8-4fe5-8d4d-47e29e12ba32",
         "type": "hero",
-        "variant": "backgroundImage",
+        "variant": "imageBackground",
         "parameters": {
           "image": {
             "type": "image",
@@ -618,6 +757,10 @@
           "description": {
             "type": "json",
             "value": "${#jptr:/Hero Content/fields/description}"
+          },
+          "textAlignment": {
+            "type": "select",
+            "value": "left"
           }
         },
         "_dataResources": {
@@ -628,19 +771,20 @@
               "entryIds": "5oo1gGhKm7eA1nhYbuOMkG"
             },
             "isPatternParameter": true,
-            "ignorePatternParameterDefault": true
+            "ignorePatternParameterDefault": false
           }
         },
         "_overridability": {
           "variants": true,
           "parameters": {
             "alignment": "no",
-            "background": "no"
+            "background": "no",
+            "textAlignment": "yes"
           }
         }
       },
       "created": "2023-08-29T20:06:36.884443+00:00",
-      "modified": "2023-09-06T06:32:04.392791+00:00",
+      "modified": "2023-09-07T18:50:31.9518+00:00",
       "pattern": true
     },
     {
@@ -648,7 +792,7 @@
         "_name": "Partner Contentful Hero",
         "_id": "abcd32be-5961-4103-9540-183229d50364",
         "type": "hero",
-        "variant": "backgroundImage",
+        "variant": "imageBackground",
         "parameters": {
           "logo": {
             "type": "image",
@@ -673,6 +817,10 @@
           "secondarycta": {
             "type": "text",
             "value": "${#jptr:/Hero Content/fields/secondaryCta}"
+          },
+          "textAlignment": {
+            "type": "select",
+            "value": "left"
           }
         },
         "_dataResources": {
@@ -687,11 +835,14 @@
           }
         },
         "_overridability": {
-          "variants": true
+          "variants": true,
+          "parameters": {
+            "textAlignment": "yes"
+          }
         }
       },
       "created": "2023-08-29T20:06:37.439265+00:00",
-      "modified": "2023-09-06T06:32:24.110068+00:00",
+      "modified": "2023-09-07T18:51:01.751763+00:00",
       "pattern": true
     },
     {
@@ -765,6 +916,177 @@
       "created": "2023-08-26T03:13:35.890987+00:00",
       "modified": "2023-08-26T03:13:35.890987+00:00",
       "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Main Header",
+        "_id": "f289a2bd-09f9-4e33-ae03-7a6136055ec6",
+        "type": "header",
+        "parameters": {
+          "logo": {
+            "type": "image",
+            "value": "https://res.cloudinary.com/seth-hall/image/upload/v1694326716/wordmark_aya6hb.svg"
+          }
+        },
+        "slots": {
+          "navigation": [
+            {
+              "_id": "26b44c02-4e56-4582-8496-0149052bde25",
+              "type": "navigationLink",
+              "variant": "header",
+              "parameters": {
+                "link": {
+                  "type": "link",
+                  "value": {
+                    "path": "/",
+                    "type": "projectMapNode",
+                    "nodeId": "1dc5da6f-a5c6-4655-9bff-71e768907f47",
+                    "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                  }
+                },
+                "title": {
+                  "type": "text",
+                  "value": "Home"
+                }
+              }
+            },
+            {
+              "_id": "3f4f2e6f-be88-4b1b-99dd-93f8f0d1550e",
+              "type": "navigationGroup",
+              "slots": {
+                "subNavItems": [
+                  {
+                    "_id": "6c50edcd-28a7-44cb-ba16-648e8b22241f",
+                    "type": "navigationLink",
+                    "variant": "header",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/classes/live-class-schedule",
+                          "type": "projectMapNode",
+                          "nodeId": "c84bee58-1d85-4bf0-b63b-824faadef4b5",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "Live Online"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Fitness from the comfort of your home"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "Classes"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "title": "yes"
+                }
+              }
+            },
+            {
+              "_id": "028d0ec0-b20a-4a48-9bf3-f9fb15e57100",
+              "type": "navigationLink",
+              "variant": "header",
+              "parameters": {
+                "link": {
+                  "type": "link",
+                  "value": {
+                    "path": "/participating-locations",
+                    "type": "projectMapNode",
+                    "nodeId": "648fc6eb-081e-4222-a8c5-79c57ca79e16",
+                    "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                  }
+                },
+                "title": {
+                  "type": "text",
+                  "value": "Participating Locations"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "link": "yes",
+                  "title": "yes",
+                  "description": "yes"
+                }
+              }
+            },
+            {
+              "_id": "2edf9bf3-9a45-46fe-8490-db579b463bde",
+              "type": "navigationGroup",
+              "slots": {
+                "subNavItems": [
+                  {
+                    "_id": "26d6f8fd-4950-400a-9a2f-e8f94b6cc459",
+                    "type": "navigationLink",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/more/articles",
+                          "type": "projectMapNode",
+                          "nodeId": "4c578632-e2aa-4745-afd2-2e2aef0073c3",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "Articles"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Daily workout tips, recipes, and more"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "More"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "title": "yes"
+                }
+              }
+            }
+          ]
+        },
+        "_overridability": {
+          "parameters": {
+            "logo": "yes"
+          }
+        }
+      },
+      "created": "2023-09-10T00:09:14.704627+00:00",
+      "modified": "2023-09-11T17:50:05.815878+00:00",
+      "pattern": true
     }
   ],
   "projectMaps": [
@@ -804,6 +1126,17 @@
       "order": 500,
       "path": "/classes",
       "pathSegment": "classes",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "4c578632-e2aa-4745-afd2-2e2aef0073c3",
+      "name": "Articles",
+      "type": "composition",
+      "data": {},
+      "order": 500,
+      "path": "/more/articles",
+      "compositionId": "12eb6931-cb84-461c-99ee-8f2047b23388",
+      "pathSegment": "articles",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {

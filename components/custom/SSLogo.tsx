@@ -4,12 +4,13 @@ import { Link } from "@nextui-org/link";
 import { getImageUrl } from "@/utils";
 
 // TODO: replace with Cloudinary
-import logoWordmark from "../public/logo_wordmark.svg";
-import logoPrimary from "../public/logo_primary.svg";
-import logoSymbol from "../public/logo_symbol.svg";
-import logoTivity from "../public/logo_tivity.svg";
+import logoWordmark from "../../public/logo_wordmark.svg";
+import logoPrimary from "../../public/logo_primary.svg";
+import logoSymbol from "../../public/logo_symbol.svg";
+import logoTivity from "../../public/logo_tivity.svg";
 
 type LogoProps = {
+  src?: string;
   isLink?: boolean;
   href?: string;
   className?: string;
@@ -41,6 +42,7 @@ const getLogo = (variantId?: string) => {
 };
 
 export const SSLogo: React.FC<LogoProps> = ({
+  src = "",
   isLink = false,
   href = "/",
   className = "py-6 pr-3",
@@ -53,7 +55,7 @@ export const SSLogo: React.FC<LogoProps> = ({
       {isLink ? (
         <Link className={className} href={href}>
           <Image
-            src={getLogo(variant)}
+            src={src ? src : getLogo(variant)}
             width={width}
             height={height}
             alt="Silver Sneakers Logo"

@@ -4,32 +4,18 @@ import {
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
-import Header from "../Header";
-// import MainNavigation from "../MainNavigation";
-
-import { getMainNavigationLinks } from "@/utils/getMainNavigationLinks";
-
-export async function Page(props: ComponentProps) {
-  const { component, context } = props || {};
-
-  const links = getMainNavigationLinks;
-  // console.log(links);
-
+export async function Page({ component, context }: ComponentProps) {
   return (
     <>
-      {/* <Header>
-        <MainNavigation />
-      </Header> */}
-      {/* <Header links={links}></Header> */}
-      <Header />
+      <header>
+        <UniformSlot name="header" data={component} context={context} />
+      </header>
       <main className="main">
         <UniformSlot name="banners" data={component} context={context} />
         <UniformSlot name="content" data={component} context={context} />
       </main>
-      {/* TODO: should the footer live in Uniform for business users to manage? */}
-      {/* https://docs.uniform.app/docs/get-started/starters/component-starter-kit#configure-global-template */}
-      <footer className="pb-5 text-center font-bold">
-        This is the footer!!!
+      <footer>
+        <UniformSlot name="footer" data={component} context={context} />
       </footer>
     </>
   );

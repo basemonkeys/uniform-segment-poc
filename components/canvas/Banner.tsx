@@ -1,11 +1,11 @@
-import classNames from "classnames";
-
 import {
   registerUniformComponent,
   ComponentProps,
 } from "@uniformdev/canvas-next-rsc";
 
 import { Link } from "@nextui-org/link";
+
+import classNames from "classnames";
 
 import Container from "../Container";
 import { DismissButton } from "../DismissButton";
@@ -64,7 +64,7 @@ export const getTextClass = (variantId?: string) => {
     case BannerVariant.Info:
       return "!text-info-dark";
     default:
-      return "text-black";
+      return "";
   }
 };
 
@@ -93,7 +93,6 @@ const Banner: React.FC<BannerProps> = ({
   dismissable,
 }) => {
   const { variant } = component;
-  console.log(callToActionLink);
 
   return (
     <div className={classNames("w-full", getBackgroundClass(variant))}>

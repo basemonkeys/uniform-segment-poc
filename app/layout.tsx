@@ -1,8 +1,5 @@
 import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
-
-import "./globals.css";
-
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
@@ -11,6 +8,8 @@ import { Providers } from "./providers";
 
 // Import all Uniform Canvas Components
 import "../components/canvas";
+
+import "./globals.css";
 
 export const metadata = {
   title: "Silver Sneakers",

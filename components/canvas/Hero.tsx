@@ -1,6 +1,3 @@
-import classNames from "classnames";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-
 import {
   registerUniformComponent,
   ComponentProps,
@@ -8,9 +5,13 @@ import {
 
 import Image from "next/image";
 
-import Container from "../Container";
-import { SSButton } from "../SSButton";
+import classNames from "classnames";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+
 import { Link } from "@nextui-org/link";
+
+import Container from "../Container";
+import { SSButton } from "../custom/SSButton";
 
 import { getImageUrl } from "@/utils";
 
@@ -208,7 +209,7 @@ const Hero: React.FC<HeroProps> = ({
                   <SSButton
                     href="https://google.com"
                     as={Link}
-                    showAnchorIcon
+                    // showAnchorIcon
                     color={
                       variant === HeroVariant.LightBackground
                         ? "primary"
@@ -222,7 +223,7 @@ const Hero: React.FC<HeroProps> = ({
                     href="https://github.com/nextui-org/nextui"
                     as={Link}
                     color="primary"
-                    showAnchorIcon
+                    // showAnchorIcon
                     variant="solid"
                   >
                     This is a SSButton as Link
@@ -231,7 +232,7 @@ const Hero: React.FC<HeroProps> = ({
                     <SSButton
                       href="/"
                       as={Link}
-                      showAnchorIcon
+                      // showAnchorIcon
                       color={
                         variant === HeroVariant.LightBackground
                           ? "secondaryWhite"

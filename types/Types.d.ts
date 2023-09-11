@@ -17,9 +17,11 @@ declare namespace Types {
     path: string;
   };
 
-  type CloudinaryImage = {
-    url: string;
-  }[];
+  // type NavigationLink = {
+  //   title: string;
+  //   link: string;
+  //   description?: string;
+  // };
 
   type ProjectMapLinks = Promise<
     {
@@ -29,4 +31,8 @@ declare namespace Types {
       isRoot: boolean;
     }[]
   >;
+
+  type CloudinaryImage = {
+    url: string;
+  }[];
 }
