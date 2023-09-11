@@ -39,5 +39,8 @@ stories/*
 # open-next
 .open-next/
 
+# Turbo
+.turbo
+
 # AWS
 artifacts
