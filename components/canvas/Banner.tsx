@@ -4,6 +4,7 @@ import {
 } from "@uniformdev/canvas-next-rsc";
 
 import { Link } from "@nextui-org/link";
+import NextLink from "next/link";
 
 import classNames from "classnames";
 
@@ -120,11 +121,13 @@ const Banner: React.FC<BannerProps> = ({
           </p>
           {callToAction && callToActionLink && (
             <Link
+              as={NextLink}
               href={callToActionLink.path}
               className={classNames(
                 "text-sm font-semibold text-primary underline md:text-base",
                 getTextClass(variant),
               )}
+              isDisabled
             >
               {callToAction}
             </Link>

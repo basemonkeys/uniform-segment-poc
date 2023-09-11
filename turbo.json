@@ -1,0 +1,16 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "lint": {},
+    "open-next:build": {
+      "outputs": [".open-next/**"]
+    },
+    "create-artifacts": {
+      "dependsOn": ["open-next:build"],
+      "outputs": ["artifacts/**"]
+    }
+  }
+}
