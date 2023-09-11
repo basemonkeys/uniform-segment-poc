@@ -284,7 +284,7 @@ module.exports = require("url");
 
 /***/ }),
 
-/***/ 64082:
+/***/ 96785:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -321,7 +321,7 @@ const tree = {
         '[[...slug]]',
         {
         children: ['__PAGE__', {}, {
-          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 77483)), "/Users/seth.hall/apps/uniform/app/[[...slug]]/page.tsx"],
+          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 77483)), "/Users/zachary.perdue/Development/ss-website/app/[[...slug]]/page.tsx"],
           
         }]
       },
@@ -338,7 +338,7 @@ const tree = {
       ]
       },
         {
-        'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 37476)), "/Users/seth.hall/apps/uniform/app/layout.tsx"],
+        'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 37476)), "/Users/zachary.perdue/Development/ss-website/app/layout.tsx"],
 'not-found': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 95493, 23)), "next/dist/client/components/not-found-error"],
         metadata: {
     icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 57481))).default(props))],
@@ -350,7 +350,7 @@ const tree = {
       }
       ]
       }.children;
-const pages = ["/Users/seth.hall/apps/uniform/app/[[...slug]]/page.tsx"];
+const pages = ["/Users/zachary.perdue/Development/ss-website/app/[[...slug]]/page.tsx"];
 
 // @ts-expect-error - replaced by webpack/turbopack loader
 
@@ -382,7 +382,7 @@ const routeModule = new AppPageRouteModule({
 
 /***/ }),
 
-/***/ 96776:
+/***/ 11373:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 22478));
@@ -395,19 +395,19 @@ Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_re
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 79991));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 13308));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 51831));
+Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 50954, 23));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 78566));
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 12209));
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 73380, 23));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 81019));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 4634));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 76898));
 Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 99268));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 13623));
-Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 50954, 23));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 78566));
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 12209))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 13623))
 
 /***/ }),
 
-/***/ 10502:
+/***/ 56159:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 31232, 23));
@@ -419,7 +419,7 @@ Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_
 
 /***/ }),
 
-/***/ 27557:
+/***/ 53066:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
 Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 3280, 23));
@@ -1178,7 +1178,7 @@ var fontawesome_svg_core = __webpack_require__(55906);
 var module_proxy = __webpack_require__(61363);
 ;// CONCATENATED MODULE: ./app/providers.tsx
 
-const proxy = (0,module_proxy.createProxy)(String.raw`/Users/seth.hall/apps/uniform/app/providers.tsx`)
+const proxy = (0,module_proxy.createProxy)(String.raw`/Users/zachary.perdue/Development/ss-website/app/providers.tsx`)
 
 // Accessing the __esModule property and exporting $$typeof are required here.
 // The __esModule getter forces the proxy target to create the default export
@@ -1195,7 +1195,7 @@ var UniformSlot = __webpack_require__(70970);
 var registerUniformComponent = __webpack_require__(15101);
 ;// CONCATENATED MODULE: ./components/Header.tsx
 
-const Header_proxy = (0,module_proxy.createProxy)(String.raw`/Users/seth.hall/apps/uniform/components/Header.tsx`)
+const Header_proxy = (0,module_proxy.createProxy)(String.raw`/Users/zachary.perdue/Development/ss-website/components/Header.tsx`)
 
 // Accessing the __esModule property and exporting $$typeof are required here.
 // The __esModule getter forces the proxy target to create the default export
@@ -1308,7 +1308,7 @@ const Container = ({ children, className })=>{
 
 ;// CONCATENATED MODULE: ./components/DismissButton.tsx
 
-const DismissButton_proxy = (0,module_proxy.createProxy)(String.raw`/Users/seth.hall/apps/uniform/components/DismissButton.tsx`)
+const DismissButton_proxy = (0,module_proxy.createProxy)(String.raw`/Users/zachary.perdue/Development/ss-website/components/DismissButton.tsx`)
 
 // Accessing the __esModule property and exporting $$typeof are required here.
 // The __esModule getter forces the proxy target to create the default export
@@ -1460,7 +1460,7 @@ var next_image = __webpack_require__(14178);
 var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
 ;// CONCATENATED MODULE: ./components/SSButton.tsx
 
-const SSButton_proxy = (0,module_proxy.createProxy)(String.raw`/Users/seth.hall/apps/uniform/components/SSButton.tsx`)
+const SSButton_proxy = (0,module_proxy.createProxy)(String.raw`/Users/zachary.perdue/Development/ss-website/components/SSButton.tsx`)
 
 // Accessing the __esModule property and exporting $$typeof are required here.
 // The __esModule getter forces the proxy target to create the default export
@@ -1783,7 +1783,7 @@ __webpack_require__.r(__webpack_exports__);
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [166,876,273], () => (__webpack_exec__(64082)));
+var __webpack_exports__ = __webpack_require__.X(0, [166,876,273], () => (__webpack_exec__(96785)));
 module.exports = __webpack_exports__;
 
 })();

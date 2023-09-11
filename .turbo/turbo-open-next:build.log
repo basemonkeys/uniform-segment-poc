@@ -13,12 +13,12 @@ OpenNext v2.1.2
 > @uniformdev/nextjs-app-router-starter@0.1.0 build
 > next build
 
-- info Loaded env from /Users/seth.hall/apps/uniform/.env
+- info Loaded env from /Users/zachary.perdue/Development/ss-website/.env
 - info Creating an optimized production build...
 - warn Compiled with warnings
 
 ./node_modules/node-fetch/lib/index.js
-Module not found: Can't resolve 'encoding' in '/Users/seth.hall/apps/uniform/node_modules/node-fetch/lib'
+Module not found: Can't resolve 'encoding' in '/Users/zachary.perdue/Development/ss-website/node_modules/node-fetch/lib'
 
 Import trace for requested module:
 ./node_modules/node-fetch/lib/index.js
@@ -42,14 +42,14 @@ Import trace for requested module:
 - info Finalizing page optimization...
 
 Route (app)                                Size     First Load JS
-┌ λ /[[...slug]]                           213 B          96.6 kB
+┌ λ /[[...slug]]                           214 B          96.6 kB
 ├ λ /api/uniform                           0 B                0 B
 └ ○ /favicon.ico                           0 B                0 B
 + First Load JS shared by all              96.4 kB
   ├ chunks/596-d023cd7edc38ea34.js         26.1 kB
   ├ chunks/725-aedf7203f68af15a.js         17.9 kB
   ├ chunks/fd9d1056-76aadce26f555392.js    50.5 kB
-  ├ chunks/main-app-97c64dca4554e74e.js    221 B
+  ├ chunks/main-app-c43a215e20942528.js    218 B
   └ chunks/webpack-f788852724c9c917.js     1.68 kB
 
 Route (pages)                              Size     First Load JS
@@ -75,8 +75,10 @@ Applying plugins:: [opennext,opennext,opennext] for Next version: ^13.4.19
 Bundling revalidation function...
 Bundling image optimization function...
 
-added 51 packages in 1s
+added 51 packages, and audited 52 packages in 836ms
 
 10 packages are looking for funding
   run `npm fund` for details
+
+found 0 vulnerabilities
 Bundling warmer function...

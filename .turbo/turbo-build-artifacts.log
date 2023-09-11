@@ -1,7 +1,87 @@
 
-> @uniformdev/nextjs-app-router-starter@0.1.0 create-artifacts
+> @uniformdev/nextjs-app-router-starter@0.1.0 build-artifacts
 > scripts/create-artifacts.sh
 
+Next.js v13.4.19
+OpenNext v2.1.2
+
+┌─────────────────────────────────┐
+│ OpenNext — Building Next.js app │
+└─────────────────────────────────┘
+
+
+> @uniformdev/nextjs-app-router-starter@0.1.0 build
+> next build
+
+- info Loaded env from /Users/zachary.perdue/Development/ss-website/.env
+- info Creating an optimized production build...
+- warn Compiled with warnings
+
+./node_modules/node-fetch/lib/index.js
+Module not found: Can't resolve 'encoding' in '/Users/zachary.perdue/Development/ss-website/node_modules/node-fetch/lib'
+
+Import trace for requested module:
+./node_modules/node-fetch/lib/index.js
+./node_modules/svix-fetch/fetch-npm-node.js
+./node_modules/svix/dist/openapi/http/isomorphic-fetch.js
+./node_modules/svix/dist/openapi/http/http.js
+./node_modules/svix/dist/openapi/index.js
+./node_modules/svix/dist/index.js
+./node_modules/@uniformdev/canvas-next-rsc/dist/handler/helpers.js
+./node_modules/@uniformdev/canvas-next-rsc/dist/handler/createPreviewPOSTRouteHandler.js
+./node_modules/@uniformdev/canvas-next-rsc/dist/handler.js
+./app/api/uniform/route.ts
+
+- info Linting and checking validity of types...
+- info Collecting page data...
+- info Generating static pages (0/4)
+- info Generating static pages (1/4)
+- info Generating static pages (2/4)
+- info Generating static pages (3/4)
+- info Generating static pages (4/4)
+- info Finalizing page optimization...
+
+Route (app)                                Size     First Load JS
+┌ λ /[[...slug]]                           216 B          96.6 kB
+├ λ /api/uniform                           0 B                0 B
+└ ○ /favicon.ico                           0 B                0 B
++ First Load JS shared by all              96.4 kB
+  ├ chunks/596-d023cd7edc38ea34.js         26.1 kB
+  ├ chunks/725-aedf7203f68af15a.js         17.9 kB
+  ├ chunks/fd9d1056-76aadce26f555392.js    50.5 kB
+  ├ chunks/main-app-c43a215e20942528.js    218 B
+  └ chunks/webpack-7c421bfe9172cbc7.js     1.68 kB
+
+Route (pages)                              Size     First Load JS
+─ ○ /404                                   182 B          76.5 kB
++ First Load JS shared by all              76.3 kB
+  ├ chunks/framework-8883d1e9be70c3da.js   45.1 kB
+  ├ chunks/main-4849ce12ba950150.js        29.4 kB
+  ├ chunks/pages/_app-52924524f99094ab.js  195 B
+  └ chunks/webpack-7c421bfe9172cbc7.js     1.68 kB
+
+λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
+○  (Static)  automatically rendered as static HTML (uses no initial props)
+
+
+┌──────────────────────────────┐
+│ OpenNext — Generating bundle │
+└──────────────────────────────┘
+
+Bundling static assets...
+Bundling cache assets...
+Bundling server function...
+Applying plugins:: [opennext,opennext,opennext] for Next version: ^13.4.19
+Bundling revalidation function...
+Bundling image optimization function...
+
+added 51 packages, and audited 52 packages in 3s
+
+10 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+Bundling warmer function...
 updating: node_modules/zod/package.json (deflated 65%)
 updating: node_modules/zod/lib/ZodError.js (deflated 72%)
 updating: node_modules/zod/lib/locales/en.js (deflated 81%)
@@ -1145,7 +1225,7 @@ updating: node_modules/source-map-js/lib/source-map-generator.js (deflated 74%)
 updating: .next/prerender-manifest.js (deflated 37%)
 updating: .next/react-loadable-manifest.json (stored 0%)
 updating: .next/required-server-files.json (deflated 71%)
-updating: .next/build-manifest.json (deflated 64%)
+updating: .next/build-manifest.json (deflated 63%)
 updating: .next/BUILD_ID (stored 0%)
 updating: .next/server/pages-manifest.json (deflated 46%)
 updating: .next/server/next-font-manifest.js (deflated 17%)
@@ -1174,13 +1254,13 @@ updating: .next/server/pages/_error.js (deflated 82%)
 updating: .next/server/pages/_app.js (deflated 57%)
 updating: .next/server/pages/404.html (deflated 55%)
 updating: .next/server/pages/_document.js (deflated 70%)
-updating: .next/server/middleware-build-manifest.js (deflated 58%)
+updating: .next/server/middleware-build-manifest.js (deflated 57%)
 updating: .next/server/server-reference-manifest.json (deflated 10%)
 updating: .next/server/next-font-manifest.json (deflated 20%)
 updating: .next/package.json (stored 0%)
-updating: .next/prerender-manifest.json (deflated 36%)
+updating: .next/prerender-manifest.json (deflated 37%)
 updating: .next/routes-manifest.json (deflated 48%)
-updating: .next/app-path-routes-manifest.json (deflated 41%)
+updating: .next/app-path-routes-manifest.json (deflated 42%)
 updating: .next/app-build-manifest.json (deflated 68%)
 updating: package.json (deflated 74%)
 updating: .env (deflated 14%)
@@ -1189,7 +1269,7 @@ updating: .open-next/public-files.json (deflated 49%)
 updating: cache.cjs (deflated 82%)
 updating: index.mjs (deflated 82%)
 updating: index.mjs (deflated 35%)
-updating: prerender-manifest.json (deflated 36%)
+updating: prerender-manifest.json (deflated 37%)
 updating: node_modules/simple-swizzle/LICENSE (deflated 41%)
 updating: node_modules/simple-swizzle/index.js (deflated 47%)
 updating: node_modules/simple-swizzle/README.md (deflated 57%)

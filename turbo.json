@@ -6,12 +6,9 @@
     },
     "lint": {},
     "open-next:build": {
-      "cache": true,
-      "dependsOn": ["build"],
       "outputs": [".open-next/**"]
     },
     "create-artifacts": {
-      "cache": true,
       "dependsOn": ["open-next:build"],
       "outputs": ["artifacts/**"]
     }
