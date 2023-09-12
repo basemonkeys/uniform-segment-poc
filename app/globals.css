@@ -30,6 +30,7 @@
   /* P2 is a smaller variant and should use a 'text-sm' class */
 }
 
+/* TODO: what are these? Delete? */
 @layer utilities {
   .label1 {
     @apply font-bold uppercase;

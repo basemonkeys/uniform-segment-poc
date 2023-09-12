@@ -67,8 +67,6 @@
           "typeConfig": null
         }
       ],
-      "description": "",
-      "previewImageUrl": "",
       "useTeamPermissions": true,
       "slots": [],
       "titleParameter": "message",
@@ -106,15 +104,15 @@
         {
           "id": "logo",
           "name": "Logo",
-          "type": "image",
+          "type": "cloudinary-image",
           "helpText": "",
           "typeConfig": {
+            "ratio": "16:9",
+            "widths": "250",
             "required": true
           }
         }
       ],
-      "description": "",
-      "previewImageUrl": "",
       "useTeamPermissions": true,
       "slots": [
         {
@@ -131,7 +129,7 @@
       ],
       "canBeComposition": false,
       "created": "2023-09-09T01:13:57.862212+00:00",
-      "updated": "2023-09-11T15:04:10.49943+00:00"
+      "updated": "2023-09-12T18:00:04.138822+00:00"
     },
     {
       "id": "hero",
@@ -214,8 +212,6 @@
           "typeConfig": null
         }
       ],
-      "description": "",
-      "previewImageUrl": "",
       "useTeamPermissions": true,
       "slots": [],
       "titleParameter": "heading",
@@ -256,8 +252,6 @@
           }
         }
       ],
-      "description": "",
-      "previewImageUrl": "",
       "useTeamPermissions": true,
       "slots": [
         {
@@ -311,8 +305,6 @@
           "typeConfig": null
         }
       ],
-      "description": "",
-      "previewImageUrl": "",
       "useTeamPermissions": true,
       "slots": [],
       "titleParameter": "title",
@@ -356,8 +348,6 @@
           }
         }
       ],
-      "description": "",
-      "previewImageUrl": "",
       "useTeamPermissions": true,
       "slots": [
         {
@@ -430,6 +420,30 @@
       },
       "created": "2023-09-11T04:42:51.887782+00:00",
       "modified": "2023-09-11T04:43:16.364277+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "FAQs",
+        "_id": "2447135f-3b22-4939-af98-cccaf022a750",
+        "_slug": "faqs",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-09-11T22:05:51.409048+00:00",
+      "modified": "2023-09-11T22:05:51.409048+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "How It Works",
+        "_id": "260090ff-194e-40da-a39d-ce0dcd60a173",
+        "_slug": "how-it-works",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-09-11T22:05:39.331293+00:00",
+      "modified": "2023-09-11T22:05:39.331293+00:00",
       "pattern": false
     },
     {
@@ -583,6 +597,14 @@
           "2f4be6a4-b781-4672-87bb-3d64abd6fc09": {
             "variant": "lightBackground"
           },
+          "3fa2adc4-cb58-4b6c-8c83-e29d99f52e21": {
+            "parameters": {
+              "logo": {
+                "type": "image",
+                "value": "https://res.cloudinary.com/seth-hall/image/upload/v1694326716/wordmark_aya6hb.svg"
+              }
+            }
+          },
           "900ff3a5-3ca8-42df-9a3c-7dd8f35a7272": {
             "variant": "lightBackground",
             "parameters": {
@@ -622,6 +644,20 @@
               }
             }
           },
+          "d54834d4-f825-4d8b-8397-44eae41d4e8f": {
+            "parameters": {
+              "$tstVrnt": {
+                "type": "$tstVrnt",
+                "value": {
+                  "testDistribution": 1
+                }
+              },
+              "dismissable": {
+                "type": "checkbox",
+                "value": null
+              }
+            }
+          },
           "df006382-4fff-40c5-a413-7008c06e4bad": {
             "variant": "darkBackground",
             "parameters": {
@@ -646,7 +682,31 @@
         }
       },
       "created": "2023-08-29T20:06:37.965621+00:00",
-      "modified": "2023-09-10T00:33:13.125728+00:00",
+      "modified": "2023-09-12T17:41:29.685281+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Community Schedule",
+        "_id": "4018282a-96b1-4204-b814-f05848f7d45b",
+        "_slug": "community-schedule",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-09-11T21:58:09.408975+00:00",
+      "modified": "2023-09-11T21:58:09.408975+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "On-Demand",
+        "_id": "8d94b2f4-e15e-443c-ae17-91bee8513c7b",
+        "_slug": "on-demand",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-09-11T22:03:52.223064+00:00",
+      "modified": "2023-09-11T22:03:52.223064+00:00",
       "pattern": false
     },
     {
@@ -673,6 +733,18 @@
       },
       "created": "2023-08-29T20:06:38.951155+00:00",
       "modified": "2023-09-11T02:37:06.689724+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Health Plan Partners",
+        "_id": "93986af7-3568-4ee3-8076-11828f0499e5",
+        "_slug": "health-plan-partners",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-09-11T22:05:13.94218+00:00",
+      "modified": "2023-09-11T22:05:13.94218+00:00",
       "pattern": false
     },
     {
@@ -734,6 +806,18 @@
       "created": "2023-08-29T20:06:37.045329+00:00",
       "modified": "2023-09-07T18:49:47.931288+00:00",
       "pattern": true
+    },
+    {
+      "composition": {
+        "_name": "Silver Sneakers Go",
+        "_id": "a1f25b0e-ffa5-43bc-b188-1c165162d567",
+        "_slug": "silver-sneakers-go",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-09-11T22:04:09.156085+00:00",
+      "modified": "2023-09-11T22:04:09.156085+00:00",
+      "pattern": false
     },
     {
       "composition": {
@@ -919,13 +1003,37 @@
     },
     {
       "composition": {
+        "_name": "Burnalong",
+        "_id": "cd8648a3-f8c4-4c5b-bd61-4304cc6888ec",
+        "_slug": "burnalong",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-09-11T22:04:23.302534+00:00",
+      "modified": "2023-09-11T22:04:23.302534+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Classes Overview",
+        "_id": "e8f30156-1da5-44b6-84b2-022c85f9a822",
+        "_slug": "classes-overview",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-09-11T22:04:40.889564+00:00",
+      "modified": "2023-09-11T22:04:40.889564+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
         "_name": "Main Header",
         "_id": "f289a2bd-09f9-4e33-ae03-7a6136055ec6",
         "type": "header",
         "parameters": {
           "logo": {
-            "type": "image",
-            "value": "https://res.cloudinary.com/seth-hall/image/upload/v1694326716/wordmark_aya6hb.svg"
+            "type": "cloudinary-image",
+            "value": []
           }
         },
         "slots": {
@@ -976,6 +1084,156 @@
                       "description": {
                         "type": "text",
                         "value": "Fitness from the comfort of your home"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "ccc53b3f-e8f1-4914-9a87-c3208fbc8da0",
+                    "type": "navigationLink",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/classes/community-schedule",
+                          "type": "projectMapNode",
+                          "nodeId": "31e96268-f21f-4d6e-a89b-4bb33ffd16aa",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "Community Schedule"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Online and in-person classes in your area"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "8dfc6c84-8bda-4b42-8f37-29bd5a2d18c6",
+                    "type": "navigationLink",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/classes/on-demand",
+                          "type": "projectMapNode",
+                          "nodeId": "c45dc5c5-de97-4264-ba75-c2b27f62fe4b",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "On Demand"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Workout wherever you are"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "aa32d1c5-b57a-4713-a1db-c8369099146c",
+                    "type": "navigationLink",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/classes/silver-sneakers-go",
+                          "type": "projectMapNode",
+                          "nodeId": "3ea0e682-09a4-404f-9a83-d3760ab2ebec",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "Silver Sneakers Go"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Download the app today"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "52533cbe-5c67-44fa-8446-67eef1889884",
+                    "type": "navigationLink",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/classes/burnalong",
+                          "type": "projectMapNode",
+                          "nodeId": "d1d9a22d-cbad-40c0-89ca-2fc1d2452e7c",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "Burnalong"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Thousands of online fitness classes at your fingertips"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "e7278276-c4d3-4fe7-ac82-7509b15e203c",
+                    "type": "navigationLink",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/classes/classes-overview",
+                          "type": "projectMapNode",
+                          "nodeId": "065c50b4-174d-473e-911e-902642e07a8a",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "Classes Overview"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Learn more about the classes we offer"
                       }
                     },
                     "_overridability": {
@@ -1061,6 +1319,82 @@
                         "description": "yes"
                       }
                     }
+                  },
+                  {
+                    "_id": "8989d1d7-093e-4cdc-9a22-74c0565041b9",
+                    "type": "navigationLink",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/more/health-plan-partners",
+                          "type": "projectMapNode",
+                          "nodeId": "cf55f80b-425e-4bee-839d-2e64d87485bf",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "Health Plan Partners"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Find a participating plan with SilverSneakers"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "d2e2cdc4-39b4-43ba-bb00-8709ae5129cb",
+                    "type": "navigationLink",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/more/how-it-works",
+                          "type": "projectMapNode",
+                          "nodeId": "6a9d97e5-0f1c-48d4-ac56-166999a25880",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "How It Works"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "A quick breakdown of our membership"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "6a6f19bb-d4c1-45da-9c76-31e838d919c8",
+                    "type": "navigationLink",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/more/faqs",
+                          "type": "projectMapNode",
+                          "nodeId": "7134711f-cb8b-432d-9651-b10f837eddef",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "FAQs"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Answers to your frequently asked questions"
+                      }
+                    }
                   }
                 ]
               },
@@ -1085,8 +1419,20 @@
         }
       },
       "created": "2023-09-10T00:09:14.704627+00:00",
-      "modified": "2023-09-11T17:50:05.815878+00:00",
+      "modified": "2023-09-12T17:54:22.724654+00:00",
       "pattern": true
+    },
+    {
+      "composition": {
+        "_name": "Local Community",
+        "_id": "f3ad5980-34a1-4622-a78a-08b2fea4dd23",
+        "_slug": "local-community",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-09-11T21:56:26.215935+00:00",
+      "modified": "2023-09-11T21:56:26.215935+00:00",
+      "pattern": false
     }
   ],
   "projectMaps": [
@@ -1097,6 +1443,17 @@
     }
   ],
   "projectMapNodes": [
+    {
+      "id": "065c50b4-174d-473e-911e-902642e07a8a",
+      "name": "Classes Overview",
+      "type": "composition",
+      "data": {},
+      "order": 1000,
+      "path": "/classes/classes-overview",
+      "compositionId": "e8f30156-1da5-44b6-84b2-022c85f9a822",
+      "pathSegment": "classes-overview",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
     {
       "id": "078b012b-7cf3-4af5-8619-90af993687df",
       "name": "More",
@@ -1116,6 +1473,28 @@
       "path": "/",
       "compositionId": "26667348-5cd1-4185-b5a0-8413e1e87117",
       "pathSegment": "",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "31e96268-f21f-4d6e-a89b-4bb33ffd16aa",
+      "name": "Community Schedule",
+      "type": "composition",
+      "data": {},
+      "order": 600,
+      "path": "/classes/community-schedule",
+      "compositionId": "4018282a-96b1-4204-b814-f05848f7d45b",
+      "pathSegment": "community-schedule",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "3ea0e682-09a4-404f-9a83-d3760ab2ebec",
+      "name": "Silver Sneakers Go",
+      "type": "composition",
+      "data": {},
+      "order": 800,
+      "path": "/classes/silver-sneakers-go",
+      "compositionId": "a1f25b0e-ffa5-43bc-b188-1c165162d567",
+      "pathSegment": "silver-sneakers-go",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
@@ -1151,6 +1530,39 @@
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
+      "id": "6a9d97e5-0f1c-48d4-ac56-166999a25880",
+      "name": "How It Works",
+      "type": "composition",
+      "data": {},
+      "order": 700,
+      "path": "/more/how-it-works",
+      "compositionId": "260090ff-194e-40da-a39d-ce0dcd60a173",
+      "pathSegment": "how-it-works",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "7134711f-cb8b-432d-9651-b10f837eddef",
+      "name": "FAQs",
+      "type": "composition",
+      "data": {},
+      "order": 800,
+      "path": "/more/faqs",
+      "compositionId": "2447135f-3b22-4939-af98-cccaf022a750",
+      "pathSegment": "faqs",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "c45dc5c5-de97-4264-ba75-c2b27f62fe4b",
+      "name": "On-Demand",
+      "type": "composition",
+      "data": {},
+      "order": 700,
+      "path": "/classes/on-demand",
+      "compositionId": "8d94b2f4-e15e-443c-ae17-91bee8513c7b",
+      "pathSegment": "on-demand",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
       "id": "c84bee58-1d85-4bf0-b63b-824faadef4b5",
       "name": "LIVE Class Schedule",
       "type": "composition",
@@ -1159,6 +1571,28 @@
       "path": "/classes/live-class-schedule",
       "compositionId": "c194bc87-2d60-43e1-b43a-668deb2daa2c",
       "pathSegment": "live-class-schedule",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "cf55f80b-425e-4bee-839d-2e64d87485bf",
+      "name": "Health Plan Partners",
+      "type": "composition",
+      "data": {},
+      "order": 600,
+      "path": "/more/health-plan-partners",
+      "compositionId": "93986af7-3568-4ee3-8076-11828f0499e5",
+      "pathSegment": "health-plan-partners",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "d1d9a22d-cbad-40c0-89ca-2fc1d2452e7c",
+      "name": "Burnalong",
+      "type": "composition",
+      "data": {},
+      "order": 900,
+      "path": "/classes/burnalong",
+      "compositionId": "cd8648a3-f8c4-4c5b-bd61-4304cc6888ec",
+      "pathSegment": "burnalong",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     }
   ]

@@ -34,30 +34,28 @@ export const HeaderLink: React.FC<LinkProps> = ({ title, link }) => {
   );
 };
 
-export const FooterLink: React.FC<LinkProps> = ({ title, link }) => (
-  <Link
-    href={link?.path || "#"}
-    className="link text-secondary-content link-hover font-bold"
-  >
-    {title}
-  </Link>
-);
+export const FooterLink: React.FC<LinkProps> = ({ title, link }) => {
+  return (
+    <Link
+      href={link?.path || "#"}
+      className="link text-secondary-content link-hover font-bold"
+    >
+      {title}
+    </Link>
+  );
+};
 
-export const NavigationGroup = (props: LinkProps) => {
+export const NavigationGroup: React.FC<LinkProps> = (props: LinkProps) => {
   const { component, context } = props;
-  // console.log(props, "NavigationGroup Props");
+  console.log(props, "NavigationGroup Props");
 
   return (
     <>
       {/* <UniformSlot name"subNavItems"> would normally go here but the dropdown needs to be an imported component because is requires 'use client'  */}
-      <SSNavigationGroup {...props}>
+      {/* <SSNavigationGroup {...props}>
         <UniformSlot name="subNavItems" data={component} context={context} />
-      </SSNavigationGroup>
+      </SSNavigationGroup> */}
+      <SSNavigationGroup {...props} />
     </>
   );
 };
-
-registerUniformComponent({
-  type: "navigationLink",
-  component: NavigationGroup,
-});
