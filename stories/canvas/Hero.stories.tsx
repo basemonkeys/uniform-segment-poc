@@ -73,6 +73,9 @@ type Story = StoryObj<typeof meta>;
  * The default Hero can have a dark or light background and a left or right text alignment.
  */
 export const Default: Story = {
+  parameters: {
+    backgrounds: { disable: true },
+  },
   argTypes: {
     textAlignment: {
       control: { type: "select" },

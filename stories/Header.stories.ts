@@ -8,19 +8,19 @@ const meta: Meta<typeof Header> = {
   parameters: {
     layout: "fullscreen",
   },
-  args: {
-    user: {
-      name: "User Name",
-    },
-  },
-  argTypes: {
-    user: {
-      description: "User object",
-      control: {
-        type: "object",
-      },
-    },
-  },
+  // args: {
+  //   user: {
+  //     name: "User Name",
+  //   },
+  // },
+  // argTypes: {
+  //   user: {
+  //     description: "User object",
+  //     control: {
+  //       type: "object",
+  //     },
+  //   },
+  // },
 };
 
 export default meta;
