@@ -2,13 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,700&display=swap");
-
 @layer base {
   /* Headings */
-  body {
-    @apply !font-sans;
-  }
   h1 {
     @apply text-5xl font-bold leading-tight;
   }
@@ -30,17 +25,8 @@
   /* P2 is a smaller variant and should use a 'text-sm' class */
 }
 
-/* TODO: what are these? Delete? */
-@layer utilities {
-  .label1 {
-    @apply font-bold uppercase;
-  }
-
-  .label2 {
-    @apply capitalize italic text-gray-400;
-  }
-
-  .label3 {
-    @apply text-sm font-bold uppercase;
+@layer components {
+  .link {
+    @apply !text-blue-600;
   }
 }

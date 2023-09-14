@@ -124,10 +124,10 @@ const Banner: React.FC<BannerProps> = ({
               as={NextLink}
               href={callToActionLink.path}
               className={classNames(
-                "text-sm font-semibold text-primary underline md:text-base",
+                "text-sm font-semibold text-link md:text-base",
                 getTextClass(variant),
               )}
-              isDisabled
+              underline="always"
             >
               {callToAction}
             </Link>

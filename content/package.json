@@ -416,10 +416,19 @@
             "type": "text",
             "value": "This is the Articles page"
           }
+        },
+        "slots": {
+          "header": [
+            {
+              "_id": "06637ccc-0bc1-4cbc-bb34-116d9874dc46",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
         }
       },
       "created": "2023-09-11T04:42:51.887782+00:00",
-      "modified": "2023-09-11T04:43:16.364277+00:00",
+      "modified": "2023-09-14T05:00:43.632193+00:00",
       "pattern": false
     },
     {
@@ -600,8 +609,26 @@
           "3fa2adc4-cb58-4b6c-8c83-e29d99f52e21": {
             "parameters": {
               "logo": {
-                "type": "image",
-                "value": "https://res.cloudinary.com/seth-hall/image/upload/v1694326716/wordmark_aya6hb.svg"
+                "type": "cloudinary-image",
+                "value": [
+                  {
+                    "alt": "",
+                    "url": "https://res.cloudinary.com/seth-hall/image/upload/v1694326716/wordmark_aya6hb.svg",
+                    "uuid": "f120d65c-e76d-4a71-acaa-80328e57a30a",
+                    "ratio": "16:9",
+                    "width": "525",
+                    "format": "svg",
+                    "height": "57",
+                    "widths": "250",
+                    "caption": "",
+                    "version": 1694326716,
+                    "publicId": "wordmark_aya6hb",
+                    "createdAt": "2023-09-10T06:18:36Z",
+                    "previewUrl": "https://res.cloudinary.com/seth-hall/image/upload/q_auto,f_auto,w_150/wordmark_aya6hb.svg",
+                    "resourceType": "image",
+                    "transformation": ""
+                  }
+                ]
               }
             }
           },
@@ -682,7 +709,7 @@
         }
       },
       "created": "2023-08-29T20:06:37.965621+00:00",
-      "modified": "2023-09-12T17:41:29.685281+00:00",
+      "modified": "2023-09-12T18:06:04.852189+00:00",
       "pattern": false
     },
     {
@@ -728,11 +755,31 @@
               "type": "header",
               "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
             }
+          ],
+          "banners": [
+            {
+              "_id": "04da8b54-6056-4486-938a-c6aa04fcb9dd",
+              "type": "banner",
+              "variant": "info",
+              "parameters": {
+                "message": {
+                  "type": "text",
+                  "value": "This is a banner!"
+                }
+              }
+            }
+          ],
+          "content": [
+            {
+              "_id": "845f8fba-6846-4fd8-b2f1-e18c845529b5",
+              "type": "hero",
+              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47"
+            }
           ]
         }
       },
       "created": "2023-08-29T20:06:38.951155+00:00",
-      "modified": "2023-09-11T02:37:06.689724+00:00",
+      "modified": "2023-09-12T22:22:58.95063+00:00",
       "pattern": false
     },
     {
@@ -931,18 +978,6 @@
     },
     {
       "composition": {
-        "_name": "LIVE Online",
-        "_id": "b5236f4f-01f9-43f6-b081-f7063b0f3066",
-        "_slug": "live-online",
-        "type": "page",
-        "parameters": {}
-      },
-      "created": "2023-08-29T20:06:37.166451+00:00",
-      "modified": "2023-08-29T20:06:37.166451+00:00",
-      "pattern": false
-    },
-    {
-      "composition": {
         "_name": "Contentful Banner",
         "_id": "c17a6892-fb26-49f3-8880-19cd217f150f",
         "type": "banner",
@@ -995,10 +1030,18 @@
         "_id": "c194bc87-2d60-43e1-b43a-668deb2daa2c",
         "_slug": "live-class-schedule",
         "type": "page",
-        "parameters": {}
+        "slots": {
+          "header": [
+            {
+              "_id": "d087aac1-e880-4373-b061-50d023900c5d",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
+        }
       },
       "created": "2023-08-29T20:06:39.528811+00:00",
-      "modified": "2023-08-29T20:06:39.528811+00:00",
+      "modified": "2023-09-14T05:01:46.395875+00:00",
       "pattern": false
     },
     {
@@ -1033,7 +1076,25 @@
         "parameters": {
           "logo": {
             "type": "cloudinary-image",
-            "value": []
+            "value": [
+              {
+                "alt": "",
+                "url": "https://res.cloudinary.com/seth-hall/image/upload/v1694326716/wordmark_aya6hb.svg",
+                "uuid": "195cc80f-e87c-4a56-8beb-33ced40bb79d",
+                "ratio": "16:9",
+                "width": "525",
+                "format": "svg",
+                "height": "57",
+                "widths": "250",
+                "caption": "",
+                "version": 1694326716,
+                "publicId": "wordmark_aya6hb",
+                "createdAt": "2023-09-10T06:18:36Z",
+                "previewUrl": "https://res.cloudinary.com/seth-hall/image/upload/q_auto,f_auto,w_150/wordmark_aya6hb.svg",
+                "resourceType": "image",
+                "transformation": ""
+              }
+            ]
           }
         },
         "slots": {
@@ -1097,6 +1158,7 @@
                   {
                     "_id": "ccc53b3f-e8f1-4914-9a87-c3208fbc8da0",
                     "type": "navigationLink",
+                    "variant": "header",
                     "parameters": {
                       "link": {
                         "type": "link",
@@ -1127,6 +1189,7 @@
                   {
                     "_id": "8dfc6c84-8bda-4b42-8f37-29bd5a2d18c6",
                     "type": "navigationLink",
+                    "variant": "header",
                     "parameters": {
                       "link": {
                         "type": "link",
@@ -1157,6 +1220,7 @@
                   {
                     "_id": "aa32d1c5-b57a-4713-a1db-c8369099146c",
                     "type": "navigationLink",
+                    "variant": "header",
                     "parameters": {
                       "link": {
                         "type": "link",
@@ -1187,6 +1251,7 @@
                   {
                     "_id": "52533cbe-5c67-44fa-8446-67eef1889884",
                     "type": "navigationLink",
+                    "variant": "header",
                     "parameters": {
                       "link": {
                         "type": "link",
@@ -1217,6 +1282,7 @@
                   {
                     "_id": "e7278276-c4d3-4fe7-ac82-7509b15e203c",
                     "type": "navigationLink",
+                    "variant": "header",
                     "parameters": {
                       "link": {
                         "type": "link",
@@ -1293,6 +1359,7 @@
                   {
                     "_id": "26d6f8fd-4950-400a-9a2f-e8f94b6cc459",
                     "type": "navigationLink",
+                    "variant": "header",
                     "parameters": {
                       "link": {
                         "type": "link",
@@ -1323,6 +1390,7 @@
                   {
                     "_id": "8989d1d7-093e-4cdc-9a22-74c0565041b9",
                     "type": "navigationLink",
+                    "variant": "header",
                     "parameters": {
                       "link": {
                         "type": "link",
@@ -1353,6 +1421,7 @@
                   {
                     "_id": "d2e2cdc4-39b4-43ba-bb00-8709ae5129cb",
                     "type": "navigationLink",
+                    "variant": "header",
                     "parameters": {
                       "link": {
                         "type": "link",
@@ -1376,6 +1445,7 @@
                   {
                     "_id": "6a6f19bb-d4c1-45da-9c76-31e838d919c8",
                     "type": "navigationLink",
+                    "variant": "header",
                     "parameters": {
                       "link": {
                         "type": "link",
@@ -1419,7 +1489,7 @@
         }
       },
       "created": "2023-09-10T00:09:14.704627+00:00",
-      "modified": "2023-09-12T17:54:22.724654+00:00",
+      "modified": "2023-09-12T18:20:41.089056+00:00",
       "pattern": true
     },
     {

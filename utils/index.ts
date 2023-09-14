@@ -1,1 +1,1 @@
-export { getImageUrl } from './getImage'
+export { getImageUrl } from "./getImage";

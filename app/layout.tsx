@@ -1,14 +1,23 @@
-import { Inter } from "next/font/google";
-const inter = Inter({ subsets: ["latin"] });
+// Google Font via next/font
+import { Open_Sans } from "next/font/google";
+
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  variable: "--font-open-sans",
+});
+
+// Font Awesome
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
+// Providers
 import { Providers } from "./providers";
 
-// Import all Uniform Canvas Components
+// Uniform Canvas Components index
 import "../components/canvas";
 
+// Global CSS
 import "./globals.css";
 
 export const metadata = {
@@ -24,7 +33,7 @@ type Props = {
 export default async function RootLayout({ children }: Props) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={openSans.className}>
         <Providers>{children}</Providers>
       </body>
     </html>

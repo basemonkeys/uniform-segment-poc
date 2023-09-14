@@ -10,7 +10,7 @@ import logoSymbol from "../../public/logo_symbol.svg";
 import logoTivity from "../../public/logo_tivity.svg";
 
 type LogoProps = {
-  src?: string;
+  src?: string | Types.CloudinaryImage;
   isLink?: boolean;
   href?: string;
   className?: string;
@@ -58,6 +58,7 @@ export const SSLogo: React.FC<LogoProps> = ({
             src={src ? src : getLogo(variant)}
             width={width}
             height={height}
+            quality={100}
             alt="Silver Sneakers Logo"
           />
         </Link>
@@ -67,6 +68,7 @@ export const SSLogo: React.FC<LogoProps> = ({
             src={getImageUrl(getLogo(variant))}
             width={width}
             height={height}
+            quality={100}
             alt="Silver Sneakers Logo"
           />
         </div>

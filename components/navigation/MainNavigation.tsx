@@ -9,13 +9,17 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
+  NavbarMenu,
   NavbarMenuToggle,
+} from "@nextui-org/navbar";
+import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
   DropdownSection,
-} from "@nextui-org/react";
+} from "@nextui-org/dropdown";
+import { Accordion, AccordionItem } from "@nextui-org/accordion";
 
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 
@@ -23,21 +27,24 @@ import { SSLogo } from "../custom/SSLogo";
 import { SSButton } from "../custom/SSButton";
 // import CustomButton from "./SSButton";
 
-import { getImageUrl } from "@/utils";
-
 // TODO: get from API
 type User = {
   name: string;
 };
 
 type MainNavigationProps = ComponentProps & {
-  logo: string | Types.CloudinaryImage;
   children: React.ReactNode;
+  logo: string | Types.CloudinaryImage;
 };
 
-const MainNavigation: React.FC<MainNavigationProps> = ({ logo, children }) => {
+const MainNavigation: React.FC<MainNavigationProps> = ({
+  children,
+  logo,
+}: MainNavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState<User>();
+
+  // const navItemsWrapper
 
   return (
     <Navbar
@@ -53,17 +60,22 @@ const MainNavigation: React.FC<MainNavigationProps> = ({ logo, children }) => {
       >
         {/* Logo */}
         <NavbarBrand>
-          <SSLogo src={getImageUrl(logo)} isLink href="/" />
+          <SSLogo src={logo} isLink href="/" />
         </NavbarBrand>
 
         {/* Main Navigation */}
         <div className="hidden lg:flex">
           <div className="flex items-center justify-between">
-            {/* this child element renders the NavigationGroup and Header and Footer NavigationLink components in NavLink.tsx ... either a solo Header or Footer link ... or a group of subNavItems.  */}
+            {/* this child element renders the NavigationGroup and Header and Footer NavigationLink components in NavLink.tsx ... either a solo Header or Footer link ... or a group of subNavItems. This displays the main navigation in the header */}
             {children}
           </div>
         </div>
       </NavbarContent>
+
+      {/* this is the dropdown mobile menu */}
+      <NavbarMenu className="">
+        <NavbarItem key={"1"}>{children}</NavbarItem>
+      </NavbarMenu>
 
       {/* Responsive Menu Toggle */}
       <NavbarContent className="gap-1 lg:hidden" justify="start">
