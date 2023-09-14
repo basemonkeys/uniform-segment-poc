@@ -1,5 +1,4 @@
 const { nextui } = require("@nextui-org/react");
-const { error } = require("console");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
@@ -49,10 +48,10 @@ module.exports = {
         },
         // TODO: this is a hack to work around NextUI's requirement of 'danger' color on some components. See 'danger' on 'Log Off' in the header.
         danger: {
-          DEFAULT: error.DEFAULT,
-          light: error.light,
-          dark: error.dark,
-          hover: error.hover,
+          DEFAULT: "#F87171",
+          light: "#FEF2F2",
+          dark: "#B91C1C",
+          hover: "#FECACA",
         },
         warning: {
           DEFAULT: "#FBBF24",
