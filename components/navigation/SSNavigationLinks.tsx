@@ -29,6 +29,7 @@ export type LinkProps = Omit<ComponentProps, "context"> & {
   description?: string;
 };
 
+// This component displays the non-dropdown menu items in the Header navigation and the non-accordion menu items in the mobile navigation.
 export const SSHeaderLink: React.FC<Omit<LinkProps, "component">> = ({
   link,
   title,
@@ -63,17 +64,23 @@ export const SSHeaderLink: React.FC<Omit<LinkProps, "component">> = ({
   );
 };
 
+// This component displays the menu items in the Footer.
 export const SSFooterLink: React.FC<Omit<LinkProps, "component">> = ({
   link,
   title,
 }) => {
   return (
-    <Link href={link?.path || "#"} className="text-secondary-content font-bold">
+    <Link
+      key={link?.path}
+      href={link?.path || "#"}
+      className="text-secondary-content font-bold"
+    >
       {title}
     </Link>
   );
 };
 
+// This component displays the accordion group in the mobile navigation.
 export const SSMobileNavigationGroup: React.FC<LinkProps> = ({
   component,
   title,
@@ -96,6 +103,7 @@ export const SSMobileNavigationGroup: React.FC<LinkProps> = ({
       {/* this is the accordion in the mobile navigation */}
       {!isLgScreen && (
         <Accordion
+          key={title}
           className="border-b-1 border-b-blue-200"
           itemClasses={{
             base: "",
@@ -114,17 +122,20 @@ export const SSMobileNavigationGroup: React.FC<LinkProps> = ({
             {subNavItems?.map((item: any, index: any) => {
               const { subNavItemTitle, subNavItemLink, subNavItemDescription } =
                 item;
-              console.log(
-                subNavItemTitle,
-                subNavItemLink,
-                subNavItemDescription,
-              );
               return (
-                <SSAccordionLink
-                  title={subNavItemTitle}
-                  link={subNavItemLink}
-                  description={subNavItemDescription}
-                />
+                <NavbarItem key={index} className="flex flex-col">
+                  <Link
+                    as={NextLink}
+                    href={subNavItemLink.path}
+                    className="px-3 pt-5 text-link"
+                    color="foreground"
+                  >
+                    {subNavItemTitle}
+                  </Link>
+                  <span className="px-3 text-xs text-gray-500">
+                    {subNavItemDescription}
+                  </span>
+                </NavbarItem>
               );
             })}
           </AccordionItem>
@@ -134,6 +145,7 @@ export const SSMobileNavigationGroup: React.FC<LinkProps> = ({
   );
 };
 
+// This component displays the dropdown group in the Header navigation.
 export const SSHeaderNavigationGroup: React.FC<LinkProps> = ({
   component,
   title,
@@ -159,7 +171,7 @@ export const SSHeaderNavigationGroup: React.FC<LinkProps> = ({
     <>
       {/* this is the dropdown in the non-mobile header navigation */}
       {isLgScreen && (
-        <Dropdown>
+        <Dropdown key={title}>
           <NavbarItem
             key={title}
             className={classNames(isActive ? "border-b-3 border-link" : "")}
@@ -202,25 +214,5 @@ export const SSHeaderNavigationGroup: React.FC<LinkProps> = ({
         </Dropdown>
       )}
     </>
-  );
-};
-
-export const SSAccordionLink: React.FC<Omit<LinkProps, "component">> = ({
-  title,
-  link,
-  description,
-}) => {
-  return (
-    <NavbarItem key={link?.path} className="flex flex-col">
-      <Link
-        as={NextLink}
-        href={link.path}
-        className="px-3 pt-5 text-link"
-        color="foreground"
-      >
-        {title}
-      </Link>
-      <span className="px-3 text-xs text-gray-500">{description}</span>
-    </NavbarItem>
   );
 };

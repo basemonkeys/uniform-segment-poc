@@ -1,40 +1,42 @@
 "use client";
 
-import { useButton, extendVariants, Spinner } from "@nextui-org/react";
-import { forwardRef } from "@nextui-org/system";
+import { extendVariants } from "@nextui-org/react";
+// import { useButton, extendVariants, Spinner } from "@nextui-org/react";
+import { Button } from "@nextui-org/button";
+// import { forwardRef } from "@nextui-org/system";
 
-const CustomButton = forwardRef((props, ref) => {
-  const {
-    domRef,
-    children,
-    // classNames,
-    // drips,
-    spinnerSize,
-    spinner = <Spinner color="current" size={spinnerSize} />,
-    spinnerPlacement,
-    startContent,
-    endContent,
-    isLoading,
-    disableRipple,
-    getButtonProps,
-  } = useButton({
-    ref,
-    ...props,
-  });
+// const CustomButton = forwardRef((props, ref) => {
+//   const {
+//     domRef,
+//     children,
+//     // classNames,
+//     // drips,
+//     spinnerSize,
+//     spinner = <Spinner color="current" size={spinnerSize} />,
+//     spinnerPlacement,
+//     startContent,
+//     endContent,
+//     isLoading,
+//     disableRipple,
+//     getButtonProps,
+//   } = useButton({
+//     ref,
+//     ...props,
+//   });
 
-  return (
-    <button ref={domRef} {...getButtonProps()}>
-      {startContent}
-      {isLoading && spinnerPlacement === "start" && spinner}
-      {children}
-      {isLoading && spinnerPlacement === "end" && spinner}
-      {endContent}
-      {/* {!disableRipple && <Drip drips={drips} />} */}
-    </button>
-  );
-});
+//   return (
+//     <button ref={domRef} {...getButtonProps()}>
+//       {startContent}
+//       {isLoading && spinnerPlacement === "start" && spinner}
+//       {children}
+//       {isLoading && spinnerPlacement === "end" && spinner}
+//       {endContent}
+//       {/* {!disableRipple && <Drip drips={drips} />} */}
+//     </button>
+//   );
+// });
 
-export const SSButton = extendVariants(CustomButton, {
+export const SSButton = extendVariants(Button, {
   variants: {
     variant: {
       icon: "",

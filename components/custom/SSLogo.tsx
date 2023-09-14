@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { Link } from "@nextui-org/link";
 
@@ -55,7 +57,7 @@ export const SSLogo: React.FC<LogoProps> = ({
       {isLink ? (
         <Link className={className} href={href}>
           <Image
-            src={src ? src : getLogo(variant)}
+            src={src ? src : getImageUrl(getLogo(variant))}
             width={width}
             height={height}
             quality={100}

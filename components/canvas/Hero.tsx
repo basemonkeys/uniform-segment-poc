@@ -219,15 +219,6 @@ const Hero: React.FC<HeroProps> = ({
                     {primarycta}
                   </SSButton>
                   {/* TODO: fix this SSButton as Link */}
-                  <SSButton
-                    href="https://github.com/nextui-org/nextui"
-                    as={Link}
-                    color="primary"
-                    // showAnchorIcon
-                    variant="solid"
-                  >
-                    This is a SSButton as Link
-                  </SSButton>
                   {secondarycta ? (
                     <SSButton
                       href="/"

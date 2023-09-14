@@ -4,6 +4,8 @@ import { useState } from "react";
 
 import { ComponentProps } from "@uniformdev/canvas-next-rsc";
 
+import { getImageUrl } from "@/utils";
+
 import {
   Navbar,
   NavbarBrand,
@@ -44,8 +46,6 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState<User>();
 
-  // const navItemsWrapper
-
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
@@ -60,7 +60,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
       >
         {/* Logo */}
         <NavbarBrand>
-          <SSLogo src={logo} isLink href="/" />
+          <SSLogo isLink href="/" src={getImageUrl(logo)} />
         </NavbarBrand>
 
         {/* Main Navigation */}
@@ -72,12 +72,12 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
         </div>
       </NavbarContent>
 
-      {/* this is the dropdown mobile menu */}
+      {/* Mobile Navigation */}
       <NavbarMenu className="">
         <NavbarItem key={"1"}>{children}</NavbarItem>
       </NavbarMenu>
 
-      {/* Responsive Menu Toggle */}
+      {/* Responsive Mobile Menu Toggle */}
       <NavbarContent className="gap-1 lg:hidden" justify="start">
         Menu
         <NavbarMenuToggle
@@ -93,7 +93,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
         />
       </NavbarContent>
 
-      {/* Header CTAs */}
+      {/* Header CTA Buttons */}
       <NavbarContent className="gap-3" justify="end">
         {user ? (
           <>

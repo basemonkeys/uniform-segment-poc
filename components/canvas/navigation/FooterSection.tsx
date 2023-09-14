@@ -17,7 +17,7 @@ const FooterSection: FC<FooterSectionProps> = ({
 }) => (
   <div>
     <span className="footer-title text-primary opacity-100">{title}</span>
-    <UniformSlot name="navigation" data={component} context={context} />
+    {/* <UniformSlot name="navigation" data={component} context={context} /> */}
   </div>
 );
 

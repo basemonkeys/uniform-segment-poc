@@ -35,9 +35,9 @@ const Footer: FC<FooterProps> = ({ logo, copyright, component, context }) => {
           </div>
         </div>
         <UniformSlot name="section" data={component} context={context} />
-        <div className="flex">
+        {/* <div className="flex">
           <UniformSlot name="iconLinks" data={component} context={context} />
-        </div>
+        </div> */}
       </footer>
     </Container>
   );

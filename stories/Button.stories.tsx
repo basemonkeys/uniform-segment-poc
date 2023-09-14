@@ -55,7 +55,7 @@ export const Secondary: Story = {
   },
   parameters: {
     backgrounds: {
-      default: "dark",
+      default: "darkGray",
     },
   },
 };
