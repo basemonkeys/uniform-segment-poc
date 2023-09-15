@@ -32,7 +32,7 @@ type Props = {
 
 export default async function RootLayout({ children }: Props) {
   return (
-    <html lang="en">
+    <html lang="en" className={openSans.className}>
       <body className={openSans.className}>
         <Providers>{children}</Providers>
       </body>

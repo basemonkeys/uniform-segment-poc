@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html,
+  body {
+    --font-open-sans: "Open Sans", sans-serif;
+  }
   /* Headings */
   h1 {
     @apply text-5xl font-bold leading-tight;
