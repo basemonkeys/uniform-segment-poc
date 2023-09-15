@@ -1,7 +1,6 @@
 "use client";
 
 import classNames from "classnames";
-import { useMediaQuery } from "react-responsive";
 
 import { ComponentProps } from "@uniformdev/canvas-next-rsc";
 
@@ -21,6 +20,8 @@ import { Button } from "@nextui-org/button";
 
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
+import { isLgScreen } from "@/utils";
+
 export type LinkProps = Omit<ComponentProps, "context"> & {
   title: string;
   link: {
@@ -36,26 +37,23 @@ export const SSHeaderLink: React.FC<Omit<LinkProps, "component">> = ({
 }) => {
   const pathname = usePathname();
   const isActive = pathname === link?.path;
-
-  const isLgScreen = useMediaQuery({
-    query: "(min-width: 1024px)",
-  });
+  const isDesktop = isLgScreen();
 
   return (
     <NavbarItem
       key={link?.path}
       className={classNames(
         isActive &&
-          isLgScreen &&
+          isDesktop &&
           "border-b-3 border-link hover:bg-default-hover",
-        !isLgScreen && "border-b-1 border-b-blue-200",
+        !isDesktop && "border-b-1 border-b-blue-200",
         "flex flex-col px-2",
       )}
     >
       <Link
         as={NextLink}
         href={link?.path || "#"}
-        className={classNames("py-5 text-link ", isLgScreen && "!text-black")}
+        className={classNames("py-5 text-link ", isDesktop && "!text-black")}
         color="foreground"
       >
         {title}
@@ -86,9 +84,7 @@ export const SSMobileNavigationGroup: React.FC<LinkProps> = ({
   title,
   link,
 }) => {
-  const isLgScreen = useMediaQuery({
-    query: "(min-width: 1024px)",
-  });
+  const isDesktop = isLgScreen();
 
   const subNavItems = component?.slots?.subNavItems?.map((item: any) => {
     const { title, link, description } = item.parameters;
@@ -101,7 +97,7 @@ export const SSMobileNavigationGroup: React.FC<LinkProps> = ({
   return (
     <>
       {/* this is the accordion in the mobile navigation */}
-      {!isLgScreen && (
+      {!isDesktop && (
         <Accordion
           key={title}
           className="border-b-1 border-b-blue-200"
@@ -155,9 +151,7 @@ export const SSHeaderNavigationGroup: React.FC<LinkProps> = ({
   const isActive = pathname === link?.path;
   const router = useRouter();
 
-  const isLgScreen = useMediaQuery({
-    query: "(min-width: 1024px)",
-  });
+  const isDesktop = isLgScreen();
 
   const subNavItems = component?.slots?.subNavItems?.map((item: any) => {
     const { title, link, description } = item.parameters;
@@ -170,7 +164,7 @@ export const SSHeaderNavigationGroup: React.FC<LinkProps> = ({
   return (
     <>
       {/* this is the dropdown in the non-mobile header navigation */}
-      {isLgScreen && (
+      {isDesktop && (
         <Dropdown key={title}>
           <NavbarItem
             key={title}
