@@ -4,8 +4,7 @@ import {
   LinkProps,
   SSFooterLink,
   SSHeaderLink,
-  SSHeaderNavigationGroup,
-  SSMobileNavigationGroup,
+  SSNavigationGroup,
 } from "../../navigation/SSNavigationLinks";
 
 export const HeaderLink: React.FC<LinkProps> = ({ title, link }) => {
@@ -19,8 +18,7 @@ export const FooterLink: React.FC<LinkProps> = ({ title, link }) => {
 export const NavigationGroup: React.FC<LinkProps> = (props: LinkProps) => {
   return (
     <>
-      <SSHeaderNavigationGroup {...props} />
-      <SSMobileNavigationGroup {...props} />
+      <SSNavigationGroup {...props} />
     </>
   );
 };

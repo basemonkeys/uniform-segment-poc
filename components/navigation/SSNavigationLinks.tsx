@@ -78,12 +78,15 @@ export const SSFooterLink: React.FC<Omit<LinkProps, "component">> = ({
   );
 };
 
-// This component displays the accordion group in the mobile navigation.
-export const SSMobileNavigationGroup: React.FC<LinkProps> = ({
+// This component displays either the accordion group in the mobile navigation or the dropdown group in the Header navigation.
+export const SSNavigationGroup: React.FC<LinkProps> = ({
   component,
   title,
   link,
 }) => {
+  const pathname = usePathname();
+  const isActive = pathname === link?.path;
+  const router = useRouter();
   const isDesktop = isLgScreen();
 
   const subNavItems = component?.slots?.subNavItems?.map((item: any) => {
@@ -97,10 +100,10 @@ export const SSMobileNavigationGroup: React.FC<LinkProps> = ({
   return (
     <>
       {/* this is the accordion in the mobile navigation */}
-      {!isDesktop && (
+      {!isDesktop ? (
         <Accordion
           key={title}
-          className="border-b-1 border-b-blue-200"
+          className="z-10 border-b-1 border-b-blue-200"
           itemClasses={{
             base: "",
             heading: "",
@@ -136,76 +139,56 @@ export const SSMobileNavigationGroup: React.FC<LinkProps> = ({
             })}
           </AccordionItem>
         </Accordion>
-      )}
-    </>
-  );
-};
-
-// This component displays the dropdown group in the Header navigation.
-export const SSHeaderNavigationGroup: React.FC<LinkProps> = ({
-  component,
-  title,
-  link,
-}) => {
-  const pathname = usePathname();
-  const isActive = pathname === link?.path;
-  const router = useRouter();
-
-  const isDesktop = isLgScreen();
-
-  const subNavItems = component?.slots?.subNavItems?.map((item: any) => {
-    const { title, link, description } = item.parameters;
-    const subNavItemTitle = title.value;
-    const subNavItemLink = link.value.path;
-    const subNavItemDescription = description.value;
-    return { subNavItemTitle, subNavItemLink, subNavItemDescription };
-  });
-
-  return (
-    <>
-      {/* this is the dropdown in the non-mobile header navigation */}
-      {isDesktop && (
-        <Dropdown key={title}>
-          <NavbarItem
-            key={title}
-            className={classNames(isActive ? "border-b-3 border-link" : "")}
-          >
-            <DropdownTrigger>
-              <Button
-                disableRipple
-                endContent={<ChevronDownIcon className="w-5" />}
-                className="flex h-full justify-between gap-1 bg-transparent px-3 py-5 text-base data-[hover=true]:bg-default-hover"
-                variant="light"
-                radius="none"
+      ) : (
+        <>
+          {/* this is the dropdown in the non-mobile header navigation */}
+          {isDesktop && (
+            <Dropdown key={title}>
+              <NavbarItem
+                key={title}
+                className={classNames(isActive ? "border-b-3 border-link" : "")}
               >
-                {title}
-              </Button>
-            </DropdownTrigger>
-          </NavbarItem>
-          <DropdownMenu
-            aria-label="Silver Sneakers Features"
-            className="w-[340px]"
-            itemClasses={{
-              base: "gap-4 text-link data-[hover=true]:bg-default-hover",
-              description: "!text-gray-600 !text-sm",
-            }}
-          >
-            {/* @ts-ignore */}
-            {subNavItems?.map((item: any, index: any) => {
-              const { subNavItemTitle, subNavItemLink, subNavItemDescription } =
-                item;
-              return (
-                // TODO: make this a link
-                <DropdownItem
-                  key={index}
-                  title={subNavItemTitle}
-                  description={subNavItemDescription}
-                  onPress={() => router.push(subNavItemLink)}
-                />
-              );
-            })}
-          </DropdownMenu>
-        </Dropdown>
+                <DropdownTrigger>
+                  <Button
+                    disableRipple
+                    endContent={<ChevronDownIcon className="w-5" />}
+                    className="flex h-full justify-between gap-1 bg-transparent px-3 py-5 text-base data-[hover=true]:bg-default-hover"
+                    variant="light"
+                    radius="none"
+                  >
+                    {title}
+                  </Button>
+                </DropdownTrigger>
+              </NavbarItem>
+              <DropdownMenu
+                aria-label="Silver Sneakers Features"
+                className="w-[340px]"
+                itemClasses={{
+                  base: "gap-4 text-link data-[hover=true]:bg-default-hover",
+                  description: "!text-gray-600 !text-sm",
+                }}
+              >
+                {/* @ts-ignore */}
+                {subNavItems?.map((item: any, index: any) => {
+                  const {
+                    subNavItemTitle,
+                    subNavItemLink,
+                    subNavItemDescription,
+                  } = item;
+                  return (
+                    // TODO: make this a link
+                    <DropdownItem
+                      key={index}
+                      title={subNavItemTitle}
+                      description={subNavItemDescription}
+                      onPress={() => router.push(subNavItemLink)}
+                    />
+                  );
+                })}
+              </DropdownMenu>
+            </Dropdown>
+          )}
+        </>
       )}
     </>
   );
