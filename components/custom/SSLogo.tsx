@@ -62,6 +62,10 @@ export const SSLogo: React.FC<LogoProps> = ({
             height={height}
             quality={100}
             alt="Silver Sneakers Logo"
+            style={{
+              width: "125",
+              height: "57",
+            }}
           />
         </Link>
       ) : (

@@ -1,4 +1,5 @@
 "use client";
+// TODO: https://medium.com/@techrally/react-responsive-its-pretty-cool-d61e5ed56d95
 
 // https://github.com/yocontra/react-responsive
 
