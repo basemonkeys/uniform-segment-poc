@@ -1,16 +1,18 @@
 import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 
 // Canvas Components
+import "./navigation/Header";
 import "./Page";
 import "./Banner";
 import "./Hero";
-import "./navigation/Header";
 import {
   HeaderLink,
   FooterLink,
   NavigationGroup,
 } from "./navigation/NavigationLink";
+import "./navigation/Footer";
 
+// default variant
 registerUniformComponent({
   type: "navigationLink",
   component: HeaderLink,

@@ -17,6 +17,7 @@ import {
 } from "@nextui-org/dropdown";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import { Button } from "@nextui-org/button";
+import { Divider } from "@nextui-org/divider";
 
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
@@ -71,9 +72,12 @@ export const SSFooterLink: React.FC<Omit<LinkProps, "component">> = ({
     <Link
       key={link?.path}
       href={link?.path || "#"}
-      className="text-secondary-content font-bold"
+      className="flex items-center gap-3"
     >
-      {title}
+      <div className="text-sm text-white hover:underline">{title}</div>
+      <div className="divider mt-0.5 h-2/3 bg-white md:visible">
+        <Divider orientation="vertical" />
+      </div>
     </Link>
   );
 };

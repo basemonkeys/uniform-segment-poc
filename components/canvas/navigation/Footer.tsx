@@ -1,45 +1,36 @@
-import { FC } from "react";
-
 import {
-  UniformSlot,
   ComponentProps,
-  registerUniformComponent,
+  UniformSlot,
   UniformRichText,
+  registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
-import Image from "next/image";
-
 import Container from "@/components/Container";
+import SocialIcons from "@/components/navigation/SocialIcons";
 
-import { getImageUrl } from "@/utils";
-
-type FooterProps = ComponentProps<{
-  logo: string | Types.CloudinaryImage;
-  copyright: string;
-  footerText?: Document;
-}>;
-
-const Footer: FC<FooterProps> = ({ logo, copyright, component, context }) => {
-  const imageUrl = getImageUrl(logo);
+const Footer: React.FC<ComponentProps> = ({ component, context }) => {
   return (
-    <Container>
-      <footer className="footer border-info-content flex w-full flex-col-reverse justify-between border-t-[1px] py-10 md:flex-row">
-        <div className="w-full md:w-1/2">
-          <Image src={imageUrl} width="200" height="50" alt="Uniform" />
-          <div
-            className="footer-content text-secondary-content"
-            dangerouslySetInnerHTML={{ __html: `2023 ${copyright}` }}
-          />
-          <div className="footer-content text-secondary-content">
-            <UniformRichText parameterId="footerText" component={component} />
-          </div>
+    <footer className=" bg-gray-600">
+      <Container className="flex w-full flex-col gap-16 px-8 py-16 text-center text-sm text-white lg:gap-6">
+        <div className="footer-links flex w-full flex-col justify-center gap-3 text-center max-lg:items-center lg:flex-row">
+          <UniformSlot name="navigation" data={component} context={context} />
         </div>
-        <UniformSlot name="section" data={component} context={context} />
-        {/* <div className="flex">
-          <UniformSlot name="iconLinks" data={component} context={context} />
-        </div> */}
-      </footer>
-    </Container>
+        {/* Text Block */}
+        <UniformRichText
+          parameterId="text"
+          component={component}
+          className="flex flex-col gap-2"
+        />
+        {/* Copyright */}
+        <UniformRichText
+          parameterId="copyright"
+          component={component}
+          className="italic"
+        />
+        {/* Social Icons */}
+        <SocialIcons />
+      </Container>
+    </footer>
   );
 };
 
