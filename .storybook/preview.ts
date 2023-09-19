@@ -4,18 +4,7 @@ import "../app/globals.css";
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/,
-      },
-    },
-    options: {
-      storySort: {
-        order: ["Intro", "Design System", "Pages", "Components", ["Uniform"]],
-      },
-    },
+    layout: "fullscreen",
     backgrounds: {
       default: "white",
       values: [
@@ -28,6 +17,18 @@ const preview: Preview = {
           value: "#6B7280",
         },
       ],
+    },
+    actions: { argTypesRegex: "^on[A-Z].*" },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
+    },
+    options: {
+      storySort: {
+        order: ["Intro", "Design System", "Pages", "Components", ["Uniform"]],
+      },
     },
     // backgrounds: { disable: true },
   },

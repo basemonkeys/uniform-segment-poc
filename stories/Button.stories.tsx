@@ -7,7 +7,6 @@ const meta: Meta<typeof SSButton> = {
   component: SSButton,
   parameters: {
     controls: { include: ["children", "color", "size", "radius"] },
-    // layout: "centered",
   },
   tags: ["autodocs"],
   args: {

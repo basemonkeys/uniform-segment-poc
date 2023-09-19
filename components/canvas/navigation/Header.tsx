@@ -8,7 +8,7 @@ import MainNavigation from "../../navigation/MainNavigation";
 
 import { getImageUrl } from "@/utils";
 
-type HeaderProps = ComponentProps & {
+export type HeaderProps = ComponentProps & {
   logo: string | Types.CloudinaryImage;
 };
 
