@@ -73,7 +73,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
       </NavbarContent>
 
       {/* Mobile Navigation */}
-      <NavbarMenu className="">
+      <NavbarMenu className="bg-white">
         <NavbarItem key={"1"}>{children}</NavbarItem>
       </NavbarMenu>
 
@@ -103,24 +103,34 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
                 <DropdownTrigger>
                   <SSButton
                     disableRipple
-                    className="ml-6 bg-transparent p-0 text-black data-[hover=true]:bg-transparent"
+                    className="ml-6 bg-transparent p-0 font-normal text-foreground data-[hover=true]:bg-transparent"
                     endContent={<ChevronDownIcon className="w-5" />}
-                    color="primary"
                     size="lg"
                   >
                     Profile
                   </SSButton>
                 </DropdownTrigger>
-                <DropdownMenu aria-label="Static Actions">
+                <DropdownMenu
+                  aria-label="Static Actions"
+                  itemClasses={{
+                    base: "gap-4 text-link data-[hover=true]:bg-default-hover",
+                    wrapper: "hover:text-link",
+                    description: "!text-gray-600 !text-sm",
+                  }}
+                >
                   <DropdownSection showDivider>
-                    <DropdownItem key="new">Member ID</DropdownItem>
-                    <DropdownItem key="copy">Personal Info</DropdownItem>
-                    <DropdownItem key="edit">Activity Tracker</DropdownItem>
+                    {/* TODO: make these links */}
+                    <DropdownItem key="memberId">Member ID</DropdownItem>
+                    <DropdownItem key="personalInfo">
+                      Personal Info
+                    </DropdownItem>
+                    <DropdownItem key="activityTracker">
+                      Activity Tracker
+                    </DropdownItem>
                   </DropdownSection>
                   <DropdownSection>
                     <DropdownItem
-                      className="text-error"
-                      color="danger"
+                      className="!font-bold text-error hover:text-success"
                       onClick={() => setUser(undefined)}
                     >
                       Log Off

@@ -14,6 +14,7 @@ import {
   DropdownMenu,
   DropdownItem,
   DropdownTrigger,
+  DropdownSection,
 } from "@nextui-org/dropdown";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import { Button } from "@nextui-org/button";
@@ -47,7 +48,7 @@ export const SSHeaderLink: React.FC<Omit<LinkProps, "component">> = ({
         isActive &&
           isDesktop &&
           "border-b-3 border-link hover:bg-default-hover",
-        !isDesktop && "border-b-1 border-b-blue-200",
+        !isDesktop && "border-b-1 border-b-gray-200",
         "flex flex-col px-2",
       )}
     >
@@ -73,6 +74,7 @@ export const SSFooterLink: React.FC<Omit<LinkProps, "component">> = ({
       key={link?.path}
       href={link?.path || "#"}
       className="flex items-center gap-3"
+      isExternal={link?.path?.includes("http")}
     >
       <div className="text-sm text-white hover:underline">{title}</div>
       <div className="divider mt-0.5 h-2/3 bg-white md:visible">
@@ -107,7 +109,7 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
       {!isDesktop ? (
         <Accordion
           key={title}
-          className="z-10 border-b-1 border-b-blue-200"
+          className="z-10 border-b-1 border-b-gray-200"
           itemClasses={{
             base: "",
             heading: "",
@@ -169,6 +171,7 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
                 className="w-[340px]"
                 itemClasses={{
                   base: "gap-4 text-link data-[hover=true]:bg-default-hover",
+                  wrapper: "hover:text-link",
                   description: "!text-gray-600 !text-sm",
                 }}
               >
@@ -185,7 +188,8 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
                       key={index}
                       title={subNavItemTitle}
                       description={subNavItemDescription}
-                      onPress={() => router.push(subNavItemLink)}
+                      // onPress={() => router.push(subNavItemLink)}
+                      showDivider={index === subNavItems.length - 2}
                     />
                   );
                 })}

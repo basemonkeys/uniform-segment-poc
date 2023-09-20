@@ -8,7 +8,7 @@ interface Props {
 
 const Container = ({ children, className }: Props) => {
   return (
-    <div className={classNames(className, "m-auto max-w-screen-xl")}>
+    <div className={classNames("m-auto max-w-screen-xl", className)}>
       {children}
     </div>
   );
