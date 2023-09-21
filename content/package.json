@@ -97,6 +97,71 @@
       ]
     },
     {
+      "id": "footer",
+      "name": "Footer",
+      "icon": "border-bottom",
+      "parameters": [
+        {
+          "id": "text",
+          "name": "Text",
+          "type": "richText",
+          "helpText": "",
+          "typeConfig": {
+            "elements": {
+              "builtIn": [
+                "link"
+              ]
+            },
+            "required": true,
+            "formatting": {
+              "builtIn": [
+                "bold",
+                "italic",
+                "underline"
+              ]
+            }
+          }
+        },
+        {
+          "id": "copyright",
+          "name": "Copyright",
+          "type": "richText",
+          "helpText": "",
+          "typeConfig": {
+            "elements": {
+              "builtIn": [
+                "link"
+              ]
+            },
+            "required": false,
+            "formatting": {
+              "builtIn": [
+                "bold",
+                "italic",
+                "underline"
+              ]
+            }
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "navigation",
+          "name": "Navigation",
+          "allowedComponents": [
+            "navigationLink"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
+        }
+      ],
+      "canBeComposition": false,
+      "created": "2023-09-19T17:23:25.978616+00:00",
+      "updated": "2023-09-19T23:43:10.30231+00:00"
+    },
+    {
       "id": "header",
       "name": "Header",
       "icon": "border-top",
@@ -107,8 +172,8 @@
           "type": "cloudinary-image",
           "helpText": "",
           "typeConfig": {
-            "ratio": "16:9",
-            "widths": "250",
+            "ratio": "",
+            "widths": "",
             "required": true
           }
         }
@@ -129,7 +194,7 @@
       ],
       "canBeComposition": false,
       "created": "2023-09-09T01:13:57.862212+00:00",
-      "updated": "2023-09-12T18:00:04.138822+00:00"
+      "updated": "2023-09-14T20:59:26.443869+00:00"
     },
     {
       "id": "hero",
@@ -354,11 +419,11 @@
           "id": "header",
           "name": "Header",
           "allowedComponents": [
-            "header"
+            "$p:f289a2bd-09f9-4e33-ae03-7a6136055ec6"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
-          "patternsInAllowedComponents": false
+          "patternsInAllowedComponents": true
         },
         {
           "id": "banners",
@@ -380,12 +445,21 @@
             "$personalization",
             "$test",
             "$localization",
-            "banner",
-            "test"
+            "privacyPolicy"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
           "patternsInAllowedComponents": false
+        },
+        {
+          "id": "footer",
+          "name": "Footer",
+          "allowedComponents": [
+            "$p:d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": true
         }
       ],
       "slugSettings": {
@@ -397,10 +471,63 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-08-29T20:06:33.571497+00:00",
-      "updated": "2023-09-11T15:04:10.49943+00:00"
+      "updated": "2023-09-20T20:51:30.02686+00:00"
+    },
+    {
+      "id": "privacyPolicy",
+      "name": "Privacy Policy",
+      "icon": "loadbar-doc",
+      "parameters": [
+        {
+          "id": "text",
+          "name": "Text",
+          "type": "json",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-09-20T20:09:41.482626+00:00",
+      "updated": "2023-09-20T20:41:03.530072+00:00"
     }
   ],
   "compositions": [
+    {
+      "composition": {
+        "_name": "Privacy Policy",
+        "_id": "0c8969b1-065e-426c-b6b7-f223e471abd6",
+        "type": "privacyPolicy",
+        "parameters": {
+          "text": {
+            "type": "json",
+            "value": "${#jptr:/Privacy Policy/fields/text}"
+          }
+        },
+        "_dataResources": {
+          "Privacy Policy": {
+            "type": "privacyPolicy",
+            "variables": {
+              "locale": "",
+              "entryIds": "35Qiqa1mEtEpeohXfMfW21"
+            },
+            "isPatternParameter": false,
+            "ignorePatternParameterDefault": false
+          }
+        },
+        "_overridability": {
+          "parameters": {
+            "text": "no"
+          }
+        }
+      },
+      "created": "2023-09-20T20:10:04.792234+00:00",
+      "modified": "2023-09-20T21:04:07.346579+00:00",
+      "pattern": true
+    },
     {
       "composition": {
         "_name": "Articles",
@@ -418,17 +545,37 @@
           }
         },
         "slots": {
+          "footer": [
+            {
+              "_id": "2c4de078-d7db-4833-bcf6-179d63f62b36",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
           "header": [
             {
               "_id": "06637ccc-0bc1-4cbc-bb34-116d9874dc46",
               "type": "header",
               "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
             }
+          ],
+          "banners": [
+            {
+              "_id": "880c2f97-aec5-4a2b-9510-4da155311c40",
+              "type": "banner",
+              "variant": "info",
+              "parameters": {
+                "message": {
+                  "type": "text",
+                  "value": "This is the Articles Page"
+                }
+              }
+            }
           ]
         }
       },
       "created": "2023-09-11T04:42:51.887782+00:00",
-      "modified": "2023-09-14T05:00:43.632193+00:00",
+      "modified": "2023-09-20T00:56:59.069077+00:00",
       "pattern": false
     },
     {
@@ -437,10 +584,31 @@
         "_id": "2447135f-3b22-4939-af98-cccaf022a750",
         "_slug": "faqs",
         "type": "page",
-        "parameters": {}
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Frequently Asked Questions"
+          }
+        },
+        "slots": {
+          "footer": [
+            {
+              "_id": "a8f2b976-c4aa-410a-887d-6c5f32337379",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
+          "header": [
+            {
+              "_id": "ddad7a3c-6224-4266-8db3-524fcabd0eff",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
+        }
       },
       "created": "2023-09-11T22:05:51.409048+00:00",
-      "modified": "2023-09-11T22:05:51.409048+00:00",
+      "modified": "2023-09-20T00:58:12.371475+00:00",
       "pattern": false
     },
     {
@@ -449,10 +617,31 @@
         "_id": "260090ff-194e-40da-a39d-ce0dcd60a173",
         "_slug": "how-it-works",
         "type": "page",
-        "parameters": {}
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "How it Works"
+          }
+        },
+        "slots": {
+          "footer": [
+            {
+              "_id": "d1855a21-d4fc-4973-97a4-93937449b78a",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
+          "header": [
+            {
+              "_id": "a2e98f06-f66d-4d23-b564-cc2433c39d19",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
+        }
       },
       "created": "2023-09-11T22:05:39.331293+00:00",
-      "modified": "2023-09-11T22:05:39.331293+00:00",
+      "modified": "2023-09-20T00:58:33.741008+00:00",
       "pattern": false
     },
     {
@@ -468,6 +657,13 @@
           }
         },
         "slots": {
+          "footer": [
+            {
+              "_id": "4080cb76-3026-41dc-b624-fc49dbbea34d",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
           "header": [
             {
               "_id": "3fa2adc4-cb58-4b6c-8c83-e29d99f52e21",
@@ -477,9 +673,25 @@
           ],
           "banners": [
             {
-              "_id": "d54834d4-f825-4d8b-8397-44eae41d4e8f",
+              "_id": "3ac2d3de-31b3-4d86-a9bb-17f1169708e3",
               "type": "banner",
-              "_pattern": "c17a6892-fb26-49f3-8880-19cd217f150f"
+              "parameters": {
+                "message": {
+                  "type": "text",
+                  "value": "Already a SilverSneakers Member?"
+                },
+                "callToAction": {
+                  "type": "text",
+                  "value": "Activate your online account"
+                },
+                "callToActionLink": {
+                  "type": "link",
+                  "value": {
+                    "path": "https://tools.silversneakers.com/Eligibility/StartHere",
+                    "type": "url"
+                  }
+                }
+              }
             }
           ],
           "content": [
@@ -632,6 +844,120 @@
               }
             }
           },
+          "4080cb76-3026-41dc-b624-fc49dbbea34d": {
+            "parameters": {
+              "text": {
+                "type": "richText",
+                "value": {
+                  "root": {
+                    "type": "root",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "type": "paragraph",
+                        "format": "",
+                        "indent": 0,
+                        "version": 1,
+                        "children": [
+                          {
+                            "mode": "normal",
+                            "text": "* Participating locations (\"PL\") not owned or operated by Tivity Health, Inc. or its affiliates. Use of PL facilities and amenities limited to terms and conditions of PL basic membership. Facilities and amenities vary by PL.",
+                            "type": "text",
+                            "style": "",
+                            "detail": 0,
+                            "format": 0,
+                            "version": 1
+                          }
+                        ],
+                        "direction": "ltr"
+                      },
+                      {
+                        "type": "paragraph",
+                        "format": "",
+                        "indent": 0,
+                        "version": 1,
+                        "children": [],
+                        "direction": "ltr"
+                      },
+                      {
+                        "type": "paragraph",
+                        "format": "",
+                        "indent": 0,
+                        "version": 1,
+                        "children": [
+                          {
+                            "mode": "normal",
+                            "text": "† Membership includes SilverSneakers instructor-led group fitness classes. Some locations offer Members additional classes. Classes vary by location.",
+                            "type": "text",
+                            "style": "",
+                            "detail": 0,
+                            "format": 0,
+                            "version": 1
+                          }
+                        ],
+                        "direction": "ltr"
+                      },
+                      {
+                        "type": "paragraph",
+                        "format": "",
+                        "indent": 0,
+                        "version": 1,
+                        "children": [],
+                        "direction": "ltr"
+                      },
+                      {
+                        "type": "paragraph",
+                        "format": "",
+                        "indent": 0,
+                        "version": 1,
+                        "children": [
+                          {
+                            "mode": "normal",
+                            "text": "^ Tivity Health, Inc and its affiliates do not employ, own or operate 3rd party service providers. Discounts, if applicable, vary per 3rd party provider. Services subject to terms and conditions of such 3rd party provider. Check with the provider for details.",
+                            "type": "text",
+                            "style": "",
+                            "detail": 0,
+                            "format": 0,
+                            "version": 1
+                          }
+                        ],
+                        "direction": "ltr"
+                      },
+                      {
+                        "type": "paragraph",
+                        "format": "",
+                        "indent": 0,
+                        "version": 1,
+                        "children": [],
+                        "direction": "ltr"
+                      },
+                      {
+                        "type": "paragraph",
+                        "format": "",
+                        "indent": 0,
+                        "version": 1,
+                        "children": [
+                          {
+                            "mode": "normal",
+                            "text": "Always talk to your doctor before starting an exercise program.",
+                            "type": "text",
+                            "style": "",
+                            "detail": 0,
+                            "format": 0,
+                            "version": 1
+                          }
+                        ],
+                        "direction": "ltr"
+                      }
+                    ],
+                    "direction": "ltr"
+                  }
+                }
+              }
+            }
+          },
           "900ff3a5-3ca8-42df-9a3c-7dd8f35a7272": {
             "variant": "lightBackground",
             "parameters": {
@@ -671,20 +997,6 @@
               }
             }
           },
-          "d54834d4-f825-4d8b-8397-44eae41d4e8f": {
-            "parameters": {
-              "$tstVrnt": {
-                "type": "$tstVrnt",
-                "value": {
-                  "testDistribution": 1
-                }
-              },
-              "dismissable": {
-                "type": "checkbox",
-                "value": null
-              }
-            }
-          },
           "df006382-4fff-40c5-a413-7008c06e4bad": {
             "variant": "darkBackground",
             "parameters": {
@@ -709,7 +1021,40 @@
         }
       },
       "created": "2023-08-29T20:06:37.965621+00:00",
-      "modified": "2023-09-12T18:06:04.852189+00:00",
+      "modified": "2023-09-20T20:43:18.243717+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Member of the Year",
+        "_id": "3541b332-4338-48d9-b8f2-7c761a6f6308",
+        "_slug": "member-of-the-year",
+        "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Member of the Year"
+          }
+        },
+        "slots": {
+          "footer": [
+            {
+              "_id": "3aa2ad2c-ae84-4762-be28-3c8ad530e0b8",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
+          "header": [
+            {
+              "_id": "a678adf9-d624-4f10-a9ed-22f0f374c64d",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
+        }
+      },
+      "created": "2023-09-19T17:40:40.661469+00:00",
+      "modified": "2023-09-20T00:56:24.620113+00:00",
       "pattern": false
     },
     {
@@ -718,10 +1063,142 @@
         "_id": "4018282a-96b1-4204-b814-f05848f7d45b",
         "_slug": "community-schedule",
         "type": "page",
-        "parameters": {}
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Community Schedule"
+          }
+        },
+        "slots": {
+          "footer": [
+            {
+              "_id": "c9ff8c05-7bff-44e3-81c8-d2755ac931fe",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
+          "header": [
+            {
+              "_id": "32c348c7-d396-4d6b-90c8-685253b228c3",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
+        }
       },
       "created": "2023-09-11T21:58:09.408975+00:00",
-      "modified": "2023-09-11T21:58:09.408975+00:00",
+      "modified": "2023-09-20T01:00:41.586506+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Contact Us",
+        "_id": "60ee43ce-dd12-4987-8f06-a54a088eb7a7",
+        "_slug": "contact-us",
+        "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Contact Us"
+          }
+        },
+        "slots": {
+          "footer": [
+            {
+              "_id": "02741b24-776a-4cc9-9782-310c6a4d0944",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
+          "header": [
+            {
+              "_id": "a303769c-c24a-49c4-95a1-94c6ce6f5637",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
+        }
+      },
+      "created": "2023-09-19T17:30:46.06938+00:00",
+      "modified": "2023-09-20T00:56:47.543227+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Member Profile",
+        "_id": "6c275198-e33f-4dad-b32b-b562cdaeb602",
+        "_slug": "member/my-profile",
+        "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Member Profile"
+          }
+        },
+        "slots": {
+          "footer": [
+            {
+              "_id": "5e8d6282-451e-4f5e-b46d-5ac86dd64062",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
+          "header": [
+            {
+              "_id": "8960ecda-5669-4d34-9d82-4435b18c2eed",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
+        }
+      },
+      "created": "2023-09-20T05:42:55.206309+00:00",
+      "modified": "2023-09-20T05:44:56.467781+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Terms of Use",
+        "_id": "6ce411e3-7f42-43ec-b106-22825db17338",
+        "_slug": "terms-of-use",
+        "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Terms of Use"
+          }
+        },
+        "slots": {
+          "footer": [
+            {
+              "_id": "3e1f73b1-bbf9-4c20-ad65-d987ff5dabaf",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
+          "header": [
+            {
+              "_id": "bac84d70-0e89-4886-9bfa-37236524a89c",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
+        }
+      },
+      "created": "2023-09-19T17:37:31.071884+00:00",
+      "modified": "2023-09-20T00:55:26.660828+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "test",
+        "_id": "85b1c1e4-65ce-4258-a30a-bd07264c0b6e",
+        "_slug": "test",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-09-20T16:17:46.318851+00:00",
+      "modified": "2023-09-20T16:17:46.318851+00:00",
       "pattern": false
     },
     {
@@ -730,10 +1207,31 @@
         "_id": "8d94b2f4-e15e-443c-ae17-91bee8513c7b",
         "_slug": "on-demand",
         "type": "page",
-        "parameters": {}
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "On-Demand"
+          }
+        },
+        "slots": {
+          "footer": [
+            {
+              "_id": "0d651844-4478-4ad3-9900-e8821f8a9f1f",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
+          "header": [
+            {
+              "_id": "acd6135b-28e2-4d2b-aff4-5d033ad968db",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
+        }
       },
       "created": "2023-09-11T22:03:52.223064+00:00",
-      "modified": "2023-09-11T22:03:52.223064+00:00",
+      "modified": "2023-09-20T01:00:17.801185+00:00",
       "pattern": false
     },
     {
@@ -749,37 +1247,24 @@
           }
         },
         "slots": {
+          "footer": [
+            {
+              "_id": "aad80e26-1682-403a-949e-9ad55317166e",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
           "header": [
             {
               "_id": "4fa14719-7568-4df4-a207-ec2c22aa01d8",
               "type": "header",
               "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
             }
-          ],
-          "banners": [
-            {
-              "_id": "04da8b54-6056-4486-938a-c6aa04fcb9dd",
-              "type": "banner",
-              "variant": "info",
-              "parameters": {
-                "message": {
-                  "type": "text",
-                  "value": "This is a banner!"
-                }
-              }
-            }
-          ],
-          "content": [
-            {
-              "_id": "845f8fba-6846-4fd8-b2f1-e18c845529b5",
-              "type": "hero",
-              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47"
-            }
           ]
         }
       },
       "created": "2023-08-29T20:06:38.951155+00:00",
-      "modified": "2023-09-12T22:22:58.95063+00:00",
+      "modified": "2023-09-20T00:57:41.91005+00:00",
       "pattern": false
     },
     {
@@ -788,10 +1273,31 @@
         "_id": "93986af7-3568-4ee3-8076-11828f0499e5",
         "_slug": "health-plan-partners",
         "type": "page",
-        "parameters": {}
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Health Plan Partners"
+          }
+        },
+        "slots": {
+          "footer": [
+            {
+              "_id": "8f328504-bf5f-4269-adc8-06043521e428",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
+          "header": [
+            {
+              "_id": "bdf42125-49b1-4c65-aae3-96c6a77437b0",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
+        }
       },
       "created": "2023-09-11T22:05:13.94218+00:00",
-      "modified": "2023-09-11T22:05:13.94218+00:00",
+      "modified": "2023-09-20T00:58:52.74769+00:00",
       "pattern": false
     },
     {
@@ -856,14 +1362,35 @@
     },
     {
       "composition": {
-        "_name": "Silver Sneakers Go",
+        "_name": "SilverSneakers Go",
         "_id": "a1f25b0e-ffa5-43bc-b188-1c165162d567",
         "_slug": "silver-sneakers-go",
         "type": "page",
-        "parameters": {}
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "SilverSneakers Go"
+          }
+        },
+        "slots": {
+          "footer": [
+            {
+              "_id": "a61d235d-3bc4-4106-a0c4-84f4e558db0b",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
+          "header": [
+            {
+              "_id": "90c599bd-a9c7-4e29-8a97-65fbd419ca78",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
+        }
       },
       "created": "2023-09-11T22:04:09.156085+00:00",
-      "modified": "2023-09-11T22:04:09.156085+00:00",
+      "modified": "2023-09-20T00:59:57.225368+00:00",
       "pattern": false
     },
     {
@@ -978,70 +1505,48 @@
     },
     {
       "composition": {
-        "_name": "Contentful Banner",
-        "_id": "c17a6892-fb26-49f3-8880-19cd217f150f",
-        "type": "banner",
-        "parameters": {
-          "message": {
-            "type": "text",
-            "value": "${#jptr:/Banner/fields/message}"
-          },
-          "dismissable": {
-            "type": "checkbox",
-            "value": true
-          },
-          "callToAction": {
-            "type": "text",
-            "value": "${#jptr:/Banner/fields/callToAction}"
-          },
-          "callToActionLink": {
-            "type": "link",
-            "value": {
-              "path": "${#jptr:/Banner/fields/callToActionLink}",
-              "type": "url"
-            }
-          }
-        },
-        "_dataResources": {
-          "Banner": {
-            "type": "banner",
-            "variables": {
-              "locale": "",
-              "entryIds": "78CPTHpmtgiTTVvrmbUQjr"
-            },
-            "isPatternParameter": true,
-            "ignorePatternParameterDefault": false
-          }
-        },
-        "_overridability": {
-          "variants": true,
-          "parameters": {
-            "dismissable": "yes"
-          }
-        }
-      },
-      "created": "2023-09-06T06:23:02.186899+00:00",
-      "modified": "2023-09-06T06:23:02.186899+00:00",
-      "pattern": true
-    },
-    {
-      "composition": {
         "_name": "LIVE Class Schedule",
         "_id": "c194bc87-2d60-43e1-b43a-668deb2daa2c",
         "_slug": "live-class-schedule",
         "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Live Class Schedule"
+          }
+        },
         "slots": {
+          "footer": [
+            {
+              "_id": "af86070c-2938-49c8-af60-30f62fda4c05",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
           "header": [
             {
               "_id": "d087aac1-e880-4373-b061-50d023900c5d",
               "type": "header",
               "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
             }
+          ],
+          "banners": [
+            {
+              "_id": "42027418-f507-4565-9eb4-d4e3cf0d0b1f",
+              "type": "banner",
+              "variant": "success",
+              "parameters": {
+                "message": {
+                  "type": "text",
+                  "value": "This is the Live Class Schedule Page"
+                }
+              }
+            }
           ]
         }
       },
       "created": "2023-08-29T20:06:39.528811+00:00",
-      "modified": "2023-09-14T05:01:46.395875+00:00",
+      "modified": "2023-09-20T00:57:17.04526+00:00",
       "pattern": false
     },
     {
@@ -1050,10 +1555,466 @@
         "_id": "cd8648a3-f8c4-4c5b-bd61-4304cc6888ec",
         "_slug": "burnalong",
         "type": "page",
-        "parameters": {}
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Burnalong"
+          }
+        },
+        "slots": {
+          "footer": [
+            {
+              "_id": "8cb94fe1-a201-4cfb-9611-7909ce84f94a",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
+          "header": [
+            {
+              "_id": "da7d1fd4-c8a1-4ddc-98dd-104f2e1f4f2d",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
+        }
       },
       "created": "2023-09-11T22:04:23.302534+00:00",
-      "modified": "2023-09-11T22:04:23.302534+00:00",
+      "modified": "2023-09-20T00:59:35.785506+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Footer",
+        "_id": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f",
+        "type": "footer",
+        "parameters": {
+          "text": {
+            "type": "richText",
+            "value": {
+              "root": {
+                "type": "root",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "* Participating locations (\"PL\") not owned or operated by Tivity Health, Inc. or its affiliates. Use of PL facilities and amenities limited to terms and conditions of PL basic membership. Facilities and amenities vary by PL.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "type": "linebreak",
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": "† Membership includes SilverSneakers instructor-led group fitness classes. Some locations offer Members additional classes. Classes vary by location.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      },
+                      {
+                        "type": "linebreak",
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "^ Tivity Health, Inc and its affiliates do not employ, own or operate 3rd party service providers. Discounts, if applicable, vary per 3rd party provider. Services subject to terms and conditions of such 3rd party provider. Check with the provider for details.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Always talk to your doctor before starting an exercise program.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  }
+                ],
+                "direction": "ltr"
+              }
+            }
+          },
+          "copyright": {
+            "type": "richText",
+            "value": {
+              "root": {
+                "type": "root",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "SilverSneakers, the SilverSneakers shoe logo type and SilverSneakers Flex are registered trademarks of Tivity Health, Inc. © 2023 Tivity Health, Inc. All rights reserved.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  }
+                ],
+                "direction": "ltr"
+              }
+            }
+          }
+        },
+        "slots": {
+          "navigation": [
+            {
+              "_id": "898b2eee-adbd-4ffc-8dd7-4ccb6952a552",
+              "type": "navigationLink",
+              "variant": "footer",
+              "parameters": {
+                "link": {
+                  "type": "link",
+                  "value": {
+                    "path": "/more/faqs",
+                    "type": "projectMapNode",
+                    "nodeId": "7134711f-cb8b-432d-9651-b10f837eddef",
+                    "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                  }
+                },
+                "title": {
+                  "type": "text",
+                  "value": "Help"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "link": "yes",
+                  "title": "yes"
+                }
+              }
+            },
+            {
+              "_id": "a530063d-168b-42dc-a13b-9e6c13f72039",
+              "type": "navigationLink",
+              "variant": "footer",
+              "parameters": {
+                "link": {
+                  "type": "link",
+                  "value": {
+                    "path": "/more/health-plan-partners",
+                    "type": "projectMapNode",
+                    "nodeId": "cf55f80b-425e-4bee-839d-2e64d87485bf",
+                    "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                  }
+                },
+                "title": {
+                  "type": "text",
+                  "value": "Health Plan Partners"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "link": "yes",
+                  "title": "yes"
+                }
+              }
+            },
+            {
+              "_id": "15f191ed-c557-4790-a43c-97f5f881700b",
+              "type": "navigationLink",
+              "variant": "footer",
+              "parameters": {
+                "link": {
+                  "type": "link",
+                  "value": {
+                    "path": "https://www.tivityhealth.com",
+                    "type": "url"
+                  }
+                },
+                "title": {
+                  "type": "text",
+                  "value": "Our Company"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "link": "yes",
+                  "title": "yes"
+                }
+              }
+            },
+            {
+              "_id": "209ff0bb-adee-47a7-8f08-dd98e80de4a2",
+              "type": "navigationLink",
+              "variant": "footer",
+              "parameters": {
+                "link": {
+                  "type": "link",
+                  "value": {
+                    "path": "/contact-us",
+                    "type": "projectMapNode",
+                    "nodeId": "be16c69c-eb9f-428e-9914-afe947bf0a30",
+                    "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                  }
+                },
+                "title": {
+                  "type": "text",
+                  "value": "Contact Us"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "link": "yes",
+                  "title": "yes"
+                }
+              }
+            },
+            {
+              "_id": "8138502d-c3a9-4602-b5be-9485808f52ff",
+              "type": "navigationLink",
+              "variant": "footer",
+              "parameters": {
+                "link": {
+                  "type": "link",
+                  "value": {
+                    "path": "https://tools.silversneakers.com/SAML/IDPInitiatedSSO?sp_name=WordPress&redirect_to=/careers",
+                    "type": "url"
+                  }
+                },
+                "title": {
+                  "type": "text",
+                  "value": "Careers"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "link": "yes",
+                  "title": "yes"
+                }
+              }
+            },
+            {
+              "_id": "be79d441-6a83-455d-b79e-b198171a92f7",
+              "type": "navigationLink",
+              "variant": "footer",
+              "parameters": {
+                "link": {
+                  "type": "link",
+                  "value": {
+                    "path": "/member-of-the-year",
+                    "type": "projectMapNode",
+                    "nodeId": "a6713968-e32c-4bfc-a074-2a4027cbcb3f",
+                    "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                  }
+                },
+                "title": {
+                  "type": "text",
+                  "value": "Member OTY"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "link": "yes",
+                  "title": "yes"
+                }
+              }
+            },
+            {
+              "_id": "86df8085-ad90-4054-9f96-0fd73377d559",
+              "type": "navigationLink",
+              "variant": "footer",
+              "parameters": {
+                "link": {
+                  "type": "link",
+                  "value": {
+                    "path": "/sitemap",
+                    "type": "projectMapNode",
+                    "nodeId": "d2ab547e-3176-4227-81a1-25a1d76fbfd1",
+                    "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                  }
+                },
+                "title": {
+                  "type": "text",
+                  "value": "Sitemap"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "link": "yes",
+                  "title": "yes"
+                }
+              }
+            },
+            {
+              "_id": "20c6e30e-0f0f-44e2-936c-ba00134b21d4",
+              "type": "navigationLink",
+              "variant": "footer",
+              "parameters": {
+                "link": {
+                  "type": "link",
+                  "value": {
+                    "path": "/terms-of-use",
+                    "type": "projectMapNode",
+                    "nodeId": "1092747f-e410-4d71-bc9a-93cd155eb6b9",
+                    "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                  }
+                },
+                "title": {
+                  "type": "text",
+                  "value": "Terms of Use"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "link": "yes",
+                  "title": "yes"
+                }
+              }
+            },
+            {
+              "_id": "1add8dbf-b49a-4bae-9e05-208b8390027e",
+              "type": "navigationLink",
+              "variant": "footer",
+              "parameters": {
+                "link": {
+                  "type": "link",
+                  "value": {
+                    "path": "/privacy-policy",
+                    "type": "projectMapNode",
+                    "nodeId": "18019a96-79de-4115-b6c9-7d70f2b3e399",
+                    "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                  }
+                },
+                "title": {
+                  "type": "text",
+                  "value": "Privacy Policy"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "link": "yes",
+                  "title": "yes"
+                }
+              }
+            },
+            {
+              "_id": "2ec81beb-a1aa-44f1-b4b3-ed441e3ea4a0",
+              "type": "navigationLink",
+              "variant": "footer",
+              "parameters": {
+                "link": {
+                  "type": "link",
+                  "value": {
+                    "path": "https://submit-irm.trustarc.com/services/validation/55050fa3-172f-4f69-be04-985bf0513e66",
+                    "type": "url"
+                  }
+                },
+                "title": {
+                  "type": "text",
+                  "value": "Your Privacy Choices"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "link": "yes",
+                  "title": "yes"
+                }
+              }
+            }
+          ]
+        },
+        "_overridability": {
+          "parameters": {
+            "text": "no",
+            "copyrite": "yes"
+          }
+        }
+      },
+      "created": "2023-09-19T17:27:03.125126+00:00",
+      "modified": "2023-09-20T00:53:15.330612+00:00",
+      "pattern": true
+    },
+    {
+      "composition": {
+        "_name": "Privacy Policy",
+        "_id": "dbb27f22-07a0-4ce0-9195-c7d2e2f64fd7",
+        "_slug": "privacy",
+        "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Privacy Policy"
+          }
+        },
+        "slots": {
+          "footer": [
+            {
+              "_id": "795bf8ef-cf45-4f4a-980e-67b0e440d5be",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
+          "header": [
+            {
+              "_id": "2844b9be-8401-409d-b2f4-c8e705df4ff7",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
+        }
+      },
+      "created": "2023-09-19T17:37:51.295845+00:00",
+      "modified": "2023-09-19T22:31:09.884953+00:00",
       "pattern": false
     },
     {
@@ -1062,15 +2023,36 @@
         "_id": "e8f30156-1da5-44b6-84b2-022c85f9a822",
         "_slug": "classes-overview",
         "type": "page",
-        "parameters": {}
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Classes Overview"
+          }
+        },
+        "slots": {
+          "footer": [
+            {
+              "_id": "3f024510-e502-4390-933c-cb4b61677893",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
+          "header": [
+            {
+              "_id": "13ba73b1-5619-44d2-9863-af10b1ec6a3f",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
+        }
       },
       "created": "2023-09-11T22:04:40.889564+00:00",
-      "modified": "2023-09-11T22:04:40.889564+00:00",
+      "modified": "2023-09-20T00:59:17.350392+00:00",
       "pattern": false
     },
     {
       "composition": {
-        "_name": "Main Header",
+        "_name": "Header",
         "_id": "f289a2bd-09f9-4e33-ae03-7a6136055ec6",
         "type": "header",
         "parameters": {
@@ -1140,7 +2122,7 @@
                       },
                       "title": {
                         "type": "text",
-                        "value": "Live Online"
+                        "value": "Live Class Schedule"
                       },
                       "description": {
                         "type": "text",
@@ -1440,6 +2422,13 @@
                         "type": "text",
                         "value": "A quick breakdown of our membership"
                       }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
                     }
                   },
                   {
@@ -1464,6 +2453,13 @@
                         "type": "text",
                         "value": "Answers to your frequently asked questions"
                       }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
                     }
                   }
                 ]
@@ -1484,24 +2480,45 @@
         },
         "_overridability": {
           "parameters": {
-            "logo": "yes"
+            "logo": "no"
           }
         }
       },
       "created": "2023-09-10T00:09:14.704627+00:00",
-      "modified": "2023-09-12T18:20:41.089056+00:00",
+      "modified": "2023-09-19T22:42:32.550324+00:00",
       "pattern": true
     },
     {
       "composition": {
-        "_name": "Local Community",
-        "_id": "f3ad5980-34a1-4622-a78a-08b2fea4dd23",
-        "_slug": "local-community",
+        "_name": "Sitemap",
+        "_id": "f2cb5180-b7d1-41c5-8116-d20cb771a222",
+        "_slug": "sitemap",
         "type": "page",
-        "parameters": {}
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Silver Sneakers Sitemap"
+          }
+        },
+        "slots": {
+          "footer": [
+            {
+              "_id": "4079936f-5a20-4867-a938-89ac12bcd94b",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
+          "header": [
+            {
+              "_id": "fa0bb9b3-711b-4338-9c7a-b1821e7911f5",
+              "type": "header",
+              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            }
+          ]
+        }
       },
-      "created": "2023-09-11T21:56:26.215935+00:00",
-      "modified": "2023-09-11T21:56:26.215935+00:00",
+      "created": "2023-09-19T17:41:03.143414+00:00",
+      "modified": "2023-09-20T00:56:06.28407+00:00",
       "pattern": false
     }
   ],
@@ -1532,6 +2549,28 @@
       "order": 600,
       "path": "/more",
       "pathSegment": "more",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "1092747f-e410-4d71-bc9a-93cd155eb6b9",
+      "name": "Terms of Use",
+      "type": "composition",
+      "data": {},
+      "order": 800,
+      "path": "/terms-of-use",
+      "compositionId": "6ce411e3-7f42-43ec-b106-22825db17338",
+      "pathSegment": "terms-of-use",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "18019a96-79de-4115-b6c9-7d70f2b3e399",
+      "name": "Privacy Policy",
+      "type": "composition",
+      "data": {},
+      "order": 900,
+      "path": "/privacy-policy",
+      "compositionId": "dbb27f22-07a0-4ce0-9195-c7d2e2f64fd7",
+      "pathSegment": "privacy-policy",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
@@ -1600,6 +2639,17 @@
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
+      "id": "68a8fded-ade5-46fb-a296-bf5fa436a33b",
+      "name": "Member Profile",
+      "type": "composition",
+      "data": {},
+      "order": 1000,
+      "path": "/member-profile",
+      "compositionId": "6c275198-e33f-4dad-b32b-b562cdaeb602",
+      "pathSegment": "member-profile",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
       "id": "6a9d97e5-0f1c-48d4-ac56-166999a25880",
       "name": "How It Works",
       "type": "composition",
@@ -1619,6 +2669,28 @@
       "path": "/more/faqs",
       "compositionId": "2447135f-3b22-4939-af98-cccaf022a750",
       "pathSegment": "faqs",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "a6713968-e32c-4bfc-a074-2a4027cbcb3f",
+      "name": "Member of the Year",
+      "type": "composition",
+      "data": {},
+      "order": 750,
+      "path": "/member-of-the-year",
+      "compositionId": "3541b332-4338-48d9-b8f2-7c761a6f6308",
+      "pathSegment": "member-of-the-year",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "be16c69c-eb9f-428e-9914-afe947bf0a30",
+      "name": "Contact Us",
+      "type": "composition",
+      "data": {},
+      "order": 700,
+      "path": "/contact-us",
+      "compositionId": "60ee43ce-dd12-4987-8f06-a54a088eb7a7",
+      "pathSegment": "contact-us",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
@@ -1663,6 +2735,17 @@
       "path": "/classes/burnalong",
       "compositionId": "cd8648a3-f8c4-4c5b-bd61-4304cc6888ec",
       "pathSegment": "burnalong",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "d2ab547e-3176-4227-81a1-25a1d76fbfd1",
+      "name": "Sitemap",
+      "type": "composition",
+      "data": {},
+      "order": 775,
+      "path": "/sitemap",
+      "compositionId": "f2cb5180-b7d1-41c5-8116-d20cb771a222",
+      "pathSegment": "sitemap",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     }
   ]
