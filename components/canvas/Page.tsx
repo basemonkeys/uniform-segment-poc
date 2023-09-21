@@ -7,16 +7,12 @@ import {
 export async function Page({ component, context }: ComponentProps) {
   return (
     <>
-      <header>
-        <UniformSlot name="header" data={component} context={context} />
-      </header>
+      <UniformSlot name="header" data={component} context={context} />
       <main className="main">
         <UniformSlot name="banners" data={component} context={context} />
         <UniformSlot name="content" data={component} context={context} />
       </main>
-      <footer>
-        <UniformSlot name="footer" data={component} context={context} />
-      </footer>
+      <UniformSlot name="footer" data={component} context={context} />
     </>
   );
 }

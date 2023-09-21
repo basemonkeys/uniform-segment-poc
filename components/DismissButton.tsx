@@ -4,7 +4,7 @@ import { ComponentProps } from "@uniformdev/canvas-next-rsc";
 
 import classNames from "classnames";
 
-// TODO: abstract these from Banner into util
+// TODO: make these into utils?
 import { getStateClasses, getTextClass } from "./canvas/Banner";
 
 import { XMarkIcon } from "@heroicons/react/20/solid";

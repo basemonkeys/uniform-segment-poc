@@ -14,7 +14,6 @@ import {
   DropdownMenu,
   DropdownItem,
   DropdownTrigger,
-  DropdownSection,
 } from "@nextui-org/dropdown";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import { Button } from "@nextui-org/button";
@@ -183,12 +182,11 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
                     subNavItemDescription,
                   } = item;
                   return (
-                    // TODO: make this a link
                     <DropdownItem
                       key={index}
                       title={subNavItemTitle}
                       description={subNavItemDescription}
-                      // onPress={() => router.push(subNavItemLink)}
+                      onPress={() => router.push(subNavItemLink.path)}
                       showDivider={index === subNavItems.length - 2}
                     />
                   );

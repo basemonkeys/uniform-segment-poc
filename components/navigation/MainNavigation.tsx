@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { useRouter } from "next/navigation";
+
 import { ComponentProps } from "@uniformdev/canvas-next-rsc";
 
 import { getImageUrl } from "@/utils";
@@ -21,7 +23,6 @@ import {
   DropdownItem,
   DropdownSection,
 } from "@nextui-org/dropdown";
-import { Accordion, AccordionItem } from "@nextui-org/accordion";
 
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 
@@ -46,6 +47,8 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState<User>();
 
+  const router = useRouter();
+
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
@@ -53,7 +56,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
       isBordered
       className="border-gray-300"
     >
-      {/* Responsive Branding and Main Navigation */}
+      {/* Branding and Main Navigation */}
       <NavbarContent
         className="border-r-1 border-solid border-gray-300 lg:border-none"
         justify="center"
@@ -64,18 +67,11 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
         </NavbarBrand>
 
         {/* Main Navigation */}
-        <div className="hidden lg:flex">
-          <div className="flex items-center justify-between">
-            {/* this child element renders the NavigationGroup and Header and Footer NavigationLink components in NavLink.tsx ... either a solo Header or Footer link ... or a group of subNavItems. This displays the main navigation in the header */}
-            {children}
-          </div>
-        </div>
+        <NavbarContent className="flex hidden items-center justify-between lg:flex">
+          {/* this child element renders the NavigationGroup and Header and Footer NavigationLink components in NavLink.tsx ... either a solo Header or Footer link ... or a group of subNavItems. This displays the main navigation in the header */}
+          {children}
+        </NavbarContent>
       </NavbarContent>
-
-      {/* Mobile Navigation */}
-      <NavbarMenu className="bg-white">
-        <NavbarItem key={"1"}>{children}</NavbarItem>
-      </NavbarMenu>
 
       {/* Responsive Mobile Menu Toggle */}
       <NavbarContent className="gap-1 lg:hidden" justify="start">
@@ -93,12 +89,18 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
         />
       </NavbarContent>
 
+      {/* Mobile Navigation */}
+      <NavbarContent>
+        <NavbarMenu className="bg-white">
+          <NavbarItem key={"1"}>{children}</NavbarItem>
+        </NavbarMenu>
+      </NavbarContent>
+
       {/* Header CTA Buttons */}
       <NavbarContent className="gap-3" justify="end">
         {user ? (
           <>
-            {/* TODO: fix these keys */}
-            <NavbarItem key={"1"}>
+            <NavbarItem>
               <Dropdown>
                 <DropdownTrigger>
                   <SSButton
@@ -119,14 +121,11 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
                   }}
                 >
                   <DropdownSection showDivider>
-                    {/* TODO: make these links */}
-                    <DropdownItem key="memberId">Member ID</DropdownItem>
-                    <DropdownItem key="personalInfo">
-                      Personal Info
-                    </DropdownItem>
-                    <DropdownItem key="activityTracker">
-                      Activity Tracker
-                    </DropdownItem>
+                    <DropdownItem
+                      key="memberId"
+                      title={"My Profile"}
+                      onPress={() => router.push("/member-profile")}
+                    />
                   </DropdownSection>
                   <DropdownSection>
                     <DropdownItem
@@ -142,7 +141,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
           </>
         ) : (
           <>
-            <NavbarItem key={"1"}>
+            <NavbarItem>
               <SSButton
                 color="secondaryWhite"
                 size="lg"
@@ -151,7 +150,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
                 Log in
               </SSButton>
             </NavbarItem>
-            <NavbarItem key={"2"}>
+            <NavbarItem>
               <SSButton
                 color="primary"
                 size="lg"
