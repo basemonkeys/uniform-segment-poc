@@ -46,13 +46,6 @@ module.exports = {
           dark: "#B91C1C",
           hover: "#FECACA",
         },
-        // TODO: this is a hack to work around NextUI's requirement of 'danger' color on some components. See 'danger' on 'Log Off' in the header.
-        danger: {
-          DEFAULT: "#F87171",
-          light: "#FEF2F2",
-          dark: "#B91C1C",
-          hover: "#FECACA",
-        },
         warning: {
           DEFAULT: "#FBBF24",
           light: "#FFFBEB",
@@ -99,6 +92,7 @@ module.exports = {
   },
 
   plugins: [
+    require("@tailwindcss/typography"),
     nextui({
       addCommonColors: true,
       layout: {

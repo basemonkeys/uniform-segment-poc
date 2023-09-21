@@ -35,4 +35,10 @@ declare namespace Types {
   type CloudinaryImage = {
     url: string;
   }[];
+
+  type PolicyProps = {
+    title: string;
+    lastUpdated: string;
+    text: any;
+  };
 }
