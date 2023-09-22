@@ -62,6 +62,16 @@ export const Primary: Story = {
   },
 };
 
+export const Info: Story = {
+  args: {
+    component: {
+      type: "banner",
+      variant: BannerVariant.Info,
+    },
+    message: "This is a Info banner",
+  },
+};
+
 export const Success: Story = {
   args: {
     component: {
@@ -69,16 +79,6 @@ export const Success: Story = {
       variant: BannerVariant.Success,
     },
     message: "This is a Success banner",
-  },
-};
-
-export const Error: Story = {
-  args: {
-    component: {
-      type: "banner",
-      variant: BannerVariant.Error,
-    },
-    message: "This is a Error banner",
   },
 };
 
@@ -92,12 +92,12 @@ export const Warning: Story = {
   },
 };
 
-export const Info: Story = {
+export const Danger: Story = {
   args: {
     component: {
       type: "banner",
-      variant: BannerVariant.Info,
+      variant: BannerVariant.Danger,
     },
-    message: "This is a Info banner",
+    message: "This is a Danger banner",
   },
 };

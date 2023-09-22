@@ -146,7 +146,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
                   </DropdownSection>
                   <DropdownSection>
                     <DropdownItem
-                      className="!font-bold text-error hover:text-success"
+                      className="!font-bold text-danger hover:text-success"
                       onClick={() => setUser(undefined)}
                     >
                       Log Off

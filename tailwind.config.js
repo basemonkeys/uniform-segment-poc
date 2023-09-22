@@ -41,7 +41,7 @@ module.exports = {
           dark: "#047857",
           hover: "#A7F3D0",
         },
-        error: {
+        danger: {
           DEFAULT: "#F87171",
           light: "#FEF2F2",
           dark: "#B91C1C",

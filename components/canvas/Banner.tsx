@@ -30,7 +30,7 @@ type BannerProps = ComponentProps<{
 export enum BannerVariant {
   Primary = "primary",
   Success = "success",
-  Error = "error",
+  Danger = "danger",
   Warning = "warning",
   Info = "info",
 }
@@ -41,8 +41,8 @@ const getBackgroundClass = (variantId?: string) => {
       return "bg-primary";
     case BannerVariant.Success:
       return "bg-success-light";
-    case BannerVariant.Error:
-      return "bg-error-light";
+    case BannerVariant.Danger:
+      return "bg-danger-light";
     case BannerVariant.Warning:
       return "bg-warning-light";
     case BannerVariant.Info:
@@ -58,8 +58,8 @@ export const getTextClass = (variantId?: string) => {
       return "!text-white";
     case BannerVariant.Success:
       return "!text-success-dark";
-    case BannerVariant.Error:
-      return "!text-error-dark";
+    case BannerVariant.Danger:
+      return "!text-danger-dark";
     case BannerVariant.Warning:
       return "!text-warning-dark";
     case BannerVariant.Info:
@@ -75,8 +75,8 @@ export const getStateClasses = (variantId?: string) => {
       return "hover:bg-primary-dark active:shadow-inner";
     case BannerVariant.Success:
       return "hover:bg-success-hover active:shadow-inner";
-    case BannerVariant.Error:
-      return "hover:bg-error-hover active:shadow-inner";
+    case BannerVariant.Danger:
+      return "hover:bg-danger-hover active:shadow-inner";
     case BannerVariant.Warning:
       return "hover:bg-warning-hover active:shadow-inner";
     case BannerVariant.Info:
@@ -102,8 +102,8 @@ const Banner: React.FC<BannerProps> = ({
           {variant === BannerVariant.Success && (
             <CheckCircleIcon className="h-4 w-4 text-success" />
           )}
-          {variant === BannerVariant.Error && (
-            <XCircleIcon className="h-4 w-4 text-error" />
+          {variant === BannerVariant.Danger && (
+            <XCircleIcon className="h-4 w-4 text-danger" />
           )}
           {variant === BannerVariant.Warning && (
             <ExclamationTriangleIcon className="h-4 w-4 text-warning" />
@@ -143,7 +143,7 @@ const Banner: React.FC<BannerProps> = ({
   undefined,
   BannerVariant.Primary,
   BannerVariant.Success,
-  BannerVariant.Error,
+  BannerVariant.Danger,
   BannerVariant.Warning,
   BannerVariant.Info,
 ].forEach((variantId) => {

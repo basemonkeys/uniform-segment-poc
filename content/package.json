@@ -72,27 +72,27 @@
       "titleParameter": "message",
       "canBeComposition": false,
       "created": "2023-09-05T22:21:16.499136+00:00",
-      "updated": "2023-09-11T15:04:10.49943+00:00",
+      "updated": "2023-09-22T05:04:41.393535+00:00",
       "variants": [
         {
           "id": "primary",
           "name": "Primary"
         },
         {
-          "id": "success",
-          "name": "Success"
+          "id": "info",
+          "name": "Info"
         },
         {
-          "id": "error",
-          "name": "Error"
+          "id": "success",
+          "name": "Success"
         },
         {
           "id": "warning",
           "name": "Warning"
         },
         {
-          "id": "info",
-          "name": "Info"
+          "id": "danger",
+          "name": "Danger"
         }
       ]
     },
@@ -144,6 +144,7 @@
           }
         }
       ],
+      "categoryId": "c7c63720-4715-47a5-9de7-b82f20385244",
       "useTeamPermissions": true,
       "slots": [
         {
@@ -159,7 +160,7 @@
       ],
       "canBeComposition": false,
       "created": "2023-09-19T17:23:25.978616+00:00",
-      "updated": "2023-09-19T23:43:10.30231+00:00"
+      "updated": "2023-09-21T01:06:17.623353+00:00"
     },
     {
       "id": "header",
@@ -178,6 +179,7 @@
           }
         }
       ],
+      "categoryId": "c7c63720-4715-47a5-9de7-b82f20385244",
       "useTeamPermissions": true,
       "slots": [
         {
@@ -194,7 +196,7 @@
       ],
       "canBeComposition": false,
       "created": "2023-09-09T01:13:57.862212+00:00",
-      "updated": "2023-09-14T20:59:26.443869+00:00"
+      "updated": "2023-09-21T01:06:54.642041+00:00"
     },
     {
       "id": "hero",
@@ -317,6 +319,7 @@
           }
         }
       ],
+      "categoryId": "4c3ee642-b971-45a9-af35-e22e53e9cf29",
       "useTeamPermissions": true,
       "slots": [
         {
@@ -333,7 +336,7 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-09-09T23:58:15.054095+00:00",
-      "updated": "2023-09-11T15:04:10.49943+00:00"
+      "updated": "2023-09-21T01:07:40.564694+00:00"
     },
     {
       "id": "navigationLink",
@@ -370,12 +373,13 @@
           "typeConfig": null
         }
       ],
+      "categoryId": "4c3ee642-b971-45a9-af35-e22e53e9cf29",
       "useTeamPermissions": true,
       "slots": [],
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-09-09T23:56:21.493968+00:00",
-      "updated": "2023-09-11T15:04:10.49943+00:00",
+      "updated": "2023-09-21T01:07:46.812712+00:00",
       "variants": [
         {
           "id": "header",
@@ -390,7 +394,7 @@
     {
       "id": "page",
       "name": "Page",
-      "icon": "file-document",
+      "icon": "globe-alt",
       "parameters": [
         {
           "id": "metaTitle",
@@ -413,6 +417,7 @@
           }
         }
       ],
+      "categoryId": "c7c63720-4715-47a5-9de7-b82f20385244",
       "useTeamPermissions": true,
       "slots": [
         {
@@ -441,15 +446,18 @@
           "id": "content",
           "name": "Content",
           "allowedComponents": [
-            "hero",
             "$personalization",
             "$test",
             "$localization",
-            "privacyPolicy"
+            "$p:9eb8e241-54a0-48a5-a408-287ea4394f47",
+            "$p:a703f357-57e8-4fe5-8d4d-47e29e12ba32",
+            "$p:0c8969b1-065e-426c-b6b7-f223e471abd6",
+            "$p:abcd32be-5961-4103-9540-183229d50364",
+            "$p:fd518822-182d-4bb7-a1ea-128bb4f463b6"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
-          "patternsInAllowedComponents": false
+          "patternsInAllowedComponents": true
         },
         {
           "id": "footer",
@@ -471,13 +479,31 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-08-29T20:06:33.571497+00:00",
-      "updated": "2023-09-20T20:51:30.02686+00:00"
+      "updated": "2023-09-21T01:09:34.558987+00:00"
     },
     {
       "id": "privacyPolicy",
       "name": "Privacy Policy",
       "icon": "loadbar-doc",
       "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "lastUpdated",
+          "name": "Last Updated",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
         {
           "id": "text",
           "name": "Text",
@@ -488,11 +514,54 @@
           }
         }
       ],
+      "categoryId": "93f111c6-73ad-4786-93cc-e1fb5dc37106",
       "useTeamPermissions": true,
       "slots": [],
+      "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-09-20T20:09:41.482626+00:00",
-      "updated": "2023-09-20T20:41:03.530072+00:00"
+      "updated": "2023-09-21T01:08:38.684379+00:00"
+    },
+    {
+      "id": "termsOfUse",
+      "name": "Terms of Use",
+      "icon": "loadbar-doc",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "lastUpdated",
+          "name": "Last Updated",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "text",
+          "name": "Text",
+          "type": "json",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
+      "categoryId": "93f111c6-73ad-4786-93cc-e1fb5dc37106",
+      "useTeamPermissions": true,
+      "slots": [],
+      "titleParameter": "title",
+      "canBeComposition": false,
+      "created": "2023-09-20T23:52:30.778238+00:00",
+      "updated": "2023-09-21T01:08:44.668039+00:00"
     }
   ],
   "compositions": [
@@ -505,6 +574,14 @@
           "text": {
             "type": "json",
             "value": "${#jptr:/Privacy Policy/fields/text}"
+          },
+          "title": {
+            "type": "text",
+            "value": "${#jptr:/Privacy Policy/fields/title}"
+          },
+          "lastUpdated": {
+            "type": "text",
+            "value": "${#jptr:/Privacy Policy/sys/updatedAt}"
           }
         },
         "_dataResources": {
@@ -520,12 +597,13 @@
         },
         "_overridability": {
           "parameters": {
-            "text": "no"
+            "text": "no",
+            "title": "no"
           }
         }
       },
       "created": "2023-09-20T20:10:04.792234+00:00",
-      "modified": "2023-09-20T21:04:07.346579+00:00",
+      "modified": "2023-09-21T00:55:37.508278+00:00",
       "pattern": true
     },
     {
@@ -1182,11 +1260,18 @@
               "type": "header",
               "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
             }
+          ],
+          "content": [
+            {
+              "_id": "5ddf5fef-7af1-4ae9-92fa-9820db18db8d",
+              "type": "termsOfUse",
+              "_pattern": "fd518822-182d-4bb7-a1ea-128bb4f463b6"
+            }
           ]
         }
       },
       "created": "2023-09-19T17:37:31.071884+00:00",
-      "modified": "2023-09-20T00:55:26.660828+00:00",
+      "modified": "2023-09-20T23:55:45.207786+00:00",
       "pattern": false
     },
     {
@@ -2010,11 +2095,18 @@
               "type": "header",
               "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
             }
+          ],
+          "content": [
+            {
+              "_id": "3b9b7bc5-091b-42bc-b7be-4ee054935980",
+              "type": "privacyPolicy",
+              "_pattern": "0c8969b1-065e-426c-b6b7-f223e471abd6"
+            }
           ]
         }
       },
       "created": "2023-09-19T17:37:51.295845+00:00",
-      "modified": "2023-09-19T22:31:09.884953+00:00",
+      "modified": "2023-09-20T21:15:21.525138+00:00",
       "pattern": false
     },
     {
@@ -2520,6 +2612,39 @@
       "created": "2023-09-19T17:41:03.143414+00:00",
       "modified": "2023-09-20T00:56:06.28407+00:00",
       "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Terms of Use",
+        "_id": "fd518822-182d-4bb7-a1ea-128bb4f463b6",
+        "type": "termsOfUse",
+        "parameters": {
+          "text": {
+            "type": "json",
+            "value": "${#jptr:/Terms of Use/fields/text}"
+          },
+          "title": {
+            "type": "text",
+            "value": "${#jptr:/Terms of Use/fields/title}"
+          },
+          "lastUpdated": {
+            "type": "text",
+            "value": "${#jptr:/Terms of Use/sys/updatedAt}"
+          }
+        },
+        "_dataResources": {
+          "Terms of Use": {
+            "type": "termsOfUse",
+            "variables": {
+              "locale": "",
+              "entryIds": "7fmYhYhdbbu1dWuwTfQOfG"
+            }
+          }
+        }
+      },
+      "created": "2023-09-20T23:52:54.696546+00:00",
+      "modified": "2023-09-21T00:55:12.522188+00:00",
+      "pattern": true
     }
   ],
   "projectMaps": [

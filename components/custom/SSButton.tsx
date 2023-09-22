@@ -50,7 +50,7 @@ export const SSButton = extendVariants(Button, {
         "bg-white text-primary font-bold border-2 border-primary shadow-[0_0_4px_0px_rgba(0,0,0,0.25)]",
       success: "bg-success-dark text-white font-bold",
       warning: "bg-warning text-white font-bold",
-      error: "bg-error-dark text-white font-bold",
+      danger: "bg-danger-dark text-white font-bold",
     },
     size: {
       xs: "px-3 py-3 text-xs h-4",
