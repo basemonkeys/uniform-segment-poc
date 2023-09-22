@@ -23,7 +23,10 @@ import {
   DropdownItem,
   DropdownSection,
 } from "@nextui-org/dropdown";
+import { Avatar } from "@nextui-org/avatar";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 
 import { SSLogo } from "../custom/SSLogo";
@@ -46,7 +49,6 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
 }: MainNavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [user, setUser] = useState<User>();
-
   const router = useRouter();
 
   return (
@@ -107,8 +109,23 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
                     disableRipple
                     className="ml-6 bg-transparent p-0 font-normal text-foreground data-[hover=true]:bg-transparent"
                     endContent={<ChevronDownIcon className="w-5" />}
-                    size="lg"
                   >
+                    <Avatar
+                      className="h-8 w-8"
+                      color="primary"
+                      // name="Seth Hall"
+                      // getInitials={(name) => name.split(" ")[0][0]}
+                      src="https://images.unsplash.com/broken"
+                      showFallback
+                      fallback={
+                        <FontAwesomeIcon
+                          icon={faUser}
+                          className="text-white"
+                          color="white"
+                          size="lg"
+                        />
+                      }
+                    ></Avatar>
                     Profile
                   </SSButton>
                 </DropdownTrigger>
