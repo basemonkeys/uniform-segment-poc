@@ -36,7 +36,7 @@ declare namespace Types {
     url: string;
   }[];
 
-  type PolicyProps = {
+  type PolicyUseProps = {
     title: string;
     lastUpdated: string;
     text: any;

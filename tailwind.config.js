@@ -14,12 +14,13 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-open-sans)", ...defaultTheme.fontFamily.sans],
       },
+      // all Tailwind default colors are available as usual. https://tailwindcss.com/docs/customizing-colors.
+      // The SilverSneakers color pallette, with selective Tailwind colors, is available at https://www.figma.com/file/0mNynYMtKUNq85fViOFopX/Comp-Sheet?type=design&node-id=65-1141&mode=dev
+      // The other colors below are custom to SilverSneakers... they are not the NextUI Semantic colors
       colors: {
-        background: "#EFEFEF",
-        foreground: "#2A2A2A",
-        white: "#FFFFFF",
-        black: "#000000",
         transparent: "transparent",
+        background: "#FFFFFF",
+        foreground: "#11181C",
         primary: {
           DEFAULT: "#0076CA",
           light: "#93C5FD",
@@ -94,7 +95,15 @@ module.exports = {
   plugins: [
     require("@tailwindcss/typography"),
     nextui({
-      addCommonColors: true,
+      // this allows the use of Tailwind's default colors with NextUI's theme. https://tailwindcss.com/docs/customizing-colors
+      // addCommonColors: true,
+      defaultTheme: "light",
+      themes: {
+        light: {
+          // We are not currently using NextUI's semantic colors. See custom colors above.
+          colors: {},
+        },
+      },
       layout: {
         radius: {
           small: "2px",

@@ -1,6 +1,7 @@
 "use client";
 
 import { Link } from "@nextui-org/react";
+import classNames from "classnames";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -29,7 +30,31 @@ const socialIcons = [
   },
 ];
 
-const SocialIcons = () => {
+type SocialIconsProps = {
+  color?: string;
+};
+
+const enum SocialIconColor {
+  White = "white",
+  Black = "black",
+  Primary = "primary",
+  Secondary = "secondary",
+}
+
+const getIconColorClasses = (color?: string) => {
+  switch (color) {
+    case SocialIconColor.Black:
+      return "bg-black text-gray-100 hover:bg-gray-900";
+    case SocialIconColor.Primary:
+      return "bg-primary text-white hover:bg-primary-dark";
+    case SocialIconColor.Secondary:
+      return "bg-white text-primary hover:bg-gray-100";
+    default:
+      return "bg-white text-gray-600 hover:bg-gray-100";
+  }
+};
+
+const SocialIcons = ({ color = "white" }: SocialIconsProps) => {
   return (
     <div className="flex items-center justify-center gap-4">
       {socialIcons.map((icon) => (
@@ -37,7 +62,10 @@ const SocialIcons = () => {
           isExternal
           key={icon.url}
           href={icon.url}
-          className="h-[36px] w-[36px] justify-center gap-0 rounded-full bg-white p-2 text-gray-600 shadow-sm hover:bg-gray-200"
+          className={classNames(
+            "h-[36px] w-[36px] justify-center gap-0 rounded-full  p-2  shadow-sm",
+            getIconColorClasses(color),
+          )}
         >
           <FontAwesomeIcon icon={icon.icon} />
         </Link>

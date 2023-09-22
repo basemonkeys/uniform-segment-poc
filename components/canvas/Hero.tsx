@@ -19,7 +19,6 @@ import blueSwooshOne from "../../public/blue-swoosh-1.svg";
 import blueSwooshTwo from "../../public/blue-swoosh-2.svg";
 import graySwooshOne from "../../public/gray-swoosh-1.svg";
 import graySwooshTwo from "../../public/gray-swoosh-2.svg";
-import { text } from "body-parser";
 
 export type HeroProps = ComponentProps<{
   textAlignment?: string;

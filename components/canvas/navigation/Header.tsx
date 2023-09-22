@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
   return (
     <>
       <MainNavigation {...props} logo={getLogo()}>
-        {/* this UniformSlot component renders the navigation slot which can contain the NavigationGroup and Header and Footer NavigationLink components from NavLink.tsx. This is what displays the main navigation in header */}
+        {/* this UniformSlot component renders the navigation slot which can contain the Header and Footer NavigationLink components and the Accordion(mobile) and Dropdown(desktop) NavigationGroups from SSNavigationLink.tsx and NavigationLink.tsx. This is what displays the main navigation in header. */}
         <UniformSlot name="navigation" data={component} context={context} />
       </MainNavigation>
     </>
