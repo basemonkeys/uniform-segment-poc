@@ -138,7 +138,7 @@ const Hero: React.FC<HeroProps> = ({
         >
           <div
             className={classNames(
-              "order-2 m-auto sm:basis-9/12 md:order-1 md:basis-1/2",
+              "order-1 m-auto sm:basis-9/12 md:order-1 md:basis-1/2",
             )}
           >
             {variant !== HeroVariant.ImageBackground && (
@@ -149,7 +149,8 @@ const Hero: React.FC<HeroProps> = ({
                   height={1000}
                   alt="Live Classes"
                 />
-                {/* <video>
+                {/* TODO: replace with Cloudinary */}
+                <video>
                   <source
                     src="/Content/videos/class-montage.mp4"
                     type="video/mp4"
@@ -158,13 +159,13 @@ const Hero: React.FC<HeroProps> = ({
                     src="/Content/videos/class-montage.webm"
                     type="video/webm"
                   />
-                </video> */}
+                </video>
               </>
             )}
           </div>
           <div
             className={classNames(
-              "order-1 max-w-[540px] sm:basis-3/12 md:order-2 md:basis-1/2",
+              "order-2 max-w-[540px] sm:basis-3/12 md:order-2 md:basis-1/2",
               getBackgroundClass(variant),
               // isCentered && "w-[737px] max-w-[737px]",
             )}
