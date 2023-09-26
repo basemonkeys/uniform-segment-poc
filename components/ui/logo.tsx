@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Link } from "@nextui-org/link";
+import Link from "next/link";
 
-import { getImageUrl } from "@/utils";
+import { getImageUrl } from "@/lib/utils";
 
 // TODO: replace with Cloudinary
 import logoWordmark from "../../public/logo_wordmark.svg";
@@ -43,7 +43,7 @@ const getLogo = (variantId?: string) => {
   }
 };
 
-export const SSLogo: React.FC<LogoProps> = ({
+export const Logo: React.FC<LogoProps> = ({
   src = "",
   isLink = false,
   href = "/",

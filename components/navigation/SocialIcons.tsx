@@ -1,7 +1,6 @@
 "use client";
 
-import { Link } from "@nextui-org/react";
-import classNames from "classnames";
+import Link from "next/link";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,6 +9,8 @@ import {
   faYoutube,
   faXTwitter as faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+
+import { cn } from "@/lib/utils";
 
 const socialIcons = [
   {
@@ -59,10 +60,11 @@ const SocialIcons = ({ color = "white" }: SocialIconsProps) => {
     <div className="flex items-center justify-center gap-4">
       {socialIcons.map((icon) => (
         <Link
-          isExternal
           key={icon.url}
           href={icon.url}
-          className={classNames(
+          target="_blank"
+          rel="noopener noreferrer"
+          className={cn(
             "h-[36px] w-[36px] justify-center gap-0 rounded-full  p-2  shadow-sm",
             getIconColorClasses(color),
           )}

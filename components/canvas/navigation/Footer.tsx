@@ -5,13 +5,12 @@ import {
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
-import Container from "@/components/Container";
 import SocialIcons from "@/components/navigation/SocialIcons";
 
 const Footer: React.FC<ComponentProps> = ({ component, context }) => {
   return (
     <footer className="bg-gray-600">
-      <Container className="flex w-full flex-col gap-16 px-8 py-16 text-center text-sm text-white lg:gap-6">
+      <div className="container flex w-full flex-col gap-16 px-8 py-16 text-center text-sm text-white lg:gap-6">
         <div className="footer-links flex w-full flex-col justify-center gap-3 text-center max-lg:items-center lg:flex-row">
           <UniformSlot name="navigation" data={component} context={context} />
         </div>
@@ -29,7 +28,7 @@ const Footer: React.FC<ComponentProps> = ({ component, context }) => {
         />
         {/* Social Icons */}
         <SocialIcons />
-      </Container>
+      </div>
     </footer>
   );
 };

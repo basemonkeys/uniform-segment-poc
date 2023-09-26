@@ -1,23 +1,26 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { SSButton } from "../components/custom/SSButton";
+import { Button } from "@/components/ui/button";
 
-const meta: Meta<typeof SSButton> = {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+
+const meta: Meta<typeof Button> = {
   title: "Components/Buttons",
-  component: SSButton,
+  component: Button,
   parameters: {
-    controls: { include: ["children", "color", "size", "radius"] },
+    controls: { include: ["children", "size", "radius"] },
   },
   tags: ["autodocs"],
   args: {
-    color: "primary",
+    variant: "primary",
     children: "Primary",
     size: "lg",
     radius: "md",
   },
   argTypes: {
-    color: {
-      options: ["primary", "primaryWhite", "success", "warning", "error"],
+    variant: {
+      options: ["primary", "primaryWhite", "success", "warning", "danger"],
     },
     size: {
       control: { type: "select" },
@@ -30,7 +33,7 @@ const meta: Meta<typeof SSButton> = {
   },
   decorators: [
     (Story) => (
-      <div className="h-screen">
+      <div style={{ padding: "12px" }}>
         <Story />
       </div>
     ),
@@ -45,10 +48,10 @@ export const Primary: Story = {};
 export const Secondary: Story = {
   args: {
     children: "Secondary",
-    color: "secondary",
+    variant: "secondary",
   },
   argTypes: {
-    color: {
+    variant: {
       options: ["secondary", "secondaryWhite"],
     },
   },
@@ -62,13 +65,45 @@ export const Secondary: Story = {
 export const Disabled: Story = {
   args: {
     children: "Disabled",
-    isDisabled: true,
+    disabled: true,
   },
 };
 
 export const Loading: Story = {
   args: {
-    children: "Loading",
-    isLoading: true,
+    children: (
+      <>
+        <FontAwesomeIcon
+          icon={faCircleNotch}
+          className="mr-2 h-4 w-4 animate-spin"
+        />
+        Loading
+      </>
+    ),
+    disabled: true,
+  },
+  parameters: {
+    controls: { include: ["size", "radius"] },
+  },
+};
+
+export const Success: Story = {
+  args: {
+    children: "Success",
+    variant: "success",
+  },
+};
+
+export const Warning: Story = {
+  args: {
+    children: "Warning",
+    variant: "warning",
+  },
+};
+
+export const Danger: Story = {
+  args: {
+    children: "Danger",
+    variant: "danger",
   },
 };

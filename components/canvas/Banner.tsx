@@ -3,13 +3,9 @@ import {
   ComponentProps,
 } from "@uniformdev/canvas-next-rsc";
 
-import { Link } from "@nextui-org/link";
-import NextLink from "next/link";
+import Link from "next/link";
 
-import classNames from "classnames";
-
-import Container from "../Container";
-import { DismissButton } from "../DismissButton";
+import { DismissButton } from "@/components/ui/dismiss-button";
 
 import {
   CheckCircleIcon,
@@ -17,6 +13,8 @@ import {
   ExclamationTriangleIcon,
   InformationCircleIcon,
 } from "@heroicons/react/20/solid";
+
+import { cn } from "@/lib/utils";
 
 type BannerProps = ComponentProps<{
   message: string;
@@ -96,8 +94,8 @@ const Banner: React.FC<BannerProps> = ({
   const { variant } = component;
 
   return (
-    <div className={classNames("w-full", getBackgroundClass(variant))}>
-      <Container className="px-10 py-2 lg:px-16">
+    <div className={cn("w-full", getBackgroundClass(variant))}>
+      <div className="container px-10 py-2 lg:px-16">
         <div className="flex items-center justify-center gap-3">
           {variant === BannerVariant.Success && (
             <CheckCircleIcon className="h-4 w-4 text-success" />
@@ -112,7 +110,7 @@ const Banner: React.FC<BannerProps> = ({
             <InformationCircleIcon className="h-4 w-4 text-info" />
           )}
           <p
-            className={classNames(
+            className={cn(
               "text-sm text-black md:text-base",
               getTextClass(variant),
             )}
@@ -121,20 +119,18 @@ const Banner: React.FC<BannerProps> = ({
           </p>
           {callToAction && callToActionLink && (
             <Link
-              as={NextLink}
               href={callToActionLink.path}
-              className={classNames(
-                "text-sm font-semibold text-link md:text-base",
+              className={cn(
+                "text-sm font-semibold text-link underline md:text-base",
                 getTextClass(variant),
               )}
-              underline="always"
             >
               {callToAction}
             </Link>
           )}
           {dismissable && <DismissButton component={component} />}
         </div>
-      </Container>
+      </div>
     </div>
   );
 };

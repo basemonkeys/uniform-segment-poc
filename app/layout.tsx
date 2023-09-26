@@ -15,7 +15,7 @@ config.autoAddCss = false;
 import { Providers } from "./providers";
 
 // Uniform Canvas Components index
-import "../components/canvas";
+import "@/components/canvas";
 
 // Global CSS
 import "./globals.css";

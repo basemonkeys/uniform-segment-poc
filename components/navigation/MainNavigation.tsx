@@ -6,32 +6,36 @@ import { useRouter } from "next/navigation";
 
 import { ComponentProps } from "@uniformdev/canvas-next-rsc";
 
-import { getImageUrl } from "@/utils";
+import { getImageUrl } from "@/lib/utils";
 
 import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenu,
-  NavbarMenuToggle,
-} from "@nextui-org/navbar";
+  ChevronDownIcon,
+  ArrowRightOnRectangleIcon,
+  UserIcon,
+} from "@heroicons/react/20/solid";
+
+import { Logo } from "@/components/ui/logo";
+import { Button } from "@/components/ui/button";
 import {
-  Dropdown,
-  DropdownTrigger,
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+} from "@/components/ui/navigation-menu";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
   DropdownMenu,
-  DropdownItem,
-  DropdownSection,
-} from "@nextui-org/dropdown";
-import { Avatar } from "@nextui-org/avatar";
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-regular-svg-icons";
-import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
-
-import { SSLogo } from "../custom/SSLogo";
-import { SSButton } from "../custom/SSButton";
-// import CustomButton from "./SSButton";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 // TODO: get from API
 type User = {
@@ -47,140 +51,101 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   children,
   logo,
 }: MainNavigationProps) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [user, setUser] = useState<User>();
   const router = useRouter();
+  const [user, setUser] = useState<User>();
+  const [loading, setLoading] = useState(false);
 
   return (
-    <Navbar
-      onMenuOpenChange={setIsMenuOpen}
-      maxWidth="xl"
-      isBordered
-      className="border-gray-300"
-    >
-      {/* Branding and Main Navigation */}
-      <NavbarContent
-        className="border-r-1 border-solid border-gray-300 lg:border-none"
-        justify="center"
-      >
-        {/* Logo */}
-        <NavbarBrand>
-          <SSLogo isLink href="/" src={getImageUrl(logo)} />
-        </NavbarBrand>
+    <>
+      <NavigationMenu className="max-w-none border-b-2 border-gray-300">
+        <NavigationMenuList className="container justify-between">
+          <div className="flex items-center gap-4">
+            {/* Logo */}
+            <NavigationMenuItem className="border-r-2 border-solid border-gray-300 py-6 pr-3 lg:border-none">
+              <Logo isLink href="/" src={getImageUrl(logo)} className="flex" />
+            </NavigationMenuItem>
 
-        {/* Main Navigation */}
-        <NavbarContent className="flex hidden items-center justify-between lg:flex">
-          {/* this child element renders the NavigationGroup and Header and Footer NavigationLink components in NavLink.tsx ... either a solo Header or Footer link ... or a group of subNavItems. This displays the main navigation in the header */}
-          {children}
-        </NavbarContent>
-      </NavbarContent>
+            {/* Main Navigation */}
+            <NavigationMenuItem className="hidden items-center justify-between gap-4 lg:flex">
+              {/* this child element renders the NavigationGroup and Header and Footer NavigationLink components in NavLink.tsx ... either a solo Header or Footer link ... or a group of subNavItems. This displays the main navigation in the header */}
+              {children}
+            </NavigationMenuItem>
 
-      {/* Responsive Mobile Menu Toggle */}
-      <NavbarContent className="gap-1 lg:hidden" justify="start">
-        Menu
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="lg:hidden"
-          icon={
-            isMenuOpen ? (
-              <ChevronUpIcon className="w-5" />
-            ) : (
-              <ChevronDownIcon className="w-5" />
-            )
-          }
-        />
-      </NavbarContent>
+            {/* Responsive Mobile Menu Toggle */}
+            <NavigationMenuItem className="w-full gap-1 lg:hidden">
+              <NavigationMenuTrigger
+                // aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                className="lg:hidden"
+              >
+                Menu
+              </NavigationMenuTrigger>
+              <NavigationMenuContent className="z-50 flex w-full flex-col">
+                {children}
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </div>
 
-      {/* Mobile Navigation */}
-      <NavbarContent>
-        <NavbarMenu className="bg-white">
-          <NavbarItem key={"1"}>{children}</NavbarItem>
-        </NavbarMenu>
-      </NavbarContent>
-
-      {/* Header CTA Buttons */}
-      <NavbarContent className="gap-3" justify="end">
-        {user ? (
-          <>
-            <NavbarItem>
-              <Dropdown>
-                <DropdownTrigger>
-                  <SSButton
-                    disableRipple
-                    className="ml-6 bg-transparent p-0 font-normal text-foreground data-[hover=true]:bg-transparent"
-                    endContent={<ChevronDownIcon className="w-5" />}
-                  >
-                    <Avatar
-                      className="h-8 w-8"
-                      color="primary"
-                      // name="Seth Hall"
-                      // getInitials={(name) => name.split(" ")[0][0]}
-                      src="https://images.unsplash.com/broken"
-                      showFallback
-                      fallback={
-                        <FontAwesomeIcon
-                          icon={faUser}
-                          className="text-white"
-                          color="white"
-                          size="lg"
-                        />
-                      }
-                    ></Avatar>
+          <NavigationMenuItem>
+            {user ? (
+              <>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="flex w-full items-center gap-2">
+                    <Avatar className="h-8 w-8">
+                      {/* <AvatarImage src="https://github.com/shadcn.png" /> */}
+                      <AvatarFallback className="bg-primary text-white">
+                        <UserIcon className="h-6 w-6 text-white" />
+                      </AvatarFallback>
+                    </Avatar>
                     Profile
-                  </SSButton>
-                </DropdownTrigger>
-                <DropdownMenu
-                  aria-label="Static Actions"
-                  itemClasses={{
-                    base: "gap-4 text-link data-[hover=true]:bg-default-hover",
-                    wrapper: "hover:text-link",
-                    description: "!text-gray-600 !text-sm",
-                  }}
-                >
-                  <DropdownSection showDivider>
-                    <DropdownItem
-                      key="memberId"
-                      title={"My Profile"}
-                      onPress={() => router.push("/member-profile")}
-                    />
-                  </DropdownSection>
-                  <DropdownSection>
-                    <DropdownItem
-                      className="!font-bold text-danger hover:text-success"
+                    <ChevronDownIcon className="w-5" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem
+                      onClick={() => router.push("/member-profile")}
+                    >
+                      <UserIcon className="mr-2 h-4 w-4" />
+                      <span>My Profile</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem
+                      className="!font-bold !text-danger"
                       onClick={() => setUser(undefined)}
                     >
-                      Log Off
-                    </DropdownItem>
-                  </DropdownSection>
+                      <ArrowRightOnRectangleIcon className="mr-2 h-4 w-4" />
+                      <span>Log Off</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
                 </DropdownMenu>
-              </Dropdown>
-            </NavbarItem>
-          </>
-        ) : (
-          <>
-            <NavbarItem>
-              <SSButton
-                color="secondaryWhite"
-                size="lg"
-                onClick={() => setUser({ name: "User Name" })}
-              >
-                Log in
-              </SSButton>
-            </NavbarItem>
-            <NavbarItem>
-              <SSButton
-                color="primary"
-                size="lg"
-                onClick={() => setUser(undefined)}
-              >
-                Check Eligibility
-              </SSButton>
-              {/* <CustomButton /> */}
-            </NavbarItem>
-          </>
-        )}
-      </NavbarContent>
-    </Navbar>
+              </>
+            ) : (
+              <div className="flex gap-3">
+                <Button
+                  variant="secondaryWhite"
+                  size="xl"
+                  onClick={() => setUser({ name: "User Name" })}
+                >
+                  Log in
+                </Button>
+                <Button
+                  variant="primary"
+                  size="xl"
+                  disabled={loading}
+                  onClick={() => setLoading(true)}
+                >
+                  {loading && (
+                    <FontAwesomeIcon
+                      icon={faCircleNotch}
+                      className="mr-2 h-4 w-4 animate-spin"
+                    />
+                  )}
+                  Check Eligibility
+                </Button>
+              </div>
+            )}
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </>
   );
 };
 

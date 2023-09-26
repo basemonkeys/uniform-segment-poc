@@ -1,27 +1,29 @@
 "use client";
 
-import classNames from "classnames";
+import { cn } from "@/lib/utils";
 
 import { ComponentProps } from "@uniformdev/canvas-next-rsc";
 
-import { usePathname, useRouter } from "next/navigation";
-import NextLink from "next/link";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
-import { Link } from "@nextui-org/link";
-import { NavbarItem } from "@nextui-org/navbar";
 import {
-  Dropdown,
-  DropdownMenu,
-  DropdownItem,
-  DropdownTrigger,
-} from "@nextui-org/dropdown";
-import { Accordion, AccordionItem } from "@nextui-org/accordion";
-import { Button } from "@nextui-org/button";
-import { Divider } from "@nextui-org/divider";
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { Separator } from "@/components/ui/separator";
 
-import { isLgScreen } from "@/utils";
+import { useIsLargeScreen } from "@/lib";
 
 export type LinkProps = Omit<ComponentProps, "context"> & {
   title: string;
@@ -38,28 +40,27 @@ export const SSHeaderLink: React.FC<Omit<LinkProps, "component">> = ({
 }) => {
   const pathname = usePathname();
   const isActive = pathname === link?.path;
-  const isDesktop = isLgScreen();
+  const isDesktop = useIsLargeScreen();
 
   return (
-    <NavbarItem
+    <NavigationMenuItem
       key={link?.path}
-      className={classNames(
+      className={cn(
+        "hover:bg-default-hover",
         isActive &&
           isDesktop &&
           "border-b-3 border-link hover:bg-default-hover",
-        !isDesktop && "border-b-1 border-b-gray-200",
+        !isDesktop && "border-b border-b-gray-200",
         "flex flex-col px-2",
       )}
     >
       <Link
-        as={NextLink}
         href={link?.path || "#"}
-        className={classNames("py-5 text-link ", isDesktop && "!text-black")}
-        color="foreground"
+        className={cn("py-5 text-link ", isDesktop && "!text-black")}
       >
         {title}
       </Link>
-    </NavbarItem>
+    </NavigationMenuItem>
   );
 };
 
@@ -73,11 +74,12 @@ export const SSFooterLink: React.FC<Omit<LinkProps, "component">> = ({
       key={link?.path}
       href={link?.path || "#"}
       className="flex items-center gap-3"
-      isExternal={link?.path?.includes("http")}
+      target={link?.path?.startsWith("http") ? "_blank" : "_self"}
+      rel={link?.path?.startsWith("http") ? "noopener noreferrer" : ""}
     >
       <div className="text-sm text-white hover:underline">{title}</div>
       <div className="divider mt-0.5 h-2/3 bg-white md:visible">
-        <Divider orientation="vertical" />
+        <Separator orientation="vertical" />
       </div>
     </Link>
   );
@@ -90,9 +92,7 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
   link,
 }) => {
   const pathname = usePathname();
-  const isActive = pathname === link?.path;
-  const router = useRouter();
-  const isDesktop = isLgScreen();
+  const isDesktop = useIsLargeScreen();
 
   const subNavItems = component?.slots?.subNavItems?.map((item: any) => {
     const { title, link, description } = item.parameters;
@@ -106,93 +106,88 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
     <>
       {/* this is the accordion in the mobile navigation */}
       {!isDesktop ? (
-        <Accordion
-          key={title}
-          className="z-10 border-b-1 border-b-gray-200"
-          itemClasses={{
-            base: "",
-            heading: "",
-            titleWrapper: "",
-            title: "text-base text-link font-normal",
-            content: "pt-0 pb-5",
-            subtitle: "text-gray-500 text-sm",
-            trigger: "",
-            startContent: "",
-            indicator: "text-link text-xl",
-          }}
-        >
-          {/* @ts-ignore */}
-          <AccordionItem title={title}>
-            {subNavItems?.map((item: any, index: any) => {
-              const { subNavItemTitle, subNavItemLink, subNavItemDescription } =
-                item;
-              return (
-                <NavbarItem key={index} className="flex flex-col">
-                  <Link
-                    as={NextLink}
-                    href={subNavItemLink.path}
-                    className="px-3 pt-5 text-link"
-                    color="foreground"
-                  >
-                    {subNavItemTitle}
-                  </Link>
-                  <span className="px-3 text-xs text-gray-500">
-                    {subNavItemDescription}
-                  </span>
-                </NavbarItem>
-              );
-            })}
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="item-1" className="px-2">
+            <AccordionTrigger className="z-10 flex justify-between border-b border-b-gray-200 text-base font-normal text-link">
+              {title}
+            </AccordionTrigger>
+            <AccordionContent>
+              {subNavItems?.map((item: any, index: any) => {
+                const {
+                  subNavItemTitle,
+                  subNavItemLink,
+                  subNavItemDescription,
+                } = item;
+                return (
+                  <NavigationMenuItem key={index} className="flex flex-col">
+                    <Link
+                      href={subNavItemLink.path}
+                      className="px-3 pt-5 text-link"
+                    >
+                      {subNavItemTitle}
+                    </Link>
+                    <span className="px-3 text-xs text-gray-500">
+                      {subNavItemDescription}
+                    </span>
+                  </NavigationMenuItem>
+                );
+              })}
+            </AccordionContent>
           </AccordionItem>
         </Accordion>
       ) : (
         <>
           {/* this is the dropdown in the non-mobile header navigation */}
           {isDesktop && (
-            <Dropdown key={title}>
-              <NavbarItem
-                key={title}
-                className={classNames(isActive ? "border-b-3 border-link" : "")}
+            <>
+              <NavigationMenu
+                className={cn(
+                  "h-full px-2 py-3 hover:bg-default-hover",
+                  title === "Classes" &&
+                    pathname.includes("classes") &&
+                    "border-b-3 border-link",
+                  title === "More" &&
+                    pathname.includes("more") &&
+                    "border-b-3 border-link",
+                )}
               >
-                <DropdownTrigger>
-                  <Button
-                    disableRipple
-                    endContent={<ChevronDownIcon className="w-5" />}
-                    className="flex h-full justify-between gap-1 bg-transparent px-3 py-5 text-base data-[hover=true]:bg-default-hover"
-                    variant="light"
-                    radius="none"
-                  >
-                    {title}
-                  </Button>
-                </DropdownTrigger>
-              </NavbarItem>
-              <DropdownMenu
-                aria-label="Silver Sneakers Features"
-                className="w-[340px]"
-                itemClasses={{
-                  base: "gap-4 text-link data-[hover=true]:bg-default-hover",
-                  wrapper: "hover:text-link",
-                  description: "!text-gray-600 !text-sm",
-                }}
-              >
-                {/* @ts-ignore */}
-                {subNavItems?.map((item: any, index: any) => {
-                  const {
-                    subNavItemTitle,
-                    subNavItemLink,
-                    subNavItemDescription,
-                  } = item;
-                  return (
-                    <DropdownItem
-                      key={index}
-                      title={subNavItemTitle}
-                      description={subNavItemDescription}
-                      onPress={() => router.push(subNavItemLink.path)}
-                      showDivider={index === subNavItems.length - 2}
-                    />
-                  );
-                })}
-              </DropdownMenu>
-            </Dropdown>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>{title}</NavigationMenuTrigger>
+                  <NavigationMenuContent aria-label="Silver Sneakers Features">
+                    <ul className="flex w-[340px] flex-col">
+                      {/* @ts-ignore */}
+                      {subNavItems?.map((item: any, index: any) => {
+                        const {
+                          subNavItemTitle,
+                          subNavItemLink,
+                          subNavItemDescription,
+                        } = item;
+                        return (
+                          <li
+                            key={index}
+                            className="flex w-full cursor-pointer flex-col p-2 hover:bg-default-hover"
+                          >
+                            <NavigationMenuLink asChild>
+                              <>
+                                <Link
+                                  href={subNavItemLink.path}
+                                  className="gap-4 px-3 text-link hover:bg-default-hover"
+                                >
+                                  {subNavItemTitle}
+                                </Link>
+                                <span className="px-3 text-sm text-gray-600">
+                                  {subNavItemDescription}
+                                </span>
+                              </>
+                            </NavigationMenuLink>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenu>
+            </>
           )}
         </>
       )}

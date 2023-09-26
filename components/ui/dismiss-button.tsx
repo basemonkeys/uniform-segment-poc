@@ -2,10 +2,10 @@
 
 import { ComponentProps } from "@uniformdev/canvas-next-rsc";
 
-import classNames from "classnames";
+import { cn } from "@/lib/utils";
 
 // TODO: make these into utils?
-import { getStateClasses, getTextClass } from "./canvas/Banner";
+import { getStateClasses, getTextClass } from "../canvas/Banner";
 
 import { XMarkIcon } from "@heroicons/react/20/solid";
 
@@ -18,13 +18,13 @@ export const DismissButton: React.FC<DismissButtonProps> = ({ component }) => {
 
   return (
     <div
-      className={classNames(
-        "rounded-lg border-1 border-transparent p-1",
+      className={cn(
+        "rounded-lg border border-transparent p-1",
         getStateClasses(variant),
       )}
     >
       <XMarkIcon
-        className={classNames(
+        className={cn(
           "h-4 w-4 cursor-pointer font-extrabold",
           getTextClass(variant),
         )}

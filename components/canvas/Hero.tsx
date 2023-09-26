@@ -4,16 +4,14 @@ import {
 } from "@uniformdev/canvas-next-rsc";
 
 import Image from "next/image";
+import Link from "next/link";
 
-import classNames from "classnames";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-import { Link } from "@nextui-org/link";
+import { Button } from "@/components/ui/button";
 
-import Container from "../Container";
-import { SSButton } from "../custom/SSButton";
-
-import { getImageUrl } from "@/utils";
+import { cn } from "@/lib/utils";
+import { getImageUrl } from "@/lib/utils";
 
 import blueSwooshOne from "../../public/blue-swoosh-1.svg";
 import blueSwooshTwo from "../../public/blue-swoosh-2.svg";
@@ -78,7 +76,7 @@ const Hero: React.FC<HeroProps> = ({
 
   return (
     <div
-      className={classNames(
+      className={cn(
         "relative",
         variant === HeroVariant.ImageBackground && "min-h-[calc(100vh-100px)]",
       )}
@@ -129,116 +127,109 @@ const Hero: React.FC<HeroProps> = ({
             />
           </div>
         ))}
-      <Container>
+      <div
+        className={cn(
+          "container relative z-30 flex flex-col justify-between gap-3 p-10 md:gap-7 lg:gap-16 lg:px-16 lg:py-32",
+          getAlignmentClass(textAlignment),
+        )}
+      >
         <div
-          className={classNames(
-            "relative z-30 flex flex-col justify-between gap-3 p-10 md:gap-7 lg:gap-16 lg:px-16 lg:py-32",
-            getAlignmentClass(textAlignment),
+          className={cn("order-1 m-auto sm:basis-9/12 md:order-1 md:basis-1/2")}
+        >
+          {variant !== HeroVariant.ImageBackground && (
+            <>
+              <Image
+                src={getImageUrl(image)}
+                width={1000}
+                height={1000}
+                alt="Live Classes"
+              />
+              {/* TODO: replace with Cloudinary */}
+              {/* <video>
+                <source
+                  src="/Content/videos/class-montage.mp4"
+                  type="video/mp4"
+                />
+                <source
+                  src="/Content/videos/class-montage.webm"
+                  type="video/webm"
+                />
+              </video> */}
+            </>
+          )}
+        </div>
+        <div
+          className={cn(
+            "order-2 max-w-[540px] sm:basis-3/12 md:order-2 md:basis-1/2",
+            getBackgroundClass(variant),
+            // isCentered && "w-[737px] max-w-[737px]",
           )}
         >
           <div
-            className={classNames(
-              "order-1 m-auto sm:basis-9/12 md:order-1 md:basis-1/2",
+            className={cn(
+              "mb-3 flex flex-col sm:text-left",
+              isCentered && "items-center !text-center",
             )}
           >
-            {variant !== HeroVariant.ImageBackground && (
-              <>
-                <Image
-                  src={getImageUrl(image)}
-                  width={1000}
-                  height={1000}
-                  alt="Live Classes"
-                />
-                {/* TODO: replace with Cloudinary */}
-                <video>
-                  <source
-                    src="/Content/videos/class-montage.mp4"
-                    type="video/mp4"
-                  />
-                  <source
-                    src="/Content/videos/class-montage.webm"
-                    type="video/webm"
-                  />
-                </video>
-              </>
+            {logo && (
+              <Image
+                src={getImageUrl(logo)}
+                width={280}
+                height={100}
+                alt="Silver Sneakers"
+              />
             )}
-          </div>
-          <div
-            className={classNames(
-              "order-2 max-w-[540px] sm:basis-3/12 md:order-2 md:basis-1/2",
-              getBackgroundClass(variant),
-              // isCentered && "w-[737px] max-w-[737px]",
-            )}
-          >
-            <div
-              className={classNames(
-                "mb-3 flex flex-col sm:text-left",
-                isCentered && "items-center !text-center",
+            <h1
+              className={cn(
+                "max-w-lg pb-5 max-lg:text-4xl max-md:text-2xl max-sm:m-auto",
+                isCentered && "!max-w-full",
               )}
             >
-              {logo && (
-                <Image
-                  src={getImageUrl(logo)}
-                  width={280}
-                  height={100}
-                  alt="Silver Sneakers"
-                />
+              {heading}
+            </h1>
+            <span
+              className={cn(
+                "mb-6 w-24 border-3 border-orange-500 xs:mb-10 sm:max-w-[100px] lg:mb-10",
+                isCentered && "max-sm:mx-auto",
               )}
-              <h1
-                className={classNames(
-                  "max-w-lg pb-5 max-lg:text-4xl max-md:text-2xl max-sm:m-auto",
-                  isCentered && "!max-w-full",
+            ></span>
+            <div className={cn("flex flex-col gap-10 sm:gap-5")}>
+              {documentToReactComponents(description)}
+              <div
+                className={cn(
+                  "mb-5 flex w-full gap-3 sm:justify-start md:gap-8",
+                  isCentered && "!justify-center",
                 )}
               >
-                {heading}
-              </h1>
-              <span
-                className={classNames(
-                  "mb-6 w-24 border-3 border-orange-500 xs:mb-10 sm:max-w-[100px] lg:mb-10",
-                  isCentered && "max-sm:mx-auto",
-                )}
-              ></span>
-              <div className={classNames("flex flex-col gap-10 sm:gap-5")}>
-                {documentToReactComponents(description)}
-                <div
-                  className={classNames(
-                    "mb-5 flex w-full gap-3 sm:justify-start md:gap-8",
-                    isCentered && "!justify-center",
-                  )}
+                <Button
+                  asChild
+                  variant={
+                    variant === HeroVariant.LightBackground
+                      ? "primary"
+                      : "primaryWhite"
+                  }
+                  size="xl"
                 >
-                  <SSButton
-                    href="https://google.com"
-                    as={Link}
-                    // showAnchorIcon
-                    color={
+                  <Link href="https://google.com">{primarycta}</Link>
+                </Button>
+                {secondarycta ? (
+                  <Button
+                    asChild
+                    variant={
                       variant === HeroVariant.LightBackground
-                        ? "primary"
-                        : "primaryWhite"
+                        ? "secondaryWhite"
+                        : "secondary"
                     }
+                    size="xl"
                   >
-                    {primarycta}
-                  </SSButton>
-                  {/* TODO: fix this SSButton as Link */}
-                  {secondarycta ? (
-                    <SSButton
-                      href="/"
-                      as={Link}
-                      // showAnchorIcon
-                      color={
-                        variant === HeroVariant.LightBackground
-                          ? "secondaryWhite"
-                          : "secondary"
-                      }
-                    >
-                      {secondarycta}
-                    </SSButton>
-                  ) : null}
-                </div>
+                    <Link href="/">{secondarycta}</Link>
+                  </Button>
+                ) : null}
               </div>
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </div>
   );
 };

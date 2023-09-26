@@ -1,5 +1,6 @@
 import type { Preview } from "@storybook/react";
 
+// TODO: TailwindCSS is not working with stories
 import "../app/globals.css";
 
 const preview: Preview = {
