@@ -36,6 +36,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
+import { useIsLargeScreen } from "@/lib";
+
 // TODO: get from API
 type User = {
   name: string;
@@ -53,15 +55,21 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   const router = useRouter();
   const [user, setUser] = useState<User>();
   const [loading, setLoading] = useState(false);
+  const isDesktop = useIsLargeScreen();
 
   return (
     <>
       <NavigationMenu className="sticky top-0 z-50 max-w-none border-b-2 border-gray-300 bg-white">
         <NavigationMenuList className="m-auto justify-between px-3 lg:container">
-          <div className="flex items-center">
+          <div className="flex items-center lg:gap-4">
             {/* Logo */}
-            <NavigationMenuItem className="min-w-[139px] border-r-2 border-solid border-gray-300 py-6 lg:border-none">
-              <Logo isLink href="/" src={getImageUrl(logo)} className="flex" />
+            <NavigationMenuItem className="w-5 min-w-[139px] border-r-2 border-solid border-gray-300 py-6 lg:border-none">
+              <Logo
+                isLink
+                href="/"
+                src={getImageUrl(logo)}
+                className="flex max-lg:mr-4"
+              />
             </NavigationMenuItem>
 
             {/* Main Navigation */}
@@ -120,14 +128,14 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
               <div className="flex gap-3">
                 <Button
                   variant="secondaryWhite"
-                  size="xl"
+                  size={isDesktop ? "xl" : "md"}
                   onClick={() => setUser({ name: "User Name" })}
                 >
                   Log in
                 </Button>
                 <Button
                   variant="primary"
-                  size="xl"
+                  size={isDesktop ? "xl" : "md"}
                   disabled={loading}
                   onClick={() => setLoading(true)}
                 >
@@ -144,6 +152,25 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
+
+      {/* Check Eligibility Mobile Button */}
+      <div className="fixed bottom-0 z-50 w-full bg-white p-2">
+        <Button
+          className="w-full"
+          variant="primary"
+          size="xl"
+          disabled={loading}
+          onClick={() => setLoading(true)}
+        >
+          {loading && (
+            <FontAwesomeIcon
+              icon={faCircleNotch}
+              className="mr-2 h-4 w-4 animate-spin"
+            />
+          )}
+          Check Eligibility
+        </Button>
+      </div>
     </>
   );
 };
