@@ -96,7 +96,7 @@ const Banner: React.FC<BannerProps> = ({
   return (
     <div className={cn("w-full", getBackgroundClass(variant))}>
       <div className="container px-10 py-2 lg:px-16">
-        <div className="flex items-center justify-center gap-3">
+        <div className="flex flex-col items-center justify-center gap-1 sm:flex-row sm:gap-3">
           {variant === BannerVariant.Success && (
             <CheckCircleIcon className="h-4 w-4 text-success" />
           )}
