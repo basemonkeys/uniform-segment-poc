@@ -107,7 +107,18 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
       {/* this is the accordion in the mobile navigation */}
       {!isDesktop ? (
         <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="item-1" className="px-2">
+          <AccordionItem
+            value="item-1"
+            className={cn(
+              "px-2",
+              title === "Classes" &&
+                pathname.includes("classes") &&
+                "border-b-none border-l-4 border-link",
+              title === "More" &&
+                pathname.includes("more") &&
+                "border-b-none border-l-4 border-link",
+            )}
+          >
             <AccordionTrigger className="z-10 flex justify-between border-b border-b-gray-200 text-base font-normal text-link">
               {title}
             </AccordionTrigger>
@@ -119,11 +130,15 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
                   subNavItemDescription,
                 } = item;
                 return (
-                  <NavigationMenuItem key={index} className="flex flex-col">
-                    <Link
-                      href={subNavItemLink.path}
-                      className="px-3 pt-5 text-link"
-                    >
+                  <NavigationMenuItem
+                    key={index}
+                    className={cn(
+                      "flex flex-col py-5",
+                      pathname === subNavItemLink.path &&
+                        "border-l-4 border-primary bg-default-hover",
+                    )}
+                  >
+                    <Link href={subNavItemLink.path} className="px-3 text-link">
                       {subNavItemTitle}
                     </Link>
                     <span className="px-3 text-xs text-gray-500">
@@ -165,7 +180,11 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
                         return (
                           <li
                             key={index}
-                            className="flex w-full cursor-pointer flex-col p-2 hover:bg-default-hover"
+                            className={cn(
+                              "flex w-full cursor-pointer flex-col p-2 hover:bg-default-hover",
+                              pathname === subNavItemLink.path &&
+                                "border-l-4 border-primary bg-default-hover",
+                            )}
                           >
                             <NavigationMenuLink asChild>
                               <>
