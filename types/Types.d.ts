@@ -1,3 +1,5 @@
+// TODO: Clean up these types. Double check if they are being used.
+
 declare namespace Types {
   type ProjectMapLink = {
     name?: string;
