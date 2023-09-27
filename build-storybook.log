@@ -1,10 +1,10 @@
 
 > @uniformdev/nextjs-app-router-starter@0.1.0 build-storybook
-> storybook build --output-dir /var/folders/58/c3kmllr55tn7zy12008z4fyc0000gp/T/chromatic--55596-ojSkMqaJTlSe
+> storybook build --output-dir /var/folders/58/c3kmllr55tn7zy12008z4fyc0000gp/T/chromatic--57215-i5xtBA7ektal
 
 @storybook/cli v7.5.0-alpha.2
 
-info => Cleaning outputDir: /var/folders/58/c3kmllr55tn7zy12008z4fyc0000gp/T/chromatic--55596-ojSkMqaJTlSe
+info => Cleaning outputDir: /var/folders/58/c3kmllr55tn7zy12008z4fyc0000gp/T/chromatic--57215-i5xtBA7ektal
 info => Loading presets
 WARN The "@storybook/addon-mdx-gfm" addon is meant as a migration assistant for Storybook 7.0; and will likely be removed in a future version.
 WARN It's recommended you read this document:
@@ -13,9 +13,10 @@ WARN
 WARN Once you've made the necessary changes, you can remove the addon from your package.json and storybook config.
 info => Building manager..
 WARN unable to find package.json for open-next
-info => Manager built (220 ms)
+WARN unable to find package.json for chromatic
+info => Manager built (120 ms)
 info => Building preview..
-info => Copying static files: /Users/seth.hall/apps/frontend/node_modules/@storybook/manager/static at /var/folders/58/c3kmllr55tn7zy12008z4fyc0000gp/T/chromatic--55596-ojSkMqaJTlSe/sb-common-assets
+info => Copying static files: /Users/seth.hall/apps/frontend/node_modules/@storybook/manager/static at /var/folders/58/c3kmllr55tn7zy12008z4fyc0000gp/T/chromatic--57215-i5xtBA7ektal/sb-common-assets
 WARN You (or an addon) are using the 'config' preset field. This has been replaced by 'previewAnnotations' and will be removed in 8.0
 info Addon-docs: using MDX2
 info => Using implicit CSS loaders
@@ -130,17 +131,17 @@ info => Using default Webpack5 setup
 <s> [webpack.Progress] 15% building import loader ./node_modules/unplugin/dist/webpack/loaders/load.js
 <s> [webpack.Progress] 15% building 0/1 entries 35/81 dependencies 3/30 modules
 <s> [webpack.Progress] 14% building import loader ./node_modules/@storybook/nextjs/dist/next-image-loader-stub.js
-<s> [webpack.Progress] 14% building 0/1 entries 54/102 dependencies 4/48 modules
+<s> [webpack.Progress] 14% building 0/1 entries 58/109 dependencies 4/49 modules
 <s> [webpack.Progress] 25% building import loader ./node_modules/style-loader/dist/cjs.js
 <s> [webpack.Progress] 25% building import loader ./node_modules/css-loader/dist/cjs.js
 <s> [webpack.Progress] 25% building import loader ./node_modules/postcss-loader/dist/cjs.js
-<s> [webpack.Progress] 25% building 0/1 entries 109/149 dependencies 20/72 modules
-<s> [webpack.Progress] 41% building 0/1 entries 800/828 dependencies 267/462 modules
+<s> [webpack.Progress] 25% building 0/1 entries 107/154 dependencies 20/72 modules
+<s> [webpack.Progress] 41% building 0/1 entries 800/824 dependencies 267/463 modules
 
 warn - The class `duration-[3000]` is ambiguous and matches multiple utilities.
 warn - If this is content and not a class, replace it with `duration-&lsqb;3000&rsqb;` to silence this warning.
-<s> [webpack.Progress] 52% building 0/1 entries 1662/1700 dependencies 587/765 modules
-<s> [webpack.Progress] 31% building 0/1 entries 5890/5900 dependencies 858/2229 modules
+<s> [webpack.Progress] 50% building 0/1 entries 1700/1732 dependencies 571/782 modules
+<s> [webpack.Progress] 64% building 0/1 entries 6080/6125 dependencies 2200/2233 modules
 <s> [webpack.Progress] 65% building 1/1 entries 6971/6971 dependencies 2617/2617 modules
 <s> [webpack.Progress] 65% building
 <s> [webpack.Progress] 69% building finish
@@ -410,5 +411,5 @@ Entrypoints:
 <s> [webpack.Progress] 99% cache shutdown
 <s> [webpack.Progress] 100% 
 
-info => Preview built (8.56 s)
-info => Output directory: /var/folders/58/c3kmllr55tn7zy12008z4fyc0000gp/T/chromatic--55596-ojSkMqaJTlSe
+info => Preview built (8.29 s)
+info => Output directory: /var/folders/58/c3kmllr55tn7zy12008z4fyc0000gp/T/chromatic--57215-i5xtBA7ektal
