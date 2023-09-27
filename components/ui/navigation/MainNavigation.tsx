@@ -138,6 +138,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
                   size={isDesktop ? "xl" : "md"}
                   disabled={loading}
                   onClick={() => setLoading(true)}
+                  className="max-sm:hidden"
                 >
                   {loading && (
                     <FontAwesomeIcon
@@ -154,7 +155,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
       </NavigationMenu>
 
       {/* Check Eligibility Mobile Button */}
-      <div className="fixed bottom-0 z-50 w-full bg-white p-2">
+      <div className="fixed bottom-0 z-50 w-full bg-white p-2 lg:hidden">
         <Button
           className="w-full"
           variant="primary"
