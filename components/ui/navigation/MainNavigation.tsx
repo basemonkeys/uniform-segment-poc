@@ -174,7 +174,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
       </NavigationMenu>
 
       {/* Check Eligibility Mobile Button */}
-      <div className="fixed bottom-0 z-50 w-full bg-white p-2 lg:hidden">
+      <div className="fixed bottom-0 z-50 w-full bg-white p-2 px-6 sm:hidden">
         <Button
           className="w-full"
           variant="primary"
@@ -196,7 +196,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
       <div
         className={cn(
           showButton ? "opacity-75" : "opacity-0",
-          "duration-[3000] fixed bottom-0 right-0 z-50 m-2 mr-6 bg-primary p-1 text-white transition-opacity ease-out hover:opacity-100",
+          "duration-[3000] fixed bottom-0 right-0 z-50 m-2 mr-6 rounded-md bg-primary p-1 text-white transition-opacity ease-out hover:opacity-100 max-sm:bottom-14",
         )}
         onClick={handleScrollToTop}
       >
