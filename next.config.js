@@ -6,21 +6,11 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        // TODO: remove this one in favor of Cloudinary images
+        // TODO: remove this one in favor of Cloudinary images selected from Contentful
         protocol: "https",
         hostname: "images.ctfassets.net", // Contentful
       },
-      {
-        protocol: "https",
-        hostname: "res.cloudinary.com", // Cloudinary
-      },
     ],
-    // TODO: not sure if this is neeeded since we have the above remotePatterns
-    // https://nextjs.org/docs/app/api-reference/next-config-js/images#cloudinary
-    // images: {
-    //   loader: "custom",
-    //   loaderFile: "./utils/imageLoader.js",
-    // },
   },
 };
 

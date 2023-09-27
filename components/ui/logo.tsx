@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+
+import { CldImage } from "next-cloudinary";
 
 import { getImageUrl } from "@/lib/utils";
 
@@ -49,32 +50,28 @@ export const Logo: React.FC<LogoProps> = ({
   href = "/",
   className = "py-6 pr-3",
   variant = "wordmark",
-  width = 125,
+  width = 525,
   height = 57,
 }) => {
   return (
     <>
       {isLink ? (
         <Link className={className} href={href}>
-          <Image
+          <CldImage
             src={src ? src : getImageUrl(getLogo(variant))}
             width={width}
             height={height}
-            quality={100}
+            sizes="100vw"
             alt="Silver Sneakers Logo"
-            style={{
-              width: "125",
-              height: "57",
-            }}
           />
         </Link>
       ) : (
         <div className={className}>
-          <Image
+          <CldImage
             src={getImageUrl(getLogo(variant))}
             width={width}
             height={height}
-            quality={100}
+            sizes="100vw"
             alt="Silver Sneakers Logo"
           />
         </div>
