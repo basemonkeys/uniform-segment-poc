@@ -3,8 +3,10 @@ import {
   ComponentProps,
 } from "@uniformdev/canvas-next-rsc";
 
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+
+import CloudinaryImage from "../ui/cloudinary-image";
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
@@ -13,19 +15,14 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { getImageUrl } from "@/lib/utils";
 
-import blueSwooshOne from "../../public/blue-swoosh-1.svg";
-import blueSwooshTwo from "../../public/blue-swoosh-2.svg";
-import graySwooshOne from "../../public/gray-swoosh-1.svg";
-import graySwooshTwo from "../../public/gray-swoosh-2.svg";
-
 export type HeroProps = ComponentProps<{
   textAlignment?: string;
   heading: string;
   description: any;
   primarycta: string;
   secondarycta?: string;
-  image?: Types.CloudinaryImage;
-  logo?: Types.CloudinaryImage;
+  image?: string;
+  logo?: string;
 }>;
 
 export enum HeroVariant {
@@ -86,6 +83,7 @@ const Hero: React.FC<HeroProps> = ({
         <>
           <div className="from-26% to-98% absolute z-20 h-full w-full bg-gradient-to-r from-black opacity-90"></div>
           <div className="absolute z-10 h-full w-full bg-cover bg-left-top bg-no-repeat">
+            {/* TODO: integrate Cloudinary into Contentful and map a Uniform JSON Object parameter to the Contenful field. This will provide a Cloudinary url, similar to Logo, which should work as the src */}
             <Image
               fill
               src={getImageUrl(image)}
@@ -98,30 +96,30 @@ const Hero: React.FC<HeroProps> = ({
       {variant !== HeroVariant.ImageBackground &&
         (variant === HeroVariant.LightBackground ? (
           <div className="absolute -z-10 h-full w-full bg-white bg-cover bg-left-top bg-no-repeat">
-            <Image
+            <CloudinaryImage
               fill
-              src={graySwooshOne}
+              src="silversneakers/ayfp6mzjmqo5dpyzhosj"
               alt="Blue Swoosh"
               className="object-cover"
             />
-            <Image
+            <CloudinaryImage
               fill
-              src={graySwooshTwo}
+              src="silversneakers/feffiy7gf94xaebp2lep"
               alt="Blue Swoosh"
               className="object-cover"
             />
           </div>
         ) : (
           <div className="absolute -z-10 h-full w-full bg-primary bg-cover bg-left-top bg-no-repeat">
-            <Image
+            <CloudinaryImage
               fill
-              src={blueSwooshOne}
+              src="silversneakers/oydg5urpuzfkrh2pywu6"
               alt="Blue Swoosh"
               className="object-cover"
             />
-            <Image
+            <CloudinaryImage
               fill
-              src={blueSwooshTwo}
+              src="silversneakers/okjz19zlcyva7oyeisrs"
               alt="Blue Swoosh"
               className="object-cover"
             />
@@ -138,10 +136,11 @@ const Hero: React.FC<HeroProps> = ({
         >
           {variant !== HeroVariant.ImageBackground && (
             <>
+              {/* TODO: integrate Cloudinary into Contentful and map a Uniform JSON Object parameter to the Contenful field. This will provide a Cloudinary url, similar to Logo, which should work as the src */}
               <Image
                 src={getImageUrl(image)}
-                width={1000}
-                height={1000}
+                width="1000"
+                height="1000"
                 alt="Live Classes"
               />
               {/* TODO: replace with Cloudinary */}
@@ -172,10 +171,10 @@ const Hero: React.FC<HeroProps> = ({
             )}
           >
             {logo && (
-              <Image
+              <CloudinaryImage
                 src={getImageUrl(logo)}
-                width={280}
-                height={100}
+                width="280"
+                height="100"
                 alt="Silver Sneakers"
               />
             )}
