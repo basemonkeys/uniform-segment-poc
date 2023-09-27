@@ -196,7 +196,7 @@ const Hero: React.FC<HeroProps> = ({
               {documentToReactComponents(description)}
               <div
                 className={cn(
-                  "mb-5 flex w-full gap-3 sm:justify-start md:gap-8",
+                  "mb-5 flex w-full gap-3 max-sm:flex-col sm:justify-start md:gap-8",
                   isCentered && "!justify-center",
                 )}
               >
