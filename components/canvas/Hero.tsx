@@ -83,6 +83,7 @@ const Hero: React.FC<HeroProps> = ({
         <>
           <div className="from-26% to-98% absolute z-20 h-full w-full bg-gradient-to-r from-black opacity-90"></div>
           <div className="absolute z-10 h-full w-full bg-cover bg-left-top bg-no-repeat">
+            {/* TODO: integrate Cloudinary into Contentful and map a Uniform JSON Object parameter to the Contenful field. This will provide a Cloudinary url, similar to Logo, which should work as the src */}
             <Image
               fill
               src={getImageUrl(image)}
@@ -135,6 +136,7 @@ const Hero: React.FC<HeroProps> = ({
         >
           {variant !== HeroVariant.ImageBackground && (
             <>
+              {/* TODO: integrate Cloudinary into Contentful and map a Uniform JSON Object parameter to the Contenful field. This will provide a Cloudinary url, similar to Logo, which should work as the src */}
               <Image
                 src={getImageUrl(image)}
                 width="1000"
