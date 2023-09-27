@@ -1,14 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useRouter } from "next/navigation";
 
 import { ComponentProps } from "@uniformdev/canvas-next-rsc";
 
-import { getImageUrl } from "@/lib/utils";
+import { cn, getImageUrl } from "@/lib/utils";
 
 import {
+  ChevronUpIcon,
   ChevronDownIcon,
   ArrowRightOnRectangleIcon,
   UserIcon,
@@ -52,10 +53,28 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   children,
   logo,
 }: MainNavigationProps) => {
-  const router = useRouter();
   const [user, setUser] = useState<User>();
   const [loading, setLoading] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+
+  const router = useRouter();
   const isDesktop = useIsLargeScreen();
+
+  useEffect(() => {
+    const handleScrollButtonVisibility = () => {
+      window.scrollY > 300 ? setShowButton(true) : setShowButton(false);
+    };
+
+    window.addEventListener("scroll", handleScrollButtonVisibility);
+
+    return () => {
+      window.removeEventListener("scroll", handleScrollButtonVisibility);
+    };
+  }, []);
+
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -138,6 +157,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
                   size={isDesktop ? "xl" : "md"}
                   disabled={loading}
                   onClick={() => setLoading(true)}
+                  className="max-sm:hidden"
                 >
                   {loading && (
                     <FontAwesomeIcon
@@ -154,7 +174,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
       </NavigationMenu>
 
       {/* Check Eligibility Mobile Button */}
-      <div className="fixed bottom-0 z-50 w-full bg-white p-2">
+      <div className="fixed bottom-0 z-50 w-full bg-white p-2 lg:hidden">
         <Button
           className="w-full"
           variant="primary"
@@ -170,6 +190,17 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
           )}
           Check Eligibility
         </Button>
+      </div>
+
+      {/* Scroll to Top Button */}
+      <div
+        className={cn(
+          showButton ? "opacity-75" : "opacity-0",
+          "duration-[3000] fixed bottom-0 right-0 z-50 m-2 mr-6 bg-primary p-1 text-white transition-opacity ease-out hover:opacity-100",
+        )}
+        onClick={handleScrollToTop}
+      >
+        <ChevronUpIcon className="w-10" />
       </div>
     </>
   );
