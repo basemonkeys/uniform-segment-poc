@@ -58,7 +58,6 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   const [showButton, setShowButton] = useState(false);
 
   const router = useRouter();
-  const isDesktop = useIsLargeScreen();
 
   useEffect(() => {
     const handleScrollButtonVisibility = () => {
@@ -147,14 +146,14 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
               <div className="flex gap-3">
                 <Button
                   variant="secondaryWhite"
-                  size={isDesktop ? "xl" : "md"}
+                  size="lg"
                   onClick={() => setUser({ name: "User Name" })}
                 >
                   Log in
                 </Button>
                 <Button
                   variant="primary"
-                  size={isDesktop ? "xl" : "md"}
+                  size="lg"
                   disabled={loading}
                   onClick={() => setLoading(true)}
                   className="max-sm:hidden"
