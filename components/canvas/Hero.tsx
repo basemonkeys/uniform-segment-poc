@@ -6,11 +6,10 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 
-import CloudinaryImage from "../ui/cloudinary-image";
-
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { Button } from "@/components/ui/button";
+import CloudinaryImage from "@/components/ui/cloudinary-image";
 
 import { cn } from "@/lib/utils";
 import { getImageUrl } from "@/lib/utils";

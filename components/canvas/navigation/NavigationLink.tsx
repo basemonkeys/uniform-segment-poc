@@ -5,7 +5,7 @@ import {
   SSFooterLink,
   SSHeaderLink,
   SSNavigationGroup,
-} from "../../ui/navigation/SSNavigationLinks";
+} from "@/components/ui/navigation/SSNavigationLinks";
 
 export const HeaderLink: React.FC<LinkProps> = ({ title, link }) => {
   return <SSHeaderLink link={link} title={title} />;
