@@ -128,7 +128,7 @@ const Banner: React.FC<BannerProps> = ({
               {callToAction}
             </Link>
           )}
-          {dismissable && <DismissButton component={component} />}
+          {dismissable && <DismissButton variant={variant} />}
         </div>
       </div>
     </div>

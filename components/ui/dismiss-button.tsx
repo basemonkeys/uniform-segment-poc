@@ -9,13 +9,11 @@ import { getStateClasses, getTextClass } from "../canvas/Banner";
 
 import { XMarkIcon } from "@heroicons/react/20/solid";
 
-type DismissButtonProps = Omit<ComponentProps, "context"> & {
+type DismissButtonProps = {
   variant?: string;
 };
 
-export const DismissButton: React.FC<DismissButtonProps> = ({ component }) => {
-  const { variant } = component;
-
+export const DismissButton: React.FC<DismissButtonProps> = ({ variant }) => {
   return (
     <div
       className={cn(

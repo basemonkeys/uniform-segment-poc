@@ -5,7 +5,7 @@ describe("<AccordionItem />", () => {
   it("renders", () => {
     // see: https://on.cypress.io/mounting-react
     cy.mount(
-      <Accordion>
+      <Accordion type="multiple">
         <AccordionItem value="item 1">Item 1</AccordionItem>
       </Accordion>,
     );
