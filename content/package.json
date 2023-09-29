@@ -277,6 +277,13 @@
           "type": "image",
           "helpText": "",
           "typeConfig": null
+        },
+        {
+          "id": "video",
+          "name": "Video",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": null
         }
       ],
       "useTeamPermissions": true,
@@ -284,7 +291,7 @@
       "titleParameter": "heading",
       "canBeComposition": false,
       "created": "2023-08-29T20:06:35.107289+00:00",
-      "updated": "2023-09-11T15:04:10.49943+00:00",
+      "updated": "2023-09-29T01:28:06.364484+00:00",
       "variants": [
         {
           "id": "imageBackground",
@@ -1396,6 +1403,10 @@
             "type": "image",
             "value": "${#jptr:/Hero/fields/image/fields/file/url}"
           },
+          "video": {
+            "type": "text",
+            "value": "${#jptr:/Hero/fields/inlineVideo/0/url}"
+          },
           "heading": {
             "type": "text",
             "value": "${#jptr:/Hero/fields/heading}"
@@ -1442,7 +1453,7 @@
         }
       },
       "created": "2023-08-29T20:06:37.045329+00:00",
-      "modified": "2023-09-07T18:49:47.931288+00:00",
+      "modified": "2023-09-29T01:40:24.575884+00:00",
       "pattern": true
     },
     {
