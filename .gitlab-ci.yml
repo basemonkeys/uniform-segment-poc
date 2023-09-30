@@ -63,6 +63,7 @@ checkmarx-scan:
 
 build:
   stage: build
+  image: registry.gitlab.com/tivityhealth/container-images/nodejs16-build-container:552a03c2
   cache:
     - <<: *node-modules-cache
       policy: pull-push
