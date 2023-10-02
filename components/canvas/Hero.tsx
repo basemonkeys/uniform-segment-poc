@@ -9,7 +9,7 @@ import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { Button } from "@/components/ui/button";
-import CloudinaryImage from "@/components/ui/cloudinary-image";
+import { CloudinaryImage, CloudinaryVideo } from "@/components/ui/cloudinary";
 
 import { cn } from "@/lib/utils";
 import { getImageUrl } from "@/lib/utils";
@@ -21,6 +21,7 @@ export type HeroProps = ComponentProps<{
   primarycta: string;
   secondarycta?: string;
   image?: string;
+  video?: string;
   logo?: string;
 }>;
 
@@ -65,10 +66,13 @@ const Hero: React.FC<HeroProps> = ({
   primarycta,
   secondarycta,
   image,
+  video,
   logo,
 }) => {
   const { variant } = component;
   const isCentered = textAlignment === HeroAlignment.Center;
+
+  console.log(logo);
 
   return (
     <div
@@ -131,28 +135,31 @@ const Hero: React.FC<HeroProps> = ({
         )}
       >
         <div
-          className={cn("order-1 m-auto sm:basis-9/12 md:order-1 md:basis-1/2")}
+          className={cn(
+            "relative order-1 m-auto sm:basis-9/12 md:order-1 md:basis-1/2",
+          )}
         >
           {variant !== HeroVariant.ImageBackground && (
             <>
-              {/* TODO: integrate Cloudinary into Contentful and map a Uniform JSON Object parameter to the Contenful field. This will provide a Cloudinary url, similar to Logo, which should work as the src */}
+              {/* TODO: integrate Cloudinary into Contentful and map a Uniform JSON Object parameter to the Contenful field. This will provide a Cloudinary url, similar to Logo, which should work as the src. This will allow the use of CloudinaryImage. */}
               <Image
                 src={getImageUrl(image)}
                 width="1000"
                 height="1000"
                 alt="Live Classes"
               />
-              {/* TODO: replace with Cloudinary */}
-              {/* <video>
-                <source
-                  src="/Content/videos/class-montage.mp4"
-                  type="video/mp4"
-                />
-                <source
-                  src="/Content/videos/class-montage.webm"
-                  type="video/webm"
-                />
-              </video> */}
+              {video && (
+                <div className="absolute top-[20%] w-full">
+                  {/* TODO: https://github.com/colbyfayock/next-cloudinary/issues/286 */}
+                  <CloudinaryVideo
+                    width="1920px"
+                    height="1080px"
+                    src="samples/sea-turtle"
+                    // src="https://res.cloudinary.com/seth-hall/video/upload/v1623764495/samples/elephants.mp4"
+                    // src={video}
+                  />
+                </div>
+              )}
             </>
           )}
         </div>
@@ -172,8 +179,8 @@ const Hero: React.FC<HeroProps> = ({
             {logo && (
               <CloudinaryImage
                 src={getImageUrl(logo)}
-                width="280"
-                height="100"
+                width={280}
+                height={100}
                 alt="Silver Sneakers"
               />
             )}
