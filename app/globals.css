@@ -6,7 +6,7 @@
   html,
   body {
     --font-open-sans: "Open Sans", sans-serif;
-    @apply bg-default-light;
+    /* @apply bg-default-light; */
   }
   /* Headings */
   h1 {
@@ -25,18 +25,14 @@
     @apply font-sans text-sm leading-tight;
   }
 
-  a {
-    @apply text-link;
-  }
-
   /* There are two Paragraphs in the style guide. */
   /* P1 is default ('text-base font-normal') */
   /* P2 is a smaller variant and should use a 'text-sm' class */
 }
 
 @layer components {
-  .link {
-    @apply !text-blue-600;
+  a {
+    @apply text-link hover:text-link-hover;
   }
 
   .footer-links a:last-of-type > .divider {

@@ -80,7 +80,7 @@ module.exports = {
         },
         link: {
           DEFAULT: "#2563EB",
-          hover: "#0064AC",
+          hover: "#1E40AF",
         },
       },
       keyframes: {

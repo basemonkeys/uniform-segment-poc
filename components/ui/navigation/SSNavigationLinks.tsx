@@ -43,12 +43,14 @@ export const SSHeaderLink: React.FC<Omit<LinkProps, "component">> = ({
     <NavigationMenuItem
       key={link?.path}
       className={cn(
-        "flex flex-col px-2 hover:bg-default-hover",
-        isActive &&
-          "border-b border-b-gray-200 lg:border-b-3 lg:border-link hover:lg:bg-default-hover",
+        "flex flex-col border-b border-b-gray-200 px-2 hover:bg-default-hover",
+        isActive && "lg:border-b-3 lg:border-link hover:lg:bg-default-hover",
       )}
     >
-      <Link href={link?.path || "#"} className="py-5 lg:text-black">
+      <Link
+        href={link?.path || "#"}
+        className="py-5 lg:text-black lg:hover:text-black"
+      >
         {title}
       </Link>
     </NavigationMenuItem>
@@ -99,16 +101,16 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
         <AccordionItem
           value="item-1"
           className={cn(
-            "px-2",
+            "border-b !border-b-gray-200 px-2",
             title === "Classes" &&
               pathname.includes("classes") &&
-              "border-b-none border-l-4 border-link",
+              "border-l-4 border-link",
             title === "More" &&
               pathname.includes("more") &&
-              "border-b-none border-l-4 border-link",
+              "border-l-4 border-link",
           )}
         >
-          <AccordionTrigger className="z-10 flex justify-between border-b border-b-gray-200 text-base font-normal text-link">
+          <AccordionTrigger className="z-10 flex justify-between text-base font-normal text-link">
             {title}
           </AccordionTrigger>
           <AccordionContent>
@@ -140,7 +142,7 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
       {/* this is the dropdown in the non-mobile header navigation */}
       <NavigationMenu
         className={cn(
-          "h-full px-2 py-3 hover:bg-default-hover max-md:hidden",
+          "h-full px-2 py-3 hover:bg-default-hover max-lg:hidden",
           title === "Classes" &&
             pathname.includes("classes") &&
             "border-b-3 border-link",
