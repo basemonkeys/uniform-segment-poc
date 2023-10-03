@@ -121,7 +121,7 @@ const Banner: React.FC<BannerProps> = ({
             <Link
               href={callToActionLink.path}
               className={cn(
-                "text-sm font-semibold text-link underline md:text-base",
+                "text-sm font-semibold underline md:text-base",
                 getTextClass(variant),
               )}
             >

@@ -52,7 +52,7 @@ module.exports = {
           DEFAULT: "#9CA3AF",
           light: "#F9FAFB",
           dark: "#374151",
-          hover: "#E5E7EB",
+          hover: "#F3F4F6",
         },
         success: {
           DEFAULT: "#34D399",
@@ -79,7 +79,7 @@ module.exports = {
           hover: "#BFDBFE",
         },
         link: {
-          DEFAULT: "#0076CA",
+          DEFAULT: "#2563EB",
           hover: "#0064AC",
         },
       },
