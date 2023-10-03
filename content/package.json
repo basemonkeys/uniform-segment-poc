@@ -272,16 +272,16 @@
           }
         },
         {
-          "id": "logo",
-          "name": "Logo",
-          "type": "image",
+          "id": "video",
+          "name": "Video",
+          "type": "text",
           "helpText": "",
           "typeConfig": null
         },
         {
-          "id": "video",
-          "name": "Video",
-          "type": "text",
+          "id": "logo",
+          "name": "Logo",
+          "type": "image",
           "helpText": "",
           "typeConfig": null
         }
@@ -291,7 +291,7 @@
       "titleParameter": "heading",
       "canBeComposition": false,
       "created": "2023-08-29T20:06:35.107289+00:00",
-      "updated": "2023-09-29T01:28:06.364484+00:00",
+      "updated": "2023-09-29T18:46:26.325134+00:00",
       "variants": [
         {
           "id": "imageBackground",
@@ -310,6 +310,17 @@
           "name": "Light Background"
         }
       ]
+    },
+    {
+      "id": "memberProfile",
+      "name": "Member Profile",
+      "icon": "profile",
+      "parameters": [],
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-10-02T17:09:55.60874+00:00",
+      "updated": "2023-10-02T17:09:55.60874+00:00"
     },
     {
       "id": "navigationGroup",
@@ -460,7 +471,8 @@
             "$p:a703f357-57e8-4fe5-8d4d-47e29e12ba32",
             "$p:0c8969b1-065e-426c-b6b7-f223e471abd6",
             "$p:abcd32be-5961-4103-9540-183229d50364",
-            "$p:fd518822-182d-4bb7-a1ea-128bb4f463b6"
+            "$p:fd518822-182d-4bb7-a1ea-128bb4f463b6",
+            "memberProfile"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -486,7 +498,7 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-08-29T20:06:33.571497+00:00",
-      "updated": "2023-09-21T01:09:34.558987+00:00"
+      "updated": "2023-10-02T17:10:34.905658+00:00"
     },
     {
       "id": "privacyPolicy",
@@ -1234,11 +1246,17 @@
               "type": "header",
               "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
             }
+          ],
+          "content": [
+            {
+              "_id": "b1f7badb-70b1-47e1-a8d5-e92aacc3fe62",
+              "type": "memberProfile"
+            }
           ]
         }
       },
       "created": "2023-09-20T05:42:55.206309+00:00",
-      "modified": "2023-09-20T05:44:56.467781+00:00",
+      "modified": "2023-10-02T17:11:15.914779+00:00",
       "pattern": false
     },
     {
@@ -1405,7 +1423,7 @@
           },
           "video": {
             "type": "text",
-            "value": "${#jptr:/Hero/fields/inlineVideo/0/url}"
+            "value": "${#jptr:/Hero/fields/inlineVideo/0/original_url}"
           },
           "heading": {
             "type": "text",
@@ -1453,7 +1471,7 @@
         }
       },
       "created": "2023-08-29T20:06:37.045329+00:00",
-      "modified": "2023-09-29T01:40:24.575884+00:00",
+      "modified": "2023-10-02T15:36:50.06563+00:00",
       "pattern": true
     },
     {
