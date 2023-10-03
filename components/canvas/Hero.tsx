@@ -150,14 +150,7 @@ const Hero: React.FC<HeroProps> = ({
               />
               {video && (
                 <div className="absolute top-[20%] w-full">
-                  {/* TODO: https://github.com/colbyfayock/next-cloudinary/issues/286 */}
-                  <CloudinaryVideo
-                    width="1920px"
-                    height="1080px"
-                    src="samples/sea-turtle"
-                    // src="https://res.cloudinary.com/seth-hall/video/upload/v1623764495/samples/elephants.mp4"
-                    // src={video}
-                  />
+                  <CloudinaryVideo width="1920px" height="1080px" src={video} />
                 </div>
               )}
             </>
