@@ -11,6 +11,7 @@ import {
 import "./navigation/Footer";
 import "./Banner";
 import "./Hero";
+import "./MemberProfile";
 import "./PrivacyPolicy";
 import "./TermsOfUse";
 
