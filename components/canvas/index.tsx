@@ -1,6 +1,7 @@
 import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 
 // Canvas Components
+import "./HomePage";
 import "./Page";
 import "./navigation/Header";
 import {
@@ -11,6 +12,7 @@ import {
 import "./navigation/Footer";
 import "./Banner";
 import "./Hero";
+import "./MemberProfile";
 import "./PrivacyPolicy";
 import "./TermsOfUse";
 

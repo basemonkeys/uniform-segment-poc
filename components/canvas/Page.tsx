@@ -4,16 +4,13 @@ import {
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
+// This component is used by all content pages except the home page
 export async function Page({ component, context }: ComponentProps) {
   return (
-    <>
-      <UniformSlot name="header" data={component} context={context} />
-      <main className="main">
-        <UniformSlot name="banners" data={component} context={context} />
-        <UniformSlot name="content" data={component} context={context} />
-      </main>
-      <UniformSlot name="footer" data={component} context={context} />
-    </>
+    <main className="main">
+      <UniformSlot name="banners" data={component} context={context} />
+      <UniformSlot name="content" data={component} context={context} />
+    </main>
   );
 }
 
