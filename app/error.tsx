@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 
 export default function Error({
@@ -17,11 +19,12 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center space-y-6">
+    <div className="flex h-screen flex-col items-center justify-center space-y-6 text-danger">
       <h2>{error.message}</h2>
       <Button variant="primary" size="md" onClick={() => reset()}>
         Try again
       </Button>
+      <Link href="/">Return to Home</Link>
     </div>
   );
 }

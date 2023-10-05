@@ -27,7 +27,7 @@
 
   /* There are two Paragraphs in the style guide. */
   /* P1 is default ('text-base font-normal') */
-  /* P2 is a smaller variant and should use a 'text-sm' class */
+  /* P2 is a smaller variant and should use a 'text-sm text-gray-500' classes */
 }
 
 @layer components {

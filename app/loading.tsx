@@ -19,7 +19,7 @@ export default function Loading() {
           icon={faCircleNotch}
           className="mr-2 h-5 w-5 animate-spin"
         />
-        loading...
+        loading content...
       </h3>
     </main>
   );

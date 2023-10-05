@@ -15,10 +15,10 @@ import {
 
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 
-import { getUser } from "@/lib/api";
+import { getUser, UserProps } from "@/lib/api";
 
 export async function ProfileInfoCard() {
-  const user = await getUser();
+  const user: UserProps = await getUser(3000);
   const { firstName, lastName, email } = user;
 
   return (
