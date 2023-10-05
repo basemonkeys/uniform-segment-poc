@@ -4,6 +4,7 @@ import {
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
+// This component is used by all content pages except the home page
 export async function Page({ component, context }: ComponentProps) {
   return (
     <main className="main">

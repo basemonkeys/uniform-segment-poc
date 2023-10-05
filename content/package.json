@@ -312,6 +312,97 @@
       ]
     },
     {
+      "id": "homePage",
+      "name": "Home Page",
+      "icon": "globe-alt",
+      "parameters": [
+        {
+          "id": "metaTitle",
+          "name": "Meta Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": false
+          }
+        },
+        {
+          "id": "metaDescription",
+          "name": "Meta Description",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": false,
+            "multiline": true,
+            "linesCount": "4"
+          }
+        }
+      ],
+      "categoryId": "c7c63720-4715-47a5-9de7-b82f20385244",
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "header",
+          "name": "Header",
+          "allowedComponents": [
+            "$p:f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": true
+        },
+        {
+          "id": "banners",
+          "name": "Banners",
+          "allowedComponents": [
+            "banner",
+            "$test",
+            "$personalization"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
+        },
+        {
+          "id": "content",
+          "name": "Content",
+          "allowedComponents": [
+            "$personalization",
+            "$test",
+            "$localization",
+            "$p:9eb8e241-54a0-48a5-a408-287ea4394f47",
+            "$p:a703f357-57e8-4fe5-8d4d-47e29e12ba32",
+            "$p:0c8969b1-065e-426c-b6b7-f223e471abd6",
+            "$p:abcd32be-5961-4103-9540-183229d50364",
+            "$p:fd518822-182d-4bb7-a1ea-128bb4f463b6",
+            "memberProfile"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": true
+        },
+        {
+          "id": "footer",
+          "name": "Footer",
+          "allowedComponents": [
+            "$p:d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": true
+        }
+      ],
+      "slugSettings": {
+        "unique": "global",
+        "required": "yes",
+        "regularExpression": "",
+        "regularExpressionMessage": ""
+      },
+      "titleParameter": "metaTitle",
+      "canBeComposition": true,
+      "created": "2023-10-05T20:36:58.515615+00:00",
+      "updated": "2023-10-05T20:36:58.515615+00:00"
+    },
+    {
       "id": "memberProfile",
       "name": "Member Profile",
       "icon": "profile",
@@ -439,16 +530,6 @@
       "useTeamPermissions": true,
       "slots": [
         {
-          "id": "header",
-          "name": "Header",
-          "allowedComponents": [
-            "$p:f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-          ],
-          "allowAllComponents": false,
-          "inheritAllowedComponents": false,
-          "patternsInAllowedComponents": true
-        },
-        {
           "id": "banners",
           "name": "Banners",
           "allowedComponents": [
@@ -477,16 +558,6 @@
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
           "patternsInAllowedComponents": true
-        },
-        {
-          "id": "footer",
-          "name": "Footer",
-          "allowedComponents": [
-            "$p:d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-          ],
-          "allowAllComponents": false,
-          "inheritAllowedComponents": false,
-          "patternsInAllowedComponents": true
         }
       ],
       "slugSettings": {
@@ -498,7 +569,7 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-08-29T20:06:33.571497+00:00",
-      "updated": "2023-10-02T17:10:34.905658+00:00"
+      "updated": "2023-10-05T20:40:16.667597+00:00"
     },
     {
       "id": "privacyPolicy",
@@ -642,20 +713,6 @@
           }
         },
         "slots": {
-          "footer": [
-            {
-              "_id": "2c4de078-d7db-4833-bcf6-179d63f62b36",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "06637ccc-0bc1-4cbc-bb34-116d9874dc46",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ],
           "banners": [
             {
               "_id": "880c2f97-aec5-4a2b-9510-4da155311c40",
@@ -672,7 +729,7 @@
         }
       },
       "created": "2023-09-11T04:42:51.887782+00:00",
-      "modified": "2023-09-20T00:56:59.069077+00:00",
+      "modified": "2023-10-05T20:52:14.433398+00:00",
       "pattern": false
     },
     {
@@ -686,26 +743,10 @@
             "type": "text",
             "value": "Frequently Asked Questions"
           }
-        },
-        "slots": {
-          "footer": [
-            {
-              "_id": "a8f2b976-c4aa-410a-887d-6c5f32337379",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "ddad7a3c-6224-4266-8db3-524fcabd0eff",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ]
         }
       },
       "created": "2023-09-11T22:05:51.409048+00:00",
-      "modified": "2023-09-20T00:58:12.371475+00:00",
+      "modified": "2023-10-05T20:51:46.92051+00:00",
       "pattern": false
     },
     {
@@ -719,58 +760,70 @@
             "type": "text",
             "value": "How it Works"
           }
-        },
-        "slots": {
-          "footer": [
-            {
-              "_id": "d1855a21-d4fc-4973-97a4-93937449b78a",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "a2e98f06-f66d-4d23-b564-cc2433c39d19",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ]
         }
       },
       "created": "2023-09-11T22:05:39.331293+00:00",
-      "modified": "2023-09-20T00:58:33.741008+00:00",
+      "modified": "2023-10-05T20:51:37.169947+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Member of the Year",
+        "_id": "3541b332-4338-48d9-b8f2-7c761a6f6308",
+        "_slug": "member-of-the-year",
+        "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Member of the Year"
+          }
+        }
+      },
+      "created": "2023-09-19T17:40:40.661469+00:00",
+      "modified": "2023-10-05T20:52:28.432736+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Community Schedule",
+        "_id": "4018282a-96b1-4204-b814-f05848f7d45b",
+        "_slug": "community-schedule",
+        "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Community Schedule"
+          }
+        }
+      },
+      "created": "2023-09-11T21:58:09.408975+00:00",
+      "modified": "2023-10-05T20:50:13.45937+00:00",
       "pattern": false
     },
     {
       "composition": {
         "_name": "Home",
-        "_id": "26667348-5cd1-4185-b5a0-8413e1e87117",
+        "_id": "4562edb4-2801-4ebf-8f17-11b62a94a30a",
         "_slug": "/",
-        "type": "page",
-        "parameters": {
-          "metaTitle": {
-            "type": "text",
-            "value": "Home"
-          }
-        },
+        "type": "homePage",
         "slots": {
           "footer": [
             {
-              "_id": "4080cb76-3026-41dc-b624-fc49dbbea34d",
+              "_id": "e83167a8-405b-4994-b98c-c1eea05f9f42",
               "type": "footer",
               "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
             }
           ],
           "header": [
             {
-              "_id": "3fa2adc4-cb58-4b6c-8c83-e29d99f52e21",
+              "_id": "2936cbec-52b7-418a-92af-bd85358993c5",
               "type": "header",
               "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
             }
           ],
           "banners": [
             {
-              "_id": "3ac2d3de-31b3-4d86-a9bb-17f1169708e3",
+              "_id": "e0882920-c28a-4542-886a-2cce7fec56b5",
               "type": "banner",
               "parameters": {
                 "message": {
@@ -793,7 +846,7 @@
           ],
           "content": [
             {
-              "_id": "e9bf0ab3-d6e0-4ca4-8002-dfa7a0ab05a4",
+              "_id": "4aa785a0-79a3-4963-932c-4ced7afbefd0",
               "type": "hero",
               "_pattern": "a703f357-57e8-4fe5-8d4d-47e29e12ba32",
               "_dataResources": {
@@ -807,12 +860,12 @@
               }
             },
             {
-              "_id": "a383364d-17fe-4d25-a131-03260cd9485d",
+              "_id": "69fb00f4-bda3-4d10-9e85-75368676d63d",
               "type": "hero",
               "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47"
             },
             {
-              "_id": "900ff3a5-3ca8-42df-9a3c-7dd8f35a7272",
+              "_id": "370615d1-ca72-4655-bc6e-3ff44e6fba93",
               "type": "hero",
               "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
               "_dataResources": {
@@ -826,7 +879,7 @@
               }
             },
             {
-              "_id": "df006382-4fff-40c5-a413-7008c06e4bad",
+              "_id": "9cd2c929-381f-4356-91ec-05b760a63e8a",
               "type": "hero",
               "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
               "_dataResources": {
@@ -840,7 +893,7 @@
               }
             },
             {
-              "_id": "2f4be6a4-b781-4672-87bb-3d64abd6fc09",
+              "_id": "4b9fbb22-f282-4cd6-a4eb-02d8a888cf0a",
               "type": "hero",
               "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
               "_dataResources": {
@@ -854,7 +907,7 @@
               }
             },
             {
-              "_id": "b3118e4a-0f48-419e-bc4e-1cf55a36790d",
+              "_id": "96461b9e-ad3c-4af0-b386-319287889ad7",
               "type": "hero",
               "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
               "_dataResources": {
@@ -868,7 +921,7 @@
               }
             },
             {
-              "_id": "f867b912-1560-457d-9e11-a7dc79334678",
+              "_id": "01be2fcf-615c-4463-9213-f764df314308",
               "type": "hero",
               "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
               "_dataResources": {
@@ -882,7 +935,7 @@
               }
             },
             {
-              "_id": "bdf5acd9-dad9-4207-8323-9d434c8cde4c",
+              "_id": "954eb632-0da8-4875-aa64-63795c0059ee",
               "type": "hero",
               "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
               "_dataResources": {
@@ -896,7 +949,7 @@
               }
             },
             {
-              "_id": "bd3148f2-1aa0-4fd0-bab4-f30612dee881",
+              "_id": "c163bb60-793f-43cf-98b4-028df48315d5",
               "type": "hero",
               "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
               "_dataResources": {
@@ -912,181 +965,16 @@
           ]
         },
         "_overrides": {
-          "2f4be6a4-b781-4672-87bb-3d64abd6fc09": {
+          "01be2fcf-615c-4463-9213-f764df314308": {
             "variant": "lightBackground"
           },
-          "3fa2adc4-cb58-4b6c-8c83-e29d99f52e21": {
-            "parameters": {
-              "logo": {
-                "type": "cloudinary-image",
-                "value": [
-                  {
-                    "alt": "",
-                    "url": "https://res.cloudinary.com/seth-hall/image/upload/v1694326716/wordmark_aya6hb.svg",
-                    "uuid": "f120d65c-e76d-4a71-acaa-80328e57a30a",
-                    "ratio": "16:9",
-                    "width": "525",
-                    "format": "svg",
-                    "height": "57",
-                    "widths": "250",
-                    "caption": "",
-                    "version": 1694326716,
-                    "publicId": "wordmark_aya6hb",
-                    "createdAt": "2023-09-10T06:18:36Z",
-                    "previewUrl": "https://res.cloudinary.com/seth-hall/image/upload/q_auto,f_auto,w_150/wordmark_aya6hb.svg",
-                    "resourceType": "image",
-                    "transformation": ""
-                  }
-                ]
-              }
-            }
-          },
-          "4080cb76-3026-41dc-b624-fc49dbbea34d": {
-            "parameters": {
-              "text": {
-                "type": "richText",
-                "value": {
-                  "root": {
-                    "type": "root",
-                    "format": "",
-                    "indent": 0,
-                    "version": 1,
-                    "children": [
-                      {
-                        "type": "paragraph",
-                        "format": "",
-                        "indent": 0,
-                        "version": 1,
-                        "children": [
-                          {
-                            "mode": "normal",
-                            "text": "* Participating locations (\"PL\") not owned or operated by Tivity Health, Inc. or its affiliates. Use of PL facilities and amenities limited to terms and conditions of PL basic membership. Facilities and amenities vary by PL.",
-                            "type": "text",
-                            "style": "",
-                            "detail": 0,
-                            "format": 0,
-                            "version": 1
-                          }
-                        ],
-                        "direction": "ltr"
-                      },
-                      {
-                        "type": "paragraph",
-                        "format": "",
-                        "indent": 0,
-                        "version": 1,
-                        "children": [],
-                        "direction": "ltr"
-                      },
-                      {
-                        "type": "paragraph",
-                        "format": "",
-                        "indent": 0,
-                        "version": 1,
-                        "children": [
-                          {
-                            "mode": "normal",
-                            "text": "† Membership includes SilverSneakers instructor-led group fitness classes. Some locations offer Members additional classes. Classes vary by location.",
-                            "type": "text",
-                            "style": "",
-                            "detail": 0,
-                            "format": 0,
-                            "version": 1
-                          }
-                        ],
-                        "direction": "ltr"
-                      },
-                      {
-                        "type": "paragraph",
-                        "format": "",
-                        "indent": 0,
-                        "version": 1,
-                        "children": [],
-                        "direction": "ltr"
-                      },
-                      {
-                        "type": "paragraph",
-                        "format": "",
-                        "indent": 0,
-                        "version": 1,
-                        "children": [
-                          {
-                            "mode": "normal",
-                            "text": "^ Tivity Health, Inc and its affiliates do not employ, own or operate 3rd party service providers. Discounts, if applicable, vary per 3rd party provider. Services subject to terms and conditions of such 3rd party provider. Check with the provider for details.",
-                            "type": "text",
-                            "style": "",
-                            "detail": 0,
-                            "format": 0,
-                            "version": 1
-                          }
-                        ],
-                        "direction": "ltr"
-                      },
-                      {
-                        "type": "paragraph",
-                        "format": "",
-                        "indent": 0,
-                        "version": 1,
-                        "children": [],
-                        "direction": "ltr"
-                      },
-                      {
-                        "type": "paragraph",
-                        "format": "",
-                        "indent": 0,
-                        "version": 1,
-                        "children": [
-                          {
-                            "mode": "normal",
-                            "text": "Always talk to your doctor before starting an exercise program.",
-                            "type": "text",
-                            "style": "",
-                            "detail": 0,
-                            "format": 0,
-                            "version": 1
-                          }
-                        ],
-                        "direction": "ltr"
-                      }
-                    ],
-                    "direction": "ltr"
-                  }
-                }
-              }
-            }
-          },
-          "900ff3a5-3ca8-42df-9a3c-7dd8f35a7272": {
-            "variant": "lightBackground",
-            "parameters": {
-              "textAlignment": {
-                "type": "select",
-                "value": "left"
-              }
-            }
-          },
-          "a383364d-17fe-4d25-a131-03260cd9485d": {
-            "variant": "darkBackground",
-            "parameters": {
-              "textAlignment": {
-                "type": "select",
-                "value": "right"
-              }
-            }
-          },
-          "b3118e4a-0f48-419e-bc4e-1cf55a36790d": {
-            "variant": "darkBackground",
-            "parameters": {
-              "textAlignment": {
-                "type": "select",
-                "value": "right"
-              }
-            }
-          },
-          "bd3148f2-1aa0-4fd0-bab4-f30612dee881": {
+          "370615d1-ca72-4655-bc6e-3ff44e6fba93": {
             "variant": "lightBackground"
           },
-          "bdf5acd9-dad9-4207-8323-9d434c8cde4c": {
-            "variant": "darkBackground",
+          "4b9fbb22-f282-4cd6-a4eb-02d8a888cf0a": {
+            "variant": "lightBackground"
+          },
+          "69fb00f4-bda3-4d10-9e85-75368676d63d": {
             "parameters": {
               "textAlignment": {
                 "type": "select",
@@ -1094,8 +982,7 @@
               }
             }
           },
-          "df006382-4fff-40c5-a413-7008c06e4bad": {
-            "variant": "darkBackground",
+          "954eb632-0da8-4875-aa64-63795c0059ee": {
             "parameters": {
               "textAlignment": {
                 "type": "select",
@@ -1103,88 +990,40 @@
               }
             }
           },
-          "e9bf0ab3-d6e0-4ca4-8002-dfa7a0ab05a4": {
-            "variant": "imageBackground",
+          "96461b9e-ad3c-4af0-b386-319287889ad7": {
             "parameters": {
               "textAlignment": {
                 "type": "select",
-                "value": "center"
+                "value": "right"
               }
             }
           },
-          "f867b912-1560-457d-9e11-a7dc79334678": {
+          "9cd2c929-381f-4356-91ec-05b760a63e8a": {
+            "parameters": {
+              "textAlignment": {
+                "type": "select",
+                "value": "right"
+              }
+            }
+          },
+          "c163bb60-793f-43cf-98b4-028df48315d5": {
             "variant": "lightBackground"
           }
         }
       },
-      "created": "2023-08-29T20:06:37.965621+00:00",
-      "modified": "2023-09-20T20:43:18.243717+00:00",
+      "created": "2023-10-05T20:41:13.37617+00:00",
+      "modified": "2023-10-05T21:19:49.979928+00:00",
       "pattern": false
     },
     {
       "composition": {
-        "_name": "Member of the Year",
-        "_id": "3541b332-4338-48d9-b8f2-7c761a6f6308",
-        "_slug": "member-of-the-year",
-        "type": "page",
-        "parameters": {
-          "metaTitle": {
-            "type": "text",
-            "value": "Member of the Year"
-          }
-        },
-        "slots": {
-          "footer": [
-            {
-              "_id": "3aa2ad2c-ae84-4762-be28-3c8ad530e0b8",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "a678adf9-d624-4f10-a9ed-22f0f374c64d",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ]
-        }
+        "_name": "Check Eligibility",
+        "_id": "461728c4-1e32-4168-b8b4-0c15e4680cb9",
+        "_slug": "check-eligibility",
+        "type": "page"
       },
-      "created": "2023-09-19T17:40:40.661469+00:00",
-      "modified": "2023-09-20T00:56:24.620113+00:00",
-      "pattern": false
-    },
-    {
-      "composition": {
-        "_name": "Community Schedule",
-        "_id": "4018282a-96b1-4204-b814-f05848f7d45b",
-        "_slug": "community-schedule",
-        "type": "page",
-        "parameters": {
-          "metaTitle": {
-            "type": "text",
-            "value": "Community Schedule"
-          }
-        },
-        "slots": {
-          "footer": [
-            {
-              "_id": "c9ff8c05-7bff-44e3-81c8-d2755ac931fe",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "32c348c7-d396-4d6b-90c8-685253b228c3",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ]
-        }
-      },
-      "created": "2023-09-11T21:58:09.408975+00:00",
-      "modified": "2023-09-20T01:00:41.586506+00:00",
+      "created": "2023-10-04T18:43:22.893333+00:00",
+      "modified": "2023-10-05T20:49:20.453933+00:00",
       "pattern": false
     },
     {
@@ -1198,26 +1037,10 @@
             "type": "text",
             "value": "Contact Us"
           }
-        },
-        "slots": {
-          "footer": [
-            {
-              "_id": "02741b24-776a-4cc9-9782-310c6a4d0944",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "a303769c-c24a-49c4-95a1-94c6ce6f5637",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ]
         }
       },
       "created": "2023-09-19T17:30:46.06938+00:00",
-      "modified": "2023-09-20T00:56:47.543227+00:00",
+      "modified": "2023-10-05T20:52:20.595044+00:00",
       "pattern": false
     },
     {
@@ -1233,30 +1056,16 @@
           }
         },
         "slots": {
-          "footer": [
-            {
-              "_id": "5e8d6282-451e-4f5e-b46d-5ac86dd64062",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "8960ecda-5669-4d34-9d82-4435b18c2eed",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ],
           "content": [
             {
-              "_id": "b1f7badb-70b1-47e1-a8d5-e92aacc3fe62",
+              "_id": "2746b5d7-9b6c-4586-95f2-b4f69349b0b9",
               "type": "memberProfile"
             }
           ]
         }
       },
       "created": "2023-09-20T05:42:55.206309+00:00",
-      "modified": "2023-10-02T17:11:15.914779+00:00",
+      "modified": "2023-10-05T20:49:32.005998+00:00",
       "pattern": false
     },
     {
@@ -1272,20 +1081,6 @@
           }
         },
         "slots": {
-          "footer": [
-            {
-              "_id": "3e1f73b1-bbf9-4c20-ad65-d987ff5dabaf",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "bac84d70-0e89-4886-9bfa-37236524a89c",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ],
           "content": [
             {
               "_id": "5ddf5fef-7af1-4ae9-92fa-9820db18db8d",
@@ -1296,19 +1091,7 @@
         }
       },
       "created": "2023-09-19T17:37:31.071884+00:00",
-      "modified": "2023-09-20T23:55:45.207786+00:00",
-      "pattern": false
-    },
-    {
-      "composition": {
-        "_name": "test",
-        "_id": "85b1c1e4-65ce-4258-a30a-bd07264c0b6e",
-        "_slug": "test",
-        "type": "page",
-        "parameters": {}
-      },
-      "created": "2023-09-20T16:17:46.318851+00:00",
-      "modified": "2023-09-20T16:17:46.318851+00:00",
+      "modified": "2023-10-05T20:49:54.075329+00:00",
       "pattern": false
     },
     {
@@ -1322,59 +1105,10 @@
             "type": "text",
             "value": "On-Demand"
           }
-        },
-        "slots": {
-          "footer": [
-            {
-              "_id": "0d651844-4478-4ad3-9900-e8821f8a9f1f",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "acd6135b-28e2-4d2b-aff4-5d033ad968db",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ]
         }
       },
       "created": "2023-09-11T22:03:52.223064+00:00",
-      "modified": "2023-09-20T01:00:17.801185+00:00",
-      "pattern": false
-    },
-    {
-      "composition": {
-        "_name": "Participating Locations",
-        "_id": "8fb1559d-0551-4e10-98c3-473cee3571f5",
-        "_slug": "participating-locations",
-        "type": "page",
-        "parameters": {
-          "metaTitle": {
-            "type": "text",
-            "value": "Participating Locations"
-          }
-        },
-        "slots": {
-          "footer": [
-            {
-              "_id": "aad80e26-1682-403a-949e-9ad55317166e",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "4fa14719-7568-4df4-a207-ec2c22aa01d8",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ]
-        }
-      },
-      "created": "2023-08-29T20:06:38.951155+00:00",
-      "modified": "2023-09-20T00:57:41.91005+00:00",
+      "modified": "2023-10-05T20:50:22.764649+00:00",
       "pattern": false
     },
     {
@@ -1388,26 +1122,10 @@
             "type": "text",
             "value": "Health Plan Partners"
           }
-        },
-        "slots": {
-          "footer": [
-            {
-              "_id": "8f328504-bf5f-4269-adc8-06043521e428",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "bdf42125-49b1-4c65-aae3-96c6a77437b0",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ]
         }
       },
       "created": "2023-09-11T22:05:13.94218+00:00",
-      "modified": "2023-09-20T00:58:52.74769+00:00",
+      "modified": "2023-10-05T20:51:28.744147+00:00",
       "pattern": false
     },
     {
@@ -1485,26 +1203,10 @@
             "type": "text",
             "value": "SilverSneakers Go"
           }
-        },
-        "slots": {
-          "footer": [
-            {
-              "_id": "a61d235d-3bc4-4106-a0c4-84f4e558db0b",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "90c599bd-a9c7-4e29-8a97-65fbd419ca78",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ]
         }
       },
       "created": "2023-09-11T22:04:09.156085+00:00",
-      "modified": "2023-09-20T00:59:57.225368+00:00",
+      "modified": "2023-10-05T20:50:35.83314+00:00",
       "pattern": false
     },
     {
@@ -1630,20 +1332,6 @@
           }
         },
         "slots": {
-          "footer": [
-            {
-              "_id": "af86070c-2938-49c8-af60-30f62fda4c05",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "d087aac1-e880-4373-b061-50d023900c5d",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ],
           "banners": [
             {
               "_id": "42027418-f507-4565-9eb4-d4e3cf0d0b1f",
@@ -1660,7 +1348,18 @@
         }
       },
       "created": "2023-08-29T20:06:39.528811+00:00",
-      "modified": "2023-09-20T00:57:17.04526+00:00",
+      "modified": "2023-10-05T20:52:04.145589+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Participating Locations",
+        "_id": "c701237f-982e-4138-9641-dc5468ee6350",
+        "_slug": "participating-locations",
+        "type": "page"
+      },
+      "created": "2023-10-05T20:43:37.744723+00:00",
+      "modified": "2023-10-05T20:47:11.20999+00:00",
       "pattern": false
     },
     {
@@ -1674,26 +1373,10 @@
             "type": "text",
             "value": "Burnalong"
           }
-        },
-        "slots": {
-          "footer": [
-            {
-              "_id": "8cb94fe1-a201-4cfb-9611-7909ce84f94a",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "da7d1fd4-c8a1-4ddc-98dd-104f2e1f4f2d",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ]
         }
       },
       "created": "2023-09-11T22:04:23.302534+00:00",
-      "modified": "2023-09-20T00:59:35.785506+00:00",
+      "modified": "2023-10-05T20:50:47.399714+00:00",
       "pattern": false
     },
     {
@@ -2100,6 +1783,17 @@
     },
     {
       "composition": {
+        "_name": "Login",
+        "_id": "d71f6a04-4bb4-49c3-bc9f-1b7e6c695f19",
+        "_slug": "login",
+        "type": "page"
+      },
+      "created": "2023-10-04T19:00:28.591131+00:00",
+      "modified": "2023-10-05T20:48:44.105992+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
         "_name": "Privacy Policy",
         "_id": "dbb27f22-07a0-4ce0-9195-c7d2e2f64fd7",
         "_slug": "privacy",
@@ -2111,20 +1805,6 @@
           }
         },
         "slots": {
-          "footer": [
-            {
-              "_id": "795bf8ef-cf45-4f4a-980e-67b0e440d5be",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "2844b9be-8401-409d-b2f4-c8e705df4ff7",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ],
           "content": [
             {
               "_id": "3b9b7bc5-091b-42bc-b7be-4ee054935980",
@@ -2135,7 +1815,7 @@
         }
       },
       "created": "2023-09-19T17:37:51.295845+00:00",
-      "modified": "2023-09-20T21:15:21.525138+00:00",
+      "modified": "2023-10-05T20:50:04.849964+00:00",
       "pattern": false
     },
     {
@@ -2149,26 +1829,10 @@
             "type": "text",
             "value": "Classes Overview"
           }
-        },
-        "slots": {
-          "footer": [
-            {
-              "_id": "3f024510-e502-4390-933c-cb4b61677893",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "13ba73b1-5619-44d2-9863-af10b1ec6a3f",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ]
         }
       },
       "created": "2023-09-11T22:04:40.889564+00:00",
-      "modified": "2023-09-20T00:59:17.350392+00:00",
+      "modified": "2023-10-05T20:51:21.418332+00:00",
       "pattern": false
     },
     {
@@ -2620,26 +2284,10 @@
             "type": "text",
             "value": "Silver Sneakers Sitemap"
           }
-        },
-        "slots": {
-          "footer": [
-            {
-              "_id": "4079936f-5a20-4867-a938-89ac12bcd94b",
-              "type": "footer",
-              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
-            }
-          ],
-          "header": [
-            {
-              "_id": "fa0bb9b3-711b-4338-9c7a-b1821e7911f5",
-              "type": "header",
-              "_pattern": "f289a2bd-09f9-4e33-ae03-7a6136055ec6"
-            }
-          ]
         }
       },
       "created": "2023-09-19T17:41:03.143414+00:00",
-      "modified": "2023-09-20T00:56:06.28407+00:00",
+      "modified": "2023-10-05T20:52:37.746263+00:00",
       "pattern": false
     },
     {
@@ -2734,7 +2382,7 @@
       "data": {},
       "order": 500,
       "path": "/",
-      "compositionId": "26667348-5cd1-4185-b5a0-8413e1e87117",
+      "compositionId": "4562edb4-2801-4ebf-8f17-11b62a94a30a",
       "pathSegment": "",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
@@ -2788,7 +2436,7 @@
       "data": {},
       "order": 550,
       "path": "/participating-locations",
-      "compositionId": "8fb1559d-0551-4e10-98c3-473cee3571f5",
+      "compositionId": "c701237f-982e-4138-9641-dc5468ee6350",
       "pathSegment": "participating-locations",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
@@ -2823,6 +2471,17 @@
       "path": "/more/faqs",
       "compositionId": "2447135f-3b22-4939-af98-cccaf022a750",
       "pathSegment": "faqs",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "a4bbf054-9c9b-4de4-b7ca-b1a71f28864f",
+      "name": "Check Eligibility",
+      "type": "composition",
+      "data": {},
+      "order": 1100,
+      "path": "/check-eligibility",
+      "compositionId": "461728c4-1e32-4168-b8b4-0c15e4680cb9",
+      "pathSegment": "check-eligibility",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
@@ -2889,6 +2548,17 @@
       "path": "/classes/burnalong",
       "compositionId": "cd8648a3-f8c4-4c5b-bd61-4304cc6888ec",
       "pathSegment": "burnalong",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "d1f5a8cf-ab75-4ae2-b5ad-8edb0fd20fae",
+      "name": "Login",
+      "type": "composition",
+      "data": {},
+      "order": 1200,
+      "path": "/login",
+      "compositionId": "d71f6a04-4bb4-49c3-bc9f-1b7e6c695f19",
+      "pathSegment": "login",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
