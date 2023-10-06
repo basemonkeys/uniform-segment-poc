@@ -25,7 +25,8 @@ stages:
     echo "Ref: $CI_COMMIT_REF_NAME" >> ./.open-next/assets/version.txt
   - |
     echo "Commit: $CI_COMMIT_SHORT_SHA" >> ./.open-next/assets/version.txt
-  - aws s3 sync --delete ./.open-next/assets $BUCKET_URL
+  - aws s3 sync ./.open-next/assets $BUCKET_URL --include "**/*" --exclude "_next/**/*" --cache-control "public,max-age=0,s-maxage=31536000,must-revalidate"
+  - aws s3 sync ./.open-next/assets $BUCKET_URL --include "_next/**/*" --cache-control "public,max-age=31536000,immutable"
   - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
 
 default:
@@ -103,7 +104,7 @@ deploy_sandbox:
     AWS_ACCOUNT_ID: 558824945781
     AWS_ACCOUNT_NAME: sandbox
     BUCKET_URL: s3://tivityhealth-sandbox-silversneakers-frontend-source
-    CLOUDFRONT_DISTRIBUTION_ID: E3DHAHH2P4B5X2
+    CLOUDFRONT_DISTRIBUTION_ID: E2G65JA754CE91
   environment:
     name: $ENVIRONMENT
   needs:
