@@ -13,7 +13,7 @@ import {
   Tooltip,
 } from "recharts";
 
-export default function App({ data }: any) {
+export default function ActivityChart({ data }: any) {
   return (
     <div style={{ width: "100%", height: 300 }}>
       <ResponsiveContainer>

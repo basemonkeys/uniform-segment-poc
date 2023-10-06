@@ -1,7 +1,4 @@
-import {
-  registerUniformComponent,
-  ComponentProps,
-} from "@uniformdev/canvas-next-rsc";
+import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 

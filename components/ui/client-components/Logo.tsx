@@ -7,10 +7,10 @@ import { CldImage } from "next-cloudinary";
 import { getImageUrl } from "@/utils";
 
 // TODO: replace with Cloudinary
-import logoWordmark from "../../public/logo_wordmark.svg";
-import logoPrimary from "../../public/logo_primary.svg";
-import logoSymbol from "../../public/logo_symbol.svg";
-import logoTivity from "../../public/logo_tivity.svg";
+import logoWordmark from "../../../public/logo_wordmark.svg";
+import logoPrimary from "../../../public/logo_primary.svg";
+import logoSymbol from "../../../public/logo_symbol.svg";
+import logoTivity from "../../../public/logo_tivity.svg";
 
 type LogoProps = {
   src?: string | Types.CloudinaryImage;

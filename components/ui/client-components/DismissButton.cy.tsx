@@ -1,6 +1,6 @@
 import React from "react";
 
-import { DismissButton } from "./dismiss-button";
+import { DismissButton } from "./DismissButton";
 
 describe("<DismissButton />", () => {
   it("renders", () => {

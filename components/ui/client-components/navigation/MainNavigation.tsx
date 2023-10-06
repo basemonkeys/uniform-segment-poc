@@ -15,7 +15,7 @@ import {
   UserIcon,
 } from "@heroicons/react/20/solid";
 
-import { Logo } from "@/components/ui/logo";
+import { Logo } from "@/components/ui/client-components/Logo";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,

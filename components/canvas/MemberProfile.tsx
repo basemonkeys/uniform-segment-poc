@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 
 import { Skeleton } from "@/components/ui/skeleton";
-import { ComponentError } from "@/components/ui/component-error";
+import { ComponentError } from "@/components/ui/client-components/ComponentError";
 
 import { ProfileInfoCard } from "@/components/ui/members/ProfileInfoCard";
 import { MemberIdCard } from "@/components/ui/members/MemberIdCard";

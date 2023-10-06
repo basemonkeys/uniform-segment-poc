@@ -1,11 +1,9 @@
 "use client";
 
-import { ComponentProps } from "@uniformdev/canvas-next-rsc";
-
 import { cn } from "@/utils";
 
 // TODO: make these into utils?
-import { getStateClasses, getTextClass } from "../canvas/Banner";
+import { getStateClasses, getTextClass } from "../../canvas/Banner";
 
 import { XMarkIcon } from "@heroicons/react/20/solid";
 

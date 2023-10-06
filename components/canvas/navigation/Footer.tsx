@@ -5,7 +5,7 @@ import {
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
-import SocialIcons from "@/components/ui/navigation/SocialIcons";
+import SocialIcons from "@/components/ui/client-components/navigation/SocialIcons";
 
 const Footer: React.FC<ComponentProps> = ({ component, context }) => {
   return (

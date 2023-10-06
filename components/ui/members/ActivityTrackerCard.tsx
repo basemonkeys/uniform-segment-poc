@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import ActivityChart from "@/components/ui/activity-chart";
+import ActivityChart from "@/components/ui/members/ActivityChart";
 
 import {
   Card,

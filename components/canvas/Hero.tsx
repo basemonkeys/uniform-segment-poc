@@ -9,7 +9,10 @@ import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { Button } from "@/components/ui/button";
-import { CloudinaryImage, CloudinaryVideo } from "@/components/ui/cloudinary";
+import {
+  CloudinaryImage,
+  CloudinaryVideo,
+} from "@/components/ui/client-components/Cloudinary";
 
 import { cn, getImageUrl } from "@/utils";
 

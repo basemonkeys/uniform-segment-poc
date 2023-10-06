@@ -1,7 +1,4 @@
-import {
-  registerUniformComponent,
-  ComponentProps,
-} from "@uniformdev/canvas-next-rsc";
+import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
@@ -20,7 +17,7 @@ const PrivacyPolicy: React.FC<Types.PolicyUseProps> = ({
         {format(new Date(lastUpdated), "MMMM do yyyy, h:mm:ss a")}
       </p>
       {/* the prose class comes from https://tailwindcss.com/docs/typography-plugin */}
-      <div className="prose max-w-full prose-a:text-link prose-table:border odd:prose-tr:bg-gray-100 prose-td:w-[340px] prose-td:border-1 prose-td:p-4 ">
+      <div className="prose max-w-full prose-a:text-link prose-table:border odd:prose-tr:bg-gray-100 prose-td:w-[340px] prose-td:border prose-td:p-4 ">
         {documentToReactComponents(text)}
       </div>
     </div>
