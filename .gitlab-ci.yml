@@ -108,6 +108,7 @@ deploy_sandbox:
   environment:
     name: $ENVIRONMENT
   needs:
+    - build
     - store_artifacts
   allow_failure: false
   cache:
@@ -127,6 +128,7 @@ deploy_dev:
   environment:
     name: $ENVIRONMENT
   needs:
+    - build
     - store_artifacts
   allow_failure: false
   cache:
@@ -146,6 +148,7 @@ deploy_qa:
   environment:
     name: $ENVIRONMENT
   needs:
+    - build
     - store_artifacts
   allow_failure: false
   cache:
@@ -165,6 +168,7 @@ deploy_uat:
   environment:
     name: $ENVIRONMENT
   needs:
+    - build
     - store_artifacts
     - deploy_qa
   allow_failure: false
@@ -185,6 +189,7 @@ deploy_prod:
   environment:
     name: $ENVIRONMENT
   needs:
+    - build
     - store_artifacts
     - deploy_uat
   allow_failure: false
