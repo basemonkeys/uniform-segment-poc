@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-export function Error() {
+export function ComponentError() {
   function refreshPage() {
     window.location.reload();
   }

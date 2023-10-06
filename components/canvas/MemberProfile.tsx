@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 
 import { Skeleton } from "@/components/ui/skeleton";
-import { Error } from "@/components/ui/error";
+import { ComponentError } from "@/components/ui/component-error";
 
 import { ProfileInfoCard } from "@/components/ui/members/ProfileInfoCard";
 import { MemberIdCard } from "@/components/ui/members/MemberIdCard";
@@ -15,7 +15,7 @@ export function MemberProfile() {
   return (
     <div className="container m-auto my-12 grid grid-cols-1 justify-evenly gap-8 lg:grid-cols-3">
       <div className="lg:col-span-1">
-        <ErrorBoundary fallBack={<Error />}>
+        <ErrorBoundary fallBack={<ComponentError />}>
           <Suspense fallback={<Skeleton className="h-[323px] w-full" />}>
             <ProfileInfoCard />
           </Suspense>
