@@ -18,7 +18,7 @@ import { Providers } from "./providers";
 
 // Uniform Canvas Components index
 import "@/components/canvas";
-import { getGlobalComponent } from "@/lib/global";
+import { getGlobalComponent } from "@/utils";
 
 // Global CSS
 import "./globals.css";
@@ -50,7 +50,7 @@ export default async function RootLayout({ children }: Props) {
   );
 }
 
-// These functions grab the Header and Footer slots from the Home composition (see lib/global) to allow for the header and footer components to be loaded in layout.tsx
+// These functions grab the Header and Footer slots from the Home composition (see utils directory) to allow for the header and footer components to be loaded in layout.tsx
 const Header = async () => {
   const globalComponent = await getGlobalComponent();
 

@@ -13,7 +13,7 @@ import {
 
 import { InformationCircleIcon } from "@heroicons/react/20/solid";
 
-import { getVisits } from "@/lib/api";
+import { getVisits } from "@/utils/api";
 
 export async function ActivityTrackerCard() {
   const visits = getVisits();

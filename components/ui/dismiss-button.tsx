@@ -2,7 +2,7 @@
 
 import { ComponentProps } from "@uniformdev/canvas-next-rsc";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils";
 
 // TODO: make these into utils?
 import { getStateClasses, getTextClass } from "../canvas/Banner";

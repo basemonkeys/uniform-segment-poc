@@ -6,7 +6,7 @@ import {
 
 import MainNavigation from "@/components/ui/navigation/MainNavigation";
 
-import { getImageUrl } from "@/lib/utils";
+import { getImageUrl } from "@/utils";
 
 export type HeaderProps = ComponentProps & {
   logo: string | Types.CloudinaryImage;

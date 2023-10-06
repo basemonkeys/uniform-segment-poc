@@ -11,8 +11,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Button } from "@/components/ui/button";
 import { CloudinaryImage, CloudinaryVideo } from "@/components/ui/cloudinary";
 
-import { cn } from "@/lib/utils";
-import { getImageUrl } from "@/lib/utils";
+import { cn, getImageUrl } from "@/utils";
 
 export type HeroProps = ComponentProps<{
   textAlignment?: string;

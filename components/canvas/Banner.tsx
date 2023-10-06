@@ -14,7 +14,7 @@ import {
   InformationCircleIcon,
 } from "@heroicons/react/20/solid";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils";
 
 type BannerProps = ComponentProps<{
   message: string;

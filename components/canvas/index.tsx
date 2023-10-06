@@ -1,8 +1,8 @@
 import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 
 // Canvas Components
-import "./HomePage";
-import "./Page";
+import "./pages/HomePage";
+import "./pages/Page";
 import "./navigation/Header";
 import {
   HeaderLink,

@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPrint, faDownload } from "@fortawesome/free-solid-svg-icons";
 
-import { getUser } from "@/lib/api";
+import { getUser } from "@/utils/api";
 
 export async function MemberIdCard() {
   const user = await getUser();

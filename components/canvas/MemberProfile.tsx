@@ -9,7 +9,7 @@ import { ProfileInfoCard } from "@/components/ui/members/ProfileInfoCard";
 import { MemberIdCard } from "@/components/ui/members/MemberIdCard";
 import { ActivityTrackerCard } from "@/components/ui/members/ActivityTrackerCard";
 
-import ErrorBoundary from "@/lib/errorBoundary";
+import { ErrorBoundary } from "@/utils";
 
 export function MemberProfile() {
   return (

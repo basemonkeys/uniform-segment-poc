@@ -10,7 +10,7 @@ import {
   faXTwitter as faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils";
 
 const socialIcons = [
   {

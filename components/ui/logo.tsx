@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { CldImage } from "next-cloudinary";
 
-import { getImageUrl } from "@/lib/utils";
+import { getImageUrl } from "@/utils";
 
 // TODO: replace with Cloudinary
 import logoWordmark from "../../public/logo_wordmark.svg";

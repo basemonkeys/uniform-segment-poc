@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 import { ComponentProps } from "@uniformdev/canvas-next-rsc";
 
-import { cn, getImageUrl } from "@/lib/utils";
+import { cn, getImageUrl } from "@/utils";
 
 import {
   ChevronUpIcon,
@@ -36,8 +36,6 @@ import {
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
-
-import { useIsLargeScreen } from "@/lib";
 
 // TODO: get from API
 type User = {
