@@ -193,7 +193,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
       <div
         className={cn(
           showButton ? "opacity-75" : "opacity-0",
-          "duration-[3000] fixed bottom-0 right-0 z-50 m-2 mr-6 rounded-md bg-primary p-1 text-white transition-opacity ease-out hover:opacity-100 max-sm:bottom-14",
+          "fixed bottom-0 right-0 z-50 m-2 mr-6 rounded-md bg-primary p-1 text-white transition-opacity duration-300 ease-out hover:opacity-100 max-sm:bottom-14",
         )}
         onClick={handleScrollToTop}
       >
