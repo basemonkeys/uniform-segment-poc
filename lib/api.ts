@@ -21,7 +21,7 @@ export type VisitsProps = {
 
 export const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
-// TODO: cacheing, revalidation, error handling, etc
+// TODO: cacheing, and revalidation
 export async function getUser(time: number = 0, shouldError: boolean = false) {
   await delay(time);
   const res = await fetch("http://127.0.0.1:4000/user", {

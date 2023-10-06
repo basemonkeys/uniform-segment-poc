@@ -3,18 +3,23 @@ import { Suspense } from "react";
 import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 
 import { Skeleton } from "@/components/ui/skeleton";
+import { Error } from "@/components/ui/error";
 
 import { ProfileInfoCard } from "@/components/ui/members/ProfileInfoCard";
 import { MemberIdCard } from "@/components/ui/members/MemberIdCard";
 import { ActivityTrackerCard } from "@/components/ui/members/ActivityTrackerCard";
 
+import ErrorBoundary from "@/lib/errorBoundary";
+
 export function MemberProfile() {
   return (
     <div className="container m-auto my-12 grid grid-cols-1 justify-evenly gap-8 lg:grid-cols-3">
       <div className="lg:col-span-1">
-        <Suspense fallback={<Skeleton className="h-[323px] w-full" />}>
-          <ProfileInfoCard />
-        </Suspense>
+        <ErrorBoundary fallBack={<Error />}>
+          <Suspense fallback={<Skeleton className="h-[323px] w-full" />}>
+            <ProfileInfoCard />
+          </Suspense>
+        </ErrorBoundary>
       </div>
 
       <div className="lg:col-span-2">

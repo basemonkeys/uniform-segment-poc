@@ -18,7 +18,7 @@ import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 import { getUser, UserProps } from "@/lib/api";
 
 export async function ProfileInfoCard() {
-  const user: UserProps = await getUser(3000);
+  const user: UserProps = await getUser();
   const { firstName, lastName, email } = user;
 
   return (
