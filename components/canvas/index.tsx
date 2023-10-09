@@ -13,6 +13,9 @@ import "./navigation/Footer";
 import "./Banner";
 import "./Hero";
 import "./MemberProfile";
+import "./contact/ContactUsForm";
+import "./contact/ContactPhone";
+import "./contact/ContactMedia";
 import "./PrivacyPolicy";
 import "./TermsOfUse";
 
