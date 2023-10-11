@@ -13,7 +13,7 @@ import { ErrorBoundary } from "@/utils";
 
 export function MemberProfile() {
   return (
-    <div className="container m-auto my-12 grid grid-cols-1 justify-evenly gap-8 lg:grid-cols-3">
+    <div className="my-12 grid grid-cols-1 justify-evenly gap-8 lg:grid-cols-3">
       <div className="lg:col-span-1">
         <ErrorBoundary fallBack={<ComponentError />}>
           <Suspense fallback={<Skeleton className="h-[323px] w-full" />}>

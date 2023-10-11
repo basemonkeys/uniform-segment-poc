@@ -6,7 +6,7 @@
   html,
   body {
     --font-open-sans: "Open Sans", sans-serif;
-    /* @apply bg-default-light; */
+    @apply bg-default-light;
   }
   /* Headings */
   h1,
@@ -47,5 +47,51 @@
   /* for some reason the isLoading spinner is displaying w-8 and h-8. This overrides that. I tried created a custom implementation of a Button but could not get the custom variants to work with that. */
   [aria-label="Loading"] > div {
     @apply !h-5 !w-5;
+  }
+
+  .hubspot-form {
+    @apply w-full;
+
+    fieldset {
+      &.form-columns-3 {
+        .field:last-of-type .input {
+          @apply m-0;
+        }
+      }
+
+      .field {
+        @apply mb-6;
+      }
+
+      .hs-form-required {
+        @apply text-danger;
+      }
+
+      .hs-error-msg {
+        @apply text-xs text-danger;
+      }
+
+      input {
+        @apply mt-2 flex h-10 !w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm ring-offset-white placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-50;
+      }
+
+      select {
+        @apply flex h-10 !w-full items-center justify-between rounded-md border border-gray-200 bg-white px-3 py-2 text-sm ring-offset-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-50;
+      }
+
+      textarea {
+        @apply mt-2 flex h-32 !w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm ring-offset-white placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-50;
+      }
+    }
+
+    .hs-recaptcha {
+      @apply mb-6;
+    }
+
+    .button {
+      @apply bg-primary text-white hover:bg-primary-dark;
+      @apply h-9 rounded-md px-3 py-2 text-base;
+      @apply inline-flex items-center justify-center font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+    }
   }
 }

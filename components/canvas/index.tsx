@@ -3,6 +3,8 @@ import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 // Canvas Components
 import "./pages/HomePage";
 import "./pages/Page";
+import "./containers/Container";
+import "./containers/Grid";
 import "./navigation/Header";
 import {
   HeaderLink,
@@ -13,6 +15,8 @@ import "./navigation/Footer";
 import "./Banner";
 import "./Hero";
 import "./MemberProfile";
+import "./contact/ContactUsForm";
+import "./contact/ContactCard";
 import "./PrivacyPolicy";
 import "./TermsOfUse";
 

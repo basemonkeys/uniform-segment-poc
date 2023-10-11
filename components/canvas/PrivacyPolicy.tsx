@@ -10,7 +10,7 @@ const PrivacyPolicy: React.FC<Types.PolicyUseProps> = ({
   text,
 }) => {
   return (
-    <div className="container my-8">
+    <div className="my-8">
       <h1 className="mb-2 text-3xl font-bold">{title}</h1>
       <p className="mb-6 text-sm italic text-gray-500">
         <span className="font-semibold">Last updated:</span>{" "}
