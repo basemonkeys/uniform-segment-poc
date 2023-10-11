@@ -100,7 +100,7 @@ const Hero: React.FC<HeroProps> = ({
       )}
       {variant !== HeroVariant.ImageBackground &&
         (variant === HeroVariant.LightBackground ? (
-          <div className="absolute -z-10 h-full w-full bg-white bg-cover bg-left-top bg-no-repeat">
+          <div className="absolute z-0 h-full w-full bg-white bg-cover bg-left-top bg-no-repeat">
             <CloudinaryImage
               fill
               src="silversneakers/ayfp6mzjmqo5dpyzhosj"
@@ -115,7 +115,7 @@ const Hero: React.FC<HeroProps> = ({
             />
           </div>
         ) : (
-          <div className="absolute -z-10 h-full w-full bg-primary bg-cover bg-left-top bg-no-repeat">
+          <div className="absolute z-0 h-full w-full bg-primary bg-cover bg-left-top bg-no-repeat">
             <CloudinaryImage
               fill
               src="silversneakers/oydg5urpuzfkrh2pywu6"
