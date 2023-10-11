@@ -67,12 +67,13 @@
           "typeConfig": null
         }
       ],
+      "categoryId": "c7c63720-4715-47a5-9de7-b82f20385244",
       "useTeamPermissions": true,
       "slots": [],
       "titleParameter": "message",
       "canBeComposition": false,
       "created": "2023-09-05T22:21:16.499136+00:00",
-      "updated": "2023-09-22T05:04:41.393535+00:00",
+      "updated": "2023-10-10T21:43:15.721563+00:00",
       "variants": [
         {
           "id": "primary",
@@ -97,8 +98,8 @@
       ]
     },
     {
-      "id": "contactMedia",
-      "name": "Contact Media",
+      "id": "contactCard",
+      "name": "Contact Card",
       "icon": "phone",
       "parameters": [
         {
@@ -113,33 +114,21 @@
         {
           "id": "text",
           "name": "Text",
-          "type": "text",
+          "type": "richText",
           "helpText": "",
           "typeConfig": {
-            "required": true
-          }
-        }
-      ],
-      "categoryId": "88df44a7-2d00-4c03-ac48-f2d7e92dc329",
-      "useTeamPermissions": true,
-      "slots": [],
-      "titleParameter": "heading",
-      "canBeComposition": false,
-      "created": "2023-10-09T22:26:05.208597+00:00",
-      "updated": "2023-10-09T22:28:06.018457+00:00"
-    },
-    {
-      "id": "contactPhone",
-      "name": "Contact Phone",
-      "icon": "phone",
-      "parameters": [
-        {
-          "id": "heading",
-          "name": "Heading",
-          "type": "text",
-          "helpText": "",
-          "typeConfig": {
-            "required": true
+            "elements": {
+              "builtIn": [
+                "link"
+              ]
+            },
+            "required": false,
+            "formatting": {
+              "builtIn": [
+                "bold",
+                "italic"
+              ]
+            }
           }
         },
         {
@@ -148,7 +137,7 @@
           "type": "link",
           "helpText": "",
           "typeConfig": {
-            "required": true,
+            "required": false,
             "linkTypes": {
               "url": false,
               "email": false,
@@ -162,7 +151,20 @@
           "type": "text",
           "helpText": "Teletypewriters (TTY)",
           "typeConfig": {
-            "required": true
+            "required": false
+          }
+        },
+        {
+          "id": "email",
+          "name": "Email",
+          "type": "link",
+          "helpText": "",
+          "typeConfig": {
+            "linkTypes": {
+              "tel": false,
+              "url": false,
+              "projectMapNode": false
+            }
           }
         },
         {
@@ -171,7 +173,7 @@
           "type": "text",
           "helpText": "",
           "typeConfig": {
-            "required": true
+            "required": false
           }
         }
       ],
@@ -180,8 +182,8 @@
       "slots": [],
       "titleParameter": "heading",
       "canBeComposition": false,
-      "created": "2023-10-09T22:15:34.827018+00:00",
-      "updated": "2023-10-09T22:31:15.389198+00:00"
+      "created": "2023-10-10T20:53:51.391788+00:00",
+      "updated": "2023-10-10T21:12:52.178937+00:00"
     },
     {
       "id": "contactUsForm",
@@ -230,6 +232,44 @@
       "canBeComposition": false,
       "created": "2023-10-06T22:31:49.783445+00:00",
       "updated": "2023-10-09T22:27:50.175104+00:00"
+    },
+    {
+      "id": "container",
+      "name": "Container",
+      "icon": "template",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
+      "categoryId": "2abac45c-133a-4310-bf67-52c31d2cfd02",
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "containerInner",
+          "name": "Container Inner",
+          "allowedComponents": [],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": true,
+          "patternsInAllowedComponents": false
+        }
+      ],
+      "titleParameter": "title",
+      "canBeComposition": false,
+      "created": "2023-10-11T17:29:29.389738+00:00",
+      "updated": "2023-10-11T19:12:23.183731+00:00",
+      "variants": [
+        {
+          "id": "fullWidth",
+          "name": "Full Width "
+        }
+      ]
     },
     {
       "id": "footer",
@@ -296,6 +336,89 @@
       "canBeComposition": false,
       "created": "2023-09-19T17:23:25.978616+00:00",
       "updated": "2023-09-21T01:06:17.623353+00:00"
+    },
+    {
+      "id": "grid",
+      "name": "Grid",
+      "icon": "template",
+      "parameters": [
+        {
+          "id": "columnsCount",
+          "name": "Columns Count",
+          "type": "select",
+          "helpText": "",
+          "typeConfig": {
+            "options": [
+              {
+                "text": "1",
+                "value": "1"
+              },
+              {
+                "text": "2",
+                "value": "2"
+              },
+              {
+                "text": "3",
+                "value": "3"
+              },
+              {
+                "text": "4",
+                "value": "4"
+              },
+              {
+                "text": "5",
+                "value": "5"
+              },
+              {
+                "text": "6",
+                "value": "6"
+              },
+              {
+                "text": "7",
+                "value": "7"
+              },
+              {
+                "text": "8",
+                "value": "8"
+              },
+              {
+                "text": "9",
+                "value": "9"
+              },
+              {
+                "text": "10",
+                "value": "10"
+              },
+              {
+                "text": "11",
+                "value": "11"
+              },
+              {
+                "text": "12",
+                "value": "12"
+              }
+            ],
+            "required": true
+          }
+        }
+      ],
+      "categoryId": "2abac45c-133a-4310-bf67-52c31d2cfd02",
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "gridInner",
+          "name": "Grid Inner",
+          "allowedComponents": [
+            "contactCard"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
+        }
+      ],
+      "canBeComposition": false,
+      "created": "2023-10-10T22:46:09.012072+00:00",
+      "updated": "2023-10-11T17:30:52.834651+00:00"
     },
     {
       "id": "header",
@@ -509,7 +632,8 @@
             "$p:0c8969b1-065e-426c-b6b7-f223e471abd6",
             "$p:abcd32be-5961-4103-9540-183229d50364",
             "$p:fd518822-182d-4bb7-a1ea-128bb4f463b6",
-            "memberProfile"
+            "memberProfile",
+            "container"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -535,18 +659,19 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-10-05T20:36:58.515615+00:00",
-      "updated": "2023-10-05T20:36:58.515615+00:00"
+      "updated": "2023-10-11T17:37:57.852199+00:00"
     },
     {
       "id": "memberProfile",
       "name": "Member Profile",
       "icon": "profile",
       "parameters": [],
+      "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
       "useTeamPermissions": true,
       "slots": [],
       "canBeComposition": false,
       "created": "2023-10-02T17:09:55.60874+00:00",
-      "updated": "2023-10-02T17:09:55.60874+00:00"
+      "updated": "2023-10-10T21:43:33.165721+00:00"
     },
     {
       "id": "navigationGroup",
@@ -690,7 +815,9 @@
             "$p:fd518822-182d-4bb7-a1ea-128bb4f463b6",
             "memberProfile",
             "contactUsForm",
-            "contactPhone"
+            "contactCard",
+            "grid",
+            "container"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -706,7 +833,7 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-08-29T20:06:33.571497+00:00",
-      "updated": "2023-10-09T22:18:53.473032+00:00"
+      "updated": "2023-10-11T18:36:06.210705+00:00"
     },
     {
       "id": "privacyPolicy",
@@ -983,119 +1110,134 @@
           ],
           "content": [
             {
-              "_id": "4aa785a0-79a3-4963-932c-4ced7afbefd0",
-              "type": "hero",
-              "_pattern": "a703f357-57e8-4fe5-8d4d-47e29e12ba32",
-              "_dataResources": {
-                "Hero Content": {
-                  "type": "hero",
-                  "variables": {
-                    "locale": "",
-                    "entryIds": "3D5U1JbpPTdcJzcq1UrDtx"
+              "_id": "0472ea28-6f19-4c90-b32f-8ad4c3bbf8f2",
+              "type": "container",
+              "slots": {
+                "containerInner": [
+                  {
+                    "_id": "4aa785a0-79a3-4963-932c-4ced7afbefd0",
+                    "type": "hero",
+                    "_pattern": "a703f357-57e8-4fe5-8d4d-47e29e12ba32",
+                    "_dataResources": {
+                      "Hero Content": {
+                        "type": "hero",
+                        "variables": {
+                          "locale": "",
+                          "entryIds": "3D5U1JbpPTdcJzcq1UrDtx"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "69fb00f4-bda3-4d10-9e85-75368676d63d",
+                    "type": "hero",
+                    "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47"
+                  },
+                  {
+                    "_id": "370615d1-ca72-4655-bc6e-3ff44e6fba93",
+                    "type": "hero",
+                    "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+                    "_dataResources": {
+                      "Hero": {
+                        "type": "hero",
+                        "variables": {
+                          "locale": "",
+                          "entryIds": "30E1XFX5RuD77C9u4BE2L9"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "9cd2c929-381f-4356-91ec-05b760a63e8a",
+                    "type": "hero",
+                    "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+                    "_dataResources": {
+                      "Hero": {
+                        "type": "hero",
+                        "variables": {
+                          "locale": "",
+                          "entryIds": "7rLGoCp6jzXeFclA7pOFbx"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "4b9fbb22-f282-4cd6-a4eb-02d8a888cf0a",
+                    "type": "hero",
+                    "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+                    "_dataResources": {
+                      "Hero": {
+                        "type": "hero",
+                        "variables": {
+                          "locale": "",
+                          "entryIds": "3toBs09pRel26o6lXzt199"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "96461b9e-ad3c-4af0-b386-319287889ad7",
+                    "type": "hero",
+                    "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+                    "_dataResources": {
+                      "Hero": {
+                        "type": "hero",
+                        "variables": {
+                          "locale": "",
+                          "entryIds": "72UeEeEsyRxpk1CkBHax6u"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "01be2fcf-615c-4463-9213-f764df314308",
+                    "type": "hero",
+                    "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+                    "_dataResources": {
+                      "Hero": {
+                        "type": "hero",
+                        "variables": {
+                          "locale": "",
+                          "entryIds": "45yeDPGkOARxmufdKjtHaC"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "954eb632-0da8-4875-aa64-63795c0059ee",
+                    "type": "hero",
+                    "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+                    "_dataResources": {
+                      "Hero": {
+                        "type": "hero",
+                        "variables": {
+                          "locale": "",
+                          "entryIds": "3ALVWJ8pMV3klXNTnA1xPh"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "c163bb60-793f-43cf-98b4-028df48315d5",
+                    "type": "hero",
+                    "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+                    "_dataResources": {
+                      "Hero": {
+                        "type": "hero",
+                        "variables": {
+                          "locale": "",
+                          "entryIds": "3LVxGsk9PGSzgfIY0jb6J5"
+                        }
+                      }
+                    }
                   }
-                }
-              }
-            },
-            {
-              "_id": "69fb00f4-bda3-4d10-9e85-75368676d63d",
-              "type": "hero",
-              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47"
-            },
-            {
-              "_id": "370615d1-ca72-4655-bc6e-3ff44e6fba93",
-              "type": "hero",
-              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
-              "_dataResources": {
-                "Hero": {
-                  "type": "hero",
-                  "variables": {
-                    "locale": "",
-                    "entryIds": "30E1XFX5RuD77C9u4BE2L9"
-                  }
-                }
-              }
-            },
-            {
-              "_id": "9cd2c929-381f-4356-91ec-05b760a63e8a",
-              "type": "hero",
-              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
-              "_dataResources": {
-                "Hero": {
-                  "type": "hero",
-                  "variables": {
-                    "locale": "",
-                    "entryIds": "7rLGoCp6jzXeFclA7pOFbx"
-                  }
-                }
-              }
-            },
-            {
-              "_id": "4b9fbb22-f282-4cd6-a4eb-02d8a888cf0a",
-              "type": "hero",
-              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
-              "_dataResources": {
-                "Hero": {
-                  "type": "hero",
-                  "variables": {
-                    "locale": "",
-                    "entryIds": "3toBs09pRel26o6lXzt199"
-                  }
-                }
-              }
-            },
-            {
-              "_id": "96461b9e-ad3c-4af0-b386-319287889ad7",
-              "type": "hero",
-              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
-              "_dataResources": {
-                "Hero": {
-                  "type": "hero",
-                  "variables": {
-                    "locale": "",
-                    "entryIds": "72UeEeEsyRxpk1CkBHax6u"
-                  }
-                }
-              }
-            },
-            {
-              "_id": "01be2fcf-615c-4463-9213-f764df314308",
-              "type": "hero",
-              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
-              "_dataResources": {
-                "Hero": {
-                  "type": "hero",
-                  "variables": {
-                    "locale": "",
-                    "entryIds": "45yeDPGkOARxmufdKjtHaC"
-                  }
-                }
-              }
-            },
-            {
-              "_id": "954eb632-0da8-4875-aa64-63795c0059ee",
-              "type": "hero",
-              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
-              "_dataResources": {
-                "Hero": {
-                  "type": "hero",
-                  "variables": {
-                    "locale": "",
-                    "entryIds": "3ALVWJ8pMV3klXNTnA1xPh"
-                  }
-                }
-              }
-            },
-            {
-              "_id": "c163bb60-793f-43cf-98b4-028df48315d5",
-              "type": "hero",
-              "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
-              "_dataResources": {
-                "Hero": {
-                  "type": "hero",
-                  "variables": {
-                    "locale": "",
-                    "entryIds": "3LVxGsk9PGSzgfIY0jb6J5"
-                  }
+                ]
+              },
+              "variant": "fullWidth",
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "Heros"
                 }
               }
             }
@@ -1149,7 +1291,7 @@
         }
       },
       "created": "2023-10-05T20:41:13.37617+00:00",
-      "modified": "2023-10-05T21:19:49.979928+00:00",
+      "modified": "2023-10-11T17:53:27.851506+00:00",
       "pattern": false
     },
     {
@@ -1178,49 +1320,408 @@
         "slots": {
           "content": [
             {
-              "_id": "aefd08d7-94cf-4fb9-88b7-abacd40d21b5",
-              "type": "contactUsForm",
-              "parameters": {
-                "text": {
-                  "type": "text",
-                  "value": "We’re here to help! Fill out the form below and we'll do our best to get back to you within 3-5 days."
-                },
-                "formId": {
-                  "type": "text",
-                  "value": "7fc2147e-1533-4812-b3a4-bf3b53742ed7"
-                },
-                "heading": {
-                  "type": "text",
-                  "value": "Contact Us"
-                },
-                "portalId": {
-                  "type": "text",
-                  "value": "259915"
-                }
-              }
-            },
-            {
-              "_id": "9d3c9de9-da15-4c66-89ce-eab3ee452a62",
-              "type": "contactPhone",
-              "parameters": {
-                "tty": {
-                  "type": "text",
-                  "value": "711"
-                },
-                "hours": {
-                  "type": "text",
-                  "value": "Monday – Friday, 8 a.m. – 8 p.m. EST. "
-                },
-                "phone": {
-                  "type": "link",
-                  "value": {
-                    "path": "866-584-7389",
-                    "type": "tel"
+              "_id": "2302f18c-8ec7-4d1f-93e1-a32e55d5e6b7",
+              "type": "container",
+              "slots": {
+                "containerInner": [
+                  {
+                    "_id": "aefd08d7-94cf-4fb9-88b7-abacd40d21b5",
+                    "type": "contactUsForm",
+                    "parameters": {
+                      "text": {
+                        "type": "text",
+                        "value": "We’re here to help! Fill out the form below and we'll do our best to get back to you within 3-5 days."
+                      },
+                      "formId": {
+                        "type": "text",
+                        "value": "7fc2147e-1533-4812-b3a4-bf3b53742ed7"
+                      },
+                      "heading": {
+                        "type": "text",
+                        "value": "Contact Us"
+                      },
+                      "portalId": {
+                        "type": "text",
+                        "value": "259915"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "4186991d-77fd-4463-8e1a-d63a7d9d6890",
+                    "type": "contactCard",
+                    "parameters": {
+                      "tty": {
+                        "type": "text",
+                        "value": "711"
+                      },
+                      "text": {
+                        "type": "richText",
+                        "value": {
+                          "root": {
+                            "type": "root",
+                            "format": "",
+                            "indent": 0,
+                            "version": 1,
+                            "children": [
+                              {
+                                "type": "paragraph",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                  {
+                                    "mode": "normal",
+                                    "text": "We are available to help. Please give us a call if you have any questions.",
+                                    "type": "text",
+                                    "style": "",
+                                    "detail": 0,
+                                    "format": 0,
+                                    "version": 1
+                                  }
+                                ],
+                                "direction": "ltr"
+                              }
+                            ],
+                            "direction": "ltr"
+                          }
+                        }
+                      },
+                      "hours": {
+                        "type": "text",
+                        "value": "Monday – Friday, 8 a.m. – 8 p.m. EST. "
+                      },
+                      "phone": {
+                        "type": "link",
+                        "value": {
+                          "path": "866-584-7389",
+                          "type": "tel"
+                        }
+                      },
+                      "heading": {
+                        "type": "text",
+                        "value": "Give us a call"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "4bfeb88f-abe5-46e9-8cb1-ab933bcc688f",
+                    "type": "grid",
+                    "slots": {
+                      "gridInner": [
+                        {
+                          "_id": "f17c928e-43f3-40f1-b6ce-fe16cb2e5e4c",
+                          "type": "contactCard",
+                          "parameters": {
+                            "tty": {
+                              "type": "text",
+                              "value": "711"
+                            },
+                            "text": {
+                              "type": "richText",
+                              "value": {
+                                "root": {
+                                  "type": "root",
+                                  "format": "",
+                                  "indent": 0,
+                                  "version": 1,
+                                  "children": [
+                                    {
+                                      "type": "paragraph",
+                                      "format": "",
+                                      "indent": 0,
+                                      "version": 1,
+                                      "children": [
+                                        {
+                                          "mode": "normal",
+                                          "text": "SilverSneakers is the nation's leading fitness program designed for seniors reaching millions. ",
+                                          "type": "text",
+                                          "style": "",
+                                          "detail": 0,
+                                          "format": 0,
+                                          "version": 1
+                                        },
+                                        {
+                                          "link": {
+                                            "path": "/partners/fitness-locations",
+                                            "type": "projectMapNode",
+                                            "nodeId": "ec36d35a-5d6b-42f9-92b4-9a16a01385fb",
+                                            "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                                          },
+                                          "type": "link",
+                                          "format": "",
+                                          "indent": 0,
+                                          "version": 1,
+                                          "children": [
+                                            {
+                                              "mode": "normal",
+                                              "text": "Learn More >",
+                                              "type": "text",
+                                              "style": "",
+                                              "detail": 0,
+                                              "format": 0,
+                                              "version": 1
+                                            }
+                                          ],
+                                          "direction": "ltr"
+                                        }
+                                      ],
+                                      "direction": "ltr"
+                                    }
+                                  ],
+                                  "direction": "ltr"
+                                }
+                              }
+                            },
+                            "hours": {
+                              "type": "text",
+                              "value": "Mon–Fri, 8 a.m.–8 p.m. EST."
+                            },
+                            "phone": {
+                              "type": "link",
+                              "value": {
+                                "path": "866-584-7389 ",
+                                "type": "tel"
+                              }
+                            },
+                            "heading": {
+                              "type": "text",
+                              "value": "Fitness Centers"
+                            }
+                          }
+                        },
+                        {
+                          "_id": "a9f50578-f37f-4924-9c74-9f5388cc6d3c",
+                          "type": "contactCard",
+                          "parameters": {
+                            "text": {
+                              "type": "richText",
+                              "value": {
+                                "root": {
+                                  "type": "root",
+                                  "format": "",
+                                  "indent": 0,
+                                  "version": 1,
+                                  "children": [
+                                    {
+                                      "type": "paragraph",
+                                      "format": "",
+                                      "indent": 0,
+                                      "version": 1,
+                                      "children": [
+                                        {
+                                          "mode": "normal",
+                                          "text": "Help seniors achieve their health and wellness goals by teaching a SilverSneakers class. ",
+                                          "type": "text",
+                                          "style": "",
+                                          "detail": 0,
+                                          "format": 0,
+                                          "version": 1
+                                        },
+                                        {
+                                          "link": {
+                                            "path": "/partners/instructors",
+                                            "type": "projectMapNode",
+                                            "nodeId": "96f19db7-ac28-4e36-9c3a-a5bb0606db3d",
+                                            "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                                          },
+                                          "type": "link",
+                                          "format": "",
+                                          "indent": 0,
+                                          "version": 1,
+                                          "children": [
+                                            {
+                                              "mode": "normal",
+                                              "text": "Learn More >",
+                                              "type": "text",
+                                              "style": "",
+                                              "detail": 0,
+                                              "format": 0,
+                                              "version": 1
+                                            }
+                                          ],
+                                          "direction": "ltr"
+                                        }
+                                      ],
+                                      "direction": "ltr"
+                                    }
+                                  ],
+                                  "direction": "ltr"
+                                }
+                              }
+                            },
+                            "email": {
+                              "type": "link",
+                              "value": {
+                                "path": "instructorsupport@tivityhealth.com",
+                                "type": "email"
+                              }
+                            },
+                            "phone": {
+                              "type": "link",
+                              "value": {
+                                "path": "800-728-8492",
+                                "type": "tel"
+                              }
+                            },
+                            "heading": {
+                              "type": "text",
+                              "value": "Class Instructors"
+                            }
+                          }
+                        },
+                        {
+                          "_id": "69e525e4-ad50-4a98-833a-e2533ef7b2c7",
+                          "type": "contactCard",
+                          "parameters": {
+                            "text": {
+                              "type": "richText",
+                              "value": {
+                                "root": {
+                                  "type": "root",
+                                  "format": "",
+                                  "indent": 0,
+                                  "version": 1,
+                                  "children": [
+                                    {
+                                      "type": "paragraph",
+                                      "format": "",
+                                      "indent": 0,
+                                      "version": 1,
+                                      "children": [
+                                        {
+                                          "mode": "normal",
+                                          "text": "Keep your senior members healthy by giving them access to over 15k fitness locations and numerous classes. ",
+                                          "type": "text",
+                                          "style": "",
+                                          "detail": 0,
+                                          "format": 0,
+                                          "version": 1
+                                        },
+                                        {
+                                          "link": {
+                                            "path": "/partners/health-plans",
+                                            "type": "projectMapNode",
+                                            "nodeId": "ce42b0b8-b4b7-4bd3-94bc-4552ffceee80",
+                                            "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                                          },
+                                          "type": "link",
+                                          "format": "",
+                                          "indent": 0,
+                                          "version": 1,
+                                          "children": [
+                                            {
+                                              "mode": "normal",
+                                              "text": "Learn More >",
+                                              "type": "text",
+                                              "style": "",
+                                              "detail": 0,
+                                              "format": 0,
+                                              "version": 1
+                                            }
+                                          ],
+                                          "direction": "ltr"
+                                        }
+                                      ],
+                                      "direction": "ltr"
+                                    }
+                                  ],
+                                  "direction": "ltr"
+                                }
+                              }
+                            },
+                            "email": {
+                              "type": "link",
+                              "value": {
+                                "path": "salesinquiries@silversneakers.com",
+                                "type": "email"
+                              }
+                            },
+                            "heading": {
+                              "type": "text",
+                              "value": "Health Plans"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "parameters": {
+                      "columnsCount": {
+                        "type": "select",
+                        "value": "3"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "e97347c0-7d28-4ebf-8f36-b1b3be20f5a1",
+                    "type": "contactCard",
+                    "parameters": {
+                      "text": {
+                        "type": "richText",
+                        "value": {
+                          "root": {
+                            "type": "root",
+                            "format": "",
+                            "indent": 0,
+                            "version": 1,
+                            "children": [
+                              {
+                                "type": "paragraph",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                  {
+                                    "mode": "normal",
+                                    "text": "For all media inquiries, please email us at ",
+                                    "type": "text",
+                                    "style": "",
+                                    "detail": 0,
+                                    "format": 0,
+                                    "version": 1
+                                  },
+                                  {
+                                    "link": {
+                                      "path": "media@tivityhealth.com",
+                                      "type": "email"
+                                    },
+                                    "type": "link",
+                                    "format": "",
+                                    "indent": 0,
+                                    "version": 1,
+                                    "children": [
+                                      {
+                                        "mode": "normal",
+                                        "text": "media@tivityhealth.com",
+                                        "type": "text",
+                                        "style": "",
+                                        "detail": 0,
+                                        "format": 0,
+                                        "version": 1
+                                      }
+                                    ],
+                                    "direction": "ltr"
+                                  }
+                                ],
+                                "direction": "ltr"
+                              }
+                            ],
+                            "direction": "ltr"
+                          }
+                        }
+                      },
+                      "heading": {
+                        "type": "text",
+                        "value": "Media"
+                      }
+                    }
                   }
-                },
-                "heading": {
+                ]
+              },
+              "variant": "backgroundInContainer",
+              "parameters": {
+                "title": {
                   "type": "text",
-                  "value": "Give us a call"
+                  "value": "Contact Cards"
                 }
               }
             }
@@ -1228,7 +1729,7 @@
         }
       },
       "created": "2023-09-19T17:30:46.06938+00:00",
-      "modified": "2023-10-09T22:31:52.908157+00:00",
+      "modified": "2023-10-11T18:37:23.044587+00:00",
       "pattern": false
     },
     {
@@ -1246,14 +1747,29 @@
         "slots": {
           "content": [
             {
-              "_id": "2746b5d7-9b6c-4586-95f2-b4f69349b0b9",
-              "type": "memberProfile"
+              "_id": "08880245-0df8-4b20-8f2d-661b5b69a2fd",
+              "type": "container",
+              "slots": {
+                "containerInner": [
+                  {
+                    "_id": "2746b5d7-9b6c-4586-95f2-b4f69349b0b9",
+                    "type": "memberProfile"
+                  }
+                ]
+              },
+              "variant": "backgroundInContainer",
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "Member Profile"
+                }
+              }
             }
           ]
         }
       },
       "created": "2023-09-20T05:42:55.206309+00:00",
-      "modified": "2023-10-05T20:49:32.005998+00:00",
+      "modified": "2023-10-11T19:06:56.044994+00:00",
       "pattern": false
     },
     {
@@ -1271,15 +1787,41 @@
         "slots": {
           "content": [
             {
-              "_id": "5ddf5fef-7af1-4ae9-92fa-9820db18db8d",
-              "type": "termsOfUse",
-              "_pattern": "fd518822-182d-4bb7-a1ea-128bb4f463b6"
+              "_id": "8bd0357c-1069-4a38-b5b0-328db5fb9075",
+              "type": "container",
+              "slots": {
+                "containerInner": [
+                  {
+                    "_id": "5ddf5fef-7af1-4ae9-92fa-9820db18db8d",
+                    "type": "termsOfUse",
+                    "_pattern": "fd518822-182d-4bb7-a1ea-128bb4f463b6"
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "Terms of Use"
+                }
+              }
             }
           ]
         }
       },
       "created": "2023-09-19T17:37:31.071884+00:00",
-      "modified": "2023-10-05T20:49:54.075329+00:00",
+      "modified": "2023-10-11T19:13:21.529189+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Fitness Locations",
+        "_id": "737a5b7a-6120-4746-b417-7ac7d4b3a4a5",
+        "_slug": "fitness-locations",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-10-10T21:10:02.804203+00:00",
+      "modified": "2023-10-10T21:10:02.804203+00:00",
       "pattern": false
     },
     {
@@ -1509,6 +2051,18 @@
     },
     {
       "composition": {
+        "_name": "Health Plans",
+        "_id": "b3a63904-4c5f-49cb-b605-777918703f98",
+        "_slug": "health-plans",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-10-10T21:10:41.988441+00:00",
+      "modified": "2023-10-10T21:10:41.988441+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
         "_name": "LIVE Class Schedule",
         "_id": "c194bc87-2d60-43e1-b43a-668deb2daa2c",
         "_slug": "live-class-schedule",
@@ -1548,6 +2102,18 @@
       },
       "created": "2023-10-05T20:43:37.744723+00:00",
       "modified": "2023-10-05T20:47:11.20999+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Instructors",
+        "_id": "cb4f466a-026a-4d56-b461-7a97e5b23fd0",
+        "_slug": "instructors",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-10-10T21:10:28.970233+00:00",
+      "modified": "2023-10-10T21:10:28.970233+00:00",
       "pattern": false
     },
     {
@@ -1995,15 +2561,29 @@
         "slots": {
           "content": [
             {
-              "_id": "3b9b7bc5-091b-42bc-b7be-4ee054935980",
-              "type": "privacyPolicy",
-              "_pattern": "0c8969b1-065e-426c-b6b7-f223e471abd6"
+              "_id": "19fa6908-bba5-488b-b5bd-cf7ca32f2b43",
+              "type": "container",
+              "slots": {
+                "containerInner": [
+                  {
+                    "_id": "3b9b7bc5-091b-42bc-b7be-4ee054935980",
+                    "type": "privacyPolicy",
+                    "_pattern": "0c8969b1-065e-426c-b6b7-f223e471abd6"
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "Privacy Policy"
+                }
+              }
             }
           ]
         }
       },
       "created": "2023-09-19T17:37:51.295845+00:00",
-      "modified": "2023-10-05T20:50:04.849964+00:00",
+      "modified": "2023-10-11T19:13:00.478059+00:00",
       "pattern": false
     },
     {
@@ -2586,6 +3166,16 @@
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
+      "id": "3944b667-aa5d-4d8b-84df-e16d1198bb08",
+      "name": "Partners",
+      "type": "placeholder",
+      "data": {},
+      "order": 537,
+      "path": "/partners",
+      "pathSegment": "partners",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
       "id": "3ea0e682-09a4-404f-9a83-d3760ab2ebec",
       "name": "Silver Sneakers Go",
       "type": "composition",
@@ -2662,6 +3252,17 @@
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
+      "id": "96f19db7-ac28-4e36-9c3a-a5bb0606db3d",
+      "name": "Instructors",
+      "type": "composition",
+      "data": {},
+      "order": 600,
+      "path": "/partners/instructors",
+      "compositionId": "cb4f466a-026a-4d56-b461-7a97e5b23fd0",
+      "pathSegment": "instructors",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
       "id": "a4bbf054-9c9b-4de4-b7ca-b1a71f28864f",
       "name": "Check Eligibility",
       "type": "composition",
@@ -2717,6 +3318,17 @@
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
+      "id": "ce42b0b8-b4b7-4bd3-94bc-4552ffceee80",
+      "name": "Health Plans",
+      "type": "composition",
+      "data": {},
+      "order": 700,
+      "path": "/partners/health-plans",
+      "compositionId": "b3a63904-4c5f-49cb-b605-777918703f98",
+      "pathSegment": "health-plans",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
       "id": "cf55f80b-425e-4bee-839d-2e64d87485bf",
       "name": "Health Plan Partners",
       "type": "composition",
@@ -2768,6 +3380,17 @@
       "order": 512,
       "path": "/blog",
       "pathSegment": "blog",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "ec36d35a-5d6b-42f9-92b4-9a16a01385fb",
+      "name": "Fitness Locations",
+      "type": "composition",
+      "data": {},
+      "order": 500,
+      "path": "/partners/fitness-locations",
+      "compositionId": "737a5b7a-6120-4746-b417-7ac7d4b3a4a5",
+      "pathSegment": "fitness-locations",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     }
   ]
