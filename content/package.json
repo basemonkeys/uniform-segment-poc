@@ -544,12 +544,13 @@
           "typeConfig": null
         }
       ],
+      "categoryId": "cd774774-e2cb-4aa7-868a-65781e311aa6",
       "useTeamPermissions": true,
       "slots": [],
       "titleParameter": "heading",
       "canBeComposition": false,
       "created": "2023-08-29T20:06:35.107289+00:00",
-      "updated": "2023-09-29T18:46:26.325134+00:00",
+      "updated": "2023-10-11T23:13:59.121013+00:00",
       "variants": [
         {
           "id": "imageBackground",
@@ -626,14 +627,11 @@
           "allowedComponents": [
             "$personalization",
             "$test",
-            "$localization",
             "$p:9eb8e241-54a0-48a5-a408-287ea4394f47",
             "$p:a703f357-57e8-4fe5-8d4d-47e29e12ba32",
-            "$p:0c8969b1-065e-426c-b6b7-f223e471abd6",
             "$p:abcd32be-5961-4103-9540-183229d50364",
-            "$p:fd518822-182d-4bb7-a1ea-128bb4f463b6",
-            "memberProfile",
-            "container"
+            "container",
+            "grid"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -643,7 +641,8 @@
           "id": "footer",
           "name": "Footer",
           "allowedComponents": [
-            "$p:d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            "$p:d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f",
+            "$test"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -659,7 +658,19 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-10-05T20:36:58.515615+00:00",
-      "updated": "2023-10-11T17:37:57.852199+00:00"
+      "updated": "2023-10-11T23:36:02.60856+00:00"
+    },
+    {
+      "id": "loginForm",
+      "name": "Login Form",
+      "icon": "desktop",
+      "parameters": [],
+      "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-10-11T23:29:39.40126+00:00",
+      "updated": "2023-10-11T23:29:39.40126+00:00"
     },
     {
       "id": "memberProfile",
@@ -807,7 +818,6 @@
           "allowedComponents": [
             "$personalization",
             "$test",
-            "$localization",
             "$p:9eb8e241-54a0-48a5-a408-287ea4394f47",
             "$p:a703f357-57e8-4fe5-8d4d-47e29e12ba32",
             "$p:0c8969b1-065e-426c-b6b7-f223e471abd6",
@@ -817,7 +827,8 @@
             "contactUsForm",
             "contactCard",
             "grid",
-            "container"
+            "container",
+            "loginForm"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -833,7 +844,7 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-08-29T20:06:33.571497+00:00",
-      "updated": "2023-10-11T18:36:06.210705+00:00"
+      "updated": "2023-10-11T23:37:50.923561+00:00"
     },
     {
       "id": "privacyPolicy",
@@ -868,13 +879,13 @@
           }
         }
       ],
-      "categoryId": "93f111c6-73ad-4786-93cc-e1fb5dc37106",
+      "categoryId": "a423986b-fb40-4060-b470-f5e920627546",
       "useTeamPermissions": true,
       "slots": [],
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-09-20T20:09:41.482626+00:00",
-      "updated": "2023-09-21T01:08:38.684379+00:00"
+      "updated": "2023-10-11T23:15:21.215783+00:00"
     },
     {
       "id": "termsOfUse",
@@ -909,13 +920,13 @@
           }
         }
       ],
-      "categoryId": "93f111c6-73ad-4786-93cc-e1fb5dc37106",
+      "categoryId": "a423986b-fb40-4060-b470-f5e920627546",
       "useTeamPermissions": true,
       "slots": [],
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-09-20T23:52:30.778238+00:00",
-      "updated": "2023-09-21T01:08:44.668039+00:00"
+      "updated": "2023-10-11T23:15:26.352202+00:00"
     }
   ],
   "compositions": [
@@ -1433,13 +1444,22 @@
                                       "children": [
                                         {
                                           "mode": "normal",
-                                          "text": "SilverSneakers is the nation's leading fitness program designed for seniors reaching millions. ",
+                                          "text": "SilverSneakers is the nation's leading fitness program designed for seniors reaching millions.",
                                           "type": "text",
                                           "style": "",
                                           "detail": 0,
                                           "format": 0,
                                           "version": 1
-                                        },
+                                        }
+                                      ],
+                                      "direction": "ltr"
+                                    },
+                                    {
+                                      "type": "paragraph",
+                                      "format": "",
+                                      "indent": 0,
+                                      "version": 1,
+                                      "children": [
                                         {
                                           "link": {
                                             "path": "/partners/fitness-locations",
@@ -1510,13 +1530,22 @@
                                       "children": [
                                         {
                                           "mode": "normal",
-                                          "text": "Help seniors achieve their health and wellness goals by teaching a SilverSneakers class. ",
+                                          "text": "Help seniors achieve their health and wellness goals by teaching a SilverSneakers class.",
                                           "type": "text",
                                           "style": "",
                                           "detail": 0,
                                           "format": 0,
                                           "version": 1
-                                        },
+                                        }
+                                      ],
+                                      "direction": "ltr"
+                                    },
+                                    {
+                                      "type": "paragraph",
+                                      "format": "",
+                                      "indent": 0,
+                                      "version": 1,
+                                      "children": [
                                         {
                                           "link": {
                                             "path": "/partners/instructors",
@@ -1590,13 +1619,22 @@
                                       "children": [
                                         {
                                           "mode": "normal",
-                                          "text": "Keep your senior members healthy by giving them access to over 15k fitness locations and numerous classes. ",
+                                          "text": "Keep your senior members healthy by giving them access to over 15k fitness locations and numerous classes.",
                                           "type": "text",
                                           "style": "",
                                           "detail": 0,
                                           "format": 0,
                                           "version": 1
-                                        },
+                                        }
+                                      ],
+                                      "direction": "ltr"
+                                    },
+                                    {
+                                      "type": "paragraph",
+                                      "format": "",
+                                      "indent": 0,
+                                      "version": 1,
+                                      "children": [
                                         {
                                           "link": {
                                             "path": "/partners/health-plans",
@@ -1717,7 +1755,7 @@
                   }
                 ]
               },
-              "variant": "backgroundInContainer",
+              "variant": "",
               "parameters": {
                 "title": {
                   "type": "text",
@@ -1729,7 +1767,7 @@
         }
       },
       "created": "2023-09-19T17:30:46.06938+00:00",
-      "modified": "2023-10-11T18:37:23.044587+00:00",
+      "modified": "2023-10-11T21:46:20.300342+00:00",
       "pattern": false
     },
     {
@@ -1757,7 +1795,7 @@
                   }
                 ]
               },
-              "variant": "backgroundInContainer",
+              "variant": "",
               "parameters": {
                 "title": {
                   "type": "text",
@@ -1769,7 +1807,7 @@
         }
       },
       "created": "2023-09-20T05:42:55.206309+00:00",
-      "modified": "2023-10-11T19:06:56.044994+00:00",
+      "modified": "2023-10-11T19:17:17.972613+00:00",
       "pattern": false
     },
     {
@@ -2540,10 +2578,55 @@
         "_name": "Login",
         "_id": "d71f6a04-4bb4-49c3-bc9f-1b7e6c695f19",
         "_slug": "login",
-        "type": "page"
+        "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Login"
+          }
+        },
+        "slots": {
+          "banners": [
+            {
+              "_id": "d4b369dd-9dd1-4768-852e-09022535ab64",
+              "type": "banner",
+              "variant": "danger",
+              "parameters": {
+                "message": {
+                  "type": "text",
+                  "value": "Something went wrong with the request. Please Try again."
+                },
+                "dismissable": {
+                  "type": "checkbox",
+                  "value": true
+                }
+              }
+            }
+          ],
+          "content": [
+            {
+              "_id": "aafb61e9-55a4-4618-9c69-c9161dadbfa0",
+              "type": "container",
+              "slots": {
+                "containerInner": [
+                  {
+                    "_id": "b2a5c698-bc3e-462d-9eb6-599b536e632c",
+                    "type": "loginForm"
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "Login Form"
+                }
+              }
+            }
+          ]
+        }
       },
       "created": "2023-10-04T19:00:28.591131+00:00",
-      "modified": "2023-10-05T20:48:44.105992+00:00",
+      "modified": "2023-10-12T00:04:54.205148+00:00",
       "pattern": false
     },
     {
