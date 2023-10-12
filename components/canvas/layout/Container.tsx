@@ -8,7 +8,7 @@ import {
   Container as BaseContainer,
   Props as BaseContainerProps,
   ContainerVariants,
-} from "@/components/containers/Container";
+} from "@/components/ui/layout/Container";
 
 export type ContainerProps = ComponentProps<BaseContainerProps>;
 

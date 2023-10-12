@@ -5,9 +5,9 @@ import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ComponentError } from "@/components/ui/client-components/ComponentError";
 
-import { ProfileInfoCard } from "@/components/ui/members/ProfileInfoCard";
-import { MemberIdCard } from "@/components/ui/members/MemberIdCard";
-import { ActivityTrackerCard } from "@/components/ui/members/ActivityTrackerCard";
+import { ProfileInfoCard } from "@/components/ui/user/ProfileInfoCard";
+import { MemberIdCard } from "@/components/ui/user/MemberIdCard";
+import { ActivityTrackerCard } from "@/components/ui/user/ActivityTrackerCard";
 
 import { ErrorBoundary } from "@/utils";
 

@@ -1,20 +1,21 @@
 import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 
 // Canvas Components
-import "./pages/HomePage";
-import "./pages/Page";
-import "./containers/Container";
-import "./containers/Grid";
-import "./navigation/Header";
+import "./global/pages/HomePage";
+import "./global/pages/Page";
+import "./layout/Container";
+import "./layout/Grid";
+import "./global/Header";
 import {
   HeaderLink,
   FooterLink,
   NavigationGroup,
 } from "./navigation/NavigationLink";
-import "./navigation/Footer";
-import "./Banner";
+import "./global/Footer";
+import "./global/Banner";
 import "./Hero";
-import "./MemberProfile";
+import "./user/LoginForm";
+import "./user/MemberProfile";
 import "./contact/ContactUsForm";
 import "./contact/ContactCard";
 import "./PrivacyPolicy";

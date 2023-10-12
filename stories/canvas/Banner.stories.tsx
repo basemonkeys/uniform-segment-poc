@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Banner, { BannerVariant } from "../../components/canvas/Banner";
+import Banner, { BannerVariant } from "../../components/canvas/global/Banner";
 
 const meta: Meta<typeof Banner> = {
   title: "Components/Uniform/Banners",

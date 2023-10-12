@@ -145,7 +145,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
                 <Button
                   variant="secondaryWhite"
                   size="lg"
-                  onClick={() => setUser({ name: "User Name" })}
+                  onClick={() => router.push("/login")}
                 >
                   Log in
                 </Button>
