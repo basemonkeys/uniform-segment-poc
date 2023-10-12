@@ -28,6 +28,7 @@
     "uniform:push": "run-s uniform:push:signals uniform:push:components uniform:push:compositions uniform:push:project-map-definitions uniform:push:project-map-nodes"
   },
   "dependencies": {
+    "@auth0/nextjs-auth0": "^3.2.0",
     "@contentful/rich-text-html-renderer": "^16.1.1",
     "@contentful/rich-text-react-renderer": "^15.17.1",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
