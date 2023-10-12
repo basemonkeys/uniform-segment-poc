@@ -1,29 +1,21 @@
-import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
-
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+  registerUniformComponent,
+  ComponentProps,
+} from "@uniformdev/canvas-next-rsc";
 
-export function LoginForm() {
+import { LoginForm as BaseLoginForm } from "@/components/ui/client-components/user/LoginForm";
+
+export type LoginFormProps = ComponentProps<{
+  heading: string;
+  text: string;
+}>;
+
+export function LoginForm(props: LoginFormProps) {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Login</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <CardDescription>
-          <p>Log in to your account</p>
-        </CardDescription>
-      </CardContent>
-      <CardFooter>
-        <p>Footer</p>
-      </CardFooter>
-    </Card>
+    <>
+      {/* this is a client component */}
+      <BaseLoginForm {...props} />
+    </>
   );
 }
 
