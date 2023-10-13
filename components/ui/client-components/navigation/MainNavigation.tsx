@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
 import { useRouter } from "next/navigation";
-
+import Link from "next/link";
 import { ComponentProps } from "@uniformdev/canvas-next-rsc";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 import { cn, getImageUrl } from "@/utils";
 
@@ -24,7 +24,6 @@ import {
   NavigationMenuTrigger,
   NavigationMenuContent,
 } from "@/components/ui/navigation-menu";
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -33,14 +32,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
-
-// TODO: get from API
-type User = {
-  name: string;
-};
+import { HeaderSkeleton } from "../../skeletons/HeaderSkeleton";
 
 type MainNavigationProps = ComponentProps & {
   children: React.ReactNode;
@@ -51,8 +43,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   children,
   logo,
 }: MainNavigationProps) => {
-  const [user, setUser] = useState<User>();
-  const [loading, setLoading] = useState(false);
+  const { user, error, isLoading } = useUser();
   const [showButton, setShowButton] = useState(false);
 
   const router = useRouter();
@@ -72,6 +63,9 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  if (!isLoading) return <HeaderSkeleton />;
+  if (error) return <div>{error.message}</div>;
 
   return (
     <>
@@ -119,50 +113,41 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
                         <UserIcon className="h-6 w-6 text-white" />
                       </AvatarFallback>
                     </Avatar>
-                    Profile
+                    {user.name}
                     <ChevronDownIcon className="w-5" />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
-                    <DropdownMenuItem
-                      onClick={() => router.push("/member-profile")}
-                    >
-                      <UserIcon className="mr-2 h-4 w-4" />
-                      <span>My Profile</span>
+                    <DropdownMenuItem asChild>
+                      <Link href="/member-profile">
+                        <UserIcon className="mr-2 h-4 w-4" />
+                        <span>Profile</span>
+                      </Link>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem
                       className="!font-bold !text-danger"
-                      onClick={() => setUser(undefined)}
+                      asChild
                     >
-                      <ArrowRightOnRectangleIcon className="mr-2 h-4 w-4" />
-                      <span>Log Off</span>
+                      <a href="/api/auth/logout">
+                        <ArrowRightOnRectangleIcon className="mr-2 h-4 w-4" />
+                        <span>Log Off</span>
+                      </a>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </>
             ) : (
               <div className="flex gap-3">
-                <Button
-                  variant="secondaryWhite"
-                  size="lg"
-                  onClick={() => router.push("/login")}
-                >
-                  Log in
+                <Button variant="secondaryWhite" size="lg" asChild>
+                  <a href="/api/auth/login">Log in</a>
                 </Button>
                 <Button
                   variant="primary"
                   size="lg"
-                  disabled={loading}
-                  onClick={() => setLoading(true)}
                   className="max-sm:hidden"
+                  asChild
                 >
-                  {loading && (
-                    <FontAwesomeIcon
-                      icon={faCircleNotch}
-                      className="mr-2 h-4 w-4 animate-spin"
-                    />
-                  )}
-                  Check Eligibility
+                  <Link href="/check-eligibility">Check Eligibility</Link>
                 </Button>
               </div>
             )}
@@ -172,20 +157,8 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
 
       {/* Check Eligibility Mobile Button */}
       <div className="fixed bottom-0 z-50 w-full bg-white p-2 px-6 sm:hidden">
-        <Button
-          className="w-full"
-          variant="primary"
-          size="xl"
-          disabled={loading}
-          onClick={() => setLoading(true)}
-        >
-          {loading && (
-            <FontAwesomeIcon
-              icon={faCircleNotch}
-              className="mr-2 h-4 w-4 animate-spin"
-            />
-          )}
-          Check Eligibility
+        <Button className="w-full" variant="primary" size="xl" asChild>
+          <Link href="/check-eligibility">Check Eligibility</Link>
         </Button>
       </div>
 
