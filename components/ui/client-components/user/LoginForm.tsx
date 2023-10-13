@@ -1,5 +1,7 @@
 "use client";
 
+// https://ui.shadcn.com/docs/components/form
+
 import { useState } from "react";
 
 import Link from "next/link";
@@ -13,16 +15,15 @@ import { LoginFormProps } from "@/components/canvas/user/LoginForm";
 import { Card } from "@/components/ui/card";
 import {
   Form,
-  FormControl,
   FormField,
   FormItem,
   FormLabel,
+  FormControl,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
-import { toast } from "@/components/ui/use-toast";
 
 import {
   EyeIcon,
@@ -101,6 +102,8 @@ export function LoginForm({ heading, text }: LoginFormProps) {
                         autoComplete="email"
                         {...field}
                       />
+
+                      {/* icons */}
                       {form.formState.errors.email?.message && (
                         <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                           <XCircleIcon className="h-6 w-6 text-danger" />

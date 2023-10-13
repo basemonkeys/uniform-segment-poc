@@ -54,6 +54,7 @@ export default async function RootLayout({ children }: Props) {
 const Header = async () => {
   const globalComponent = await getGlobalComponent();
 
+  // @ts-ignore: Unreachable code error
   const context: UniformSlotProps<any>["context"] = {
     composition: globalComponent,
     path: "global",
@@ -66,6 +67,7 @@ const Header = async () => {
 const Footer = async () => {
   const globalComponent = await getGlobalComponent();
 
+  // @ts-ignore: Unreachable code error
   const context: UniformSlotProps<any>["context"] = {
     composition: globalComponent,
     path: "global",
