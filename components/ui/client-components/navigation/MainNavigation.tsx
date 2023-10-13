@@ -64,7 +64,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  if (!isLoading) return <HeaderSkeleton />;
+  if (isLoading) return <HeaderSkeleton />;
   if (error) return <div>{error.message}</div>;
 
   return (
