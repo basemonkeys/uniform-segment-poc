@@ -74,8 +74,6 @@ const Hero: React.FC<HeroProps> = ({
   const { variant } = component;
   const isCentered = textAlignment === HeroAlignment.Center;
 
-  console.log(logo);
-
   return (
     <div
       className={cn(

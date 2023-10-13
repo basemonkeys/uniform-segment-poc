@@ -37,7 +37,7 @@
 
 @layer components {
   a {
-    @apply text-link hover:text-link-hover;
+    @apply !cursor-pointer text-link hover:text-link-hover;
   }
 
   .footer-links a:last-of-type > .divider {
