@@ -15,6 +15,7 @@ import "./global/Footer";
 import "./global/Banner";
 import "./Hero";
 import "./user/LoginForm";
+import "./user/EligibilityForm";
 import "./user/MemberProfile";
 import "./contact/ContactUsForm";
 import "./contact/ContactCard";

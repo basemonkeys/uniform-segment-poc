@@ -4,6 +4,8 @@ import {
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
+import { Card } from "@/components/ui/card";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPhone,
@@ -33,7 +35,7 @@ export function ContactCard({
   component,
 }: ContactCardProps) {
   return (
-    <div className="mb-10 w-full rounded border bg-white p-4 lg:max-w-[400px]">
+    <Card className="mb-10 w-full border lg:max-w-[400px]">
       <h3 className="mb-4">{heading}</h3>
       <UniformRichText
         parameterId="text"
@@ -94,7 +96,7 @@ export function ContactCard({
           ) : null}
         </div>
       </div>
-    </div>
+    </Card>
   );
 }
 

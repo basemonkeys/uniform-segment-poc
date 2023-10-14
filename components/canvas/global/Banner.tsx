@@ -5,6 +5,8 @@ import {
 
 import Link from "next/link";
 
+import { cn } from "@/utils";
+
 import { DismissButton } from "@/components/ui/client-components/DismissButton";
 
 import {
@@ -13,8 +15,6 @@ import {
   ExclamationTriangleIcon,
   InformationCircleIcon,
 } from "@heroicons/react/20/solid";
-
-import { cn } from "@/utils";
 
 type BannerProps = ComponentProps<{
   message: string;

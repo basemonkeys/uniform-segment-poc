@@ -1,3 +1,5 @@
+// This skeleton belongs to components/ui/client-components/navigation/MainNavigation.tsx
+
 import { Skeleton } from "@/components/ui/skeleton";
 
 export function HeaderSkeleton() {
@@ -20,9 +22,7 @@ export function HeaderSkeleton() {
 
         {/* Responsive Mobile Menu Toggle */}
         <div className="w-full gap-1 lg:hidden">
-          <div className="lg:hidden">
-            <Skeleton className="ml-4 h-[30px] w-[80px]" />
-          </div>
+          <Skeleton className="ml-4 h-[30px] w-[80px]" />
         </div>
 
         <div className="flex items-center gap-3">

@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 
+import { cn } from "@/utils";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF as faFacebook,
@@ -9,8 +11,6 @@ import {
   faYoutube,
   faXTwitter as faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-
-import { cn } from "@/utils";
 
 const socialIcons = [
   {
