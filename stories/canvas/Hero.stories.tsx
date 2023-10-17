@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Hero, { HeroVariant } from "../../components/canvas/Hero";
+import Hero, { HeroVariant } from "../../components/uniform/Hero";
 
 const meta: Meta<typeof Hero> = {
   title: "Components/Uniform/Heros",

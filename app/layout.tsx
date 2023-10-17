@@ -17,8 +17,11 @@ config.autoAddCss = false;
 import { Providers } from "./providers";
 
 // Uniform Canvas Components index
-import "@/components/canvas";
+import "@/components/uniform";
 import { getGlobalComponent } from "@/utils";
+
+// SilverSneakers Components
+import { LanguageSelector } from "@/components/ui/client-components/navigation/LanguageSelector";
 
 // Global CSS
 import "./globals.css";
@@ -41,6 +44,7 @@ export default async function RootLayout({ children }: Props) {
     <html lang="en" className={openSans.className}>
       <body className={openSans.className}>
         <Providers>
+          <LanguageSelector />
           <Header />
           {children}
           <Footer />
