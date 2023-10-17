@@ -12,7 +12,7 @@ import * as z from "zod";
 
 import { cn } from "@/utils";
 
-import { EligibilityFormProps } from "@/components/canvas/user/EligibilityForm";
+import { EligibilityFormProps } from "@/components/uniform/user/EligibilityForm";
 
 import {
   Card,
