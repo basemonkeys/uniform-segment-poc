@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import Script from "next/script";
 
-import { ContactUsFormProps } from "@/components/canvas/contact/ContactUsForm";
+import { ContactUsFormProps } from "@/components/uniform/contact/ContactUsForm";
 
 import { v4 as uuidv4 } from "uuid";
 
