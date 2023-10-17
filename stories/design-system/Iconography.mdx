@@ -1,39 +1,126 @@
 import { Meta, Title, IconGallery, IconItem } from "@storybook/blocks";
 
 import {
+  ArrowRightIcon,
+  ArrowRightOnRectangleIcon,
   ChevronUpIcon,
   ChevronDownIcon,
   CheckCircleIcon,
-  XCircleIcon,
+  EyeIcon,
+  EyeSlashIcon,
   ExclamationTriangleIcon,
+  GlobeAltIcon,
   InformationCircleIcon,
+  UserIcon,
+  XCircleIcon,
   XMarkIcon,
 } from "@heroicons/react/20/solid";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCircleNotch,
+  faCheck,
+  faClock,
+  faDownload,
+  faEnvelope,
+  faPrint,
+  faPhone,
+  faTty,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebookF as faFacebook,
+  faInstagram,
+  faYoutube,
+  faXTwitter as faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+
 <Meta title="Design System/Iconography" />
 
-# Iconography
+# heroicons
+
+[https://heroicons.com/](https://heroicons.com/)
 
 <IconGallery>
+  <IconItem name="arrow-right">
+    <ArrowRightIcon />
+  </IconItem>
+  <IconItem name="arrow-right-on-rectangle">
+    <ArrowRightOnRectangleIcon />
+  </IconItem>
   <IconItem name="chevron-up">
     <ChevronUpIcon />
   </IconItem>
   <IconItem name="chevron-down">
     <ChevronDownIcon />
   </IconItem>
-  <IconItem name="x-mark">
-    <XMarkIcon />
-  </IconItem>
   <IconItem name="check-circle">
     <CheckCircleIcon />
   </IconItem>
-  <IconItem name="x-circle">
-    <XCircleIcon />
+  <IconItem name="eye">
+    <EyeIcon />
+  </IconItem>
+  <IconItem name="eye-slash">
+    <EyeSlashIcon />
   </IconItem>
   <IconItem name="exclamation-triangle">
     <ExclamationTriangleIcon />
   </IconItem>
+  <IconItem name="globe-alt">
+    <GlobeAltIcon />
+  </IconItem>
   <IconItem name="information-circle">
     <InformationCircleIcon />
+  </IconItem>
+  <IconItem name="user">
+    <UserIcon />
+  </IconItem>
+  <IconItem name="x-mark">
+    <XMarkIcon />
+  </IconItem>
+  <IconItem name="x-circle">
+    <XCircleIcon />
+  </IconItem>
+</IconGallery>
+
+# FontAwesome
+
+[https://fontawesome.com/](https://fontawesome.com/)
+
+<IconGallery>
+  <IconItem>
+    <FontAwesomeIcon icon={faCircleNotch} />
+  </IconItem>
+  <IconItem>
+    <FontAwesomeIcon icon={faCheck} />
+  </IconItem>
+  <IconItem>
+    <FontAwesomeIcon icon={faClock} />
+  </IconItem>
+  <IconItem>
+    <FontAwesomeIcon icon={faDownload} />
+  </IconItem>
+  <IconItem>
+    <FontAwesomeIcon icon={faEnvelope} />
+  </IconItem>
+  <IconItem>
+    <FontAwesomeIcon icon={faPrint} />
+  </IconItem>
+  <IconItem>
+    <FontAwesomeIcon icon={faPhone} />
+  </IconItem>
+  <IconItem>
+    <FontAwesomeIcon icon={faTty} />
+  </IconItem>
+  <IconItem>
+    <FontAwesomeIcon icon={faFacebook} />
+  </IconItem>
+  <IconItem>
+    <FontAwesomeIcon icon={faInstagram} />
+  </IconItem>
+  <IconItem>
+    <FontAwesomeIcon icon={faYoutube} />
+  </IconItem>
+  <IconItem>
+    <FontAwesomeIcon icon={faTwitter} />
   </IconItem>
 </IconGallery>
