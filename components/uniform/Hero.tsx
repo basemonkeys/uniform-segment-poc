@@ -43,7 +43,7 @@ export enum HeroAlignment {
 const getBackgroundClass = (variantId?: string) => {
   switch (variantId) {
     case HeroVariant.LightBackground:
-      return "text-black";
+      return "text-foreground";
     default:
       return "text-white";
   }

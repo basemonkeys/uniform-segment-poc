@@ -16,10 +16,8 @@ const TermsOfUse: React.FC<Types.PolicyUseProps> = ({
         <span className="font-semibold">Last updated:</span>{" "}
         {format(new Date(lastUpdated), "MMMM do yyyy, h:mm:ss a")}
       </p>
-      {/* the prose class comes from https://tailwindcss.com/docs/typography-plugin */}
-      <div className="prose max-w-full prose-a:text-link prose-table:border odd:prose-tr:bg-gray-100 prose-td:w-[340px] prose-td:border prose-td:p-4 ">
-        {documentToReactComponents(text)}
-      </div>
+      {/* the "prose" class comes from https://tailwindcss.com/docs/typography-plugin. Custom SilverSneakers styles can be found in tailwind.config.js. */}
+      <div className="prose max-w-full">{documentToReactComponents(text)}</div>
     </div>
   );
 };

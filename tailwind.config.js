@@ -30,6 +30,46 @@ module.exports = {
     // The SilverSneakers color pallette, with selective Tailwind colors, is available at https://www.figma.com/file/0mNynYMtKUNq85fViOFopX/Comp-Sheet?type=design&node-id=65-1141&mode=dev
     // The other colors below are custom to SilverSneakers.
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            color: "#111827",
+            a: {
+              color: "#2563EB",
+              textDecoration: "none",
+              "&:hover": {
+                color: "#1E40AF",
+              },
+            },
+            h1: {
+              marginTop: "none",
+            },
+            h2: {
+              marginTop: "none",
+            },
+            h3: {
+              marginTop: "none",
+            },
+            h4: {
+              marginTop: "none",
+            },
+            p: {
+              marginBottom: "1.5rem",
+            },
+            table: {
+              border: "1px solid #E5E7EB",
+              "& td": {
+                width: "340px",
+                padding: "1rem",
+                border: "1px solid #E5E7EB",
+              },
+              "& tr:nth-child(odd)": {
+                backgroundColor: "#f3f4f6",
+              },
+            },
+          },
+        },
+      },
       borderWidth: {
         DEFAULT: "1px",
         2: "2px",
@@ -39,7 +79,7 @@ module.exports = {
       colors: {
         transparent: "transparent",
         background: "#FFFFFF",
-        foreground: "#11181C",
+        foreground: "#111827",
         primary: {
           DEFAULT: "#0076CA",
           light: "#93C5FD",

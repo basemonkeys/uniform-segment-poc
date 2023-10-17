@@ -49,7 +49,7 @@ export const SSHeaderLink: React.FC<Omit<LinkProps, "component">> = ({
     >
       <Link
         href={link?.path || "#"}
-        className="py-5 lg:text-black lg:hover:text-black"
+        className="lg:hover:text-forground py-5 lg:text-foreground"
       >
         {title}
       </Link>
@@ -129,7 +129,7 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
                   <Link href={subNavItemLink.path} className="px-3">
                     {subNavItemTitle}
                   </Link>
-                  <span className="px-3 text-xs text-gray-500">
+                  <span className="px-3 text-xs text-foreground">
                     {subNavItemDescription}
                   </span>
                 </NavigationMenuItem>
@@ -179,7 +179,7 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
                         >
                           {subNavItemTitle}
                         </Link>
-                        <span className="px-3 text-sm text-gray-600">
+                        <span className="px-3 text-sm text-foreground">
                           {subNavItemDescription}
                         </span>
                       </>

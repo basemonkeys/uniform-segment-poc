@@ -6,28 +6,42 @@
   html,
   body {
     --font-open-sans: "Open Sans", sans-serif;
-    @apply bg-default-light;
+    @apply bg-default-light text-foreground;
   }
   /* Headings */
+
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5 {
+    @apply font-sans font-bold leading-tight;
+  }
+
   h1,
   .h1 {
-    @apply font-sans text-5xl font-bold leading-tight;
+    @apply text-5xl;
   }
   h2,
   .h2 {
-    @apply font-sans text-4xl font-bold leading-tight;
+    @apply text-4xl;
   }
   h3,
   .h3 {
-    @apply font-sans text-2xl font-bold leading-tight;
+    @apply text-2xl;
   }
   h4,
   .h4 {
-    @apply font-sans text-xl font-bold leading-tight;
+    @apply text-xl;
   }
   h5,
   .h5 {
-    @apply font-sans text-sm leading-tight;
+    @apply text-sm;
   }
 
   /* There are two Paragraphs in the style guide. */

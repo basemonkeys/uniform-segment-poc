@@ -111,7 +111,7 @@ const Banner: React.FC<BannerProps> = ({
           )}
           <p
             className={cn(
-              "text-sm text-black md:text-base",
+              "text-sm text-foreground md:text-base",
               getTextClass(variant),
             )}
           >

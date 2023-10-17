@@ -5,10 +5,8 @@ export default function NotFound() {
     <div className="flex h-fit flex-col items-center justify-center space-y-3 p-12 text-center">
       <h2>Page Not found</h2>
       <h3>(Maybe it went to the gym 😁)</h3>
-      <p className="text-gray-700">
-        Please accept our apologies, but this page is unavailable.
-      </p>
-      <p className="max-w-sm pt-12 text-gray-700">
+      <p>Please accept our apologies, but this page is unavailable.</p>
+      <p className="max-w-sm pt-12">
         Try navigating to a different page or jump directly to one of our
         popular destinations below.
       </p>
