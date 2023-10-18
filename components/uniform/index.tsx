@@ -5,6 +5,9 @@ import "./global/pages/HomePage";
 import "./global/pages/Page";
 import "./layout/Container";
 import "./layout/Grid";
+import "./content/RichTextContentCard";
+import "./content/FAQContainer";
+import "./content/FAQItem";
 import "./global/Header";
 import {
   HeaderLink,
