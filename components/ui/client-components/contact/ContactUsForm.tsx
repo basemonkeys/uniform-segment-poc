@@ -56,8 +56,7 @@ export function ContactUsForm({
   return (
     <>
       <Script src="//js.hsforms.net/forms/embed/v2.js" />
-      <div className="hubspot-form container m-auto my-12">
-        <h1 className="mb-2">{heading}</h1>
+      <div className="hubspot-form m-auto mb-12">
         <p className="mb-12">{text}</p>
         <div id={`hubspot-form-${uuid}`} />
       </div>
