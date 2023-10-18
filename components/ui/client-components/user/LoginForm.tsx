@@ -1,5 +1,7 @@
 "use client";
 
+// TODO: use this component as a reference but delete after
+
 // https://ui.shadcn.com/docs/components/form
 
 import { useState } from "react";

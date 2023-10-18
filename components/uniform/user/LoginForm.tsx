@@ -1,3 +1,5 @@
+// TODO: delete this component
+
 import {
   registerUniformComponent,
   ComponentProps,

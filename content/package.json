@@ -246,6 +246,13 @@
           "typeConfig": {
             "required": true
           }
+        },
+        {
+          "id": "showAsPageTitle",
+          "name": "Show as page title",
+          "type": "checkbox",
+          "helpText": "",
+          "typeConfig": null
         }
       ],
       "categoryId": "2abac45c-133a-4310-bf67-52c31d2cfd02",
@@ -263,7 +270,7 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-10-11T17:29:29.389738+00:00",
-      "updated": "2023-10-11T19:12:23.183731+00:00",
+      "updated": "2023-10-18T19:31:09.347793+00:00",
       "variants": [
         {
           "id": "fullWidth",
@@ -773,38 +780,6 @@
       "updated": "2023-10-11T23:36:02.60856+00:00"
     },
     {
-      "id": "loginForm",
-      "name": "Login Form",
-      "icon": "desktop",
-      "parameters": [
-        {
-          "id": "heading",
-          "name": "Heading",
-          "type": "text",
-          "helpText": "",
-          "typeConfig": {
-            "required": true
-          }
-        },
-        {
-          "id": "text",
-          "name": "Text",
-          "type": "text",
-          "helpText": "",
-          "typeConfig": {
-            "required": true
-          }
-        }
-      ],
-      "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
-      "useTeamPermissions": true,
-      "slots": [],
-      "titleParameter": "heading",
-      "canBeComposition": false,
-      "created": "2023-10-11T23:29:39.40126+00:00",
-      "updated": "2023-10-12T14:19:15.595881+00:00"
-    },
-    {
       "id": "memberProfile",
       "name": "Member Profile",
       "icon": "profile",
@@ -1062,6 +1037,26 @@
               ]
             }
           }
+        },
+        {
+          "id": "callToAction",
+          "name": "Call to Action",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": null
+        },
+        {
+          "id": "callToActionUrl",
+          "name": "Call to Action URL",
+          "type": "link",
+          "helpText": "",
+          "typeConfig": {
+            "linkTypes": {
+              "tel": false,
+              "email": false,
+              "projectMapNode": true
+            }
+          }
         }
       ],
       "categoryId": "4ea92484-5f32-4633-893d-211a4bb2f13b",
@@ -1070,7 +1065,7 @@
       "titleParameter": "richText",
       "canBeComposition": false,
       "created": "2023-10-17T04:21:30.893503+00:00",
-      "updated": "2023-10-17T04:21:30.893503+00:00"
+      "updated": "2023-10-18T19:49:29.501325+00:00"
     },
     {
       "id": "termsOfUse",
@@ -1127,7 +1122,7 @@
           },
           "title": {
             "type": "text",
-            "value": "${#jptr:/Privacy Policy/fields/title}"
+            "value": "Privacy Policy"
           },
           "lastUpdated": {
             "type": "text",
@@ -1153,7 +1148,7 @@
         }
       },
       "created": "2023-09-20T20:10:04.792234+00:00",
-      "modified": "2023-09-21T00:55:37.508278+00:00",
+      "modified": "2023-10-18T18:51:28.936458+00:00",
       "pattern": true
     },
     {
@@ -1271,40 +1266,6 @@
       "created": "2023-10-17T05:40:19.185951+00:00",
       "modified": "2023-10-18T17:47:13.138461+00:00",
       "pattern": true
-    },
-    {
-      "composition": {
-        "_name": "FAQs",
-        "_id": "2447135f-3b22-4939-af98-cccaf022a750",
-        "_slug": "faqs",
-        "type": "page",
-        "parameters": {
-          "metaTitle": {
-            "type": "text",
-            "value": "Frequently Asked Questions"
-          }
-        }
-      },
-      "created": "2023-09-11T22:05:51.409048+00:00",
-      "modified": "2023-10-05T20:51:46.92051+00:00",
-      "pattern": false
-    },
-    {
-      "composition": {
-        "_name": "How It Works",
-        "_id": "260090ff-194e-40da-a39d-ce0dcd60a173",
-        "_slug": "how-it-works",
-        "type": "page",
-        "parameters": {
-          "metaTitle": {
-            "type": "text",
-            "value": "How it Works"
-          }
-        }
-      },
-      "created": "2023-09-11T22:05:39.331293+00:00",
-      "modified": "2023-10-05T20:51:37.169947+00:00",
-      "pattern": false
     },
     {
       "composition": {
@@ -2107,7 +2068,11 @@
               "parameters": {
                 "title": {
                   "type": "text",
-                  "value": "Contact Cards"
+                  "value": "Contact Us"
+                },
+                "showAsPageTitle": {
+                  "type": "checkbox",
+                  "value": true
                 }
               }
             }
@@ -2115,19 +2080,7 @@
         }
       },
       "created": "2023-09-19T17:30:46.06938+00:00",
-      "modified": "2023-10-11T21:46:20.300342+00:00",
-      "pattern": false
-    },
-    {
-      "composition": {
-        "_name": "More",
-        "_id": "6773910d-b77c-47db-b27d-80119099473b",
-        "_slug": "more",
-        "type": "page",
-        "parameters": {}
-      },
-      "created": "2023-10-16T16:55:31.018612+00:00",
-      "modified": "2023-10-16T16:55:31.018612+00:00",
+      "modified": "2023-10-18T19:19:36.286636+00:00",
       "pattern": false
     },
     {
@@ -2200,6 +2153,10 @@
                 "title": {
                   "type": "text",
                   "value": "Terms of Use"
+                },
+                "showAsPageTitle": {
+                  "type": "checkbox",
+                  "value": true
                 }
               }
             }
@@ -2207,7 +2164,7 @@
         }
       },
       "created": "2023-09-19T17:37:31.071884+00:00",
-      "modified": "2023-10-11T19:13:21.529189+00:00",
+      "modified": "2023-10-18T19:19:44.651824+00:00",
       "pattern": false
     },
     {
@@ -2570,6 +2527,76 @@
                         }
                       }
                     }
+                  },
+                  {
+                    "_id": "cbb57aa0-b610-4f62-9341-880c05c2de6c",
+                    "type": "richTextContentCard",
+                    "parameters": {
+                      "richText": {
+                        "type": "richText",
+                        "value": {
+                          "root": {
+                            "type": "root",
+                            "format": "",
+                            "indent": 0,
+                            "version": 1,
+                            "children": [
+                              {
+                                "tag": "h3",
+                                "type": "heading",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                  {
+                                    "mode": "normal",
+                                    "text": "Still have questions?",
+                                    "type": "text",
+                                    "style": "",
+                                    "detail": 0,
+                                    "format": 0,
+                                    "version": 1
+                                  }
+                                ],
+                                "direction": "ltr"
+                              },
+                              {
+                                "type": "paragraph",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                  {
+                                    "mode": "normal",
+                                    "text": "Send us a message or give us a call on our contact page.",
+                                    "type": "text",
+                                    "style": "",
+                                    "detail": 0,
+                                    "format": 0,
+                                    "version": 1
+                                  }
+                                ],
+                                "direction": "ltr"
+                              }
+                            ],
+                            "direction": "ltr"
+                          }
+                        }
+                      },
+                      "callToAction": {
+                        "type": "text",
+                        "value": "Contact Us"
+                      },
+                      "callToActionUrl": {
+                        "type": "link",
+                        "value": {
+                          "path": "/contact-us",
+                          "type": "projectMapNode",
+                          "nodeId": "be16c69c-eb9f-428e-9914-afe947bf0a30",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      }
+                    }
                   }
                 ]
               },
@@ -2577,6 +2604,10 @@
                 "title": {
                   "type": "text",
                   "value": "Frequently Asked Questions (FAQs)"
+                },
+                "showAsPageTitle": {
+                  "type": "checkbox",
+                  "value": true
                 }
               }
             }
@@ -2610,7 +2641,7 @@
         }
       },
       "created": "2023-10-16T16:41:37.434964+00:00",
-      "modified": "2023-10-18T18:04:28.667927+00:00",
+      "modified": "2023-10-18T20:31:12.307478+00:00",
       "pattern": false
     },
     {
@@ -3101,55 +3132,6 @@
     },
     {
       "composition": {
-        "_name": "Login",
-        "_id": "d71f6a04-4bb4-49c3-bc9f-1b7e6c695f19",
-        "_slug": "login",
-        "type": "page",
-        "parameters": {
-          "metaTitle": {
-            "type": "text",
-            "value": "Login"
-          }
-        },
-        "slots": {
-          "content": [
-            {
-              "_id": "aafb61e9-55a4-4618-9c69-c9161dadbfa0",
-              "type": "container",
-              "slots": {
-                "containerInner": [
-                  {
-                    "_id": "b2a5c698-bc3e-462d-9eb6-599b536e632c",
-                    "type": "loginForm",
-                    "parameters": {
-                      "text": {
-                        "type": "text",
-                        "value": "Enter your email address and password."
-                      },
-                      "heading": {
-                        "type": "text",
-                        "value": "Log In"
-                      }
-                    }
-                  }
-                ]
-              },
-              "parameters": {
-                "title": {
-                  "type": "text",
-                  "value": "Login Form"
-                }
-              }
-            }
-          ]
-        }
-      },
-      "created": "2023-10-04T19:00:28.591131+00:00",
-      "modified": "2023-10-12T23:14:46.573118+00:00",
-      "pattern": false
-    },
-    {
-      "composition": {
         "_name": "Privacy Policy",
         "_id": "dbb27f22-07a0-4ce0-9195-c7d2e2f64fd7",
         "_slug": "privacy",
@@ -3178,6 +3160,10 @@
                 "title": {
                   "type": "text",
                   "value": "Privacy Policy"
+                },
+                "showAsPageTitle": {
+                  "type": "checkbox",
+                  "value": true
                 }
               }
             }
@@ -3185,7 +3171,7 @@
         }
       },
       "created": "2023-09-19T17:37:51.295845+00:00",
-      "modified": "2023-10-11T19:13:00.478059+00:00",
+      "modified": "2023-10-18T19:31:35.776791+00:00",
       "pattern": false
     },
     {
@@ -3672,7 +3658,7 @@
           },
           "title": {
             "type": "text",
-            "value": "${#jptr:/Terms of Use/fields/title}"
+            "value": "Terms of Use"
           },
           "lastUpdated": {
             "type": "text",
@@ -3690,7 +3676,7 @@
         }
       },
       "created": "2023-09-20T23:52:54.696546+00:00",
-      "modified": "2023-09-21T00:55:12.522188+00:00",
+      "modified": "2023-10-18T18:51:43.123449+00:00",
       "pattern": true
     }
   ],
@@ -3830,17 +3816,6 @@
       "path": "/member-profile",
       "compositionId": "6c275198-e33f-4dad-b32b-b562cdaeb602",
       "pathSegment": "member-profile",
-      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
-    },
-    {
-      "id": "6b7bca43-d5a0-41ec-8e01-80d018896db0",
-      "name": "Login",
-      "type": "composition",
-      "data": {},
-      "order": 1200,
-      "path": "/login",
-      "compositionId": "d71f6a04-4bb4-49c3-bc9f-1b7e6c695f19",
-      "pathSegment": "login",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
