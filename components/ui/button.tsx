@@ -38,6 +38,11 @@ const buttonVariants = cva(
         full: "rounded-full",
       },
     },
+    defaultVariants: {
+      variant: "primary",
+      size: "lg",
+      radius: "md",
+    },
   },
 );
 

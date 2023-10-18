@@ -138,15 +138,10 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
               </>
             ) : (
               <div className="flex gap-3">
-                <Button variant="secondaryWhite" size="lg" asChild>
+                <Button variant="secondaryWhite" asChild>
                   <a href="/api/auth/login">Log in</a>
                 </Button>
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="max-sm:hidden"
-                  asChild
-                >
+                <Button className="max-sm:hidden" asChild>
                   <Link href="/check-eligibility">Check Eligibility</Link>
                 </Button>
               </div>
@@ -157,7 +152,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
 
       {/* Check Eligibility Mobile Button */}
       <div className="fixed bottom-0 z-50 w-full bg-white p-2 px-6 sm:hidden">
-        <Button className="w-full" variant="primary" size="xl" asChild>
+        <Button className="w-full" size="xl" asChild>
           <Link href="/check-eligibility">Check Eligibility</Link>
         </Button>
       </div>

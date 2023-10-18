@@ -204,12 +204,7 @@ export function LoginForm({ heading, text }: LoginFormProps) {
                 </FormItem>
               )}
             />
-            <Button
-              type="submit"
-              variant="primary"
-              size="xl"
-              className="w-full"
-            >
+            <Button type="submit" size="xl" className="w-full">
               Log In
             </Button>
 

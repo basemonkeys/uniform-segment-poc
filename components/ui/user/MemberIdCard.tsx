@@ -43,11 +43,11 @@ export async function MemberIdCard() {
 
         {/* TODO: write the Print and Download functions */}
         <CardFooter className="flex gap-4">
-          <Button variant="secondaryWhite" size="lg" className="space-x-2">
+          <Button variant="secondaryWhite" className="space-x-2">
             <FontAwesomeIcon icon={faPrint} className="h-5 w-5" />
             <span>Print</span>
           </Button>
-          <Button variant="secondaryWhite" size="lg" className="space-x-2">
+          <Button variant="secondaryWhite" className="space-x-2">
             <FontAwesomeIcon icon={faDownload} className="h-5 w-5" />
             <span>Download</span>
           </Button>
