@@ -27,55 +27,8 @@ module.exports = {
     fontFamily: {
       sans: ["var(--font-open-sans)", ...defaultTheme.fontFamily.sans],
     },
-    // The SilverSneakers color pallette, with selective Tailwind colors, is available at https://www.figma.com/file/0mNynYMtKUNq85fViOFopX/Comp-Sheet?type=design&node-id=65-1141&mode=dev
-    // The other colors below are custom to SilverSneakers.
     extend: {
-      typography: {
-        DEFAULT: {
-          css: {
-            color: "#111827",
-            a: {
-              color: "#2563EB",
-              textDecoration: "none",
-              "&:hover": {
-                color: "#1E40AF",
-              },
-            },
-            h1: {
-              marginTop: "none",
-            },
-            h2: {
-              marginTop: "none",
-            },
-            h3: {
-              marginTop: "none",
-            },
-            h4: {
-              marginTop: "none",
-            },
-            p: {
-              marginBottom: "1.5rem",
-            },
-            table: {
-              border: "1px solid #E5E7EB",
-              "& td": {
-                width: "340px",
-                padding: "1rem",
-                border: "1px solid #E5E7EB",
-              },
-              "& tr:nth-child(odd)": {
-                backgroundColor: "#f3f4f6",
-              },
-            },
-          },
-        },
-      },
-      borderWidth: {
-        DEFAULT: "1px",
-        2: "2px",
-        3: "3px",
-        6: "6px",
-      },
+      // The SilverSneakers color pallette, with selective Tailwind colors, is available at https://www.figma.com/file/0mNynYMtKUNq85fViOFopX/Comp-Sheet?type=design&node-id=65-1141&mode=dev. The other colors below are custom to SilverSneakers.
       colors: {
         transparent: "transparent",
         background: "#FFFFFF",
@@ -122,6 +75,60 @@ module.exports = {
           DEFAULT: "#2563EB",
           hover: "#1E40AF",
         },
+      },
+      // this typography object customizes the default typography that is customizable via prose. Use the `prose` class in the markup then add customizations here. See https://tailwindcss.com/docs/typography-plugin#customizing-the-default-styles
+      typography: {
+        DEFAULT: {
+          css: {
+            // prose css variable colors
+            "--tw-prose-body": "#111827",
+            "--tw-prose-links": "#2563EB",
+            "--tw-prose-bullets": "#111827",
+            "--tw-prose-invert-bullets": "#111827",
+            a: {
+              textDecoration: "none",
+              "&:hover": {
+                color: "#1E40AF",
+              },
+            },
+            h1: {
+              marginTop: "none",
+            },
+            h2: {
+              marginTop: "none",
+            },
+            h3: {
+              marginTop: "none",
+            },
+            h4: {
+              marginTop: "none",
+            },
+            p: {
+              marginBottom: "1.5rem",
+            },
+            table: {
+              "& td": {
+                width: "340px",
+                padding: "1rem",
+                borderWidth: "1px",
+              },
+              "& tr:nth-child(odd)": {
+                backgroundColor: "#f3f4f6",
+              },
+            },
+            ul: {
+              "& li ul li": {
+                listStyleType: "circle",
+              },
+            },
+          },
+        },
+      },
+      borderWidth: {
+        DEFAULT: "1px",
+        2: "2px",
+        3: "3px",
+        6: "6px",
       },
       keyframes: {
         "accordion-down": {
