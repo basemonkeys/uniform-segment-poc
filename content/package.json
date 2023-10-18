@@ -272,6 +272,117 @@
       ]
     },
     {
+      "id": "eligibilityForm",
+      "name": "Eligibility Form",
+      "icon": "desktop",
+      "parameters": [
+        {
+          "id": "heading",
+          "name": "Heading",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "text",
+          "name": "Text",
+          "type": "richText",
+          "helpText": "",
+          "typeConfig": {
+            "elements": {
+              "builtIn": [
+                "link"
+              ]
+            },
+            "required": true,
+            "formatting": {
+              "builtIn": [
+                "bold",
+                "italic",
+                "underline"
+              ]
+            }
+          }
+        }
+      ],
+      "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
+      "useTeamPermissions": true,
+      "slots": [],
+      "titleParameter": "heading",
+      "canBeComposition": false,
+      "created": "2023-10-13T05:52:41.147927+00:00",
+      "updated": "2023-10-13T05:55:01.148835+00:00"
+    },
+    {
+      "id": "faqContainer",
+      "name": "FAQ Container",
+      "icon": "layout-list",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
+      "categoryId": "4ea92484-5f32-4633-893d-211a4bb2f13b",
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "faqs",
+          "name": "Frequently Asked Questions",
+          "allowedComponents": [
+            "faqItem",
+            "$loop"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
+        }
+      ],
+      "titleParameter": "title",
+      "canBeComposition": false,
+      "created": "2023-10-17T05:13:14.264376+00:00",
+      "updated": "2023-10-17T21:38:06.014893+00:00"
+    },
+    {
+      "id": "faqItem",
+      "name": "FAQ Item",
+      "icon": "layout-list",
+      "parameters": [
+        {
+          "id": "question",
+          "name": "Question",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "answer",
+          "name": "Answer",
+          "type": "json",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
+      "categoryId": "4ea92484-5f32-4633-893d-211a4bb2f13b",
+      "useTeamPermissions": true,
+      "slots": [],
+      "titleParameter": "question",
+      "canBeComposition": false,
+      "created": "2023-10-17T05:14:47.242917+00:00",
+      "updated": "2023-10-17T05:14:47.242917+00:00"
+    },
+    {
       "id": "footer",
       "name": "Footer",
       "icon": "border-bottom",
@@ -409,7 +520,8 @@
           "id": "gridInner",
           "name": "Grid Inner",
           "allowedComponents": [
-            "contactCard"
+            "contactCard",
+            "eligibilityForm"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -418,7 +530,7 @@
       ],
       "canBeComposition": false,
       "created": "2023-10-10T22:46:09.012072+00:00",
-      "updated": "2023-10-11T17:30:52.834651+00:00"
+      "updated": "2023-10-14T00:44:54.889573+00:00"
     },
     {
       "id": "header",
@@ -664,13 +776,33 @@
       "id": "loginForm",
       "name": "Login Form",
       "icon": "desktop",
-      "parameters": [],
+      "parameters": [
+        {
+          "id": "heading",
+          "name": "Heading",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "text",
+          "name": "Text",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
       "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
       "useTeamPermissions": true,
       "slots": [],
+      "titleParameter": "heading",
       "canBeComposition": false,
       "created": "2023-10-11T23:29:39.40126+00:00",
-      "updated": "2023-10-11T23:29:39.40126+00:00"
+      "updated": "2023-10-12T14:19:15.595881+00:00"
     },
     {
       "id": "memberProfile",
@@ -828,7 +960,12 @@
             "contactCard",
             "grid",
             "container",
-            "loginForm"
+            "loginForm",
+            "eligibilityForm",
+            "richTextContentCard",
+            "$p:aec84e2c-b256-4a43-885f-f1c36d8ccc9c",
+            "$loop",
+            "$p:157c3a68-dd5e-4764-88cf-763be74baeb9"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -844,7 +981,7 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-08-29T20:06:33.571497+00:00",
-      "updated": "2023-10-11T23:37:50.923561+00:00"
+      "updated": "2023-10-17T20:29:00.896994+00:00"
     },
     {
       "id": "privacyPolicy",
@@ -886,6 +1023,54 @@
       "canBeComposition": false,
       "created": "2023-09-20T20:09:41.482626+00:00",
       "updated": "2023-10-11T23:15:21.215783+00:00"
+    },
+    {
+      "id": "richTextContentCard",
+      "name": "Rich Text Content Card",
+      "icon": "format-text",
+      "parameters": [
+        {
+          "id": "richText",
+          "name": "Rich Text",
+          "type": "richText",
+          "helpText": "",
+          "typeConfig": {
+            "elements": {
+              "builtIn": [
+                "h1",
+                "h2",
+                "h3",
+                "h4",
+                "h5",
+                "h6",
+                "unorderedList",
+                "orderedList",
+                "link",
+                "quote"
+              ]
+            },
+            "required": true,
+            "formatting": {
+              "builtIn": [
+                "bold",
+                "italic",
+                "underline",
+                "strikethrough",
+                "code",
+                "superscript",
+                "subscript"
+              ]
+            }
+          }
+        }
+      ],
+      "categoryId": "4ea92484-5f32-4633-893d-211a4bb2f13b",
+      "useTeamPermissions": true,
+      "slots": [],
+      "titleParameter": "richText",
+      "canBeComposition": false,
+      "created": "2023-10-17T04:21:30.893503+00:00",
+      "updated": "2023-10-17T04:21:30.893503+00:00"
     },
     {
       "id": "termsOfUse",
@@ -1009,6 +1194,86 @@
     },
     {
       "composition": {
+        "_name": "FAQ Container",
+        "_id": "157c3a68-dd5e-4764-88cf-763be74baeb9",
+        "type": "faqContainer",
+        "parameters": {
+          "title": {
+            "type": "text",
+            "value": "General"
+          }
+        },
+        "slots": {
+          "faqs": [
+            {
+              "_id": "57770ec4-b2b6-49b3-944b-24fc0ccb58e3",
+              "type": "$loop",
+              "slots": {
+                "body": [
+                  {
+                    "_id": "f884ae43-20e4-4ff4-a9a5-18415992355e",
+                    "type": "faqItem",
+                    "parameters": {
+                      "answer": {
+                        "type": "json",
+                        "value": "${#jptr:/FAQs item Loop/fields/answer}"
+                      },
+                      "question": {
+                        "type": "text",
+                        "value": "${#jptr:/FAQs item Loop/fields/question}"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "question": "no"
+                      }
+                    }
+                  }
+                ]
+              },
+              "_dataResources": {
+                "FAQs item Loop": {
+                  "type": "sys-reserved-loop",
+                  "variables": {
+                    "connectedData": "/FAQs/items"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "_dataResources": {
+          "FAQs": {
+            "type": "faqs",
+            "variables": {
+              "limit": "20",
+              "order": "",
+              "locale": "",
+              "filters": "metadata.tags.sys.id[in]=general",
+              "keyword": "",
+              "sortOrder": "asc",
+              "sortFieldId": "",
+              "contentTypeId": "faqs",
+              "advancedFilters": "[{\"key\":\"metadata.tags\",\"operator\":\".sys.id[in]\",\"value\":\"general\",\"id\":\"param-0.3628896236239938\"}]",
+              "contentTypeQuery": "content_type=faqs"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": true
+          }
+        },
+        "_overridability": {
+          "parameters": {
+            "title": "yes",
+            "category": "yes"
+          }
+        }
+      },
+      "created": "2023-10-17T05:40:19.185951+00:00",
+      "modified": "2023-10-18T17:47:13.138461+00:00",
+      "pattern": true
+    },
+    {
+      "composition": {
         "_name": "FAQs",
         "_id": "2447135f-3b22-4939-af98-cccaf022a750",
         "_slug": "faqs",
@@ -1056,6 +1321,23 @@
       },
       "created": "2023-09-19T17:40:40.661469+00:00",
       "modified": "2023-10-05T20:52:28.432736+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Health Plans",
+        "_id": "39c7a23e-ccff-4bb6-b145-a8785f8ac47c",
+        "_slug": "health-plans",
+        "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Health Plans"
+          }
+        }
+      },
+      "created": "2023-10-16T16:46:04.328578+00:00",
+      "modified": "2023-10-16T16:48:35.110015+00:00",
       "pattern": false
     },
     {
@@ -1310,10 +1592,76 @@
         "_name": "Check Eligibility",
         "_id": "461728c4-1e32-4168-b8b4-0c15e4680cb9",
         "_slug": "check-eligibility",
-        "type": "page"
+        "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Check Eligibility"
+          }
+        },
+        "slots": {
+          "content": [
+            {
+              "_id": "f2e85727-cfbf-4de8-ae8b-68b85bafa0fc",
+              "type": "container",
+              "slots": {
+                "containerInner": [
+                  {
+                    "_id": "14d4ba8b-8527-470a-9c3e-71f72fae398f",
+                    "type": "eligibilityForm",
+                    "parameters": {
+                      "text": {
+                        "type": "richText",
+                        "value": {
+                          "root": {
+                            "type": "root",
+                            "format": "",
+                            "indent": 0,
+                            "version": 1,
+                            "children": [
+                              {
+                                "type": "paragraph",
+                                "format": "",
+                                "indent": 0,
+                                "version": 1,
+                                "children": [
+                                  {
+                                    "mode": "normal",
+                                    "text": "Eligible members get access to SilverSneakers LIVE online classes, On-Demand videos and thousands of fitness locations & classes. Check if you are eligible in just 4 steps.*†",
+                                    "type": "text",
+                                    "style": "",
+                                    "detail": 0,
+                                    "format": 0,
+                                    "version": 1
+                                  }
+                                ],
+                                "direction": "ltr"
+                              }
+                            ],
+                            "direction": "ltr"
+                          }
+                        }
+                      },
+                      "heading": {
+                        "type": "text",
+                        "value": "Instant Eligibility Check"
+                      }
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "Check Eligibility"
+                }
+              }
+            }
+          ]
+        }
       },
       "created": "2023-10-04T18:43:22.893333+00:00",
-      "modified": "2023-10-05T20:49:20.453933+00:00",
+      "modified": "2023-10-16T23:07:26.40147+00:00",
       "pattern": false
     },
     {
@@ -1772,6 +2120,18 @@
     },
     {
       "composition": {
+        "_name": "More",
+        "_id": "6773910d-b77c-47db-b27d-80119099473b",
+        "_slug": "more",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-10-16T16:55:31.018612+00:00",
+      "modified": "2023-10-16T16:55:31.018612+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
         "_name": "Member Profile",
         "_id": "6c275198-e33f-4dad-b32b-b562cdaeb602",
         "_slug": "member/my-profile",
@@ -1860,6 +2220,23 @@
       },
       "created": "2023-10-10T21:10:02.804203+00:00",
       "modified": "2023-10-10T21:10:02.804203+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "How It Works",
+        "_id": "822eef47-3989-43f9-9e30-14421fa90322",
+        "_slug": "how-it-works",
+        "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "How It Works"
+          }
+        }
+      },
+      "created": "2023-10-16T16:42:44.878368+00:00",
+      "modified": "2023-10-16T16:47:50.274127+00:00",
       "pattern": false
     },
     {
@@ -2089,6 +2466,155 @@
     },
     {
       "composition": {
+        "_name": "Help",
+        "_id": "af1d77ee-0d33-4ace-b0c9-6bb0cc7b9563",
+        "_slug": "help",
+        "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Help"
+          }
+        },
+        "slots": {
+          "content": [
+            {
+              "_id": "fdabf70d-1cf1-41b1-bce7-d80053665056",
+              "type": "container",
+              "slots": {
+                "containerInner": [
+                  {
+                    "_id": "75da0b2e-cffb-4099-959a-676c7ea9d056",
+                    "type": "faqContainer",
+                    "_pattern": "157c3a68-dd5e-4764-88cf-763be74baeb9",
+                    "_dataResources": {
+                      "FAQs": {
+                        "type": "faqs",
+                        "variables": {
+                          "limit": "20",
+                          "order": "",
+                          "locale": "",
+                          "filters": "metadata.tags.sys.id[in]=general",
+                          "keyword": "",
+                          "sortOrder": "asc",
+                          "sortFieldId": "",
+                          "contentTypeId": "faqs",
+                          "advancedFilters": "[{\"key\":\"metadata.tags\",\"operator\":\".sys.id[in]\",\"value\":\"general\",\"id\":\"param-0.1526752826635447\"}]",
+                          "contentTypeQuery": "content_type=faqs"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "98de46aa-273a-4dc2-b5e8-e67770c4c97f",
+                    "type": "faqContainer",
+                    "_pattern": "157c3a68-dd5e-4764-88cf-763be74baeb9",
+                    "_dataResources": {
+                      "FAQs": {
+                        "type": "faqs",
+                        "variables": {
+                          "limit": "20",
+                          "order": "",
+                          "locale": "",
+                          "filters": "metadata.tags.sys.id[in]=classes",
+                          "keyword": "",
+                          "sortOrder": "asc",
+                          "sortFieldId": "",
+                          "contentTypeId": "faqs",
+                          "advancedFilters": "[{\"key\":\"metadata.tags\",\"operator\":\".sys.id[in]\",\"value\":\"classes\",\"id\":\"param-0.8860510121119214\"}]",
+                          "contentTypeQuery": "content_type=faqs"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "ae5de44f-8fb3-49a9-93bd-6ac4ddaf9c10",
+                    "type": "faqContainer",
+                    "_pattern": "157c3a68-dd5e-4764-88cf-763be74baeb9",
+                    "_dataResources": {
+                      "FAQs": {
+                        "type": "faqs",
+                        "variables": {
+                          "limit": "20",
+                          "order": "",
+                          "locale": "",
+                          "filters": "metadata.tags.sys.id[in]=locations",
+                          "keyword": "",
+                          "sortOrder": "asc",
+                          "sortFieldId": "",
+                          "contentTypeId": "faqs",
+                          "advancedFilters": "[{\"key\":\"metadata.tags\",\"operator\":\".sys.id[in]\",\"value\":\"locations\",\"id\":\"param-0.7644381652956549\"}]",
+                          "contentTypeQuery": "content_type=faqs"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "0c555d8a-9032-4f71-a8c9-7d99f09e623a",
+                    "type": "faqContainer",
+                    "_pattern": "157c3a68-dd5e-4764-88cf-763be74baeb9",
+                    "_dataResources": {
+                      "FAQs": {
+                        "type": "faqs",
+                        "variables": {
+                          "limit": "20",
+                          "order": "",
+                          "locale": "",
+                          "filters": "metadata.tags.sys.id[in]=account",
+                          "keyword": "",
+                          "sortOrder": "asc",
+                          "sortFieldId": "",
+                          "contentTypeId": "faqs",
+                          "advancedFilters": "[{\"key\":\"metadata.tags\",\"operator\":\".sys.id[in]\",\"value\":\"account\",\"id\":\"param-0.4495136842626257\"}]",
+                          "contentTypeQuery": "content_type=faqs"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "Frequently Asked Questions (FAQs)"
+                }
+              }
+            }
+          ]
+        },
+        "_overrides": {
+          "0c555d8a-9032-4f71-a8c9-7d99f09e623a": {
+            "parameters": {
+              "title": {
+                "type": "text",
+                "value": "SilverSneakers Account"
+              }
+            }
+          },
+          "98de46aa-273a-4dc2-b5e8-e67770c4c97f": {
+            "parameters": {
+              "title": {
+                "type": "text",
+                "value": "Classes"
+              }
+            }
+          },
+          "ae5de44f-8fb3-49a9-93bd-6ac4ddaf9c10": {
+            "parameters": {
+              "title": {
+                "type": "text",
+                "value": "Fitness Locations"
+              }
+            }
+          }
+        }
+      },
+      "created": "2023-10-16T16:41:37.434964+00:00",
+      "modified": "2023-10-18T18:04:28.667927+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
         "_name": "Health Plans",
         "_id": "b3a63904-4c5f-49cb-b605-777918703f98",
         "_slug": "health-plans",
@@ -2314,9 +2840,9 @@
                 "link": {
                   "type": "link",
                   "value": {
-                    "path": "/more/faqs",
+                    "path": "/help",
                     "type": "projectMapNode",
-                    "nodeId": "7134711f-cb8b-432d-9651-b10f837eddef",
+                    "nodeId": "819a5937-6339-4500-b06c-102302ad95e5",
                     "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
                   }
                 },
@@ -2340,9 +2866,9 @@
                 "link": {
                   "type": "link",
                   "value": {
-                    "path": "/more/health-plan-partners",
+                    "path": "/partners/health-plans",
                     "type": "projectMapNode",
-                    "nodeId": "cf55f80b-425e-4bee-839d-2e64d87485bf",
+                    "nodeId": "ce42b0b8-b4b7-4bd3-94bc-4552ffceee80",
                     "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
                   }
                 },
@@ -2570,7 +3096,7 @@
         }
       },
       "created": "2023-09-19T17:27:03.125126+00:00",
-      "modified": "2023-09-20T00:53:15.330612+00:00",
+      "modified": "2023-10-16T16:58:51.312998+00:00",
       "pattern": true
     },
     {
@@ -2586,23 +3112,6 @@
           }
         },
         "slots": {
-          "banners": [
-            {
-              "_id": "d4b369dd-9dd1-4768-852e-09022535ab64",
-              "type": "banner",
-              "variant": "danger",
-              "parameters": {
-                "message": {
-                  "type": "text",
-                  "value": "Something went wrong with the request. Please Try again."
-                },
-                "dismissable": {
-                  "type": "checkbox",
-                  "value": true
-                }
-              }
-            }
-          ],
           "content": [
             {
               "_id": "aafb61e9-55a4-4618-9c69-c9161dadbfa0",
@@ -2611,7 +3120,17 @@
                 "containerInner": [
                   {
                     "_id": "b2a5c698-bc3e-462d-9eb6-599b536e632c",
-                    "type": "loginForm"
+                    "type": "loginForm",
+                    "parameters": {
+                      "text": {
+                        "type": "text",
+                        "value": "Enter your email address and password."
+                      },
+                      "heading": {
+                        "type": "text",
+                        "value": "Log In"
+                      }
+                    }
                   }
                 ]
               },
@@ -2626,7 +3145,7 @@
         }
       },
       "created": "2023-10-04T19:00:28.591131+00:00",
-      "modified": "2023-10-12T00:04:54.205148+00:00",
+      "modified": "2023-10-12T23:14:46.573118+00:00",
       "pattern": false
     },
     {
@@ -3013,9 +3532,9 @@
                       "link": {
                         "type": "link",
                         "value": {
-                          "path": "/more/health-plan-partners",
+                          "path": "/partners/health-plans",
                           "type": "projectMapNode",
-                          "nodeId": "cf55f80b-425e-4bee-839d-2e64d87485bf",
+                          "nodeId": "ce42b0b8-b4b7-4bd3-94bc-4552ffceee80",
                           "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
                         }
                       },
@@ -3044,9 +3563,9 @@
                       "link": {
                         "type": "link",
                         "value": {
-                          "path": "/more/how-it-works",
+                          "path": "/learn/how-it-works",
                           "type": "projectMapNode",
-                          "nodeId": "6a9d97e5-0f1c-48d4-ac56-166999a25880",
+                          "nodeId": "9fa2d5d6-55ac-49fe-bd1d-4638cf2f19cd",
                           "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
                         }
                       },
@@ -3075,9 +3594,9 @@
                       "link": {
                         "type": "link",
                         "value": {
-                          "path": "/more/faqs",
+                          "path": "/help",
                           "type": "projectMapNode",
-                          "nodeId": "7134711f-cb8b-432d-9651-b10f837eddef",
+                          "nodeId": "819a5937-6339-4500-b06c-102302ad95e5",
                           "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
                         }
                       },
@@ -3121,7 +3640,7 @@
         }
       },
       "created": "2023-09-10T00:09:14.704627+00:00",
-      "modified": "2023-09-19T22:42:32.550324+00:00",
+      "modified": "2023-10-16T16:51:11.420815+00:00",
       "pattern": true
     },
     {
@@ -3192,16 +3711,6 @@
       "path": "/classes/classes-overview",
       "compositionId": "e8f30156-1da5-44b6-84b2-022c85f9a822",
       "pathSegment": "classes-overview",
-      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
-    },
-    {
-      "id": "078b012b-7cf3-4af5-8619-90af993687df",
-      "name": "More",
-      "type": "placeholder",
-      "data": {},
-      "order": 525,
-      "path": "/more",
-      "pathSegment": "more",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
@@ -3291,11 +3800,22 @@
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
+      "id": "558c7ad8-88de-4391-9ae7-ab10cb4114f3",
+      "name": "Health Plans",
+      "type": "composition",
+      "data": {},
+      "order": 1200,
+      "path": "/eligibility/health-plans",
+      "compositionId": "39c7a23e-ccff-4bb6-b145-a8785f8ac47c",
+      "pathSegment": "health-plans",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
       "id": "648fc6eb-081e-4222-a8c5-79c57ca79e16",
       "name": "Participating Locations",
       "type": "composition",
       "data": {},
-      "order": 550,
+      "order": 737,
       "path": "/participating-locations",
       "compositionId": "c701237f-982e-4138-9641-dc5468ee6350",
       "pathSegment": "participating-locations",
@@ -3313,25 +3833,25 @@
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
-      "id": "6a9d97e5-0f1c-48d4-ac56-166999a25880",
-      "name": "How It Works",
+      "id": "6b7bca43-d5a0-41ec-8e01-80d018896db0",
+      "name": "Login",
       "type": "composition",
       "data": {},
-      "order": 700,
-      "path": "/more/how-it-works",
-      "compositionId": "260090ff-194e-40da-a39d-ce0dcd60a173",
-      "pathSegment": "how-it-works",
+      "order": 1200,
+      "path": "/login",
+      "compositionId": "d71f6a04-4bb4-49c3-bc9f-1b7e6c695f19",
+      "pathSegment": "login",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
-      "id": "7134711f-cb8b-432d-9651-b10f837eddef",
-      "name": "FAQs",
+      "id": "819a5937-6339-4500-b06c-102302ad95e5",
+      "name": "Help",
       "type": "composition",
       "data": {},
-      "order": 800,
-      "path": "/more/faqs",
-      "compositionId": "2447135f-3b22-4939-af98-cccaf022a750",
-      "pathSegment": "faqs",
+      "order": 737,
+      "path": "/help",
+      "compositionId": "af1d77ee-0d33-4ace-b0c9-6bb0cc7b9563",
+      "pathSegment": "help",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
@@ -3346,12 +3866,33 @@
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
+      "id": "9c2a62dd-562e-4434-b2e3-1028622aaa8d",
+      "name": "Eligibility",
+      "type": "placeholder",
+      "data": {},
+      "order": 637,
+      "path": "/eligibility",
+      "pathSegment": "eligibility",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "9fa2d5d6-55ac-49fe-bd1d-4638cf2f19cd",
+      "name": "How It Works",
+      "type": "composition",
+      "data": {},
+      "order": 500,
+      "path": "/learn/how-it-works",
+      "compositionId": "822eef47-3989-43f9-9e30-14421fa90322",
+      "pathSegment": "how-it-works",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
       "id": "a4bbf054-9c9b-4de4-b7ca-b1a71f28864f",
       "name": "Check Eligibility",
       "type": "composition",
       "data": {},
       "order": 1100,
-      "path": "/check-eligibility",
+      "path": "/eligibility/check-eligibility",
       "compositionId": "461728c4-1e32-4168-b8b4-0c15e4680cb9",
       "pathSegment": "check-eligibility",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
@@ -3412,17 +3953,6 @@
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
-      "id": "cf55f80b-425e-4bee-839d-2e64d87485bf",
-      "name": "Health Plan Partners",
-      "type": "composition",
-      "data": {},
-      "order": 600,
-      "path": "/more/health-plan-partners",
-      "compositionId": "93986af7-3568-4ee3-8076-11828f0499e5",
-      "pathSegment": "health-plan-partners",
-      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
-    },
-    {
       "id": "d1d9a22d-cbad-40c0-89ca-2fc1d2452e7c",
       "name": "Burnalong",
       "type": "composition",
@@ -3431,17 +3961,6 @@
       "path": "/classes/burnalong",
       "compositionId": "cd8648a3-f8c4-4c5b-bd61-4304cc6888ec",
       "pathSegment": "burnalong",
-      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
-    },
-    {
-      "id": "d1f5a8cf-ab75-4ae2-b5ad-8edb0fd20fae",
-      "name": "Login",
-      "type": "composition",
-      "data": {},
-      "order": 1200,
-      "path": "/login",
-      "compositionId": "d71f6a04-4bb4-49c3-bc9f-1b7e6c695f19",
-      "pathSegment": "login",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
@@ -3474,6 +3993,16 @@
       "path": "/partners/fitness-locations",
       "compositionId": "737a5b7a-6120-4746-b417-7ac7d4b3a4a5",
       "pathSegment": "fitness-locations",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "ec7ee9be-75a7-471c-b5f5-fcc0d0b5dab8",
+      "name": "Learn",
+      "type": "placeholder",
+      "data": {},
+      "order": 637,
+      "path": "/learn",
+      "pathSegment": "learn",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     }
   ]
