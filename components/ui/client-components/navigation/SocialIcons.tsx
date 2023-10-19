@@ -16,18 +16,22 @@ const socialIcons = [
   {
     icon: faFacebook,
     url: "https://www.facebook.com/silversneakers/",
+    name: "Facebook",
   },
   {
     icon: faInstagram,
     url: "https://www.instagram.com/silversneakers/",
+    name: "Instagram",
   },
   {
     icon: faTwitter,
     url: "https://twitter.com/silversneakers",
+    name: "Twitter",
   },
   {
     icon: faYoutube,
     url: "https://www.youtube.com/user/TheSilverSneakers",
+    name: "YouTube",
   },
 ];
 
@@ -70,6 +74,7 @@ const SocialIcons = ({ color = "white" }: SocialIconsProps) => {
           )}
         >
           <FontAwesomeIcon icon={icon.icon} />
+          <span className="sr-only">{icon.name}</span>
         </Link>
       ))}
     </div>

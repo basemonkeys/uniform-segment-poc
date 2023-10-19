@@ -70,39 +70,37 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   return (
     <>
       <NavigationMenu className="sticky top-0 z-50 max-w-none border-b-2 border-gray-300 bg-white">
-        <NavigationMenuList className="m-auto justify-between px-3 lg:container">
-          <div className="flex items-center lg:gap-4">
-            {/* Logo */}
-            <NavigationMenuItem className="w-5 min-w-[139px] border-r-2 border-solid border-gray-300 py-6 lg:border-none">
-              <Logo
-                isLink
-                href="/"
-                src={getImageUrl(logo)}
-                className="flex max-lg:mr-4"
-              />
-            </NavigationMenuItem>
+        <NavigationMenuList className="m-auto flex items-center px-3 lg:container lg:gap-4">
+          {/* Logo */}
+          <NavigationMenuItem className="w-5 min-w-[139px] border-r-2 border-solid border-gray-300 py-6 lg:border-none">
+            <Logo
+              isLink
+              href="/"
+              src={getImageUrl(logo)}
+              className="flex max-lg:mr-4"
+            />
+          </NavigationMenuItem>
 
-            {/* Main Navigation */}
-            <div className="hidden items-center justify-between gap-4 lg:flex">
-              {/* this child element renders the NavigationGroup and Header and Footer NavigationLink components in NavLink.tsx ... either a solo Header or Footer link ... or a group of subNavItems. This displays the main navigation in the header */}
+          {/* Main Navigation */}
+          <ul className="hidden items-center justify-between gap-4 lg:flex">
+            {/* this child element renders the NavigationGroup and Header and Footer NavigationLink components in NavLink.tsx ... either a solo Header or Footer link ... or a group of subNavItems. This displays the main navigation in the header */}
+            {children}
+          </ul>
+
+          {/* Responsive Mobile Menu Toggle */}
+          <NavigationMenuItem className="gap-1 lg:hidden">
+            <NavigationMenuTrigger
+              // aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              className="lg:hidden"
+            >
+              Menu
+            </NavigationMenuTrigger>
+            <NavigationMenuContent className="z-50 flex w-full flex-col">
               {children}
-            </div>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
 
-            {/* Responsive Mobile Menu Toggle */}
-            <NavigationMenuItem className="w-full gap-1 lg:hidden">
-              <NavigationMenuTrigger
-                // aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                className="lg:hidden"
-              >
-                Menu
-              </NavigationMenuTrigger>
-              <NavigationMenuContent className="z-50 flex w-full flex-col">
-                {children}
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </div>
-
-          <NavigationMenuItem>
+          <NavigationMenuItem className="!ml-auto">
             {user ? (
               <>
                 <DropdownMenu>
