@@ -15,7 +15,6 @@ export type ContactUsFormProps = ComponentProps<{
 export function ContactUsForm(props: ContactUsFormProps) {
   return (
     <>
-      {/* this is a client component */}
       <HubspotContactUsForm {...props} />
     </>
   );
