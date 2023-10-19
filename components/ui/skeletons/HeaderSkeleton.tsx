@@ -7,14 +7,15 @@ export function HeaderSkeleton() {
         <div className="flex items-center lg:gap-4">
           {/* Logo */}
           <div className="w-5 min-w-[139px] border-r-2 border-solid border-gray-300 py-4 lg:border-none">
-            <Skeleton className="mr-4 h-[40px]" />
+            <Skeleton className="mr-4 h-[37px]" />
           </div>
 
           {/* Main Navigation */}
-          <div className="hidden items-center justify-between gap-4 lg:flex">
-            <Skeleton className="h-[30px] w-[100px]" />
-            <Skeleton className="h-[30px] w-[100px]" />
-            <Skeleton className="h-[30px] w-[100px]" />
+          <div className="hidden items-center justify-between gap-7 lg:flex">
+            <Skeleton className="h-[32px] w-[75px]" />
+            <Skeleton className="h-[32px] w-[75px]" />
+            <Skeleton className="h-[32px] w-[175px]" />
+            <Skeleton className="h-[32px] w-[75px]" />
           </div>
         </div>
 
@@ -26,8 +27,9 @@ export function HeaderSkeleton() {
         </div>
 
         <div className="flex items-center gap-3">
-          <Skeleton className="h-10 w-10 rounded-full" />
-          <Skeleton className="h-[30px] w-32" />
+          {/* <Skeleton className="h-10 w-10 rounded-full" /> */}
+          <Skeleton className="h-[37px] w-20 p-3" />
+          <Skeleton className="h-[37px] w-[150px] p-3" />
         </div>
       </div>
     </div>

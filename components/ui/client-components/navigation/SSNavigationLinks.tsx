@@ -9,6 +9,7 @@ import Link from "next/link";
 
 import {
   NavigationMenu,
+  NavigationMenuList,
   NavigationMenuItem,
   NavigationMenuTrigger,
   NavigationMenuContent,
@@ -151,45 +152,47 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
             "border-b-3 border-link",
         )}
       >
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>{title}</NavigationMenuTrigger>
-          <NavigationMenuContent aria-label="Silver Sneakers Features">
-            <ul className="flex w-[340px] flex-col">
-              {/* @ts-ignore */}
-              {subNavItems?.map((item: any, index: any) => {
-                const {
-                  subNavItemTitle,
-                  subNavItemLink,
-                  subNavItemDescription,
-                } = item;
-                return (
-                  <li
-                    key={index}
-                    className={cn(
-                      "flex w-full cursor-pointer flex-col p-2 hover:bg-default-hover",
-                      pathname === subNavItemLink.path &&
-                        "border-l-4 border-primary bg-default-hover",
-                    )}
-                  >
-                    <NavigationMenuLink asChild>
-                      <>
-                        <Link
-                          href={subNavItemLink.path}
-                          className="gap-4 px-3 hover:bg-default-hover"
-                        >
-                          {subNavItemTitle}
-                        </Link>
-                        <span className="px-3 text-sm text-foreground">
-                          {subNavItemDescription}
-                        </span>
-                      </>
-                    </NavigationMenuLink>
-                  </li>
-                );
-              })}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>{title}</NavigationMenuTrigger>
+            <NavigationMenuContent aria-label="Silver Sneakers Features">
+              <ul className="flex w-[340px] flex-col">
+                {/* @ts-ignore */}
+                {subNavItems?.map((item: any, index: any) => {
+                  const {
+                    subNavItemTitle,
+                    subNavItemLink,
+                    subNavItemDescription,
+                  } = item;
+                  return (
+                    <li
+                      key={index}
+                      className={cn(
+                        "flex w-full cursor-pointer flex-col p-2 hover:bg-default-hover",
+                        pathname === subNavItemLink.path &&
+                          "border-l-4 border-primary bg-default-hover",
+                      )}
+                    >
+                      <NavigationMenuLink asChild>
+                        <>
+                          <Link
+                            href={subNavItemLink.path}
+                            className="gap-4 px-3 hover:bg-default-hover"
+                          >
+                            {subNavItemTitle}
+                          </Link>
+                          <span className="px-3 text-sm text-foreground">
+                            {subNavItemDescription}
+                          </span>
+                        </>
+                      </NavigationMenuLink>
+                    </li>
+                  );
+                })}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
       </NavigationMenu>
     </>
   );
