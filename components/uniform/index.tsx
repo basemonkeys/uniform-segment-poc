@@ -12,17 +12,19 @@ import "./global/Header";
 import {
   HeaderLink,
   FooterLink,
+  QuickLink,
   NavigationGroup,
 } from "./navigation/NavigationLink";
+import "./navigation/QuickLinks";
 import "./global/Footer";
 import "./global/Banner";
-import "./Hero";
+import "./content/Hero";
 import "./user/LoginForm";
 import "./user/MemberProfile";
 import "./contact/ContactUsForm";
 import "./contact/ContactCard";
-import "./PrivacyPolicy";
-import "./TermsOfUse";
+import "./content/PrivacyPolicy";
+import "./content/TermsOfUse";
 
 // default variant
 registerUniformComponent({
@@ -34,6 +36,12 @@ registerUniformComponent({
   type: "navigationLink",
   component: HeaderLink,
   variantId: "header",
+});
+
+registerUniformComponent({
+  type: "navigationLink",
+  component: QuickLink,
+  variantId: "quickLink",
 });
 
 registerUniformComponent({

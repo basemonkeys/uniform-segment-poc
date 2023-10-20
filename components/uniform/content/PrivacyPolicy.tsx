@@ -4,10 +4,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 import { format } from "date-fns";
 
-const PrivacyPolicy: React.FC<Types.PolicyUseProps> = ({
-  lastUpdated,
-  text,
-}) => {
+const PrivacyPolicy = ({ lastUpdated, text }: Types.PolicyUseProps) => {
   return (
     <div className="mb-12">
       <p className="mb-6 text-sm italic text-gray-500">

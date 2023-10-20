@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Hero, { HeroVariant } from "../../components/uniform/Hero";
+import Hero, { HeroVariant } from "../../components/uniform/content/Hero";
 
 const meta: Meta<typeof Hero> = {
   title: "Components/Uniform/Heros",
@@ -13,7 +13,9 @@ const meta: Meta<typeof Hero> = {
         "textAlignment",
         "title",
         "primarycta",
+        "primaryUrl",
         "secondarycta",
+        "secondaryUrl",
       ],
     },
   },
@@ -44,7 +46,9 @@ const meta: Meta<typeof Hero> = {
       ],
     },
     primarycta: "Learn More",
+    primaryUrl: "https://www.silversneakers.com/",
     secondarycta: "Check Elegibility",
+    secondaryUrl: "https://www.silversneakers.com/",
     image:
       "https://images.ctfassets.net/td2wy1ruze5q/2Wnlu249GGyPJWs1P08S3j/61993c470bcff7e7d05ffd6066e42738/homepage-live-classes.png" as any,
   },
@@ -127,7 +131,7 @@ export const Featured: Story = {
       ],
     },
     primarycta: "Check My Eligibility",
-    secondarycta: "",
+    primaryUrl: "https://www.silversneakers.com/",
     image:
       "https://tools.silversneakers.com/Content/images/live/headphones-exercise-ball-2000.jpg" as any,
   },
@@ -182,7 +186,9 @@ export const Partner: Story = {
       ],
     },
     primarycta: "Log In",
+    primaryUrl: "https://www.silversneakers.com/",
     secondarycta: "Check Elegibility",
+    secondaryUrl: "https://www.silversneakers.com/",
     logo: "https://tools.silversneakers.com/Content/images/burnalong/wordmark.png" as any,
     image:
       "https://tools.silversneakers.com/Content/images/burnalong/hero.jpg" as any,

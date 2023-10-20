@@ -9,6 +9,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 type RichTextContentCardProps = ComponentProps<{
+  title: string;
   callToAction?: string;
   callToActionUrl?: {
     path: string;
@@ -16,6 +17,7 @@ type RichTextContentCardProps = ComponentProps<{
 }>;
 
 export function RichTextContentCard({
+  title,
   callToAction,
   callToActionUrl,
   component,
@@ -23,11 +25,14 @@ export function RichTextContentCard({
   return (
     <>
       {/* the "prose" class comes from https://tailwindcss.com/docs/typography-plugin. Custom SilverSneakers styles can be found in tailwind.config.js. */}
-      <Card className="prose my-12 max-w-lg">
+      <Card className="prose mb-12 w-full rounded border bg-white p-4 lg:max-w-[400px]">
+        <h3>{title}</h3>
         <UniformRichText parameterId="richText" component={component} />
-        <Button asChild>
-          <Link href={callToActionUrl?.path as string}>{callToAction}</Link>
-        </Button>
+        {callToAction && callToActionUrl && (
+          <Button asChild>
+            <Link href={`${callToActionUrl?.path}`}>{callToAction}</Link>
+          </Button>
+        )}
       </Card>
     </>
   );

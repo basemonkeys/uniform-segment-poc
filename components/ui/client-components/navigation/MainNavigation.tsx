@@ -6,6 +6,8 @@ import Link from "next/link";
 import { ComponentProps } from "@uniformdev/canvas-next-rsc";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
+import { animateScroll } from "react-scroll";
+
 import { cn, getImageUrl } from "@/utils";
 
 import {
@@ -39,10 +41,7 @@ type MainNavigationProps = ComponentProps & {
   logo: string | Types.CloudinaryImage;
 };
 
-const MainNavigation: React.FC<MainNavigationProps> = ({
-  children,
-  logo,
-}: MainNavigationProps) => {
+const MainNavigation = ({ children, logo }: MainNavigationProps) => {
   const { user, error, isLoading } = useUser();
   const [showButton, setShowButton] = useState(false);
 
@@ -61,7 +60,10 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   }, []);
 
   const handleScrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    animateScroll.scrollToTop({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   if (isLoading) return <HeaderSkeleton />;
@@ -140,7 +142,9 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
                   <a href="/api/auth/login">Log in</a>
                 </Button>
                 <Button className="max-sm:hidden" asChild>
-                  <Link href="/check-eligibility">Check Eligibility</Link>
+                  <Link href="/eligibility/check-eligibility">
+                    Check Eligibility
+                  </Link>
                 </Button>
               </div>
             )}
@@ -151,7 +155,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
       {/* Check Eligibility Mobile Button */}
       <div className="fixed bottom-0 z-50 w-full bg-white p-2 px-6 sm:hidden">
         <Button className="w-full" size="xl" asChild>
-          <Link href="/check-eligibility">Check Eligibility</Link>
+          <Link href="/eligibility/check-eligibility">Check Eligibility</Link>
         </Button>
       </div>
 

@@ -103,8 +103,8 @@
       "icon": "phone",
       "parameters": [
         {
-          "id": "heading",
-          "name": "Heading",
+          "id": "title",
+          "name": "Title",
           "type": "text",
           "helpText": "",
           "typeConfig": {
@@ -180,10 +180,10 @@
       "categoryId": "88df44a7-2d00-4c03-ac48-f2d7e92dc329",
       "useTeamPermissions": true,
       "slots": [],
-      "titleParameter": "heading",
+      "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-10-10T20:53:51.391788+00:00",
-      "updated": "2023-10-10T21:12:52.178937+00:00"
+      "updated": "2023-10-20T19:58:04.488236+00:00"
     },
     {
       "id": "contactUsForm",
@@ -191,8 +191,8 @@
       "icon": "phone",
       "parameters": [
         {
-          "id": "heading",
-          "name": "Heading",
+          "id": "title",
+          "name": "Title",
           "type": "text",
           "helpText": "",
           "typeConfig": {
@@ -228,10 +228,10 @@
       "categoryId": "88df44a7-2d00-4c03-ac48-f2d7e92dc329",
       "useTeamPermissions": true,
       "slots": [],
-      "titleParameter": "heading",
+      "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-10-06T22:31:49.783445+00:00",
-      "updated": "2023-10-09T22:27:50.175104+00:00"
+      "updated": "2023-10-20T19:55:30.584159+00:00"
     },
     {
       "id": "container",
@@ -281,11 +281,11 @@
     {
       "id": "eligibilityForm",
       "name": "Eligibility Form",
-      "icon": "desktop",
+      "icon": "profile",
       "parameters": [
         {
-          "id": "heading",
-          "name": "Heading",
+          "id": "title",
+          "name": "Title",
           "type": "text",
           "helpText": "",
           "typeConfig": {
@@ -317,10 +317,10 @@
       "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
       "useTeamPermissions": true,
       "slots": [],
-      "titleParameter": "heading",
+      "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-10-13T05:52:41.147927+00:00",
-      "updated": "2023-10-13T05:55:01.148835+00:00"
+      "updated": "2023-10-20T20:41:06.486537+00:00"
     },
     {
       "id": "faqContainer",
@@ -528,7 +528,8 @@
           "name": "Grid Inner",
           "allowedComponents": [
             "contactCard",
-            "eligibilityForm"
+            "eligibilityForm",
+            "richTextContentCard"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -537,7 +538,7 @@
       ],
       "canBeComposition": false,
       "created": "2023-10-10T22:46:09.012072+00:00",
-      "updated": "2023-10-14T00:44:54.889573+00:00"
+      "updated": "2023-10-19T23:51:57.517043+00:00"
     },
     {
       "id": "header",
@@ -604,8 +605,8 @@
           }
         },
         {
-          "id": "heading",
-          "name": "Heading",
+          "id": "title",
+          "name": "Title",
           "type": "text",
           "helpText": "",
           "typeConfig": {
@@ -631,6 +632,15 @@
           }
         },
         {
+          "id": "primaryUrl",
+          "name": "Primary Url",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
           "id": "secondarycta",
           "name": "SecondaryCTA",
           "type": "text",
@@ -638,6 +648,13 @@
           "typeConfig": {
             "required": false
           }
+        },
+        {
+          "id": "secondaryUrl",
+          "name": "Secondary Url",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": null
         },
         {
           "id": "image",
@@ -666,10 +683,10 @@
       "categoryId": "cd774774-e2cb-4aa7-868a-65781e311aa6",
       "useTeamPermissions": true,
       "slots": [],
-      "titleParameter": "heading",
+      "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-08-29T20:06:35.107289+00:00",
-      "updated": "2023-10-11T23:13:59.121013+00:00",
+      "updated": "2023-10-20T20:06:22.605001+00:00",
       "variants": [
         {
           "id": "imageBackground",
@@ -750,7 +767,8 @@
             "$p:a703f357-57e8-4fe5-8d4d-47e29e12ba32",
             "$p:abcd32be-5961-4103-9540-183229d50364",
             "container",
-            "grid"
+            "grid",
+            "quickLinks"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -777,7 +795,7 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-10-05T20:36:58.515615+00:00",
-      "updated": "2023-10-11T23:36:02.60856+00:00"
+      "updated": "2023-10-20T00:48:06.401665+00:00"
     },
     {
       "id": "memberProfile",
@@ -843,12 +861,13 @@
           "id": "link",
           "name": "Link",
           "type": "link",
-          "helpText": "",
+          "helpText": "Quick Links: reference the Composition source for the ID of the linked component e.g. 17c08f40-5e81-4a0f-ac7a-ebf5b67c83d8",
           "typeConfig": {
             "required": false,
             "linkTypes": {
               "tel": false,
-              "email": false
+              "email": false,
+              "projectMapNode": true
             }
           }
         },
@@ -866,7 +885,7 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-09-09T23:56:21.493968+00:00",
-      "updated": "2023-09-21T01:07:46.812712+00:00",
+      "updated": "2023-10-20T16:25:14.590136+00:00",
       "variants": [
         {
           "id": "header",
@@ -875,6 +894,10 @@
         {
           "id": "footer",
           "name": "Footer"
+        },
+        {
+          "id": "quickLink",
+          "name": "Quick Link"
         }
       ]
     },
@@ -935,12 +958,11 @@
             "contactCard",
             "grid",
             "container",
-            "loginForm",
             "eligibilityForm",
             "richTextContentCard",
-            "$p:aec84e2c-b256-4a43-885f-f1c36d8ccc9c",
             "$loop",
-            "$p:157c3a68-dd5e-4764-88cf-763be74baeb9"
+            "$p:157c3a68-dd5e-4764-88cf-763be74baeb9",
+            "quickLinks"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -956,7 +978,7 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-08-29T20:06:33.571497+00:00",
-      "updated": "2023-10-17T20:29:00.896994+00:00"
+      "updated": "2023-10-20T00:48:20.594915+00:00"
     },
     {
       "id": "privacyPolicy",
@@ -1000,10 +1022,42 @@
       "updated": "2023-10-11T23:15:21.215783+00:00"
     },
     {
+      "id": "quickLinks",
+      "name": "Quick Links",
+      "icon": "toolbar-top",
+      "parameters": [],
+      "categoryId": "4c3ee642-b971-45a9-af35-e22e53e9cf29",
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "navigation",
+          "name": "Navigation",
+          "allowedComponents": [
+            "navigationLink"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
+        }
+      ],
+      "canBeComposition": false,
+      "created": "2023-10-20T00:12:28.325824+00:00",
+      "updated": "2023-10-20T05:15:51.785481+00:00"
+    },
+    {
       "id": "richTextContentCard",
       "name": "Rich Text Content Card",
       "icon": "format-text",
       "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
         {
           "id": "richText",
           "name": "Rich Text",
@@ -1065,7 +1119,39 @@
       "titleParameter": "richText",
       "canBeComposition": false,
       "created": "2023-10-17T04:21:30.893503+00:00",
-      "updated": "2023-10-18T19:49:29.501325+00:00"
+      "updated": "2023-10-19T23:54:08.082683+00:00"
+    },
+    {
+      "id": "steps",
+      "name": "Steps",
+      "icon": "screen",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [],
+      "titleParameter": "title",
+      "canBeComposition": false,
+      "created": "2023-10-20T20:42:33.110621+00:00",
+      "updated": "2023-10-20T20:42:33.110621+00:00",
+      "variants": [
+        {
+          "id": "lightBackground",
+          "name": "Light Background"
+        },
+        {
+          "id": "darkBackground",
+          "name": "Dark Background"
+        }
+      ]
     },
     {
       "id": "termsOfUse",
@@ -1603,7 +1689,7 @@
                           }
                         }
                       },
-                      "heading": {
+                      "title": {
                         "type": "text",
                         "value": "Instant Eligibility Check"
                       }
@@ -1622,7 +1708,7 @@
         }
       },
       "created": "2023-10-04T18:43:22.893333+00:00",
-      "modified": "2023-10-16T23:07:26.40147+00:00",
+      "modified": "2023-10-20T20:41:14.271531+00:00",
       "pattern": false
     },
     {
@@ -1652,13 +1738,13 @@
                         "type": "text",
                         "value": "We’re here to help! Fill out the form below and we'll do our best to get back to you within 3-5 days."
                       },
+                      "title": {
+                        "type": "text",
+                        "value": "Contact Us Form"
+                      },
                       "formId": {
                         "type": "text",
                         "value": "7fc2147e-1533-4812-b3a4-bf3b53742ed7"
-                      },
-                      "heading": {
-                        "type": "text",
-                        "value": "Contact Us"
                       },
                       "portalId": {
                         "type": "text",
@@ -1717,7 +1803,7 @@
                           "type": "tel"
                         }
                       },
-                      "heading": {
+                      "title": {
                         "type": "text",
                         "value": "Give us a call"
                       }
@@ -1812,7 +1898,7 @@
                                 "type": "tel"
                               }
                             },
-                            "heading": {
+                            "title": {
                               "type": "text",
                               "value": "Fitness Centers"
                             }
@@ -1901,7 +1987,7 @@
                                 "type": "tel"
                               }
                             },
-                            "heading": {
+                            "title": {
                               "type": "text",
                               "value": "Class Instructors"
                             }
@@ -1983,7 +2069,7 @@
                                 "type": "email"
                               }
                             },
-                            "heading": {
+                            "title": {
                               "type": "text",
                               "value": "Health Plans"
                             }
@@ -1999,10 +2085,14 @@
                     }
                   },
                   {
-                    "_id": "e97347c0-7d28-4ebf-8f36-b1b3be20f5a1",
-                    "type": "contactCard",
+                    "_id": "0e241868-b98a-4ab9-8cb9-791ddf19fe18",
+                    "type": "richTextContentCard",
                     "parameters": {
-                      "text": {
+                      "title": {
+                        "type": "text",
+                        "value": "Media"
+                      },
+                      "richText": {
                         "type": "richText",
                         "value": {
                           "root": {
@@ -2055,10 +2145,6 @@
                             "direction": "ltr"
                           }
                         }
-                      },
-                      "heading": {
-                        "type": "text",
-                        "value": "Media"
                       }
                     }
                   }
@@ -2080,7 +2166,7 @@
         }
       },
       "created": "2023-09-19T17:30:46.06938+00:00",
-      "modified": "2023-10-18T19:19:36.286636+00:00",
+      "modified": "2023-10-20T19:59:09.529816+00:00",
       "pattern": false
     },
     {
@@ -2190,10 +2276,210 @@
             "type": "text",
             "value": "How It Works"
           }
+        },
+        "slots": {
+          "content": [
+            {
+              "_id": "4fe2c30c-d868-4ad1-8a03-f73afaa2bf3e",
+              "type": "container",
+              "slots": {
+                "containerInner": [
+                  {
+                    "_id": "ffdfdea3-ae4e-401f-a0a4-cc7d826073c3",
+                    "type": "hero",
+                    "_pattern": "a703f357-57e8-4fe5-8d4d-47e29e12ba32",
+                    "_dataResources": {
+                      "Hero Content": {
+                        "type": "hero",
+                        "variables": {
+                          "locale": "",
+                          "entryIds": "7mzwwAHtn07to6I6IoYkzk"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "22a4d710-e536-40cc-aa98-f53ed7fe89e1",
+                    "type": "quickLinks",
+                    "slots": {
+                      "navigation": [
+                        {
+                          "_id": "c7ecc921-a353-4422-9861-2433b182f609",
+                          "type": "navigationLink",
+                          "variant": "quickLink",
+                          "parameters": {
+                            "link": {
+                              "type": "link",
+                              "value": {
+                                "path": "5c3ae337-bd15-4298-aeb2-d732604b4cfb",
+                                "type": "url"
+                              }
+                            },
+                            "title": {
+                              "type": "text",
+                              "value": "Who is Eligible?"
+                            }
+                          }
+                        },
+                        {
+                          "_id": "68380a60-b5f9-42d0-acb9-43795f9a34a3",
+                          "type": "navigationLink",
+                          "variant": "quickLink",
+                          "parameters": {
+                            "link": {
+                              "type": "link",
+                              "value": {
+                                "path": "5a1e6d00-94d4-42fe-ac44-7a31abc78260",
+                                "type": "url"
+                              }
+                            },
+                            "title": {
+                              "type": "text",
+                              "value": "LIVE Online Classes"
+                            }
+                          }
+                        },
+                        {
+                          "_id": "12eafd8d-c9fb-4399-a750-55f62158acba",
+                          "type": "navigationLink",
+                          "variant": "quickLink",
+                          "parameters": {
+                            "link": {
+                              "type": "link",
+                              "value": {
+                                "path": "d83c84a8-ce08-46ef-9dd0-71eaa29c5025",
+                                "type": "url"
+                              }
+                            },
+                            "title": {
+                              "type": "text",
+                              "value": "Participating Locations"
+                            }
+                          }
+                        },
+                        {
+                          "_id": "ce2d6472-da28-475f-bb8b-31df4f5c3b23",
+                          "type": "navigationLink",
+                          "variant": "quickLink",
+                          "parameters": {
+                            "link": {
+                              "type": "link",
+                              "value": {
+                                "path": "17c08f40-5e81-4a0f-ac7a-ebf5b67c83d8",
+                                "type": "url"
+                              }
+                            },
+                            "title": {
+                              "type": "text",
+                              "value": "Community Classes"
+                            }
+                          }
+                        },
+                        {
+                          "_id": "75af6b13-7dda-4190-bb17-81c0c4497f38",
+                          "type": "navigationLink",
+                          "variant": "quickLink",
+                          "parameters": {
+                            "title": {
+                              "type": "text",
+                              "value": "Getting Started"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "_id": "5c3ae337-bd15-4298-aeb2-d732604b4cfb",
+                    "type": "hero",
+                    "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+                    "_dataResources": {
+                      "Hero": {
+                        "type": "hero",
+                        "variables": {
+                          "locale": "",
+                          "entryIds": "7dmvRlE9eFnrMcqg3ZursJ"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "5a1e6d00-94d4-42fe-ac44-7a31abc78260",
+                    "type": "hero",
+                    "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+                    "_dataResources": {
+                      "Hero": {
+                        "type": "hero",
+                        "variables": {
+                          "locale": "",
+                          "entryIds": "5yfLDD0Bc7MavkVUS5QAeN"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "d83c84a8-ce08-46ef-9dd0-71eaa29c5025",
+                    "type": "hero",
+                    "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+                    "_dataResources": {
+                      "Hero": {
+                        "type": "hero",
+                        "variables": {
+                          "locale": "",
+                          "entryIds": "7h9w8jOEUyVBNYLULijKvD"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "_id": "17c08f40-5e81-4a0f-ac7a-ebf5b67c83d8",
+                    "type": "hero",
+                    "_pattern": "9eb8e241-54a0-48a5-a408-287ea4394f47",
+                    "_dataResources": {
+                      "Hero": {
+                        "type": "hero",
+                        "variables": {
+                          "locale": "",
+                          "entryIds": "K4IrAYMiDYMFPyMy6FWjQ"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "variant": "fullWidth",
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "Heros"
+                }
+              }
+            }
+          ]
+        },
+        "_overrides": {
+          "5c3ae337-bd15-4298-aeb2-d732604b4cfb": {
+            "variant": "lightBackground",
+            "parameters": {
+              "textAlignment": {
+                "type": "select",
+                "value": "right"
+              }
+            }
+          },
+          "d83c84a8-ce08-46ef-9dd0-71eaa29c5025": {
+            "variant": "lightBackground",
+            "parameters": {
+              "textAlignment": {
+                "type": "select",
+                "value": "right"
+              }
+            }
+          }
         }
       },
       "created": "2023-10-16T16:42:44.878368+00:00",
-      "modified": "2023-10-16T16:47:50.274127+00:00",
+      "modified": "2023-10-20T05:09:02.441108+00:00",
       "pattern": false
     },
     {
@@ -2241,13 +2527,17 @@
             "type": "image",
             "value": "${#jptr:/Hero/fields/image/fields/file/url}"
           },
+          "title": {
+            "type": "text",
+            "value": "${#jptr:/Hero/fields/title}"
+          },
           "video": {
             "type": "text",
             "value": "${#jptr:/Hero/fields/inlineVideo/0/original_url}"
           },
-          "heading": {
+          "primaryUrl": {
             "type": "text",
-            "value": "${#jptr:/Hero/fields/heading}"
+            "value": "${#jptr:/Hero/fields/primaryUrl}"
           },
           "primarycta": {
             "type": "text",
@@ -2256,6 +2546,10 @@
           "description": {
             "type": "json",
             "value": "${#jptr:/Hero/fields/description}"
+          },
+          "secondaryUrl": {
+            "type": "text",
+            "value": "${#jptr:/Hero/fields/secondaryUrl}"
           },
           "secondarycta": {
             "type": "text",
@@ -2291,7 +2585,7 @@
         }
       },
       "created": "2023-08-29T20:06:37.045329+00:00",
-      "modified": "2023-10-02T15:36:50.06563+00:00",
+      "modified": "2023-10-20T20:49:01.053055+00:00",
       "pattern": true
     },
     {
@@ -2322,9 +2616,13 @@
             "type": "image",
             "value": "${#jptr:/Hero Content/fields/backgroundImage/fields/file/url}"
           },
-          "heading": {
+          "title": {
             "type": "text",
-            "value": "${#jptr:/Hero Content/fields/heading}"
+            "value": "${#jptr:/Hero Content/fields/title}"
+          },
+          "primaryUrl": {
+            "type": "text",
+            "value": "${#jptr:/Hero Content/fields/primaryUrl}"
           },
           "primarycta": {
             "type": "text",
@@ -2333,6 +2631,14 @@
           "description": {
             "type": "json",
             "value": "${#jptr:/Hero Content/fields/description}"
+          },
+          "secondaryUrl": {
+            "type": "text",
+            "value": "${#jptr:/Hero Content/fields/secondaryUrl}"
+          },
+          "secondarycta": {
+            "type": "text",
+            "value": "${#jptr:/Hero Content/fields/secondaryCta}"
           },
           "textAlignment": {
             "type": "select",
@@ -2360,7 +2666,7 @@
         }
       },
       "created": "2023-08-29T20:06:36.884443+00:00",
-      "modified": "2023-09-07T18:50:31.9518+00:00",
+      "modified": "2023-10-20T20:49:33.82853+00:00",
       "pattern": true
     },
     {
@@ -2378,9 +2684,13 @@
             "type": "image",
             "value": "${#jptr:/Hero Content/fields/backgroundImage/fields/file/url}"
           },
-          "heading": {
+          "title": {
             "type": "text",
-            "value": "${#jptr:/Hero Content/fields/heading}"
+            "value": "${#jptr:/Hero Content/fields/title}"
+          },
+          "primaryUrl": {
+            "type": "text",
+            "value": "${#jptr:/Hero Content/fields/primaryUrl}"
           },
           "primarycta": {
             "type": "text",
@@ -2389,6 +2699,10 @@
           "description": {
             "type": "json",
             "value": "${#jptr:/Hero Content/fields/description}"
+          },
+          "secondaryUrl": {
+            "type": "text",
+            "value": "${#jptr:/Hero Content/fields/secondaryUrl}"
           },
           "secondarycta": {
             "type": "text",
@@ -2418,7 +2732,7 @@
         }
       },
       "created": "2023-08-29T20:06:37.439265+00:00",
-      "modified": "2023-09-07T18:51:01.751763+00:00",
+      "modified": "2023-10-20T20:49:20.033002+00:00",
       "pattern": true
     },
     {
@@ -2532,6 +2846,10 @@
                     "_id": "cbb57aa0-b610-4f62-9341-880c05c2de6c",
                     "type": "richTextContentCard",
                     "parameters": {
+                      "title": {
+                        "type": "text",
+                        "value": "Still have questions?"
+                      },
                       "richText": {
                         "type": "richText",
                         "value": {
@@ -2541,25 +2859,6 @@
                             "indent": 0,
                             "version": 1,
                             "children": [
-                              {
-                                "tag": "h3",
-                                "type": "heading",
-                                "format": "",
-                                "indent": 0,
-                                "version": 1,
-                                "children": [
-                                  {
-                                    "mode": "normal",
-                                    "text": "Still have questions?",
-                                    "type": "text",
-                                    "style": "",
-                                    "detail": 0,
-                                    "format": 0,
-                                    "version": 1
-                                  }
-                                ],
-                                "direction": "ltr"
-                              },
                               {
                                 "type": "paragraph",
                                 "format": "",
@@ -2641,7 +2940,7 @@
         }
       },
       "created": "2023-10-16T16:41:37.434964+00:00",
-      "modified": "2023-10-18T20:31:12.307478+00:00",
+      "modified": "2023-10-19T23:54:36.05821+00:00",
       "pattern": false
     },
     {

@@ -11,7 +11,7 @@ type DismissButtonProps = {
   variant?: string;
 };
 
-export const DismissButton: React.FC<DismissButtonProps> = ({ variant }) => {
+export const DismissButton = ({ variant }: DismissButtonProps) => {
   return (
     <div
       className={cn(

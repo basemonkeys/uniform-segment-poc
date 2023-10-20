@@ -4,8 +4,10 @@ import { cn } from "@/utils";
 
 import { ComponentProps } from "@uniformdev/canvas-next-rsc";
 
-import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import { Link as ScrollLink } from "react-scroll";
 
 import {
   NavigationMenu,
@@ -33,10 +35,7 @@ export type LinkProps = Omit<ComponentProps, "context"> & {
 };
 
 // This component displays the non-dropdown menu items in the Header navigation and the non-accordion menu items in the mobile navigation.
-export const SSHeaderLink: React.FC<Omit<LinkProps, "component">> = ({
-  link,
-  title,
-}) => {
+export const SSHeaderLink = ({ link, title }: Omit<LinkProps, "component">) => {
   const pathname = usePathname();
   const isActive = pathname === link?.path;
 
@@ -58,11 +57,32 @@ export const SSHeaderLink: React.FC<Omit<LinkProps, "component">> = ({
   );
 };
 
+export const SSQuickLink = ({ link, title }: Omit<LinkProps, "component">) => {
+  return (
+    <ScrollLink
+      key={title}
+      className="flex items-center gap-3"
+      rel={link?.path?.startsWith("http") ? "noopener noreferrer" : ""}
+      activeClass="group active"
+      to={link?.path}
+      spy={true}
+      smooth={true}
+      offset={-110}
+      duration={1000}
+    >
+      <div
+        className={cn(
+          "border-b-4 border-transparent bg-primary px-6 py-3 text-sm font-bold text-white hover:border-white active:bg-primary-dark group-[.active]:border-white group-[.active]:bg-primary-dark",
+        )}
+      >
+        {title}
+      </div>
+    </ScrollLink>
+  );
+};
+
 // This component displays the menu items in the Footer.
-export const SSFooterLink: React.FC<Omit<LinkProps, "component">> = ({
-  link,
-  title,
-}) => {
+export const SSFooterLink = ({ link, title }: Omit<LinkProps, "component">) => {
   return (
     <Link
       key={link?.path}
@@ -80,11 +100,7 @@ export const SSFooterLink: React.FC<Omit<LinkProps, "component">> = ({
 };
 
 // This component displays either the accordion group in the mobile navigation or the dropdown group in the Header navigation.
-export const SSNavigationGroup: React.FC<LinkProps> = ({
-  component,
-  title,
-  link,
-}) => {
+export const SSNavigationGroup = ({ component, title, link }: LinkProps) => {
   const pathname = usePathname();
 
   const subNavItems = component?.slots?.subNavItems?.map((item: any) => {

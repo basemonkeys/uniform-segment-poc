@@ -84,13 +84,13 @@ export const getStateClasses = (variantId?: string) => {
   }
 };
 
-const Banner: React.FC<BannerProps> = ({
+const Banner = ({
   component,
   message,
   callToAction,
   callToActionLink,
   dismissable,
-}) => {
+}: BannerProps) => {
   const { variant } = component;
 
   return (
