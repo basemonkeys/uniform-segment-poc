@@ -63,7 +63,7 @@ const getAlignmentClass = (alignmentId?: string) => {
   }
 };
 
-const Hero: React.FC<HeroProps> = ({
+const Hero = ({
   component,
   textAlignment,
   title,
@@ -75,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({
   image,
   video,
   logo,
-}) => {
+}: HeroProps) => {
   const { variant } = component;
   const isCentered = textAlignment === HeroAlignment.Center;
 

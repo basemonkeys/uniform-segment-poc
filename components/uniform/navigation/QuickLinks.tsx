@@ -6,8 +6,7 @@ import {
 
 import { QuickLinks as BaseQuickLinks } from "@/components/ui/client-components/navigation/QuickLinks";
 
-export function QuickLinks(props: ComponentProps) {
-  const { component, context } = props;
+export function QuickLinks({ component, context }: ComponentProps) {
   return (
     <>
       <BaseQuickLinks>

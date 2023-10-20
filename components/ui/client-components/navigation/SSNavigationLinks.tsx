@@ -35,10 +35,7 @@ export type LinkProps = Omit<ComponentProps, "context"> & {
 };
 
 // This component displays the non-dropdown menu items in the Header navigation and the non-accordion menu items in the mobile navigation.
-export const SSHeaderLink: React.FC<Omit<LinkProps, "component">> = ({
-  link,
-  title,
-}) => {
+export const SSHeaderLink = ({ link, title }: Omit<LinkProps, "component">) => {
   const pathname = usePathname();
   const isActive = pathname === link?.path;
 
@@ -60,10 +57,7 @@ export const SSHeaderLink: React.FC<Omit<LinkProps, "component">> = ({
   );
 };
 
-export const SSQuickLink: React.FC<Omit<LinkProps, "component">> = ({
-  link,
-  title,
-}) => {
+export const SSQuickLink = ({ link, title }: Omit<LinkProps, "component">) => {
   return (
     <ScrollLink
       key={title}
@@ -88,10 +82,7 @@ export const SSQuickLink: React.FC<Omit<LinkProps, "component">> = ({
 };
 
 // This component displays the menu items in the Footer.
-export const SSFooterLink: React.FC<Omit<LinkProps, "component">> = ({
-  link,
-  title,
-}) => {
+export const SSFooterLink = ({ link, title }: Omit<LinkProps, "component">) => {
   return (
     <Link
       key={link?.path}
@@ -109,11 +100,7 @@ export const SSFooterLink: React.FC<Omit<LinkProps, "component">> = ({
 };
 
 // This component displays either the accordion group in the mobile navigation or the dropdown group in the Header navigation.
-export const SSNavigationGroup: React.FC<LinkProps> = ({
-  component,
-  title,
-  link,
-}) => {
+export const SSNavigationGroup = ({ component, title, link }: LinkProps) => {
   const pathname = usePathname();
 
   const subNavItems = component?.slots?.subNavItems?.map((item: any) => {

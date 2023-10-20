@@ -41,10 +41,7 @@ type MainNavigationProps = ComponentProps & {
   logo: string | Types.CloudinaryImage;
 };
 
-const MainNavigation: React.FC<MainNavigationProps> = ({
-  children,
-  logo,
-}: MainNavigationProps) => {
+const MainNavigation = ({ children, logo }: MainNavigationProps) => {
   const { user, error, isLoading } = useUser();
   const [showButton, setShowButton] = useState(false);
 

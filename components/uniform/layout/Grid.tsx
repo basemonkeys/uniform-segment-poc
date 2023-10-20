@@ -1,4 +1,3 @@
-import { FC } from "react";
 import {
   UniformSlot,
   ComponentProps,
@@ -42,7 +41,7 @@ const getGridColumnsClass = (columnsCount: Types.AvailableColumnCount) => {
   }
 };
 
-const Grid: FC<GridProps> = ({ columnsCount, component, context }) => (
+const Grid = ({ columnsCount, component, context }: GridProps) => (
   <div
     className={cn(
       "grid w-full auto-rows-max grid-cols-3 lg:gap-6",

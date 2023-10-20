@@ -44,7 +44,7 @@ const getLogo = (variantId?: string) => {
   }
 };
 
-export const Logo: React.FC<LogoProps> = ({
+export const Logo = ({
   src = "",
   isLink = false,
   href = "/",
@@ -52,7 +52,7 @@ export const Logo: React.FC<LogoProps> = ({
   variant = "wordmark",
   width = 525,
   height = 57,
-}) => {
+}: LogoProps) => {
   return (
     <>
       {isLink ? (
