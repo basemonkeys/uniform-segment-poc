@@ -14,16 +14,15 @@ import {
   FooterLink,
   NavigationGroup,
 } from "./navigation/NavigationLink";
-import "./navigation/QuickLinks";
 import "./global/Footer";
 import "./global/Banner";
-import "./content/Hero";
+import "./Hero";
 import "./user/LoginForm";
 import "./user/MemberProfile";
 import "./contact/ContactUsForm";
 import "./contact/ContactCard";
-import "./content/PrivacyPolicy";
-import "./content/TermsOfUse";
+import "./PrivacyPolicy";
+import "./TermsOfUse";
 
 // default variant
 registerUniformComponent({

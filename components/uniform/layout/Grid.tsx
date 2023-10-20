@@ -42,7 +42,7 @@ const getGridColumnsClass = (columnsCount: Types.AvailableColumnCount) => {
   }
 };
 
-const Grid = ({ columnsCount, component, context }: GridProps) => (
+const Grid: FC<GridProps> = ({ columnsCount, component, context }) => (
   <div
     className={cn(
       "grid w-full auto-rows-max grid-cols-3 lg:gap-6",
