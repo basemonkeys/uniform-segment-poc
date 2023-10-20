@@ -18,7 +18,7 @@ import { cn, getImageUrl } from "@/utils";
 
 export type HeroProps = ComponentProps<{
   textAlignment?: string;
-  heading: string;
+  title: string;
   description: any;
   primarycta: string;
   secondarycta?: string;
@@ -63,7 +63,7 @@ const getAlignmentClass = (alignmentId?: string) => {
 const Hero: React.FC<HeroProps> = ({
   component,
   textAlignment,
-  heading,
+  title,
   description,
   primarycta,
   secondarycta,
@@ -78,7 +78,8 @@ const Hero: React.FC<HeroProps> = ({
     <div
       className={cn(
         "relative",
-        variant === HeroVariant.ImageBackground && "min-h-[calc(100vh-100px)]",
+        variant === HeroVariant.ImageBackground &&
+          "min-h-[calc(100vh-100px)] max-lg:min-h-fit",
       )}
     >
       {/* Gradient Opacity Layer */}
@@ -183,7 +184,7 @@ const Hero: React.FC<HeroProps> = ({
                 isCentered && "!max-w-full",
               )}
             >
-              {heading}
+              {title}
             </h1>
             <span
               className={cn(

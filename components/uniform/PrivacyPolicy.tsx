@@ -5,7 +5,6 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { format } from "date-fns";
 
 const PrivacyPolicy: React.FC<Types.PolicyUseProps> = ({
-  title,
   lastUpdated,
   text,
 }) => {

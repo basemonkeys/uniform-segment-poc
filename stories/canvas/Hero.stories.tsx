@@ -11,7 +11,7 @@ const meta: Meta<typeof Hero> = {
       include: [
         "component",
         "textAlignment",
-        "heading",
+        "title",
         "primarycta",
         "secondarycta",
       ],
@@ -23,7 +23,7 @@ const meta: Meta<typeof Hero> = {
       variant: HeroVariant.DarkBackground,
     },
     textAlignment: "left",
-    heading: "LIVE online classes and workshops",
+    title: "LIVE online classes and workshops",
     description: {
       nodeType: "document",
       data: {},
@@ -93,7 +93,7 @@ export const Featured: Story = {
       type: "hero",
       variant: HeroVariant.ImageBackground,
     },
-    heading: "Take online classes from home or visit us at the gym",
+    title: "Take online classes from home or visit us at the gym",
     description: {
       nodeType: "document",
       data: {},
@@ -148,7 +148,7 @@ export const Partner: Story = {
       type: "hero",
       variant: HeroVariant.ImageBackground,
     },
-    heading: "Online fitness classes and so much more",
+    title: "Online fitness classes and so much more",
     description: {
       nodeType: "document",
       data: {},

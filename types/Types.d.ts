@@ -19,12 +19,6 @@ declare namespace Types {
     path: string;
   };
 
-  // type NavigationLink = {
-  //   title: string;
-  //   link: string;
-  //   description?: string;
-  // };
-
   type ProjectMapLinks = Promise<
     {
       name: string;

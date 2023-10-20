@@ -13,7 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 type ContactCardProps = ComponentProps & {
-  heading: string;
+  title: string;
   phone: {
     path: string;
   };
@@ -25,7 +25,7 @@ type ContactCardProps = ComponentProps & {
 };
 
 export function ContactCard({
-  heading,
+  title,
   phone,
   email,
   tty,
@@ -34,7 +34,7 @@ export function ContactCard({
 }: ContactCardProps) {
   return (
     <div className="mb-10 w-full rounded border bg-white p-4 lg:max-w-[400px]">
-      <h3 className="mb-4">{heading}</h3>
+      <h3 className="mb-4">{title}</h3>
       <UniformRichText
         parameterId="text"
         component={component}
