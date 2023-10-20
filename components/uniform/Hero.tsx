@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/client-components/Cloudinary";
 
 import { cn, getImageUrl } from "@/utils";
+import { log } from "console";
 
 export type HeroProps = ComponentProps<{
   textAlignment?: string;
@@ -78,10 +79,9 @@ const Hero: React.FC<HeroProps> = ({
   const { variant } = component;
   const isCentered = textAlignment === HeroAlignment.Center;
 
-  console.log(secondaryUrl);
-
   return (
     <div
+      id={component._id}
       className={cn(
         "relative",
         variant === HeroVariant.ImageBackground && "min-h-[calc(100vh-100px)]",

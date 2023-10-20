@@ -4,8 +4,10 @@ import { cn } from "@/utils";
 
 import { ComponentProps } from "@uniformdev/canvas-next-rsc";
 
-import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import { Link as ScrollLink } from "react-scroll";
 
 import {
   NavigationMenu,
@@ -63,17 +65,25 @@ export const SSQuickLink: React.FC<Omit<LinkProps, "component">> = ({
   title,
 }) => {
   return (
-    <Link
+    <ScrollLink
       key={title}
-      href={link?.path || "#"}
       className="flex items-center gap-3"
-      // target={link?.path?.startsWith("http") ? "_blank" : "_self"}
       rel={link?.path?.startsWith("http") ? "noopener noreferrer" : ""}
+      activeClass="group active"
+      to={link?.path}
+      spy={true}
+      smooth={true}
+      offset={-110}
+      duration={1000}
     >
-      <div className="border-b-4 border-transparent bg-primary px-6 py-3 text-sm font-bold text-white hover:border-white active:bg-primary-dark">
+      <div
+        className={cn(
+          "border-b-4 border-transparent bg-primary px-6 py-3 text-sm font-bold text-white hover:border-white active:bg-primary-dark group-[.active]:border-white group-[.active]:bg-primary-dark",
+        )}
+      >
         {title}
       </div>
-    </Link>
+    </ScrollLink>
   );
 };
 

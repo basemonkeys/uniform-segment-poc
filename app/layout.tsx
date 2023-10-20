@@ -33,11 +33,11 @@ export const metadata = {
     "SilverSneakers is a fitness and wellness program offered at no additional cost to seniors 65+ on eligible Medicare plans that helps you get active, get fit, and connect with others. Our program is designed for all levels and abilities and provides access to online and in-person classes, over 15,000 fitness locations, and health & wellness discounts",
 };
 
-type Props = {
+type LayoutProps = {
   children: React.ReactNode;
 };
 
-export default async function RootLayout({ children }: Props) {
+export default async function RootLayout({ children }: LayoutProps) {
   void getGlobalComponent();
 
   return (

@@ -6,6 +6,8 @@ import Link from "next/link";
 import { ComponentProps } from "@uniformdev/canvas-next-rsc";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
+import { animateScroll } from "react-scroll";
+
 import { cn, getImageUrl } from "@/utils";
 
 import {
@@ -61,7 +63,10 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
   }, []);
 
   const handleScrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    animateScroll.scrollToTop({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   if (isLoading) return <HeaderSkeleton />;
