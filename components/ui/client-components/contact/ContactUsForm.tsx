@@ -9,7 +9,7 @@ import { ContactUsFormProps } from "@/components/uniform/contact/ContactUsForm";
 import { v4 as uuidv4 } from "uuid";
 
 export function ContactUsForm({
-  heading,
+  title,
   text,
   portalId,
   formId,

@@ -27,7 +27,7 @@ export function QuickLinks({ children }: QuickLinksProps) {
   return (
     <div
       className={cn(
-        "top-[63px] z-50 border-b border-primary-dark bg-primary ",
+        "top-[63px] z-50 border-b border-primary-dark bg-primary max-lg:hidden",
         sticky,
       )}
     >

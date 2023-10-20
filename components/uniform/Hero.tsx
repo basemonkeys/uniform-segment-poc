@@ -19,7 +19,7 @@ import { log } from "console";
 
 export type HeroProps = ComponentProps<{
   textAlignment?: string;
-  heading: string;
+  title: string;
   description: any;
   primarycta: string;
   primaryUrl: string;
@@ -66,7 +66,7 @@ const getAlignmentClass = (alignmentId?: string) => {
 const Hero: React.FC<HeroProps> = ({
   component,
   textAlignment,
-  heading,
+  title,
   description,
   primarycta,
   primaryUrl,
@@ -84,7 +84,8 @@ const Hero: React.FC<HeroProps> = ({
       id={component._id}
       className={cn(
         "relative",
-        variant === HeroVariant.ImageBackground && "min-h-[calc(100vh-100px)]",
+        variant === HeroVariant.ImageBackground &&
+          "min-h-[calc(100vh-100px)] max-lg:min-h-fit",
       )}
     >
       {/* Gradient Opacity Layer */}
@@ -189,7 +190,7 @@ const Hero: React.FC<HeroProps> = ({
                 isCentered && "!max-w-full",
               )}
             >
-              {heading}
+              {title}
             </h1>
             {/* orange divider */}
             <span
