@@ -6,7 +6,6 @@ import {
 import { ContactUsForm as HubspotContactUsForm } from "../../ui/client-components/contact/ContactUsForm";
 
 export type ContactUsFormProps = ComponentProps<{
-  title: string;
   text: string;
   portalId: string;
   formId: string;

@@ -8,12 +8,7 @@ import { ContactUsFormProps } from "@/components/uniform/contact/ContactUsForm";
 
 import { v4 as uuidv4 } from "uuid";
 
-export function ContactUsForm({
-  title,
-  text,
-  portalId,
-  formId,
-}: ContactUsFormProps) {
+export function ContactUsForm({ text, portalId, formId }: ContactUsFormProps) {
   const [uuid, setUuid] = useState("");
 
   useEffect(() => {
