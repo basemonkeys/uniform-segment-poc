@@ -4,17 +4,17 @@ export enum ContainerVariants {
   FullWidth = "fullWidth",
 }
 
-export type Props = {
+export type BaseContainerProps = {
   containerVariant?: string;
   children: React.ReactNode;
   className?: string;
 };
 
-function BaseContainer({ children, className }: Props) {
+function BaseContainer({ children, className }: BaseContainerProps) {
   return <div className={cn("", className)}>{children}</div>;
 }
 
-function ScreenContainer({ children, className }: Props) {
+function ScreenContainer({ children, className }: BaseContainerProps) {
   return (
     <BaseContainer
       className={cn("container m-auto max-w-screen-xl", className)}
@@ -24,7 +24,11 @@ function ScreenContainer({ children, className }: Props) {
   );
 }
 
-export function Container({ containerVariant, children, className }: Props) {
+export function Container({
+  containerVariant,
+  children,
+  className,
+}: BaseContainerProps) {
   if (containerVariant === ContainerVariants.FullWidth) {
     return <BaseContainer className={className}>{children}</BaseContainer>;
   }

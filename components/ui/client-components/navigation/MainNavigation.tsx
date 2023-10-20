@@ -140,7 +140,9 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
                   <a href="/api/auth/login">Log in</a>
                 </Button>
                 <Button className="max-sm:hidden" asChild>
-                  <Link href="/check-eligibility">Check Eligibility</Link>
+                  <Link href="/eligibility/check-eligibility">
+                    Check Eligibility
+                  </Link>
                 </Button>
               </div>
             )}
@@ -151,7 +153,7 @@ const MainNavigation: React.FC<MainNavigationProps> = ({
       {/* Check Eligibility Mobile Button */}
       <div className="fixed bottom-0 z-50 w-full bg-white p-2 px-6 sm:hidden">
         <Button className="w-full" size="xl" asChild>
-          <Link href="/check-eligibility">Check Eligibility</Link>
+          <Link href="/eligibility/check-eligibility">Check Eligibility</Link>
         </Button>
       </div>
 

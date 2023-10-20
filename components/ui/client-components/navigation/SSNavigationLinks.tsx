@@ -58,6 +58,25 @@ export const SSHeaderLink: React.FC<Omit<LinkProps, "component">> = ({
   );
 };
 
+export const SSQuickLink: React.FC<Omit<LinkProps, "component">> = ({
+  link,
+  title,
+}) => {
+  return (
+    <Link
+      key={title}
+      href={link?.path || "#"}
+      className="flex items-center gap-3"
+      // target={link?.path?.startsWith("http") ? "_blank" : "_self"}
+      rel={link?.path?.startsWith("http") ? "noopener noreferrer" : ""}
+    >
+      <div className="border-b-4 border-transparent bg-primary px-6 py-3 text-sm font-bold text-white hover:border-white active:bg-primary-dark">
+        {title}
+      </div>
+    </Link>
+  );
+};
+
 // This component displays the menu items in the Footer.
 export const SSFooterLink: React.FC<Omit<LinkProps, "component">> = ({
   link,

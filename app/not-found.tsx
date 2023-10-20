@@ -12,7 +12,7 @@ export default function NotFound() {
       </p>
       <div className="flex flex-col">
         <Link href="/login">Log In</Link>
-        <Link href="/check-eligibility">Check Eligibility</Link>
+        <Link href="/eligibility/check-eligibility">Check Eligibility</Link>
         <Link href="/classes/live-class-schedule">LIVE Online Clases</Link>
         <Link href="/participating-locations">Fitness Locations</Link>
         <Link href="/">Return Home</Link>

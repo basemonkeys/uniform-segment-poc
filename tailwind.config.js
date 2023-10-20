@@ -2,6 +2,13 @@
 
 import defaultTheme from "tailwindcss/defaultTheme";
 
+const colors = {
+  background: "#FFFFFF",
+  foreground: "#111827",
+  link: "#2563EB",
+  linkHover: "#1E40AF",
+};
+
 module.exports = {
   darkMode: ["class"],
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
@@ -31,8 +38,8 @@ module.exports = {
       // The SilverSneakers color pallette, with selective Tailwind colors, is available at https://www.figma.com/file/0mNynYMtKUNq85fViOFopX/Comp-Sheet?type=design&node-id=65-1141&mode=dev. The other colors below are custom to SilverSneakers.
       colors: {
         transparent: "transparent",
-        background: "#FFFFFF",
-        foreground: "#111827",
+        background: colors.background,
+        foreground: colors.foreground,
         primary: {
           DEFAULT: "#0076CA",
           light: "#93C5FD",
@@ -72,8 +79,8 @@ module.exports = {
           hover: "#BFDBFE",
         },
         link: {
-          DEFAULT: "#2563EB",
-          hover: "#1E40AF",
+          DEFAULT: colors.link,
+          hover: colors.linkHover,
         },
       },
       // this typography object customizes the default typography that is customizable via prose. Use the `prose` class in the markup then add customizations here. See https://tailwindcss.com/docs/typography-plugin#customizing-the-default-styles
@@ -81,14 +88,15 @@ module.exports = {
         DEFAULT: {
           css: {
             // prose css variable colors
-            "--tw-prose-body": "#111827",
-            "--tw-prose-links": "#2563EB",
-            "--tw-prose-bullets": "#111827",
-            "--tw-prose-invert-bullets": "#111827",
+            "--tw-prose-body": colors.foreground,
+            "--tw-prose-links": colors.link,
+            "--tw-prose-counters": colors.foreground,
+            // "--tw-prose-bullets": colors.foreground,
+            // "--tw-prose-invert-bullets": colors.foreground,
             a: {
               textDecoration: "none",
               "&:hover": {
-                color: "#1E40AF",
+                color: colors.linkHover,
               },
             },
             h1: {
@@ -98,13 +106,14 @@ module.exports = {
               marginTop: "none",
             },
             h3: {
+              fontSize: "1.5rem",
               marginTop: "none",
             },
             h4: {
               marginTop: "none",
             },
             p: {
-              marginBottom: "1.5rem",
+              marginBottom: "1rem",
             },
             table: {
               "& td": {
@@ -117,9 +126,13 @@ module.exports = {
               },
             },
             ul: {
+              marginTop: "0",
               "& li ul li": {
                 listStyleType: "circle",
               },
+            },
+            ol: {
+              marginTop: "0",
             },
           },
         },

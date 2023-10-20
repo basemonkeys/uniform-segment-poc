@@ -58,6 +58,10 @@
     display: none;
   }
 
+  .dark-background-link p a {
+    @apply text-white underline;
+  }
+
   /* for some reason the isLoading spinner is displaying w-8 and h-8. This overrides that. I tried created a custom implementation of a Button but could not get the custom variants to work with that. */
   [aria-label="Loading"] > div {
     @apply !h-5 !w-5;

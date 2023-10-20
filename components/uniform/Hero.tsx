@@ -21,7 +21,9 @@ export type HeroProps = ComponentProps<{
   heading: string;
   description: any;
   primarycta: string;
+  primaryUrl: string;
   secondarycta?: string;
+  secondaryUrl?: string;
   image?: string;
   video?: string;
   logo?: string;
@@ -45,7 +47,7 @@ const getBackgroundClass = (variantId?: string) => {
     case HeroVariant.LightBackground:
       return "text-foreground";
     default:
-      return "text-white";
+      return "text-white dark-background-link";
   }
 };
 
@@ -66,13 +68,17 @@ const Hero: React.FC<HeroProps> = ({
   heading,
   description,
   primarycta,
+  primaryUrl,
   secondarycta,
+  secondaryUrl,
   image,
   video,
   logo,
 }) => {
   const { variant } = component;
   const isCentered = textAlignment === HeroAlignment.Center;
+
+  console.log(secondaryUrl);
 
   return (
     <div
@@ -185,13 +191,16 @@ const Hero: React.FC<HeroProps> = ({
             >
               {heading}
             </h1>
+            {/* orange divider */}
             <span
               className={cn(
                 "mb-6 w-24 border-3 border-orange-500 xs:mb-10 sm:max-w-[100px] lg:mb-10",
                 isCentered && "max-sm:mx-auto",
               )}
             ></span>
-            <div className={cn("flex flex-col gap-10 sm:gap-5")}>
+            <div
+              className={cn("prose flex flex-col", getBackgroundClass(variant))}
+            >
               {documentToReactComponents(description)}
               <div
                 className={cn(
@@ -200,27 +209,28 @@ const Hero: React.FC<HeroProps> = ({
                 )}
               >
                 <Button
-                  asChild
                   variant={
                     variant === HeroVariant.LightBackground
                       ? "primary"
                       : "primaryWhite"
                   }
                   size="xl"
+                  asChild
                 >
-                  <Link href="https://google.com">{primarycta}</Link>
+                  <Link href={primaryUrl}>{primarycta}</Link>
                 </Button>
                 {secondarycta ? (
                   <Button
-                    asChild
                     variant={
                       variant === HeroVariant.LightBackground
                         ? "secondaryWhite"
                         : "secondary"
                     }
                     size="xl"
+                    asChild
                   >
-                    <Link href="/">{secondarycta}</Link>
+                    {/* this syntax within hreg is needed because secondaryUrl could be undefined. */}
+                    <Link href={`${secondaryUrl}`}>{secondarycta}</Link>
                   </Button>
                 ) : null}
               </div>

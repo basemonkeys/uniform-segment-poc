@@ -12,8 +12,10 @@ import "./global/Header";
 import {
   HeaderLink,
   FooterLink,
+  QuickLink,
   NavigationGroup,
 } from "./navigation/NavigationLink";
+import "./global/QuickLinks";
 import "./global/Footer";
 import "./global/Banner";
 import "./Hero";
@@ -34,6 +36,12 @@ registerUniformComponent({
   type: "navigationLink",
   component: HeaderLink,
   variantId: "header",
+});
+
+registerUniformComponent({
+  type: "navigationLink",
+  component: QuickLink,
+  variantId: "quickLink",
 });
 
 registerUniformComponent({
