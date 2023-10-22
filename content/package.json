@@ -680,13 +680,13 @@
           "typeConfig": null
         }
       ],
-      "categoryId": "cd774774-e2cb-4aa7-868a-65781e311aa6",
+      "categoryId": "4ea92484-5f32-4633-893d-211a4bb2f13b",
       "useTeamPermissions": true,
       "slots": [],
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-08-29T20:06:35.107289+00:00",
-      "updated": "2023-10-20T20:06:22.605001+00:00",
+      "updated": "2023-10-20T21:21:04.207699+00:00",
       "variants": [
         {
           "id": "imageBackground",
@@ -1122,6 +1122,37 @@
       "updated": "2023-10-19T23:54:08.082683+00:00"
     },
     {
+      "id": "stepItems",
+      "name": "Step Items",
+      "icon": "screen",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [],
+      "titleParameter": "title",
+      "canBeComposition": false,
+      "created": "2023-10-20T21:19:12.316267+00:00",
+      "updated": "2023-10-20T21:19:12.316267+00:00"
+    },
+    {
       "id": "steps",
       "name": "Steps",
       "icon": "screen",
@@ -1137,11 +1168,22 @@
         }
       ],
       "useTeamPermissions": true,
-      "slots": [],
+      "slots": [
+        {
+          "id": "stepItems",
+          "name": "Step Items",
+          "allowedComponents": [
+            "stepItems"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
+        }
+      ],
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-10-20T20:42:33.110621+00:00",
-      "updated": "2023-10-20T20:42:33.110621+00:00",
+      "updated": "2023-10-20T21:22:09.516697+00:00",
       "variants": [
         {
           "id": "lightBackground",

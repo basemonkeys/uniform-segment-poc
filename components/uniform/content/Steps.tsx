@@ -4,24 +4,30 @@ import {
   UniformSlot,
 } from "@uniformdev/canvas-next-rsc";
 
+import { Steps as BaseSteps } from "@/components/ui/client-components/Steps";
+
 export type StepsProps = ComponentProps<{
   title: string;
-  //   steps: {
-  //     title: string;
-  //     description: string;
-  //   }[];
+  children: React.ReactNode;
 }>;
 
-export function Steps({ title, component, context }: StepsProps) {
+export enum StepsVariant {
+  DarkBackground = "darkBackground",
+}
+
+export function Steps(props: StepsProps) {
+  const { component, context } = props;
+
   return (
-    <div>
-      <h2>{title}</h2>
+    <BaseSteps {...props}>
       <UniformSlot name="stepItems" data={component} context={context} />
-    </div>
+    </BaseSteps>
   );
 }
 
-registerUniformComponent({
-  type: "steps",
-  component: Steps,
+[undefined, StepsVariant.DarkBackground].forEach((variantId) => {
+  registerUniformComponent({
+    type: "steps",
+    component: Steps,
+  });
 });

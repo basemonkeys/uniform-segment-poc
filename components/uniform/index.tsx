@@ -19,6 +19,8 @@ import "./navigation/QuickLinks";
 import "./global/Footer";
 import "./global/Banner";
 import "./content/Hero";
+import "./content/Steps";
+import "./content/StepItem";
 import "./user/LoginForm";
 import "./user/MemberProfile";
 import "./contact/ContactUsForm";
