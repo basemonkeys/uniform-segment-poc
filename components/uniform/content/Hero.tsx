@@ -14,14 +14,18 @@ import {
   CloudinaryVideo,
 } from "@/components/ui/client-components/Cloudinary";
 
+import { LightBackground, DarkBackground } from "@/components/ui/Backgrounds";
+
 import { cn, getImageUrl } from "@/utils";
 
 export type HeroProps = ComponentProps<{
   textAlignment?: string;
-  heading: string;
+  title: string;
   description: any;
   primarycta: string;
+  primaryUrl: string;
   secondarycta?: string;
+  secondaryUrl?: string;
   image?: string;
   video?: string;
   logo?: string;
@@ -43,9 +47,9 @@ export enum HeroAlignment {
 const getBackgroundClass = (variantId?: string) => {
   switch (variantId) {
     case HeroVariant.LightBackground:
-      return "text-black";
+      return "text-foreground";
     default:
-      return "text-white";
+      return "text-white dark-background-link";
   }
 };
 
@@ -60,25 +64,29 @@ const getAlignmentClass = (alignmentId?: string) => {
   }
 };
 
-const Hero: React.FC<HeroProps> = ({
+const Hero = ({
   component,
   textAlignment,
-  heading,
+  title,
   description,
   primarycta,
+  primaryUrl,
   secondarycta,
+  secondaryUrl,
   image,
   video,
   logo,
-}) => {
+}: HeroProps) => {
   const { variant } = component;
   const isCentered = textAlignment === HeroAlignment.Center;
 
   return (
     <div
+      id={component._id}
       className={cn(
         "relative",
-        variant === HeroVariant.ImageBackground && "min-h-[calc(100vh-100px)]",
+        variant === HeroVariant.ImageBackground &&
+          "min-h-[calc(100vh-100px)] max-lg:min-h-fit",
       )}
     >
       {/* Gradient Opacity Layer */}
@@ -98,35 +106,9 @@ const Hero: React.FC<HeroProps> = ({
       )}
       {variant !== HeroVariant.ImageBackground &&
         (variant === HeroVariant.LightBackground ? (
-          <div className="absolute z-0 h-full w-full bg-white bg-cover bg-left-top bg-no-repeat">
-            <CloudinaryImage
-              fill
-              src="silversneakers/ayfp6mzjmqo5dpyzhosj"
-              alt="Blue Swoosh"
-              className="object-cover"
-            />
-            <CloudinaryImage
-              fill
-              src="silversneakers/feffiy7gf94xaebp2lep"
-              alt="Blue Swoosh"
-              className="object-cover"
-            />
-          </div>
+          <LightBackground />
         ) : (
-          <div className="absolute z-0 h-full w-full bg-primary bg-cover bg-left-top bg-no-repeat">
-            <CloudinaryImage
-              fill
-              src="silversneakers/oydg5urpuzfkrh2pywu6"
-              alt="Blue Swoosh"
-              className="object-cover"
-            />
-            <CloudinaryImage
-              fill
-              src="silversneakers/okjz19zlcyva7oyeisrs"
-              alt="Blue Swoosh"
-              className="object-cover"
-            />
-          </div>
+          <DarkBackground />
         ))}
       <div
         className={cn(
@@ -183,15 +165,18 @@ const Hero: React.FC<HeroProps> = ({
                 isCentered && "!max-w-full",
               )}
             >
-              {heading}
+              {title}
             </h1>
+            {/* orange divider */}
             <span
               className={cn(
                 "mb-6 w-24 border-3 border-orange-500 xs:mb-10 sm:max-w-[100px] lg:mb-10",
                 isCentered && "max-sm:mx-auto",
               )}
             ></span>
-            <div className={cn("flex flex-col gap-10 sm:gap-5")}>
+            <div
+              className={cn("prose flex flex-col", getBackgroundClass(variant))}
+            >
               {documentToReactComponents(description)}
               <div
                 className={cn(
@@ -200,27 +185,28 @@ const Hero: React.FC<HeroProps> = ({
                 )}
               >
                 <Button
-                  asChild
                   variant={
                     variant === HeroVariant.LightBackground
                       ? "primary"
                       : "primaryWhite"
                   }
                   size="xl"
+                  asChild
                 >
-                  <Link href="https://google.com">{primarycta}</Link>
+                  <Link href={primaryUrl}>{primarycta}</Link>
                 </Button>
                 {secondarycta ? (
                   <Button
-                    asChild
                     variant={
                       variant === HeroVariant.LightBackground
                         ? "secondaryWhite"
                         : "secondary"
                     }
                     size="xl"
+                    asChild
                   >
-                    <Link href="/">{secondarycta}</Link>
+                    {/* this syntax within hreg is needed because secondaryUrl could be undefined. */}
+                    <Link href={`${secondaryUrl}`}>{secondarycta}</Link>
                   </Button>
                 ) : null}
               </div>

@@ -5,22 +5,29 @@ import "./global/pages/HomePage";
 import "./global/pages/Page";
 import "./layout/Container";
 import "./layout/Grid";
+import "./content/RichTextContentCard";
+import "./content/FAQContainer";
+import "./content/FAQItem";
 import "./global/Header";
 import {
   HeaderLink,
   FooterLink,
+  QuickLink,
   NavigationGroup,
 } from "./navigation/NavigationLink";
+import "./navigation/QuickLinks";
 import "./global/Footer";
 import "./global/Banner";
-import "./Hero";
+import "./content/Hero";
+import "./content/Steps";
+import "./content/StepItem";
 import "./user/LoginForm";
 import "./user/EligibilityForm";
 import "./user/MemberProfile";
 import "./contact/ContactUsForm";
 import "./contact/ContactCard";
-import "./PrivacyPolicy";
-import "./TermsOfUse";
+import "./content/PrivacyPolicy";
+import "./content/TermsOfUse";
 
 // default variant
 registerUniformComponent({
@@ -32,6 +39,12 @@ registerUniformComponent({
   type: "navigationLink",
   component: HeaderLink,
   variantId: "header",
+});
+
+registerUniformComponent({
+  type: "navigationLink",
+  component: QuickLink,
+  variantId: "quickLink",
 });
 
 registerUniformComponent({

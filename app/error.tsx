@@ -21,9 +21,7 @@ export default function Error({
   return (
     <div className="flex h-screen flex-col items-center justify-center space-y-6 text-danger">
       <h2>{error.message}</h2>
-      <Button variant="primary" size="md" onClick={() => reset()}>
-        Try again
-      </Button>
+      <Button onClick={() => reset()}>Try again</Button>
       <Link href="/">Return to Home</Link>
     </div>
   );

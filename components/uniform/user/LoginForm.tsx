@@ -1,3 +1,5 @@
+// TODO: delete this component
+
 import {
   registerUniformComponent,
   ComponentProps,
@@ -13,7 +15,6 @@ export type LoginFormProps = ComponentProps<{
 export function LoginForm(props: LoginFormProps) {
   return (
     <>
-      {/* this is a client component */}
       <BaseLoginForm {...props} />
     </>
   );

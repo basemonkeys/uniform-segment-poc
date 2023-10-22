@@ -62,6 +62,27 @@ export const Secondary: Story = {
   },
 };
 
+export const Success: Story = {
+  args: {
+    children: "Success",
+    variant: "success",
+  },
+};
+
+export const Warning: Story = {
+  args: {
+    children: "Warning",
+    variant: "warning",
+  },
+};
+
+export const Danger: Story = {
+  args: {
+    children: "Danger",
+    variant: "danger",
+  },
+};
+
 export const Disabled: Story = {
   args: {
     children: "Disabled",
@@ -84,26 +105,5 @@ export const Loading: Story = {
   },
   parameters: {
     controls: { include: ["size", "radius"] },
-  },
-};
-
-export const Success: Story = {
-  args: {
-    children: "Success",
-    variant: "success",
-  },
-};
-
-export const Warning: Story = {
-  args: {
-    children: "Warning",
-    variant: "warning",
-  },
-};
-
-export const Danger: Story = {
-  args: {
-    children: "Danger",
-    variant: "danger",
   },
 };

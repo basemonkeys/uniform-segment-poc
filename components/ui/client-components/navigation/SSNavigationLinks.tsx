@@ -4,11 +4,14 @@ import { cn } from "@/utils";
 
 import { ComponentProps } from "@uniformdev/canvas-next-rsc";
 
-import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import { Link as ScrollLink } from "react-scroll";
 
 import {
   NavigationMenu,
+  NavigationMenuList,
   NavigationMenuItem,
   NavigationMenuTrigger,
   NavigationMenuContent,
@@ -32,10 +35,7 @@ export type LinkProps = Omit<ComponentProps, "context"> & {
 };
 
 // This component displays the non-dropdown menu items in the Header navigation and the non-accordion menu items in the mobile navigation.
-export const SSHeaderLink: React.FC<Omit<LinkProps, "component">> = ({
-  link,
-  title,
-}) => {
+export const SSHeaderLink = ({ link, title }: Omit<LinkProps, "component">) => {
   const pathname = usePathname();
   const isActive = pathname === link?.path;
 
@@ -49,7 +49,7 @@ export const SSHeaderLink: React.FC<Omit<LinkProps, "component">> = ({
     >
       <Link
         href={link?.path || "#"}
-        className="py-5 lg:text-black lg:hover:text-black"
+        className="lg:hover:text-forground py-5 lg:text-foreground"
       >
         {title}
       </Link>
@@ -57,11 +57,32 @@ export const SSHeaderLink: React.FC<Omit<LinkProps, "component">> = ({
   );
 };
 
+export const SSQuickLink = ({ link, title }: Omit<LinkProps, "component">) => {
+  return (
+    <ScrollLink
+      key={title}
+      className="flex items-center gap-3"
+      rel={link?.path?.startsWith("http") ? "noopener noreferrer" : ""}
+      activeClass="group active"
+      to={link?.path}
+      spy={true}
+      smooth={true}
+      offset={-110}
+      duration={1000}
+    >
+      <div
+        className={cn(
+          "border-b-4 border-transparent bg-primary px-6 py-3 text-sm font-bold text-white hover:border-white active:bg-primary-dark group-[.active]:border-white group-[.active]:bg-primary-dark",
+        )}
+      >
+        {title}
+      </div>
+    </ScrollLink>
+  );
+};
+
 // This component displays the menu items in the Footer.
-export const SSFooterLink: React.FC<Omit<LinkProps, "component">> = ({
-  link,
-  title,
-}) => {
+export const SSFooterLink = ({ link, title }: Omit<LinkProps, "component">) => {
   return (
     <Link
       key={link?.path}
@@ -79,11 +100,7 @@ export const SSFooterLink: React.FC<Omit<LinkProps, "component">> = ({
 };
 
 // This component displays either the accordion group in the mobile navigation or the dropdown group in the Header navigation.
-export const SSNavigationGroup: React.FC<LinkProps> = ({
-  component,
-  title,
-  link,
-}) => {
+export const SSNavigationGroup = ({ component, title, link }: LinkProps) => {
   const pathname = usePathname();
 
   const subNavItems = component?.slots?.subNavItems?.map((item: any) => {
@@ -129,7 +146,7 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
                   <Link href={subNavItemLink.path} className="px-3">
                     {subNavItemTitle}
                   </Link>
-                  <span className="px-3 text-xs text-gray-500">
+                  <span className="px-3 text-xs text-foreground">
                     {subNavItemDescription}
                   </span>
                 </NavigationMenuItem>
@@ -151,45 +168,47 @@ export const SSNavigationGroup: React.FC<LinkProps> = ({
             "border-b-3 border-link",
         )}
       >
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>{title}</NavigationMenuTrigger>
-          <NavigationMenuContent aria-label="Silver Sneakers Features">
-            <ul className="flex w-[340px] flex-col">
-              {/* @ts-ignore */}
-              {subNavItems?.map((item: any, index: any) => {
-                const {
-                  subNavItemTitle,
-                  subNavItemLink,
-                  subNavItemDescription,
-                } = item;
-                return (
-                  <li
-                    key={index}
-                    className={cn(
-                      "flex w-full cursor-pointer flex-col p-2 hover:bg-default-hover",
-                      pathname === subNavItemLink.path &&
-                        "border-l-4 border-primary bg-default-hover",
-                    )}
-                  >
-                    <NavigationMenuLink asChild>
-                      <>
-                        <Link
-                          href={subNavItemLink.path}
-                          className="gap-4 px-3 hover:bg-default-hover"
-                        >
-                          {subNavItemTitle}
-                        </Link>
-                        <span className="px-3 text-sm text-gray-600">
-                          {subNavItemDescription}
-                        </span>
-                      </>
-                    </NavigationMenuLink>
-                  </li>
-                );
-              })}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>{title}</NavigationMenuTrigger>
+            <NavigationMenuContent aria-label="Silver Sneakers Features">
+              <ul className="flex w-[340px] flex-col">
+                {/* @ts-ignore */}
+                {subNavItems?.map((item: any, index: any) => {
+                  const {
+                    subNavItemTitle,
+                    subNavItemLink,
+                    subNavItemDescription,
+                  } = item;
+                  return (
+                    <li
+                      key={index}
+                      className={cn(
+                        "flex w-full cursor-pointer flex-col p-2 hover:bg-default-hover",
+                        pathname === subNavItemLink.path &&
+                          "border-l-4 border-primary bg-default-hover",
+                      )}
+                    >
+                      <NavigationMenuLink asChild>
+                        <>
+                          <Link
+                            href={subNavItemLink.path}
+                            className="gap-4 px-3 hover:bg-default-hover"
+                          >
+                            {subNavItemTitle}
+                          </Link>
+                          <span className="px-3 text-sm text-foreground">
+                            {subNavItemDescription}
+                          </span>
+                        </>
+                      </NavigationMenuLink>
+                    </li>
+                  );
+                })}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
       </NavigationMenu>
     </>
   );

@@ -7,7 +7,7 @@ import {
 
 import SocialIcons from "@/components/ui/client-components/navigation/SocialIcons";
 
-const Footer: React.FC<ComponentProps> = ({ component, context }) => {
+const Footer = ({ component, context }: ComponentProps) => {
   return (
     <footer className="bg-gray-600">
       <div className="container flex w-full flex-col gap-16 px-8 py-16 text-center text-sm text-white lg:gap-6">
