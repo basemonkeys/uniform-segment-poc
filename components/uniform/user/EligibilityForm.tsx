@@ -6,7 +6,7 @@ import {
 import { EligibilityForm as BaseEligibilityForm } from "@/components/ui/client-components/user/EligibilityForm";
 
 export type EligibilityFormProps = ComponentProps<{
-  heading: string;
+  title: string;
 }>;
 
 export function EligibilityForm(props: EligibilityFormProps) {

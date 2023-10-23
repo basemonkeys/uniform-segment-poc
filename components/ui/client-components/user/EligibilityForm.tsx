@@ -61,7 +61,7 @@ const FormRequired = () => {
   return <span className="text-danger">*</span>;
 };
 
-export function EligibilityForm({ heading, component }: EligibilityFormProps) {
+export function EligibilityForm({ title, component }: EligibilityFormProps) {
   const [activeStep, setActiveStep] = useState(0);
 
   console.log(activeStep);
@@ -105,10 +105,12 @@ export function EligibilityForm({ heading, component }: EligibilityFormProps) {
     },
   ];
 
+  // TODO: consider removing stepperTabs since the tabs are not clickable
+
   return (
-    <Card>
+    <Card className="m-auto my-12 max-w-xl">
       <CardHeader className="mb-12">
-        <CardTitle>{heading}</CardTitle>
+        <CardTitle>{title}</CardTitle>
         <CardDescription>
           <UniformRichText
             parameterId="text"
