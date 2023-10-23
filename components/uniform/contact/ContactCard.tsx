@@ -96,7 +96,7 @@ export function ContactCard({
           ) : null}
         </div>
       </div>
-    </Card>
+    </div>
   );
 }
 
