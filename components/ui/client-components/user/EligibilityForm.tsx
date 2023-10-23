@@ -2,10 +2,8 @@
 
 // https://ui.shadcn.com/docs/components/form
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { UniformRichText } from "@uniformdev/canvas-next-rsc";
-// import { useUser } from "@auth0/nextjs-auth0/client";
-
 import { setCookie, getCookie } from "cookies-next";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
@@ -17,20 +15,10 @@ import { cn } from "@/utils";
 import { EligibilityFormProps } from "@/components/uniform/user/EligibilityForm";
 
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogClose,
-} from "@/components/ui/dialog";
-import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
-  CardFooter,
 } from "@/components/ui/card";
 import {
   StepperTabs,
@@ -49,6 +37,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogClose,
+} from "@/components/ui/dialog";
 
 import {
   XCircleIcon,
@@ -75,14 +72,12 @@ const FormRequired = () => {
 
 export function EligibilityForm({ title, component }: EligibilityFormProps) {
   const [activeStep, setActiveStep] = useState(0);
-  // console.log(activeStep);
   const {
-    register,
     control,
     getValues,
     getFieldState,
-    formState: { errors },
-  } = useForm();
+    formState: { isSubmitting },
+  } = useForm({ mode: "onBlur", reValidateMode: "onBlur" });
 
   // TODO: set this cookie when user logs in
   setCookie("userRole", "member");
@@ -103,9 +98,15 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
     },
   });
 
-  function onSubmit(data: z.infer<typeof formSchema>) {
+  async function onSubmit(data: z.infer<typeof formSchema>) {
+    console.log(isSubmitting);
     console.log("data:", data);
-    console.log("errors:", errors);
+    await new Promise<void>((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 2000);
+    });
+    // router.push("/tweets");
   }
 
   const handleButtonClick = () => {
@@ -133,6 +134,9 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
 
   // TODO: consider removing stepperTabs since the tabs are not clickable
 
+  // console.log(form.formState.errors);
+  console.log(activeStep);
+
   return (
     <>
       <Card className="m-auto my-12 max-w-lg">
@@ -156,7 +160,6 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                   {tabs.map((tab: any, index: any) => {
                     return (
                       <StepperTabsTrigger
-                        // disabled
                         key={index}
                         value={tab.title}
                         aria-selected={activeStep === index}
@@ -204,20 +207,18 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                       <FormControl>
                         <div className="relative">
                           <Input
+                            {...field}
                             type="text"
-                            //   placeholder="First Name"
-                            error={errors.firstName?.message}
+                            error={form.formState.errors.firstName?.message}
                             success={
                               getValues("firstName") &&
                               !getFieldState("firstName").invalid
                             }
                             autoComplete="firstName"
-                            {...field}
-                            {...register("Developer", { required: true })}
                           />
 
                           {/* icons */}
-                          {errors.firstName?.message && (
+                          {form.formState.errors.firstName?.message && (
                             <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                               <XCircleIcon className="h-6 w-6 text-danger" />
                             </div>
@@ -249,17 +250,16 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                       <FormControl>
                         <div className="relative">
                           <Input
+                            {...field}
                             type="text"
-                            //   placeholder="Last Name"
-                            error={errors.lastName?.message}
+                            error={form.formState.errors.lastName?.message}
                             success={
                               getValues("lastName") &&
                               !getFieldState("lastName").invalid
                             }
                             autoComplete="lastName"
-                            {...field}
                           />
-                          {errors.lastName?.message && (
+                          {form.formState.errors.lastName?.message && (
                             <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                               <XCircleIcon className="h-6 w-6 text-danger" />
                             </div>
@@ -299,19 +299,19 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                         <FormControl>
                           <div className="relative">
                             <Input
+                              {...field}
                               type="text"
                               placeholder="MM"
-                              error={errors.birthMonth?.message}
+                              error={form.formState.errors.birthMonth?.message}
                               success={
                                 getValues("birthMonth") &&
                                 !getFieldState("birthMonth").invalid
                               }
                               autoComplete="birthMonth"
-                              {...field}
                             />
 
                             {/* icons */}
-                            {errors.birthMonth?.message && (
+                            {form.formState.errors.birthMonth?.message && (
                               <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                                 <XCircleIcon className="h-6 w-6 text-danger" />
                               </div>
@@ -338,19 +338,19 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                         <FormControl>
                           <div className="relative">
                             <Input
+                              {...field}
                               type="text"
                               placeholder="DD"
-                              error={errors.birthDay?.message}
+                              error={form.formState.errors.birthDay?.message}
                               success={
                                 getValues("birthDay") &&
                                 !getFieldState("birthDay").invalid
                               }
                               autoComplete="birthDay"
-                              {...field}
                             />
 
                             {/* icons */}
-                            {errors.birthDay?.message && (
+                            {form.formState.errors.birthDay?.message && (
                               <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                                 <XCircleIcon className="h-6 w-6 text-danger" />
                               </div>
@@ -377,19 +377,19 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                         <FormControl>
                           <div className="relative">
                             <Input
+                              {...field}
                               type="text"
                               placeholder="YYYY"
-                              error={errors.birthYear?.message}
+                              error={form.formState.errors.birthYear?.message}
                               success={
                                 getValues("birthYear") &&
                                 !getFieldState("birthYear").invalid
                               }
                               autoComplete="birthYear"
-                              {...field}
                             />
 
                             {/* icons */}
-                            {errors.birthYear?.message && (
+                            {form.formState.errors.birthYear?.message && (
                               <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                                 <XCircleIcon className="h-6 w-6 text-danger" />
                               </div>
@@ -428,17 +428,17 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                       <FormControl>
                         <div className="relative">
                           <Input
+                            {...field}
                             type="text"
-                            error={errors.zip?.message}
+                            error={form.formState.errors.zip?.message}
                             success={
                               getValues("zip") && !getFieldState("zip").invalid
                             }
                             autoComplete="zip"
-                            {...field}
                           />
 
                           {/* icons */}
-                          {errors.zip?.message && (
+                          {form.formState.errors.zip?.message && (
                             <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                               <XCircleIcon className="h-6 w-6 text-danger" />
                             </div>
@@ -477,19 +477,19 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                       <FormControl>
                         <div className="relative">
                           <Input
+                            {...field}
                             type="text"
                             placeholder="youremail@address.com"
-                            error={errors.email?.message}
+                            error={form.formState.errors.email?.message}
                             success={
                               getValues("email") &&
                               !getFieldState("email").invalid
                             }
                             autoComplete="email"
-                            {...field}
                           />
 
                           {/* icons */}
-                          {errors.email?.message && (
+                          {form.formState.errors.email?.message && (
                             <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                               <XCircleIcon className="h-6 w-6 text-danger" />
                             </div>
@@ -543,7 +543,8 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                 </Button>
               )}
               <Button
-                type={activeStep === 3 ? "submit" : "button"}
+                // type={activeStep === 3 ? "submit" : "button"}
+                type="submit"
                 variant="primary"
                 size="xl"
                 className="w-full"
