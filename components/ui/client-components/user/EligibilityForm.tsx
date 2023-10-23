@@ -2,7 +2,7 @@
 
 // https://ui.shadcn.com/docs/components/form
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { UniformRichText } from "@uniformdev/canvas-next-rsc";
 import { setCookie, getCookie } from "cookies-next";
 import { useForm } from "react-hook-form";
@@ -56,11 +56,20 @@ import {
 const formSchema = z.object({
   firstName: z.string().min(1, { message: "Please enter your first name" }),
   lastName: z.string().min(1, { message: "Please enter your last name" }),
-  birthMonth: z.string().min(2, { message: "Please enter a 1-2 digit month" }),
-  birthDay: z.string().min(2, { message: "Please enter a 1-2 digit day" }),
-  birthYear: z.string().min(4, {
-    message: "Please enter a 4 digit year. Must be over 14 years of age",
-  }),
+  birthMonth: z
+    .string()
+    .min(2, { message: "Please enter a 1-2 digit month" })
+    .max(2),
+  birthDay: z
+    .string()
+    .min(2, { message: "Please enter a 1-2 digit day" })
+    .max(2),
+  birthYear: z
+    .string()
+    .min(4, {
+      message: "Please enter a 4 digit year. Must be over 14 years of age",
+    })
+    .max(4),
   zip: z.string().min(5, { message: "Please enter a valid zip code" }),
   email: z.string().email({ message: "Please enter a valid email address" }),
   signUp: z.boolean(),
@@ -72,12 +81,7 @@ const FormRequired = () => {
 
 export function EligibilityForm({ title, component }: EligibilityFormProps) {
   const [activeStep, setActiveStep] = useState(0);
-  const {
-    control,
-    getValues,
-    getFieldState,
-    formState: { isSubmitting },
-  } = useForm({ mode: "onBlur", reValidateMode: "onBlur" });
+  const { register } = useForm();
 
   // TODO: set this cookie when user logs in
   setCookie("userRole", "member");
@@ -96,22 +100,56 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
       signUp: false,
       // keepMeSignedIn: false,
     },
+    mode: "onChange",
+    reValidateMode: "onBlur",
   });
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
-    console.log(isSubmitting);
+    console.log(form.formState.isSubmitting);
     console.log("data:", data);
-    await new Promise<void>((resolve) => {
-      setTimeout(() => {
-        resolve();
-      }, 2000);
-    });
+    // await new Promise<void>((resolve) => {
+    //   setTimeout(() => {
+    //     resolve();
+    //   }, 2000);
+    // });
     // router.push("/tweets");
   }
 
-  const handleButtonClick = () => {
-    activeStep < 3 && setActiveStep(activeStep + 1);
+  const handleButtonClick = async () => {
+    switch (activeStep) {
+      case 0:
+        await form.trigger(["firstName", "lastName"]);
+        if (
+          !form.formState.errors.firstName &&
+          !form.formState.errors.lastName
+        ) {
+          activeStep < 3 && setActiveStep(activeStep + 1);
+        }
+        break;
+      case 1:
+        await form.trigger(["birthDay", "birthMonth", "birthYear"]);
+        if (
+          !form.formState.errors.birthDay &&
+          !form.formState.errors.birthMonth &&
+          !form.formState.errors.birthYear
+        ) {
+          activeStep < 3 && setActiveStep(activeStep + 1);
+        }
+        break;
+      case 2:
+        await form.trigger("zip");
+        if (!form.formState.errors.zip) {
+          activeStep < 3 && setActiveStep(activeStep + 1);
+        }
+        break;
+      case 3:
+        if (!form.formState.errors.email) {
+          form.handleSubmit(onSubmit)();
+        }
+        break;
+    }
   };
+  // TODO: when clicking activeStep 2 above, the form is triggering email
 
   const tabs = [
     {
@@ -134,8 +172,8 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
 
   // TODO: consider removing stepperTabs since the tabs are not clickable
 
-  // console.log(form.formState.errors);
   console.log(activeStep);
+  console.log(form.formState.errors);
 
   return (
     <>
@@ -197,7 +235,7 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
               >
                 {/* first name */}
                 <FormField
-                  control={control}
+                  control={form.control}
                   name="firstName"
                   render={({ field }) => (
                     <FormItem>
@@ -207,12 +245,13 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                       <FormControl>
                         <div className="relative">
                           <Input
+                            {...register("firstName")}
                             {...field}
                             type="text"
                             error={form.formState.errors.firstName?.message}
                             success={
-                              getValues("firstName") &&
-                              !getFieldState("firstName").invalid
+                              form.getValues("firstName") &&
+                              !form.getFieldState("firstName").invalid
                             }
                             autoComplete="firstName"
                           />
@@ -223,8 +262,8 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                               <XCircleIcon className="h-6 w-6 text-danger" />
                             </div>
                           )}
-                          {getValues("firstName") &&
-                            !getFieldState("firstName").invalid && (
+                          {form.getValues("firstName") &&
+                            !form.getFieldState("firstName").invalid && (
                               <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                                 <CheckIcon className="h-6 w-6 text-success" />
                               </div>
@@ -238,7 +277,7 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
 
                 {/* last name */}
                 <FormField
-                  control={control}
+                  control={form.control}
                   name="lastName"
                   render={({ field }) => (
                     <FormItem>
@@ -250,12 +289,13 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                       <FormControl>
                         <div className="relative">
                           <Input
+                            {...register("lastName")}
                             {...field}
                             type="text"
                             error={form.formState.errors.lastName?.message}
                             success={
-                              getValues("lastName") &&
-                              !getFieldState("lastName").invalid
+                              form.getValues("lastName") &&
+                              !form.getFieldState("lastName").invalid
                             }
                             autoComplete="lastName"
                           />
@@ -264,8 +304,8 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                               <XCircleIcon className="h-6 w-6 text-danger" />
                             </div>
                           )}
-                          {getValues("lastName") &&
-                            !getFieldState("lastName").invalid && (
+                          {form.getValues("lastName") &&
+                            !form.getFieldState("lastName").invalid && (
                               <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                                 <CheckIcon className="h-6 w-6 text-success" />
                               </div>
@@ -292,20 +332,21 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                 <div className="flex gap-2">
                   {/* birth month */}
                   <FormField
-                    control={control}
+                    control={form.control}
                     name="birthMonth"
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
                           <div className="relative">
                             <Input
+                              {...register("birthMonth")}
                               {...field}
                               type="text"
                               placeholder="MM"
                               error={form.formState.errors.birthMonth?.message}
                               success={
-                                getValues("birthMonth") &&
-                                !getFieldState("birthMonth").invalid
+                                form.getValues("birthMonth") &&
+                                !form.getFieldState("birthMonth").invalid
                               }
                               autoComplete="birthMonth"
                             />
@@ -316,8 +357,8 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                                 <XCircleIcon className="h-6 w-6 text-danger" />
                               </div>
                             )}
-                            {getValues("birthMonth") &&
-                              !getFieldState("birthMonth").invalid && (
+                            {form.getValues("birthMonth") &&
+                              !form.getFieldState("birthMonth").invalid && (
                                 <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                                   <CheckIcon className="h-6 w-6 text-success" />
                                 </div>
@@ -331,20 +372,21 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
 
                   {/* birth day */}
                   <FormField
-                    control={control}
+                    control={form.control}
                     name="birthDay"
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
                           <div className="relative">
                             <Input
+                              {...register("birthDay")}
                               {...field}
                               type="text"
                               placeholder="DD"
                               error={form.formState.errors.birthDay?.message}
                               success={
-                                getValues("birthDay") &&
-                                !getFieldState("birthDay").invalid
+                                form.getValues("birthDay") &&
+                                !form.getFieldState("birthDay").invalid
                               }
                               autoComplete="birthDay"
                             />
@@ -355,8 +397,8 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                                 <XCircleIcon className="h-6 w-6 text-danger" />
                               </div>
                             )}
-                            {getValues("birthDay") &&
-                              !getFieldState("birthDay").invalid && (
+                            {form.getValues("birthDay") &&
+                              !form.getFieldState("birthDay").invalid && (
                                 <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                                   <CheckIcon className="h-6 w-6 text-success" />
                                 </div>
@@ -370,20 +412,21 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
 
                   {/* birth year */}
                   <FormField
-                    control={control}
+                    control={form.control}
                     name="birthYear"
                     render={({ field }) => (
                       <FormItem>
                         <FormControl>
                           <div className="relative">
                             <Input
+                              {...register("birthYear")}
                               {...field}
                               type="text"
                               placeholder="YYYY"
                               error={form.formState.errors.birthYear?.message}
                               success={
-                                getValues("birthYear") &&
-                                !getFieldState("birthYear").invalid
+                                form.getValues("birthYear") &&
+                                !form.getFieldState("birthYear").invalid
                               }
                               autoComplete="birthYear"
                             />
@@ -394,8 +437,8 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                                 <XCircleIcon className="h-6 w-6 text-danger" />
                               </div>
                             )}
-                            {getValues("birthYear") &&
-                              !getFieldState("birthYear").invalid && (
+                            {form.getValues("birthYear") &&
+                              !form.getFieldState("birthYear").invalid && (
                                 <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                                   <CheckIcon className="h-6 w-6 text-success" />
                                 </div>
@@ -418,7 +461,7 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
               >
                 {/* zip code */}
                 <FormField
-                  control={control}
+                  control={form.control}
                   name="zip"
                   render={({ field }) => (
                     <FormItem>
@@ -428,11 +471,13 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                       <FormControl>
                         <div className="relative">
                           <Input
+                            {...register("zip")}
                             {...field}
                             type="text"
                             error={form.formState.errors.zip?.message}
                             success={
-                              getValues("zip") && !getFieldState("zip").invalid
+                              form.getValues("zip") &&
+                              !form.getFieldState("zip").invalid
                             }
                             autoComplete="zip"
                           />
@@ -443,8 +488,8 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                               <XCircleIcon className="h-6 w-6 text-danger" />
                             </div>
                           )}
-                          {getValues("zip") &&
-                            !getFieldState("zip").invalid && (
+                          {form.getValues("zip") &&
+                            !form.getFieldState("zip").invalid && (
                               <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                                 <CheckIcon className="h-6 w-6 text-success" />
                               </div>
@@ -467,7 +512,7 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
               >
                 {/* email */}
                 <FormField
-                  control={control}
+                  control={form.control}
                   name="email"
                   render={({ field }) => (
                     <FormItem>
@@ -477,13 +522,14 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                       <FormControl>
                         <div className="relative">
                           <Input
+                            {...register("email")}
                             {...field}
-                            type="text"
+                            type="email"
                             placeholder="youremail@address.com"
                             error={form.formState.errors.email?.message}
                             success={
-                              getValues("email") &&
-                              !getFieldState("email").invalid
+                              form.getValues("email") &&
+                              !form.getFieldState("email").invalid
                             }
                             autoComplete="email"
                           />
@@ -494,8 +540,8 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                               <XCircleIcon className="h-6 w-6 text-danger" />
                             </div>
                           )}
-                          {getValues("email") &&
-                            !getFieldState("email").invalid && (
+                          {form.getValues("email") &&
+                            !form.getFieldState("email").invalid && (
                               <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                                 <CheckIcon className="h-6 w-6 text-success" />
                               </div>
@@ -509,7 +555,7 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
 
                 {/* keep me signed in */}
                 <FormField
-                  control={control}
+                  control={form.control}
                   name="signUp"
                   render={({ field }) => (
                     <FormItem className="flex flex-row items-start space-x-3 space-y-0 pl-1">
@@ -543,8 +589,7 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                 </Button>
               )}
               <Button
-                // type={activeStep === 3 ? "submit" : "button"}
-                type="submit"
+                type={activeStep === 3 ? "submit" : "button"}
                 variant="primary"
                 size="xl"
                 className="w-full"
@@ -557,7 +602,7 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
         </Form>
       </Card>
 
-      <DevTool control={control} />
+      <DevTool control={form.control} />
 
       {userRole === "member" && (
         <Dialog defaultOpen>
