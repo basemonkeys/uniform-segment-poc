@@ -2,11 +2,13 @@
 
 // https://ui.shadcn.com/docs/components/form
 
-import { useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { UniformRichText } from "@uniformdev/canvas-next-rsc";
+// import { useUser } from "@auth0/nextjs-auth0/client";
 
+import { setCookie, getCookie } from "cookies-next";
 import { useForm } from "react-hook-form";
+import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
@@ -15,10 +17,20 @@ import { cn } from "@/utils";
 import { EligibilityFormProps } from "@/components/uniform/user/EligibilityForm";
 
 import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogClose,
+} from "@/components/ui/dialog";
+import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
+  CardFooter,
 } from "@/components/ui/card";
 import {
   StepperTabs,
@@ -63,8 +75,18 @@ const FormRequired = () => {
 
 export function EligibilityForm({ title, component }: EligibilityFormProps) {
   const [activeStep, setActiveStep] = useState(0);
+  // console.log(activeStep);
+  const {
+    register,
+    control,
+    getValues,
+    getFieldState,
+    formState: { errors },
+  } = useForm();
 
-  console.log(activeStep);
+  // TODO: set this cookie when user logs in
+  setCookie("userRole", "member");
+  const userRole = getCookie("userRole");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -81,10 +103,14 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log("values:", values);
-    console.log("errors:", form.formState.errors);
+  function onSubmit(data: z.infer<typeof formSchema>) {
+    console.log("data:", data);
+    console.log("errors:", errors);
   }
+
+  const handleButtonClick = () => {
+    activeStep < 3 && setActiveStep(activeStep + 1);
+  };
 
   const tabs = [
     {
@@ -108,188 +134,96 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
   // TODO: consider removing stepperTabs since the tabs are not clickable
 
   return (
-    <Card className="m-auto my-12 max-w-xl">
-      <CardHeader className="mb-12">
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>
-          <UniformRichText
-            parameterId="text"
-            component={component}
-          ></UniformRichText>
-        </CardDescription>
-      </CardHeader>
+    <>
+      <Card className="m-auto my-12 max-w-lg">
+        <CardHeader className="mb-12">
+          <CardTitle>{title}</CardTitle>
+          <CardDescription>
+            <UniformRichText
+              parameterId="text"
+              component={component}
+            ></UniformRichText>
+          </CardDescription>
+        </CardHeader>
 
-      {/* Form */}
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          {/* Stepper Tabs */}
-          <StepperTabs defaultValue="Name" className="m-auto w-full">
-            <div className="mb-6 space-y-2">
-              <StepperTabsList>
-                {tabs.map((tab: any, index: any) => {
-                  return (
-                    <StepperTabsTrigger
-                      // disabled
-                      key={index}
-                      value={tab.title}
-                      aria-selected={activeStep === index}
-                      data-state={activeStep === index && "active"}
-                      className="data-[state=active]:border-b-primary data-[state=active]:text-primary data-[state=active]:shadow-sm"
-                    >
-                      <span
-                        className={cn(
-                          "flex h-8 w-8 items-center justify-center rounded-full border border-default ",
-                          activeStep === index &&
-                            "group-data-[state=active]:border-0 group-data-[state=active]:bg-primary group-data-[state=active]:text-white",
-                        )}
+        {/* Form */}
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            {/* Stepper Tabs */}
+            <StepperTabs defaultValue="Name" className="m-auto w-full">
+              <div className="mb-6 space-y-2">
+                <StepperTabsList>
+                  {tabs.map((tab: any, index: any) => {
+                    return (
+                      <StepperTabsTrigger
+                        // disabled
+                        key={index}
+                        value={tab.title}
+                        aria-selected={activeStep === index}
+                        data-state={activeStep === index && "active"}
+                        className="data-[state=active]:border-b-primary data-[state=active]:text-primary data-[state=active]:shadow-sm"
                       >
-                        {tab.number}
-                      </span>
-                      <span>{tab.title}</span>
-                    </StepperTabsTrigger>
-                  );
-                })}
-              </StepperTabsList>
-
-              <div className="flex items-center justify-end">
-                <span className="mr-2 pt-1 text-sm text-danger">*</span>{" "}
-                <span>= required</span>
-              </div>
-            </div>
-
-            {/* Name */}
-            <StepperTabsContent
-              forceMount
-              value="Name"
-              className="space-y-6"
-              data-state={activeStep === 0 ? "active" : "inactive"}
-              hidden={activeStep != 0}
-            >
-              {/* first name */}
-              <FormField
-                control={form.control}
-                name="firstName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      First Name <FormRequired />
-                    </FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <Input
-                          type="text"
-                          //   placeholder="First Name"
-                          error={form.formState.errors.firstName?.message}
-                          success={
-                            form.getValues("firstName") &&
-                            !form.getFieldState("firstName").invalid
-                          }
-                          autoComplete="firstName"
-                          {...field}
-                        />
-
-                        {/* icons */}
-                        {form.formState.errors.firstName?.message && (
-                          <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
-                            <XCircleIcon className="h-6 w-6 text-danger" />
-                          </div>
-                        )}
-                        {form.getValues("firstName") &&
-                          !form.getFieldState("firstName").invalid && (
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
-                              <CheckIcon className="h-6 w-6 text-success" />
-                            </div>
+                        <span
+                          className={cn(
+                            "flex h-8 w-8 items-center justify-center rounded-full border border-default ",
+                            activeStep === index &&
+                              "group-data-[state=active]:border-0 group-data-[state=active]:bg-primary group-data-[state=active]:text-white",
                           )}
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                        >
+                          {tab.number}
+                        </span>
+                        <span>{tab.title}</span>
+                      </StepperTabsTrigger>
+                    );
+                  })}
+                </StepperTabsList>
 
-              {/* last name */}
-              <FormField
-                control={form.control}
-                name="lastName"
-                render={({ field }) => (
-                  <FormItem>
-                    <div className="flex justify-between">
+                <div className="flex items-center justify-end">
+                  <span className="mr-2 pt-1 text-sm text-danger">*</span>{" "}
+                  <span>= required</span>
+                </div>
+              </div>
+
+              {/* Name */}
+              <StepperTabsContent
+                forceMount
+                value="Name"
+                className="space-y-6"
+                data-state={activeStep === 0 ? "active" : "inactive"}
+                hidden={activeStep != 0}
+              >
+                {/* first name */}
+                <FormField
+                  control={control}
+                  name="firstName"
+                  render={({ field }) => (
+                    <FormItem>
                       <FormLabel>
-                        Last Name <FormRequired />
+                        First Name <FormRequired />
                       </FormLabel>
-                    </div>
-                    <FormControl>
-                      <div className="relative">
-                        <Input
-                          type="text"
-                          //   placeholder="Last Name"
-                          error={form.formState.errors.lastName?.message}
-                          success={
-                            form.getValues("lastName") &&
-                            !form.getFieldState("lastName").invalid
-                          }
-                          autoComplete="lastName"
-                          {...field}
-                        />
-                        {form.formState.errors.lastName?.message && (
-                          <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
-                            <XCircleIcon className="h-6 w-6 text-danger" />
-                          </div>
-                        )}
-                        {form.getValues("lastName") &&
-                          !form.getFieldState("lastName").invalid && (
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
-                              <CheckIcon className="h-6 w-6 text-success" />
-                            </div>
-                          )}
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </StepperTabsContent>
-
-            {/* Birthday */}
-            <StepperTabsContent
-              forceMount
-              value="Birthday"
-              className="space-y-2"
-              data-state={activeStep === 1 ? "active" : "inactive"}
-              hidden={activeStep != 1}
-            >
-              <FormLabel>
-                Date of Birth <FormRequired />
-              </FormLabel>
-              <div className="flex gap-2">
-                {/* birth month */}
-                <FormField
-                  control={form.control}
-                  name="birthMonth"
-                  render={({ field }) => (
-                    <FormItem>
                       <FormControl>
                         <div className="relative">
                           <Input
                             type="text"
-                            placeholder="MM"
-                            error={form.formState.errors.birthMonth?.message}
+                            //   placeholder="First Name"
+                            error={errors.firstName?.message}
                             success={
-                              form.getValues("birthMonth") &&
-                              !form.getFieldState("birthMonth").invalid
+                              getValues("firstName") &&
+                              !getFieldState("firstName").invalid
                             }
-                            autoComplete="birthMonth"
+                            autoComplete="firstName"
                             {...field}
+                            {...register("Developer", { required: true })}
                           />
 
                           {/* icons */}
-                          {form.formState.errors.birthMonth?.message && (
+                          {errors.firstName?.message && (
                             <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                               <XCircleIcon className="h-6 w-6 text-danger" />
                             </div>
                           )}
-                          {form.getValues("birthMonth") &&
-                            !form.getFieldState("birthMonth").invalid && (
+                          {getValues("firstName") &&
+                            !getFieldState("firstName").invalid && (
                               <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                                 <CheckIcon className="h-6 w-6 text-success" />
                               </div>
@@ -301,34 +235,267 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                   )}
                 />
 
-                {/* birth day */}
+                {/* last name */}
                 <FormField
-                  control={form.control}
-                  name="birthDay"
+                  control={control}
+                  name="lastName"
                   render={({ field }) => (
                     <FormItem>
+                      <div className="flex justify-between">
+                        <FormLabel>
+                          Last Name <FormRequired />
+                        </FormLabel>
+                      </div>
                       <FormControl>
                         <div className="relative">
                           <Input
                             type="text"
-                            placeholder="DD"
-                            error={form.formState.errors.birthDay?.message}
+                            //   placeholder="Last Name"
+                            error={errors.lastName?.message}
                             success={
-                              form.getValues("birthDay") &&
-                              !form.getFieldState("birthDay").invalid
+                              getValues("lastName") &&
+                              !getFieldState("lastName").invalid
                             }
-                            autoComplete="birthDay"
+                            autoComplete="lastName"
                             {...field}
                           />
-
-                          {/* icons */}
-                          {form.formState.errors.birthDay?.message && (
+                          {errors.lastName?.message && (
                             <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                               <XCircleIcon className="h-6 w-6 text-danger" />
                             </div>
                           )}
-                          {form.getValues("birthDay") &&
-                            !form.getFieldState("birthDay").invalid && (
+                          {getValues("lastName") &&
+                            !getFieldState("lastName").invalid && (
+                              <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
+                                <CheckIcon className="h-6 w-6 text-success" />
+                              </div>
+                            )}
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </StepperTabsContent>
+
+              {/* Birthday */}
+              <StepperTabsContent
+                forceMount
+                value="Birthday"
+                className="space-y-2"
+                data-state={activeStep === 1 ? "active" : "inactive"}
+                hidden={activeStep != 1}
+              >
+                <FormLabel>
+                  Date of Birth <FormRequired />
+                </FormLabel>
+                <div className="flex gap-2">
+                  {/* birth month */}
+                  <FormField
+                    control={control}
+                    name="birthMonth"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <div className="relative">
+                            <Input
+                              type="text"
+                              placeholder="MM"
+                              error={errors.birthMonth?.message}
+                              success={
+                                getValues("birthMonth") &&
+                                !getFieldState("birthMonth").invalid
+                              }
+                              autoComplete="birthMonth"
+                              {...field}
+                            />
+
+                            {/* icons */}
+                            {errors.birthMonth?.message && (
+                              <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
+                                <XCircleIcon className="h-6 w-6 text-danger" />
+                              </div>
+                            )}
+                            {getValues("birthMonth") &&
+                              !getFieldState("birthMonth").invalid && (
+                                <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
+                                  <CheckIcon className="h-6 w-6 text-success" />
+                                </div>
+                              )}
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  {/* birth day */}
+                  <FormField
+                    control={control}
+                    name="birthDay"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <div className="relative">
+                            <Input
+                              type="text"
+                              placeholder="DD"
+                              error={errors.birthDay?.message}
+                              success={
+                                getValues("birthDay") &&
+                                !getFieldState("birthDay").invalid
+                              }
+                              autoComplete="birthDay"
+                              {...field}
+                            />
+
+                            {/* icons */}
+                            {errors.birthDay?.message && (
+                              <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
+                                <XCircleIcon className="h-6 w-6 text-danger" />
+                              </div>
+                            )}
+                            {getValues("birthDay") &&
+                              !getFieldState("birthDay").invalid && (
+                                <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
+                                  <CheckIcon className="h-6 w-6 text-success" />
+                                </div>
+                              )}
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  {/* birth year */}
+                  <FormField
+                    control={control}
+                    name="birthYear"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <div className="relative">
+                            <Input
+                              type="text"
+                              placeholder="YYYY"
+                              error={errors.birthYear?.message}
+                              success={
+                                getValues("birthYear") &&
+                                !getFieldState("birthYear").invalid
+                              }
+                              autoComplete="birthYear"
+                              {...field}
+                            />
+
+                            {/* icons */}
+                            {errors.birthYear?.message && (
+                              <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
+                                <XCircleIcon className="h-6 w-6 text-danger" />
+                              </div>
+                            )}
+                            {getValues("birthYear") &&
+                              !getFieldState("birthYear").invalid && (
+                                <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
+                                  <CheckIcon className="h-6 w-6 text-success" />
+                                </div>
+                              )}
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              </StepperTabsContent>
+
+              {/* Location */}
+              <StepperTabsContent
+                forceMount
+                value="Location"
+                data-state={activeStep === 2 ? "active" : "inactive"}
+                hidden={activeStep != 2}
+              >
+                {/* zip code */}
+                <FormField
+                  control={control}
+                  name="zip"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>
+                        Zip <FormRequired />
+                      </FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <Input
+                            type="text"
+                            error={errors.zip?.message}
+                            success={
+                              getValues("zip") && !getFieldState("zip").invalid
+                            }
+                            autoComplete="zip"
+                            {...field}
+                          />
+
+                          {/* icons */}
+                          {errors.zip?.message && (
+                            <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
+                              <XCircleIcon className="h-6 w-6 text-danger" />
+                            </div>
+                          )}
+                          {getValues("zip") &&
+                            !getFieldState("zip").invalid && (
+                              <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
+                                <CheckIcon className="h-6 w-6 text-success" />
+                              </div>
+                            )}
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </StepperTabsContent>
+
+              {/* Contact */}
+              <StepperTabsContent
+                forceMount
+                value="Contact"
+                className="space-y-6"
+                data-state={activeStep === 3 ? "active" : "inactive"}
+                hidden={activeStep != 3}
+              >
+                {/* email */}
+                <FormField
+                  control={control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>
+                        Email <FormRequired />
+                      </FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                          <Input
+                            type="text"
+                            placeholder="youremail@address.com"
+                            error={errors.email?.message}
+                            success={
+                              getValues("email") &&
+                              !getFieldState("email").invalid
+                            }
+                            autoComplete="email"
+                            {...field}
+                          />
+
+                          {/* icons */}
+                          {errors.email?.message && (
+                            <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
+                              <XCircleIcon className="h-6 w-6 text-danger" />
+                            </div>
+                          )}
+                          {getValues("email") &&
+                            !getFieldState("email").invalid && (
                               <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
                                 <CheckIcon className="h-6 w-6 text-success" />
                               </div>
@@ -340,197 +507,80 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                   )}
                 />
 
-                {/* birth year */}
+                {/* keep me signed in */}
                 <FormField
-                  control={form.control}
-                  name="birthYear"
+                  control={control}
+                  name="signUp"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="flex flex-row items-start space-x-3 space-y-0 pl-1">
                       <FormControl>
-                        <div className="relative">
-                          <Input
-                            type="text"
-                            placeholder="YYYY"
-                            error={form.formState.errors.birthYear?.message}
-                            success={
-                              form.getValues("birthYear") &&
-                              !form.getFieldState("birthYear").invalid
-                            }
-                            autoComplete="birthYear"
-                            {...field}
-                          />
-
-                          {/* icons */}
-                          {form.formState.errors.birthYear?.message && (
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
-                              <XCircleIcon className="h-6 w-6 text-danger" />
-                            </div>
-                          )}
-                          {form.getValues("birthYear") &&
-                            !form.getFieldState("birthYear").invalid && (
-                              <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
-                                <CheckIcon className="h-6 w-6 text-success" />
-                              </div>
-                            )}
-                        </div>
+                        <Checkbox
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                        />
                       </FormControl>
-                      <FormMessage />
+                      <div className="space-y-1 leading-none">
+                        <FormLabel>Sign up for our newsletter</FormLabel>
+                      </div>
                     </FormItem>
                   )}
                 />
-              </div>
-            </StepperTabsContent>
+              </StepperTabsContent>
+            </StepperTabs>
 
-            {/* Location */}
-            <StepperTabsContent
-              forceMount
-              value="Location"
-              data-state={activeStep === 2 ? "active" : "inactive"}
-              hidden={activeStep != 2}
-            >
-              {/* zip code */}
-              <FormField
-                control={form.control}
-                name="zip"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      Zip <FormRequired />
-                    </FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <Input
-                          type="text"
-                          error={form.formState.errors.zip?.message}
-                          success={
-                            form.getValues("zip") &&
-                            !form.getFieldState("zip").invalid
-                          }
-                          autoComplete="zip"
-                          {...field}
-                        />
-
-                        {/* icons */}
-                        {form.formState.errors.zip?.message && (
-                          <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
-                            <XCircleIcon className="h-6 w-6 text-danger" />
-                          </div>
-                        )}
-                        {form.getValues("zip") &&
-                          !form.getFieldState("zip").invalid && (
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
-                              <CheckIcon className="h-6 w-6 text-success" />
-                            </div>
-                          )}
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </StepperTabsContent>
-
-            {/* Contact */}
-            <StepperTabsContent
-              forceMount
-              value="Contact"
-              className="space-y-6"
-              data-state={activeStep === 3 ? "active" : "inactive"}
-              hidden={activeStep != 3}
-            >
-              {/* email */}
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      Email <FormRequired />
-                    </FormLabel>
-                    <FormControl>
-                      <div className="relative">
-                        <Input
-                          type="text"
-                          placeholder="youremail@address.com"
-                          error={form.formState.errors.email?.message}
-                          success={
-                            form.getValues("email") &&
-                            !form.getFieldState("email").invalid
-                          }
-                          autoComplete="email"
-                          {...field}
-                        />
-
-                        {/* icons */}
-                        {form.formState.errors.email?.message && (
-                          <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
-                            <XCircleIcon className="h-6 w-6 text-danger" />
-                          </div>
-                        )}
-                        {form.getValues("email") &&
-                          !form.getFieldState("email").invalid && (
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
-                              <CheckIcon className="h-6 w-6 text-success" />
-                            </div>
-                          )}
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              {/* keep me signed in */}
-              <FormField
-                control={form.control}
-                name="signUp"
-                render={({ field }) => (
-                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 pl-1">
-                    <FormControl>
-                      <Checkbox
-                        checked={field.value}
-                        onCheckedChange={field.onChange}
-                      />
-                    </FormControl>
-                    <div className="space-y-1 leading-none">
-                      <FormLabel>Sign up for our newsletter</FormLabel>
-                    </div>
-                  </FormItem>
-                )}
-              />
-            </StepperTabsContent>
-          </StepperTabs>
-
-          <div className="flex gap-4">
-            {activeStep > 0 && (
+            <div className="flex gap-4">
+              {activeStep > 0 && (
+                <Button
+                  variant="secondaryWhite"
+                  size="xl"
+                  className="w-full"
+                  onClick={() => setActiveStep(activeStep - 1)}
+                >
+                  <div className="flex items-center space-x-2">
+                    <ArrowLeftIcon className="h-6 w-6" />
+                    <span>Back</span>
+                  </div>
+                </Button>
+              )}
               <Button
-                variant="secondaryWhite"
+                type={activeStep === 3 ? "submit" : "button"}
+                variant="primary"
                 size="xl"
                 className="w-full"
-                onClick={() => setActiveStep(activeStep - 1)}
+                onClick={handleButtonClick}
               >
-                <div className="flex items-center space-x-2">
-                  <ArrowLeftIcon className="h-6 w-6" />
-                  <span>Back</span>
-                </div>
+                {activeStep === 3 ? "Check Eligibility" : "Next"}
               </Button>
-            )}
-            <Button
-              type={activeStep === 3 ? "submit" : "button"}
-              variant="primary"
-              size="xl"
-              className="w-full"
-              onClick={
-                activeStep === 3
-                  ? (e) => e.preventDefault
-                  : () => setActiveStep(activeStep + 1)
-              }
-            >
-              {activeStep === 3 ? "Check Eligibility" : "Next"}
-            </Button>
-          </div>
-        </form>
-      </Form>
-    </Card>
+            </div>
+          </form>
+        </Form>
+      </Card>
+
+      <DevTool control={control} />
+
+      {userRole === "member" && (
+        <Dialog defaultOpen>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader className="mb-12">
+              <DialogTitle>Do you already have an account?</DialogTitle>
+              <DialogDescription>
+                You might have logged in on this device before. Do you want to
+                log in instead of checking eligibility?
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <Button variant="secondaryWhite" size="lg" asChild>
+                <a href="/api/auth/login">Log In</a>
+              </Button>
+              <DialogClose asChild>
+                <Button variant="primary" size="lg">
+                  Continue
+                </Button>
+              </DialogClose>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      )}
+    </>
   );
 }

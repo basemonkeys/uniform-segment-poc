@@ -1,10 +1,15 @@
 import * as React from "react";
 
 import { cn } from "@/utils";
+import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-  error: string | "" | undefined;
+  error:
+    | string
+    | FieldError
+    | Merge<FieldError, FieldErrorsImpl<any>>
+    | undefined;
   success: boolean | "" | undefined;
 }
 
