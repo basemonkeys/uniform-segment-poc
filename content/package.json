@@ -768,7 +768,8 @@
             "$p:abcd32be-5961-4103-9540-183229d50364",
             "container",
             "grid",
-            "quickLinks"
+            "quickLinks",
+            "steps"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -795,7 +796,7 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-10-05T20:36:58.515615+00:00",
-      "updated": "2023-10-20T00:48:06.401665+00:00"
+      "updated": "2023-10-20T22:35:12.90963+00:00"
     },
     {
       "id": "memberProfile",
@@ -962,7 +963,8 @@
             "richTextContentCard",
             "$loop",
             "$p:157c3a68-dd5e-4764-88cf-763be74baeb9",
-            "quickLinks"
+            "quickLinks",
+            "steps"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -978,7 +980,7 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-08-29T20:06:33.571497+00:00",
-      "updated": "2023-10-20T00:48:20.594915+00:00"
+      "updated": "2023-10-20T22:35:00.264885+00:00"
     },
     {
       "id": "privacyPolicy",
@@ -1122,10 +1124,33 @@
       "updated": "2023-10-19T23:54:08.082683+00:00"
     },
     {
-      "id": "stepItems",
-      "name": "Step Items",
-      "icon": "screen",
+      "id": "stepItem",
+      "name": "Step Item",
+      "icon": "check-o",
       "parameters": [
+        {
+          "id": "stepNumber",
+          "name": "Step #",
+          "type": "select",
+          "helpText": "This controls the order of the Step Items",
+          "typeConfig": {
+            "options": [
+              {
+                "text": "1",
+                "value": "1"
+              },
+              {
+                "text": "2",
+                "value": "2"
+              },
+              {
+                "text": "3",
+                "value": "3"
+              }
+            ],
+            "required": true
+          }
+        },
         {
           "id": "title",
           "name": "Title",
@@ -1145,17 +1170,18 @@
           }
         }
       ],
+      "categoryId": "4ea92484-5f32-4633-893d-211a4bb2f13b",
       "useTeamPermissions": true,
       "slots": [],
       "titleParameter": "title",
       "canBeComposition": false,
-      "created": "2023-10-20T21:19:12.316267+00:00",
-      "updated": "2023-10-20T21:19:12.316267+00:00"
+      "created": "2023-10-20T22:33:48.398681+00:00",
+      "updated": "2023-10-22T05:27:22.211645+00:00"
     },
     {
       "id": "steps",
       "name": "Steps",
-      "icon": "screen",
+      "icon": "check-o",
       "parameters": [
         {
           "id": "title",
@@ -1167,13 +1193,14 @@
           }
         }
       ],
+      "categoryId": "4ea92484-5f32-4633-893d-211a4bb2f13b",
       "useTeamPermissions": true,
       "slots": [
         {
           "id": "stepItems",
           "name": "Step Items",
           "allowedComponents": [
-            "stepItems"
+            "stepItem"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -1183,12 +1210,8 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-10-20T20:42:33.110621+00:00",
-      "updated": "2023-10-20T21:22:09.516697+00:00",
+      "updated": "2023-10-20T22:52:57.224122+00:00",
       "variants": [
-        {
-          "id": "lightBackground",
-          "name": "Light Background"
-        },
         {
           "id": "darkBackground",
           "name": "Dark Background"
@@ -2422,6 +2445,13 @@
                           "type": "navigationLink",
                           "variant": "quickLink",
                           "parameters": {
+                            "link": {
+                              "type": "link",
+                              "value": {
+                                "path": "a1f7d500-da99-48b3-bb4d-737ea3fbc3a7",
+                                "type": "url"
+                              }
+                            },
                             "title": {
                               "type": "text",
                               "value": "Getting Started"
@@ -2486,6 +2516,75 @@
                         }
                       }
                     }
+                  },
+                  {
+                    "_id": "a1f7d500-da99-48b3-bb4d-737ea3fbc3a7",
+                    "type": "steps",
+                    "slots": {
+                      "stepItems": [
+                        {
+                          "_id": "f888f9d1-7025-44bc-88ef-3986695dd1a3",
+                          "type": "stepItem",
+                          "parameters": {
+                            "title": {
+                              "type": "text",
+                              "value": "Check your Eligibility"
+                            },
+                            "stepNumber": {
+                              "type": "select",
+                              "value": "1"
+                            },
+                            "description": {
+                              "type": "text",
+                              "value": "See if SilverSneakers is included in your Medicare Advantage or Medicare Supplement Plan."
+                            }
+                          }
+                        },
+                        {
+                          "_id": "3d26379a-6a28-44ff-bda6-306b7eaa00f3",
+                          "type": "stepItem",
+                          "parameters": {
+                            "title": {
+                              "type": "text",
+                              "value": "Create your account"
+                            },
+                            "stepNumber": {
+                              "type": "select",
+                              "value": "2"
+                            },
+                            "description": {
+                              "type": "text",
+                              "value": "Create an account and download your SilverSneakers member ID."
+                            }
+                          }
+                        },
+                        {
+                          "_id": "d48e6ccc-56f3-4ca4-a1dd-39a1687149c5",
+                          "type": "stepItem",
+                          "parameters": {
+                            "title": {
+                              "type": "text",
+                              "value": "Get connected"
+                            },
+                            "stepNumber": {
+                              "type": "select",
+                              "value": "3"
+                            },
+                            "description": {
+                              "type": "text",
+                              "value": "Explore thousands of in-person and online classes through SilverSneakers while connecting with others."
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "variant": "",
+                    "parameters": {
+                      "title": {
+                        "type": "text",
+                        "value": "Getting started is simple"
+                      }
+                    }
                   }
                 ]
               },
@@ -2521,7 +2620,7 @@
         }
       },
       "created": "2023-10-16T16:42:44.878368+00:00",
-      "modified": "2023-10-20T05:09:02.441108+00:00",
+      "modified": "2023-10-22T05:39:04.801102+00:00",
       "pattern": false
     },
     {

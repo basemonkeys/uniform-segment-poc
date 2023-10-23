@@ -22,6 +22,7 @@ import "./content/Hero";
 import "./content/Steps";
 import "./content/StepItem";
 import "./user/LoginForm";
+import "./user/EligibilityForm";
 import "./user/MemberProfile";
 import "./contact/ContactUsForm";
 import "./contact/ContactCard";

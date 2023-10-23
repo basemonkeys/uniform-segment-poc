@@ -4,6 +4,8 @@ import {
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
+import { Card } from "@/components/ui/card";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPhone,

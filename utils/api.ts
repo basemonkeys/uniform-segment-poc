@@ -1,5 +1,7 @@
 // https://github.com/typicode/json-server#getting-started
 
+// TODO: intergrate SilverSneakers API
+
 export type UserProps = {
   firstName: string;
   lastName: string;
