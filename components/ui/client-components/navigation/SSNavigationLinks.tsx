@@ -187,6 +187,8 @@ export const SSNavigationGroup = ({ component, title, link }: LinkProps) => {
                         "flex w-full cursor-pointer flex-col p-2 hover:bg-default-hover",
                         pathname === subNavItemLink.path &&
                           "border-l-4 border-primary bg-default-hover",
+                        index === subNavItems.length - 1 &&
+                          "border-t border-default-light",
                       )}
                     >
                       <NavigationMenuLink asChild>
@@ -200,6 +202,11 @@ export const SSNavigationGroup = ({ component, title, link }: LinkProps) => {
                           <span className="px-3 text-sm text-foreground">
                             {subNavItemDescription}
                           </span>
+                          {/* {index === subNavItems.length && (
+                            <div className="divider mt-[20px] h-2/3 bg-black md:visible">
+                              <Separator orientation="horizontal" />
+                            </div>
+                          )} */}
                         </>
                       </NavigationMenuLink>
                     </li>
