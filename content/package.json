@@ -678,6 +678,13 @@
           "type": "image",
           "helpText": "",
           "typeConfig": null
+        },
+        {
+          "id": "silversneakersGo",
+          "name": "Is this the SilverSneakers Go Hero?",
+          "type": "checkbox",
+          "helpText": "Checking this parameter will display the App Store & Google Play images in place of the primary and secondary buttons.",
+          "typeConfig": null
         }
       ],
       "categoryId": "4ea92484-5f32-4633-893d-211a4bb2f13b",
@@ -686,7 +693,7 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-08-29T20:06:35.107289+00:00",
-      "updated": "2023-10-20T21:21:04.207699+00:00",
+      "updated": "2023-10-24T17:59:18.10917+00:00",
       "variants": [
         {
           "id": "imageBackground",
@@ -1687,6 +1694,10 @@
               "textAlignment": {
                 "type": "select",
                 "value": "right"
+              },
+              "silversneakersGo": {
+                "type": "checkbox",
+                "value": true
               }
             }
           },
@@ -1696,7 +1707,7 @@
         }
       },
       "created": "2023-10-05T20:41:13.37617+00:00",
-      "modified": "2023-10-11T17:53:27.851506+00:00",
+      "modified": "2023-10-24T18:00:49.500391+00:00",
       "pattern": false
     },
     {
@@ -2578,7 +2589,7 @@
                         }
                       ]
                     },
-                    "variant": "",
+                    "variant": "darkBackground",
                     "parameters": {
                       "title": {
                         "type": "text",
@@ -2620,7 +2631,7 @@
         }
       },
       "created": "2023-10-16T16:42:44.878368+00:00",
-      "modified": "2023-10-22T05:39:04.801102+00:00",
+      "modified": "2023-10-24T19:44:31.648795+00:00",
       "pattern": false
     },
     {
@@ -2721,12 +2732,13 @@
             "background": "yes",
             "description": "no",
             "textAlignment": "yes",
+            "silversneakersGo": "yes",
             "backgroundVariant": "yes"
           }
         }
       },
       "created": "2023-08-29T20:06:37.045329+00:00",
-      "modified": "2023-10-20T20:49:01.053055+00:00",
+      "modified": "2023-10-24T17:59:56.88577+00:00",
       "pattern": true
     },
     {

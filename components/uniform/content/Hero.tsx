@@ -29,6 +29,7 @@ export type HeroProps = ComponentProps<{
   image?: string;
   video?: string;
   logo?: string;
+  silversneakersGo: boolean;
 }>;
 
 export enum HeroVariant {
@@ -76,6 +77,7 @@ const Hero = ({
   image,
   video,
   logo,
+  silversneakersGo,
 }: HeroProps) => {
   const { variant } = component;
   const isCentered = textAlignment === HeroAlignment.Center;
@@ -184,31 +186,51 @@ const Hero = ({
                   isCentered && "!justify-center",
                 )}
               >
-                <Button
-                  variant={
-                    variant === HeroVariant.LightBackground
-                      ? "primary"
-                      : "primaryWhite"
-                  }
-                  size="xl"
-                  asChild
-                >
-                  <Link href={primaryUrl}>{primarycta}</Link>
-                </Button>
-                {secondarycta ? (
-                  <Button
-                    variant={
-                      variant === HeroVariant.LightBackground
-                        ? "secondaryWhite"
-                        : "secondary"
-                    }
-                    size="xl"
-                    asChild
-                  >
-                    {/* this syntax within hreg is needed because secondaryUrl could be undefined. */}
-                    <Link href={`${secondaryUrl}`}>{secondarycta}</Link>
-                  </Button>
-                ) : null}
+                {silversneakersGo ? (
+                  <>
+                    <CloudinaryImage
+                      src="silversneakers/app_store_logo_ks3dwp"
+                      width={160}
+                      height={100}
+                      alt="Silver Sneakers"
+                    />
+
+                    <CloudinaryImage
+                      src="silversneakers/google_play_logo_mxdwse"
+                      width={160}
+                      height={100}
+                      alt="Silver Sneakers"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <Button
+                      variant={
+                        variant === HeroVariant.LightBackground
+                          ? "primary"
+                          : "primaryWhite"
+                      }
+                      size="xl"
+                      asChild
+                    >
+                      <Link href={primaryUrl}>{primarycta}</Link>
+                    </Button>
+                    {secondarycta ? (
+                      <Button
+                        variant={
+                          variant === HeroVariant.LightBackground
+                            ? "secondaryWhite"
+                            : "secondary"
+                        }
+                        size="xl"
+                        asChild
+                      >
+                        {/* this syntax within hreg is needed because secondaryUrl could be undefined. */}
+                        <Link href={`${secondaryUrl}`}>{secondarycta}</Link>
+                      </Button>
+                    ) : null}
+                  </>
+                )}
               </div>
             </div>
           </div>
