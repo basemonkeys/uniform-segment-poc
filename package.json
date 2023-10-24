@@ -9,7 +9,6 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_925f665c9c48763",
     "build:serverless": "turbo run create-artifacts",
     "open-next:build": "open-next build",
     "create-artifacts": "scripts/create-artifacts.sh",
