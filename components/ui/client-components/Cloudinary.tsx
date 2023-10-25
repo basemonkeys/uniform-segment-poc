@@ -1,13 +1,18 @@
 "use client";
 
-import { CldImage, CldVideoPlayer } from "next-cloudinary";
+import {
+  type CldImageProps,
+  type CldVideoPlayerProps,
+  CldImage,
+  CldVideoPlayer,
+} from "next-cloudinary";
 
 import "next-cloudinary/dist/cld-video-player.css";
 
-export const CloudinaryImage = (props: any) => {
+export const CloudinaryImage = (props: CldImageProps) => {
   return <CldImage {...props} />;
 };
 
-export const CloudinaryVideo = (props: any) => {
+export const CloudinaryVideo = (props: CldVideoPlayerProps) => {
   return <CldVideoPlayer {...props} />;
 };

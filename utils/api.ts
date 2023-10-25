@@ -14,13 +14,6 @@ export type UserProps = {
   };
 };
 
-export type VisitsProps = {
-  date: string;
-  isFlex: boolean;
-  locationId: string;
-  locationName: string;
-};
-
 export const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
 // TODO: cacheing, and revalidation
@@ -47,6 +40,6 @@ export async function getVisits(
   if (!res.ok || shouldError) {
     throw new Error(res.statusText);
   }
-  const data: Promise<VisitsProps[]> = await res.json();
+  const data: Promise<Types.VisitsProps[]> = await res.json();
   return data;
 }

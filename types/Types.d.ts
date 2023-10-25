@@ -38,6 +38,13 @@ declare namespace Types {
     text: any;
   };
 
+  type VisitsProps = {
+    date: string;
+    isFlex: true;
+    locationId: string;
+    locationName: string;
+  };
+
   type AvailableColumnCount =
     | "1"
     | "2"

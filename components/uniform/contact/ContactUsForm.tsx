@@ -1,6 +1,6 @@
 import {
+  type ComponentProps,
   registerUniformComponent,
-  ComponentProps,
 } from "@uniformdev/canvas-next-rsc";
 
 import { ContactUsForm as HubspotContactUsForm } from "../../ui/client-components/contact/ContactUsForm";

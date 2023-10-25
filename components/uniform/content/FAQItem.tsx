@@ -1,7 +1,6 @@
 import {
+  type ComponentProps,
   registerUniformComponent,
-  ComponentProps,
-  UniformSlotProps,
 } from "@uniformdev/canvas-next-rsc";
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -14,6 +13,7 @@ import {
 
 type FAQItemProps = ComponentProps<{
   question: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   answer: any;
 }>;
 

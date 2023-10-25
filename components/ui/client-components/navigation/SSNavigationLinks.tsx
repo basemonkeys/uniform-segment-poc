@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { cn } from "@/utils";
 
-import { ComponentProps } from "@uniformdev/canvas-next-rsc";
+import type { ComponentProps } from "@uniformdev/canvas-next-rsc";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -100,7 +101,7 @@ export const SSFooterLink = ({ link, title }: Omit<LinkProps, "component">) => {
 };
 
 // This component displays either the accordion group in the mobile navigation or the dropdown group in the Header navigation.
-export const SSNavigationGroup = ({ component, title, link }: LinkProps) => {
+export const SSNavigationGroup = ({ component, title }: LinkProps) => {
   const pathname = usePathname();
 
   const subNavItems = component?.slots?.subNavItems?.map((item: any) => {
@@ -131,7 +132,7 @@ export const SSNavigationGroup = ({ component, title, link }: LinkProps) => {
             {title}
           </AccordionTrigger>
           <AccordionContent>
-            {subNavItems?.map((item: any, index: any) => {
+            {subNavItems?.map((item: any, index: number) => {
               const { subNavItemTitle, subNavItemLink, subNavItemDescription } =
                 item;
               return (
@@ -173,8 +174,7 @@ export const SSNavigationGroup = ({ component, title, link }: LinkProps) => {
             <NavigationMenuTrigger>{title}</NavigationMenuTrigger>
             <NavigationMenuContent aria-label="Silver Sneakers Features">
               <ul className="flex w-[340px] flex-col">
-                {/* @ts-ignore */}
-                {subNavItems?.map((item: any, index: any) => {
+                {subNavItems?.map((item: any, index: number) => {
                   const {
                     subNavItemTitle,
                     subNavItemLink,

@@ -1,6 +1,6 @@
 import {
+  type ComponentProps,
   registerUniformComponent,
-  ComponentProps,
   UniformSlot,
 } from "@uniformdev/canvas-next-rsc";
 
@@ -29,5 +29,6 @@ export function Steps(props: StepsProps) {
   registerUniformComponent({
     type: "steps",
     component: Steps,
+    variantId,
   });
 });

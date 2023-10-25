@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  ComponentProps,
+  type ComponentProps,
   UniformSlot,
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
@@ -16,5 +17,5 @@ export async function Page({ component, context }: ComponentProps) {
 
 registerUniformComponent({
   type: "page",
-  component: Page as any,
+  component: Page as React.ComponentType<ComponentProps<any>>,
 });

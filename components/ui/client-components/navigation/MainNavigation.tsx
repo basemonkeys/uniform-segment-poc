@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { ComponentProps } from "@uniformdev/canvas-next-rsc";
+import type { ComponentProps } from "@uniformdev/canvas-next-rsc";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
 import { animateScroll } from "react-scroll";
@@ -26,7 +25,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuContent,
 } from "@/components/ui/navigation-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -44,8 +43,6 @@ type MainNavigationProps = ComponentProps & {
 const MainNavigation = ({ children, logo }: MainNavigationProps) => {
   const { user, error, isLoading } = useUser();
   const [showButton, setShowButton] = useState(false);
-
-  const router = useRouter();
 
   useEffect(() => {
     const handleScrollButtonVisibility = () => {

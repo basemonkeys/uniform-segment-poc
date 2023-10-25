@@ -1,20 +1,19 @@
 "use client";
 
-import { useContext } from "react";
 import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
-
-import { StepsContext } from "@/components/ui/client-components/Steps";
-
-import { StepItemProps } from "@/components/uniform/content/StepItem";
+import { useAtomValue } from "jotai";
 
 import { cn } from "@/utils";
+import { stepsBackgroundAtom } from "@/utils/uiState";
+
+import type { StepItemProps } from "@/components/uniform/content/StepItem";
+
+import { StepsVariant } from "@/components/uniform/content/Steps";
 
 export function StepItem(props: StepItemProps) {
   const { stepNumber, title, description } = props;
-  // TODO: look into this and remove ts ignore
-  //   @ts-ignore
-  let { stepsBackground } = useContext(StepsContext);
-  const isDark = stepsBackground;
+  const isDark =
+    useAtomValue(stepsBackgroundAtom) === StepsVariant.DarkBackground;
 
   return (
     <div className="z-10 flex flex-col items-center justify-center gap-3">

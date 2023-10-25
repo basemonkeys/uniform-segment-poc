@@ -1,6 +1,6 @@
 import {
+  type ComponentProps,
   registerUniformComponent,
-  ComponentProps,
   UniformSlot,
 } from "@uniformdev/canvas-next-rsc";
 

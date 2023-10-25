@@ -14,7 +14,7 @@ import * as z from "zod";
 
 import { cn } from "@/utils";
 
-import { LoginFormProps } from "@/components/uniform/user/LoginForm";
+import type { LoginFormProps } from "@/components/uniform/user/LoginForm";
 
 import { Card } from "@/components/ui/card";
 import {
