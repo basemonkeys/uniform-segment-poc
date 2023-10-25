@@ -1,8 +1,11 @@
+// This is the global component ui state.
+
 import { atom } from "jotai";
 
-import type { StepsVariant } from "@/components/uniform/content/Steps";
+import { StepsVariant } from "@/components/uniform/content/Steps";
 
 type Variant = undefined | StepsVariant.DarkBackground;
 
-// Steps component background variant
-export const stepsBackgroundAtom = atom<Variant>(undefined);
+// This is the background color state of the Steps component set by the variant prop.
+export const stepsBackgroundAtom = atom<Variant>(StepsVariant.DarkBackground);
+stepsBackgroundAtom.debugLabel = "stepsBackgroundAtom";

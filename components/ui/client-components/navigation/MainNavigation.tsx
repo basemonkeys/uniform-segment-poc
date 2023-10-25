@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import type { ComponentProps } from "@uniformdev/canvas-next-rsc";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import { DevTools } from "jotai-devtools";
 
 import { animateScroll } from "react-scroll";
 
@@ -68,6 +69,8 @@ const MainNavigation = ({ children, logo }: MainNavigationProps) => {
 
   return (
     <>
+      {/* This is the DevTool Component to help with UI State with Jotai. It is required to be used inside a 'use client' file and this file is closest to the top of the file tree.  */}
+      <DevTools isInitialOpen theme="dark" />
       <NavigationMenu className="sticky top-0 z-50 max-w-none border-b-2 border-gray-300 bg-white">
         <NavigationMenuList className="m-auto flex items-center px-3 lg:container lg:gap-4">
           {/* Logo */}
