@@ -2,7 +2,7 @@
 
 // https://ui.shadcn.com/docs/components/form
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { UniformRichText } from "@uniformdev/canvas-next-rsc";
 import { setCookie, getCookie } from "cookies-next";
 import { useForm } from "react-hook-form";
@@ -12,7 +12,7 @@ import * as z from "zod";
 
 import { cn } from "@/utils";
 
-import { EligibilityFormProps } from "@/components/uniform/user/EligibilityForm";
+import type { EligibilityFormProps } from "@/components/uniform/user/EligibilityForm";
 
 import {
   Card,
@@ -195,28 +195,30 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
             <StepperTabs defaultValue="Name" className="m-auto w-full">
               <div className="mb-6 space-y-2">
                 <StepperTabsList>
-                  {tabs.map((tab: any, index: any) => {
-                    return (
-                      <StepperTabsTrigger
-                        key={index}
-                        value={tab.title}
-                        aria-selected={activeStep === index}
-                        data-state={activeStep === index && "active"}
-                        className="data-[state=active]:border-b-primary data-[state=active]:text-primary data-[state=active]:shadow-sm"
-                      >
-                        <span
-                          className={cn(
-                            "flex h-8 w-8 items-center justify-center rounded-full border border-default ",
-                            activeStep === index &&
-                              "group-data-[state=active]:border-0 group-data-[state=active]:bg-primary group-data-[state=active]:text-white",
-                          )}
+                  {tabs.map(
+                    (tab: { number: string; title: string }, index: number) => {
+                      return (
+                        <StepperTabsTrigger
+                          key={index}
+                          value={tab.title}
+                          aria-selected={activeStep === index}
+                          data-state={activeStep === index && "active"}
+                          className="data-[state=active]:border-b-primary data-[state=active]:text-primary data-[state=active]:shadow-sm"
                         >
-                          {tab.number}
-                        </span>
-                        <span>{tab.title}</span>
-                      </StepperTabsTrigger>
-                    );
-                  })}
+                          <span
+                            className={cn(
+                              "flex h-8 w-8 items-center justify-center rounded-full border border-default ",
+                              activeStep === index &&
+                                "group-data-[state=active]:border-0 group-data-[state=active]:bg-primary group-data-[state=active]:text-white",
+                            )}
+                          >
+                            {tab.number}
+                          </span>
+                          <span>{tab.title}</span>
+                        </StepperTabsTrigger>
+                      );
+                    },
+                  )}
                 </StepperTabsList>
 
                 <div className="flex items-center justify-end">

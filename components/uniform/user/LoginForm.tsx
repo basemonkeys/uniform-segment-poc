@@ -1,8 +1,8 @@
 // TODO: delete this component
 
 import {
+  type ComponentProps,
   registerUniformComponent,
-  ComponentProps,
 } from "@uniformdev/canvas-next-rsc";
 
 import { LoginForm as BaseLoginForm } from "@/components/ui/client-components/user/LoginForm";

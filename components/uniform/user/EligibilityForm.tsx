@@ -1,6 +1,6 @@
 import {
+  type ComponentProps,
   registerUniformComponent,
-  ComponentProps,
 } from "@uniformdev/canvas-next-rsc";
 
 import { EligibilityForm as BaseEligibilityForm } from "@/components/ui/client-components/user/EligibilityForm";

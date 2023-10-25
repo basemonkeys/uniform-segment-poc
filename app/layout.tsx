@@ -1,4 +1,7 @@
-import { UniformSlot, UniformSlotProps } from "@uniformdev/canvas-next-rsc";
+import {
+  type UniformSlotProps,
+  UniformSlot,
+} from "@uniformdev/canvas-next-rsc";
 
 // Google Font via next/font
 import { Open_Sans } from "next/font/google";
@@ -58,8 +61,7 @@ export default async function RootLayout({ children }: LayoutProps) {
 const Header = async () => {
   const globalComponent = await getGlobalComponent();
 
-  // @ts-ignore: Unreachable code error
-  const context: UniformSlotProps<any>["context"] = {
+  const context: UniformSlotProps<string>["context"] = {
     composition: globalComponent,
     path: "global",
     searchParams: {},
@@ -71,8 +73,7 @@ const Header = async () => {
 const Footer = async () => {
   const globalComponent = await getGlobalComponent();
 
-  // @ts-ignore: Unreachable code error
-  const context: UniformSlotProps<any>["context"] = {
+  const context: UniformSlotProps<string>["context"] = {
     composition: globalComponent,
     path: "global",
     searchParams: {},

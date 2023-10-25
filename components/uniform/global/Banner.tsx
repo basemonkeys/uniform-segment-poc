@@ -1,6 +1,6 @@
 import {
+  type ComponentProps,
   registerUniformComponent,
-  ComponentProps,
 } from "@uniformdev/canvas-next-rsc";
 
 import Link from "next/link";

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Link from "next/link";
 
 import ActivityChart from "@/components/ui/user/ActivityChart";
@@ -20,7 +21,7 @@ export async function ActivityTrackerCard() {
 
   // maps data to determine how many visits per month, then return a new array of objects with month and visits
   const visitsPerMonth = (await visits)
-    .map((item: any) => {
+    .map((item: Types.VisitsProps) => {
       const date = new Date(item.date);
       const month = date.toLocaleString("default", { month: "long" });
       return { month, visits: 1 };

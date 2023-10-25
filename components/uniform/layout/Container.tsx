@@ -1,12 +1,12 @@
 import {
-  ComponentProps,
+  type ComponentProps,
   UniformSlot,
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
 import {
+  type BaseContainerProps,
   Container as BaseContainer,
-  BaseContainerProps,
   ContainerVariants,
 } from "@/components/ui/layout/Container";
 

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import Script from "next/script";
 
-import { ContactUsFormProps } from "@/components/uniform/contact/ContactUsForm";
+import type { ContactUsFormProps } from "@/components/uniform/contact/ContactUsForm";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -21,6 +21,7 @@ export function ContactUsForm({ text, portalId, formId }: ContactUsFormProps) {
     }
     // https://legacydocs.hubspot.com/docs/methods/forms/advanced_form_options
     function init() {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window as any).hbspt.forms.create({
         region: "na1",
         portalId,

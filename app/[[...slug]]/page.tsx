@@ -1,7 +1,7 @@
 import {
   UniformComposition,
   GoogleTagManagerAnalytics,
-  UniformCompositionProps,
+  type UniformCompositionProps,
 } from "@uniformdev/canvas-next-rsc";
 
 export default function SlugPage(

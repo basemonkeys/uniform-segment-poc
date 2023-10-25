@@ -1,6 +1,6 @@
 import {
+  type ComponentProps,
   registerUniformComponent,
-  ComponentProps,
 } from "@uniformdev/canvas-next-rsc";
 
 import Link from "next/link";
@@ -21,6 +21,7 @@ import { cn, getImageUrl } from "@/utils";
 export type HeroProps = ComponentProps<{
   textAlignment?: string;
   title: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   description: any;
   primarycta: string;
   primaryUrl: string;

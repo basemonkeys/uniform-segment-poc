@@ -1,7 +1,7 @@
 // import { useMediaQuery } from "react-responsive";
 
 import {
-  LinkProps,
+  type LinkProps,
   SSHeaderLink,
   SSQuickLink,
   SSFooterLink,
