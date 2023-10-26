@@ -1,3 +1,7 @@
+"use client";
+
+import { useQuery } from "@tanstack/react-query";
+
 import {
   Card,
   CardContent,
@@ -12,14 +16,20 @@ import {
   InformationCircleIcon,
   ArrowRightIcon,
 } from "@heroicons/react/20/solid";
-
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 
-import { type UserProps, getUser } from "@/utils/api";
+import { getUser } from "@/utils/api";
 
-export async function ProfileInfoCard() {
-  const user: UserProps = await getUser();
-  const { firstName, lastName, email } = user;
+export async function ProfileInfoCard(props: { user: Types.UserProps }) {
+  const { data } = useQuery({
+    queryKey: ["user"],
+    queryFn: getUser,
+    initialData: props.user,
+  });
+
+  const { firstName, lastName, email } = data;
+
+  // console.log(data, isLoading, isFetching, error);
 
   return (
     <Card>

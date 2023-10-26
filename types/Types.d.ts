@@ -45,6 +45,18 @@ declare namespace Types {
     locationName: string;
   };
 
+  type UserProps = {
+    firstName: string;
+    lastName: string;
+    email: {
+      address: string;
+    };
+    eligibility: {
+      cardNumber: string;
+      cardImageUrl: string;
+    };
+  };
+
   type AvailableColumnCount =
     | "1"
     | "2"

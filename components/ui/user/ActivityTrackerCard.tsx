@@ -1,7 +1,8 @@
+"use client";
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Link from "next/link";
-
-import ActivityChart from "@/components/ui/user/ActivityChart";
+import { useQuery } from "@tanstack/react-query";
 
 import {
   Card,
@@ -11,16 +12,23 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import ActivityChart from "@/components/ui/user/ActivityChart";
 
 import { InformationCircleIcon } from "@heroicons/react/20/solid";
 
 import { getVisits } from "@/utils/api";
 
-export async function ActivityTrackerCard() {
-  const visits = getVisits();
+export async function ActivityTrackerCard(props: {
+  visits: Types.VisitsProps;
+}) {
+  const { data } = useQuery({
+    queryKey: ["visits"],
+    queryFn: getVisits,
+    initialData: props.visits,
+  });
 
   // maps data to determine how many visits per month, then return a new array of objects with month and visits
-  const visitsPerMonth = (await visits)
+  const visitsPerMonth = (await data)
     .map((item: Types.VisitsProps) => {
       const date = new Date(item.date);
       const month = date.toLocaleString("default", { month: "long" });
