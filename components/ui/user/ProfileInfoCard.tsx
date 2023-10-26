@@ -29,8 +29,6 @@ export async function ProfileInfoCard(props: { user: Types.UserProps }) {
 
   const { firstName, lastName, email } = data;
 
-  // console.log(data, isLoading, isFetching, error);
-
   return (
     <Card>
       <CardHeader>

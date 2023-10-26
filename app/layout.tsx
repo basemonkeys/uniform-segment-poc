@@ -17,7 +17,7 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
 // Providers
-import { Providers } from "./providers";
+import { Providers } from "../components/providers";
 
 // Uniform Canvas Components index
 import "@/components/uniform";
