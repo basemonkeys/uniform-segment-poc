@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useQuery } from "@tanstack/react-query";
 
 import {
   Card,
@@ -14,11 +17,15 @@ import { faPrint, faDownload } from "@fortawesome/free-solid-svg-icons";
 
 import { getUser } from "@/utils/api";
 
-export async function MemberIdCard() {
-  const user = await getUser();
-  const { eligibility } = user;
+export async function MemberIdCard(props: { user: Types.UserProps }) {
+  const { data } = useQuery({
+    queryKey: ["user"],
+    queryFn: getUser,
+    initialData: props.user,
+  });
+  const { eligibility } = data;
 
-  const memberCardNumber = user.eligibility.cardNumber.replace(
+  const memberCardNumber = data.eligibility.cardNumber.replace(
     /(.{4})\B/g,
     "$1-",
   );
