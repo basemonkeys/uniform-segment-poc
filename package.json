@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "mega-build": "run-s uniform:pull lint build build:serverless build:serverless dev",
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",

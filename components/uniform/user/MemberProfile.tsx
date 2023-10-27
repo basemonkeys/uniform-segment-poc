@@ -17,8 +17,9 @@ export async function MemberProfile() {
   return (
     <div className="my-12 grid grid-cols-1 justify-evenly gap-8 lg:grid-cols-3">
       <div className="lg:col-span-1">
+        {/* TODO: figure out ErrorBoundary and Suspense with Tanstack Query */}
         <ErrorBoundary fallBack={<ComponentError />}>
-          <Suspense fallback={<Skeleton className="h-[323px] w-full" />}>
+          <Suspense fallback={<Skeleton className="h-[294px] w-full" />}>
             <ProfileInfoCard user={user} />
           </Suspense>
         </ErrorBoundary>
@@ -27,14 +28,18 @@ export async function MemberProfile() {
       <div className="lg:col-span-2">
         <div className="flex flex-col gap-8">
           <div>
-            <Suspense fallback={<Skeleton className="h-[323px] w-full" />}>
-              <MemberIdCard user={user} />
-            </Suspense>
+            <ErrorBoundary fallBack={<ComponentError />}>
+              <Suspense fallback={<Skeleton className="h-[294px] w-full" />}>
+                <MemberIdCard user={user} />
+              </Suspense>
+            </ErrorBoundary>
           </div>
           <div>
-            <Suspense fallback={<Skeleton className="h-[635px] w-full" />}>
-              <ActivityTrackerCard visits={visits} />
-            </Suspense>
+            <ErrorBoundary fallBack={<ComponentError />}>
+              <Suspense fallback={<Skeleton className="h-[635px] w-full" />}>
+                <ActivityTrackerCard visits={visits} />
+              </Suspense>
+            </ErrorBoundary>
           </div>
         </div>
       </div>

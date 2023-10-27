@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -31,8 +32,8 @@ export async function MemberIdCard(props: { user: Types.UserProps }) {
   );
 
   return (
-    <Card className="flex flex-col justify-between gap-6 md:flex-row">
-      <div>
+    <Card className="flex flex-col justify-between gap-6 md:flex-row lg:h-[294px] lg:max-h-[294px]">
+      <div className="flex flex-col">
         <CardHeader>
           <CardTitle>Member ID</CardTitle>
           <span className="space-x-1 text-lg tracking-wider">
@@ -40,16 +41,16 @@ export async function MemberIdCard(props: { user: Types.UserProps }) {
             <span>{memberCardNumber}</span>
           </span>
         </CardHeader>
-        <CardContent className="pt-2">
-          <p className="md:max-w-sm">
+        <CardDescription className="pt-2 md:max-w-sm">
+          <p>
             Your member ID gets you into thousands of fitness locations and
             classes. Just download or print your member ID and share it at your
             favorite location.
           </p>
-        </CardContent>
+        </CardDescription>
 
         {/* TODO: write the Print and Download functions */}
-        <CardFooter className="flex gap-4">
+        <CardFooter className="mt-auto flex gap-4">
           <Button variant="secondaryWhite" className="space-x-2">
             <FontAwesomeIcon icon={faPrint} className="h-5 w-5" />
             <span>Print</span>

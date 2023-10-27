@@ -2589,7 +2589,7 @@
                         }
                       ]
                     },
-                    "variant": "darkBackground",
+                    "variant": "",
                     "parameters": {
                       "title": {
                         "type": "text",
@@ -2631,7 +2631,7 @@
         }
       },
       "created": "2023-10-16T16:42:44.878368+00:00",
-      "modified": "2023-10-24T19:44:31.648795+00:00",
+      "modified": "2023-10-25T07:01:39.819998+00:00",
       "pattern": false
     },
     {

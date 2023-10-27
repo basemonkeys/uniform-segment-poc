@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Component, ErrorInfo, ReactNode } from "react";
+import { type ErrorInfo, type ReactNode, Component } from "react";
 
 interface ErrorBoundaryProps {
   children?: ReactNode;
