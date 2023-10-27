@@ -746,7 +746,8 @@
           "id": "header",
           "name": "Header",
           "allowedComponents": [
-            "$p:f289a2bd-09f9-4e33-ae03-7a6136055ec6"
+            "$p:f289a2bd-09f9-4e33-ae03-7a6136055ec6",
+            "$p:c7b7d708-21da-4a40-a1e8-ca235b0c7379"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -776,7 +777,8 @@
             "container",
             "grid",
             "quickLinks",
-            "steps"
+            "steps",
+            "memberDashboard"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -803,7 +805,19 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-10-05T20:36:58.515615+00:00",
-      "updated": "2023-10-20T22:35:12.90963+00:00"
+      "updated": "2023-10-27T06:47:43.869363+00:00"
+    },
+    {
+      "id": "memberDashboard",
+      "name": "Member Dashboard",
+      "icon": "profile",
+      "parameters": [],
+      "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-10-27T06:46:56.697013+00:00",
+      "updated": "2023-10-27T06:46:56.697013+00:00"
     },
     {
       "id": "memberProfile",
@@ -1424,6 +1438,59 @@
       "created": "2023-10-17T05:40:19.185951+00:00",
       "modified": "2023-10-18T17:47:13.138461+00:00",
       "pattern": true
+    },
+    {
+      "composition": {
+        "_name": "Dashboard",
+        "_id": "341d59cb-82b7-4412-904d-de4cab657fdc",
+        "_slug": "dashboard",
+        "type": "homePage",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Member Dashboard"
+          }
+        },
+        "slots": {
+          "footer": [
+            {
+              "_id": "a011138f-22b4-4d9e-974e-e093c3d3befc",
+              "type": "footer",
+              "_pattern": "d609f2f4-89fb-47d0-bdd9-8b19ec6bf77f"
+            }
+          ],
+          "header": [
+            {
+              "_id": "3afe8dfc-56e3-4487-8a22-195cdc46a881",
+              "type": "header",
+              "_pattern": "c7b7d708-21da-4a40-a1e8-ca235b0c7379"
+            }
+          ],
+          "content": [
+            {
+              "_id": "bb622e58-2e4b-4873-9094-f5a2e9ea0104",
+              "type": "container",
+              "slots": {
+                "containerInner": [
+                  {
+                    "_id": "7cec3bcd-c57d-456c-bd7f-de45213f0b24",
+                    "type": "memberDashboard"
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "Member Dashboard"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "created": "2023-10-27T05:29:38.994848+00:00",
+      "modified": "2023-10-27T06:50:31.231403+00:00",
+      "pattern": false
     },
     {
       "composition": {
@@ -2247,7 +2314,7 @@
     },
     {
       "composition": {
-        "_name": "Member Profile",
+        "_name": "Profile",
         "_id": "6c275198-e33f-4dad-b32b-b562cdaeb602",
         "_slug": "member/my-profile",
         "type": "page",
@@ -2282,7 +2349,7 @@
         }
       },
       "created": "2023-09-20T05:42:55.206309+00:00",
-      "modified": "2023-10-11T19:17:17.972613+00:00",
+      "modified": "2023-10-27T04:03:57.106833+00:00",
       "pattern": false
     },
     {
@@ -3153,6 +3220,448 @@
     },
     {
       "composition": {
+        "_name": "Member Header",
+        "_id": "c7b7d708-21da-4a40-a1e8-ca235b0c7379",
+        "type": "header",
+        "parameters": {
+          "logo": {
+            "type": "cloudinary-image",
+            "value": [
+              {
+                "alt": "",
+                "url": "https://res.cloudinary.com/seth-hall/image/upload/v1694326716/wordmark_aya6hb.svg",
+                "uuid": "195cc80f-e87c-4a56-8beb-33ced40bb79d",
+                "ratio": "16:9",
+                "width": "525",
+                "format": "svg",
+                "height": "57",
+                "widths": "250",
+                "caption": "",
+                "version": 1694326716,
+                "publicId": "wordmark_aya6hb",
+                "createdAt": "2023-09-10T06:18:36Z",
+                "previewUrl": "https://res.cloudinary.com/seth-hall/image/upload/q_auto,f_auto,w_150/wordmark_aya6hb.svg",
+                "resourceType": "image",
+                "transformation": ""
+              }
+            ]
+          }
+        },
+        "slots": {
+          "navigation": [
+            {
+              "_id": "26b44c02-4e56-4582-8496-0149052bde25",
+              "type": "navigationLink",
+              "variant": "header",
+              "parameters": {
+                "link": {
+                  "type": "link",
+                  "value": {
+                    "path": "/member/dashboard",
+                    "type": "projectMapNode",
+                    "nodeId": "753978a7-6a76-4f33-a232-70c5dc143662",
+                    "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                  }
+                },
+                "title": {
+                  "type": "text",
+                  "value": "Home"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "link": "yes",
+                  "title": "yes"
+                }
+              }
+            },
+            {
+              "_id": "3f4f2e6f-be88-4b1b-99dd-93f8f0d1550e",
+              "type": "navigationGroup",
+              "slots": {
+                "subNavItems": [
+                  {
+                    "_id": "6c50edcd-28a7-44cb-ba16-648e8b22241f",
+                    "type": "navigationLink",
+                    "variant": "header",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/classes/live-class-schedule",
+                          "type": "projectMapNode",
+                          "nodeId": "c84bee58-1d85-4bf0-b63b-824faadef4b5",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "Live Class Schedule"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Fitness from the comfort of your home"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "ccc53b3f-e8f1-4914-9a87-c3208fbc8da0",
+                    "type": "navigationLink",
+                    "variant": "header",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/classes/community-schedule",
+                          "type": "projectMapNode",
+                          "nodeId": "31e96268-f21f-4d6e-a89b-4bb33ffd16aa",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "Community Schedule"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Online and in-person classes in your area"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "8dfc6c84-8bda-4b42-8f37-29bd5a2d18c6",
+                    "type": "navigationLink",
+                    "variant": "header",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/classes/on-demand",
+                          "type": "projectMapNode",
+                          "nodeId": "c45dc5c5-de97-4264-ba75-c2b27f62fe4b",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "On Demand"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Workout wherever you are"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "aa32d1c5-b57a-4713-a1db-c8369099146c",
+                    "type": "navigationLink",
+                    "variant": "header",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/classes/silver-sneakers-go",
+                          "type": "projectMapNode",
+                          "nodeId": "3ea0e682-09a4-404f-9a83-d3760ab2ebec",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "Silver Sneakers Go"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Download the app today"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "52533cbe-5c67-44fa-8446-67eef1889884",
+                    "type": "navigationLink",
+                    "variant": "header",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/classes/burnalong",
+                          "type": "projectMapNode",
+                          "nodeId": "d1d9a22d-cbad-40c0-89ca-2fc1d2452e7c",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "Burnalong"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Thousands of online fitness classes at your fingertips"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "e7278276-c4d3-4fe7-ac82-7509b15e203c",
+                    "type": "navigationLink",
+                    "variant": "header",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/classes/classes-overview",
+                          "type": "projectMapNode",
+                          "nodeId": "065c50b4-174d-473e-911e-902642e07a8a",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "Classes Overview"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Learn more about the classes we offer"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "Classes"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "title": "yes"
+                }
+              }
+            },
+            {
+              "_id": "028d0ec0-b20a-4a48-9bf3-f9fb15e57100",
+              "type": "navigationLink",
+              "variant": "header",
+              "parameters": {
+                "link": {
+                  "type": "link",
+                  "value": {
+                    "path": "/participating-locations",
+                    "type": "projectMapNode",
+                    "nodeId": "648fc6eb-081e-4222-a8c5-79c57ca79e16",
+                    "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                  }
+                },
+                "title": {
+                  "type": "text",
+                  "value": "Participating Locations"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "link": "yes",
+                  "title": "yes",
+                  "description": "yes"
+                }
+              }
+            },
+            {
+              "_id": "2edf9bf3-9a45-46fe-8490-db579b463bde",
+              "type": "navigationGroup",
+              "slots": {
+                "subNavItems": [
+                  {
+                    "_id": "26d6f8fd-4950-400a-9a2f-e8f94b6cc459",
+                    "type": "navigationLink",
+                    "variant": "header",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/blog/articles",
+                          "type": "projectMapNode",
+                          "nodeId": "4c578632-e2aa-4745-afd2-2e2aef0073c3",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "Articles"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Daily workout tips, recipes, and more"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "8989d1d7-093e-4cdc-9a22-74c0565041b9",
+                    "type": "navigationLink",
+                    "variant": "header",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/partners/health-plans",
+                          "type": "projectMapNode",
+                          "nodeId": "ce42b0b8-b4b7-4bd3-94bc-4552ffceee80",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "Health Plan Partners"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Find a participating plan with SilverSneakers"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "6a6f19bb-d4c1-45da-9c76-31e838d919c8",
+                    "type": "navigationLink",
+                    "variant": "header",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "/help",
+                          "type": "projectMapNode",
+                          "nodeId": "819a5937-6339-4500-b06c-102302ad95e5",
+                          "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "FAQs"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Answers to your frequently asked questions"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  },
+                  {
+                    "_id": "ffb89226-0287-40d7-a89c-0c2a015e7dcb",
+                    "type": "navigationLink",
+                    "variant": "header",
+                    "parameters": {
+                      "link": {
+                        "type": "link",
+                        "value": {
+                          "path": "https://silversneakers.klicorders.com/",
+                          "type": "url"
+                        }
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "SilverSneakers Store"
+                      },
+                      "description": {
+                        "type": "text",
+                        "value": "Shirts, equipment, and other merchandise"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "link": "yes",
+                        "title": "yes",
+                        "description": "yes"
+                      }
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "More"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "title": "yes"
+                }
+              }
+            }
+          ]
+        },
+        "_overridability": {
+          "parameters": {
+            "logo": "no"
+          }
+        }
+      },
+      "created": "2023-10-27T05:41:55.687549+00:00",
+      "modified": "2023-10-27T08:05:36.028615+00:00",
+      "pattern": true
+    },
+    {
+      "composition": {
         "_name": "Instructors",
         "_id": "cb4f466a-026a-4d56-b461-7a97e5b23fd0",
         "_slug": "instructors",
@@ -3692,6 +4201,12 @@
                   "type": "text",
                   "value": "Home"
                 }
+              },
+              "_overridability": {
+                "parameters": {
+                  "link": "yes",
+                  "title": "yes"
+                }
               }
             },
             {
@@ -4078,7 +4593,7 @@
         }
       },
       "created": "2023-09-10T00:09:14.704627+00:00",
-      "modified": "2023-10-16T16:51:11.420815+00:00",
+      "modified": "2023-10-27T05:36:31.180014+00:00",
       "pattern": true
     },
     {
@@ -4261,13 +4776,24 @@
     },
     {
       "id": "68a8fded-ade5-46fb-a296-bf5fa436a33b",
-      "name": "Member Profile",
+      "name": "Profile",
       "type": "composition",
       "data": {},
       "order": 1000,
-      "path": "/member-profile",
+      "path": "/member/profile",
       "compositionId": "6c275198-e33f-4dad-b32b-b562cdaeb602",
-      "pathSegment": "member-profile",
+      "pathSegment": "profile",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "753978a7-6a76-4f33-a232-70c5dc143662",
+      "name": "Dashboard",
+      "type": "composition",
+      "data": {},
+      "order": 900,
+      "path": "/member/dashboard",
+      "compositionId": "341d59cb-82b7-4412-904d-de4cab657fdc",
+      "pathSegment": "dashboard",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
@@ -4430,6 +4956,16 @@
       "order": 637,
       "path": "/learn",
       "pathSegment": "learn",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "fd949086-28e8-4692-8ba6-2c1481696dd3",
+      "name": "Member",
+      "type": "placeholder",
+      "data": {},
+      "order": 400,
+      "path": "/member",
+      "pathSegment": "member",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     }
   ]
