@@ -20,30 +20,15 @@ export default async function getUniformConfig() {
   };
 
   const uniformApiKey = await getSecret(process.env.UNIFORM_API_KEY || "");
-  const uniformPreviewSecret = await getSecret(
-    process.env.UNIFORM_PREVIEW_SECRET || "",
-  );
-  const cloudinary = await getSecret(
-    process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "",
-  );
+
   const auth0Secret = await getSecret(process.env.AUTH0_SECRET || "");
-  const auth0IssuerBaseUrl = await getSecret(
-    process.env.AUTH0_ISSUER_BASE_URL || "",
-  );
-  const auth0BaseUrl = await getSecret(process.env.AUTH0_BASE_URL || "");
-  const auth0ClientId = await getSecret(process.env.AUTH0_CLIENT_ID || "");
   const aut0ClientSecret = await getSecret(
     process.env.AUTH0_CLIENT_SECRET || "",
   );
 
   const defaults: Record<string, string> = {
     UNIFORM_API_KEY: uniformApiKey,
-    UNIFORM_PREVIEW_SECRET: uniformPreviewSecret,
-    NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: cloudinary,
     AUTH0_SECRET: auth0Secret,
-    AUTH0_ISSUER_BASE_URL: auth0IssuerBaseUrl,
-    AUTH0_BASE_URL: auth0BaseUrl,
-    AUTH0_CLIENT_ID: auth0ClientId,
     AUTH0_CLIENT_SECRET: aut0ClientSecret,
   };
 
