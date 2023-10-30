@@ -20,16 +20,19 @@ export default async function getUniformConfig() {
   };
 
   const uniformApiKey = await getSecret(process.env.UNIFORM_API_KEY || "");
-
   const auth0Secret = await getSecret(process.env.AUTH0_SECRET || "");
   const aut0ClientSecret = await getSecret(
     process.env.AUTH0_CLIENT_SECRET || "",
+  );
+  const amazonS3BucketName = await getSecret(
+    process.env.AMAZON_S3_BUCKET_NAME || "",
   );
 
   const defaults: Record<string, string> = {
     UNIFORM_API_KEY: uniformApiKey,
     AUTH0_SECRET: auth0Secret,
     AUTH0_CLIENT_SECRET: aut0ClientSecret,
+    AMAZON_S3_BUCKET_NAME: amazonS3BucketName,
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
