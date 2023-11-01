@@ -1,0 +1,199 @@
+include:
+  - template: "Workflows/Branch-Pipelines.gitlab-ci.yml"
+
+image:
+  name: pulumi/pulumi:3.32.1
+  entrypoint: [""]
+
+stages:
+  - test
+  - build
+  - deploy
+
+.node-modules-cache: &node-modules-cache
+  key:
+    files:
+      - package-lock.json
+    prefix: silversneakers-frontend
+  paths:
+    - node_modules
+  policy: pull
+
+.deploy-scripts: &deploy-scripts
+  - source .scripts/assume-role.sh
+  - |
+    echo "Ref: $CI_COMMIT_REF_NAME" >> ./.open-next/assets/version.txt
+  - |
+    echo "Commit: $CI_COMMIT_SHORT_SHA" >> ./.open-next/assets/version.txt
+  - aws s3 sync ./.open-next/assets $BUCKET_URL --include "**/*" --exclude "_next/**/*" --cache-control "public,max-age=0,s-maxage=31536000,must-revalidate"
+  - aws s3 sync ./.open-next/assets $BUCKET_URL --include "_next/**/*" --cache-control "public,max-age=31536000,immutable"
+  - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+
+default:
+  before_script:
+    - chmod +x ./.scripts/*.sh
+
+checkmarx-scan:
+  stage: test
+  image:
+    name: checkmarx/${CHECKMARX_DOCKER_IMAGE}
+    entrypoint: [""]
+  variables:
+    CX_BRANCH_NAME: "${CI_COMMIT_REF_NAME}"
+    CX_PROJECT_NAME: "$CI_PROJECT_NAME"
+    CX_BASE_URI: ${CX_BASE_URI}
+    CX_TENANT: ${CX_TENANT}
+    CX_CLIENT_ID: ${CX_CLIENT_ID}
+    CX_CLIENT_SECRET: ${CX_CLIENT_SECRET}
+    CX_ADDITIONAL_PARAMS: ""
+    CX_FILE_FILTERS: ""
+    CHECKMARX_DOCKER_IMAGE: "ast-cli"
+  before_script: []
+  script:
+    - eval "args=(${CX_ADDITIONAL_PARAMS})"
+    - >-
+      /app/bin/cx
+      scan create
+      --project-name ${CX_PROJECT_NAME}
+      --file-source '.'
+      --scan-info-format 'json'
+      --branch ${CX_BRANCH_NAME}
+      --agent 'Gitlab' 
+      --file-filter "${CX_FILE_FILTERS}"
+      "${args[@]}"
+
+build:
+  stage: build
+  image: registry.gitlab.com/tivityhealth/container-images/nodejs16-build-container:552a03c2
+  cache:
+    - <<: *node-modules-cache
+      policy: pull-push
+  needs: []
+  script:
+    - npm install
+    - npm run build:serverless
+  artifacts:
+    paths:
+      - artifacts/*
+      - .open-next/assets/*
+    expire_in: never
+
+store_artifacts:
+  stage: build
+  variables:
+    AWS_ACCOUNT_ID: 496892730563
+    AWS_ACCOUNT_NAME: ops
+  needs:
+    - build
+  allow_failure: false
+  script:
+    - source .scripts/assume-role.sh
+    - aws s3 sync ./artifacts s3://tivityhealth-ops-gitlab-artifacts/silversneakers-frontend/$CI_COMMIT_SHORT_SHA
+    - aws s3 sync ./.open-next/assets s3://tivityhealth-ops-gitlab-artifacts/silversneakers-frontend/$CI_COMMIT_SHORT_SHA/assets
+
+deploy_sandbox:
+  stage: deploy
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      changes:
+        - package.json
+        - package-lock.json
+    - when: manual
+  variables:
+    ENVIRONMENT: sandbox
+    AWS_ACCOUNT_ID: 558824945781
+    AWS_ACCOUNT_NAME: sandbox
+    BUCKET_URL: s3://tivityhealth-sandbox-silversneakers-frontend-source
+    CLOUDFRONT_DISTRIBUTION_ID: E2G65JA754CE91
+  environment:
+    name: $ENVIRONMENT
+  needs:
+    - build
+    - store_artifacts
+  allow_failure: false
+  cache:
+    - <<: *node-modules-cache
+      policy: pull
+  script: *deploy-scripts
+
+deploy_dev:
+  stage: deploy
+  when: manual
+  variables:
+    ENVIRONMENT: dev
+    AWS_ACCOUNT_ID: 252517740372
+    AWS_ACCOUNT_NAME: test
+    BUCKET_URL: s3://tivityhealth-dev-silversneakers-frontend-source
+    CLOUDFRONT_DISTRIBUTION_ID: placeholder
+  environment:
+    name: $ENVIRONMENT
+  needs:
+    - build
+    - store_artifacts
+  allow_failure: false
+  cache:
+    - <<: *node-modules-cache
+      policy: pull
+  script: *deploy-scripts
+
+deploy_qa:
+  stage: deploy
+  when: manual
+  variables:
+    ENVIRONMENT: qa
+    AWS_ACCOUNT_ID: 252517740372
+    AWS_ACCOUNT_NAME: test
+    BUCKET_URL: s3://tivityhealth-qa-silversneakers-frontend-source
+    CLOUDFRONT_DISTRIBUTION_ID: placeholder
+  environment:
+    name: $ENVIRONMENT
+  needs:
+    - build
+    - store_artifacts
+  allow_failure: false
+  cache:
+    - <<: *node-modules-cache
+      policy: pull
+  script: *deploy-scripts
+
+deploy_uat:
+  stage: deploy
+  when: manual
+  variables:
+    ENVIRONMENT: uat
+    AWS_ACCOUNT_ID: 566977687192
+    AWS_ACCOUNT_NAME: uat
+    BUCKET_URL: s3://tivityhealth-uat-silversneakers-frontend-source
+    CLOUDFRONT_DISTRIBUTION_ID: placeholder
+  environment:
+    name: $ENVIRONMENT
+  needs:
+    - build
+    - store_artifacts
+    - deploy_qa
+  allow_failure: false
+  cache:
+    - <<: *node-modules-cache
+      policy: pull
+  script: *deploy-scripts
+
+deploy_prod:
+  stage: deploy
+  when: manual
+  variables:
+    ENVIRONMENT: prod
+    AWS_ACCOUNT_ID: 569899141224
+    AWS_ACCOUNT_NAME: prod
+    BUCKET_URL: s3://tivityhealth-prod-silversneakers-frontend-source
+    CLOUDFRONT_DISTRIBUTION_ID: PLACEHOLDER
+  environment:
+    name: $ENVIRONMENT
+  needs:
+    - build
+    - store_artifacts
+    - deploy_uat
+  allow_failure: false
+  cache:
+    - <<: *node-modules-cache
+      policy: pull
+  script: *deploy-scripts
