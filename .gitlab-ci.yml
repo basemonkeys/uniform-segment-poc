@@ -7,6 +7,7 @@ image:
 
 stages:
   - test
+  - mockServer
   - build
   - deploy
 
@@ -62,6 +63,18 @@ checkmarx-scan:
       --file-filter "${CX_FILE_FILTERS}"
       "${args[@]}"
 
+# mockServer:
+#   stage: mockServer
+#   image: registry.gitlab.com/tivityhealth/container-images/nodejs16-build-container:552a03c2
+#   cache:
+#     - <<: *node-modules-cache
+#       policy: pull-push
+#   needs: []
+#   before_script:
+#     - npm install
+#   script:
+#     - node server.js
+
 build:
   stage: build
   image: registry.gitlab.com/tivityhealth/container-images/nodejs16-build-container:552a03c2
@@ -69,8 +82,9 @@ build:
     - <<: *node-modules-cache
       policy: pull-push
   needs: []
-  script:
+  before_script:
     - npm install
+  script:
     - npm run build:serverless
   artifacts:
     paths:

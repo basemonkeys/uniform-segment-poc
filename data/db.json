@@ -296,5 +296,338 @@
       "locationId": "003",
       "locationName": "Colorado"
     }
-  ]
+  ],
+  "live": {
+    "PageCount": 2,
+    "PageNumber": 1,
+    "PageSize": 30,
+    "TotalRecords": 44,
+    "LiveStreams": [
+      {
+        "Uuid": "u693hhQaySWWSAa69Wlxh1g==a",
+        "LiveId": "94871363068",
+        "HostId": "goXmSvNHQ9WD6vYiD3PdgAa",
+        "Topic": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Type": 5,
+        "Duration": 60,
+        "Timezone": "America/Phoenix",
+        "CreatedAt": "2020-03-23T18:10:43Z",
+        "JoinUrl": "https://tivityhealth.zoom.us/j/871363068",
+        "Agenda": "Enjoy your day",
+        "StartTime": "2023-11-01T16:40:00",
+        "Title": "Morning Routine",
+        "Instructor": "Marky",
+        "Intensity": "Advanced",
+        "Registrant": null
+      },
+      {
+        "Uuid": "u693h3QySWWSAa69Wlxh1g==",
+        "LiveId": "55871363068",
+        "HostId": "goXmSvNHQ9WD6vYia3PdgA",
+        "Topic": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+        "Type": 5,
+        "Duration": 90,
+        "Timezone": "America/Phoenix",
+        "CreatedAt": "2020-03-23T18:11:43Z",
+        "JoinUrl": "https://tivityhealth.zoom.us/j/871363068",
+        "Agenda": "Tilt",
+        "StartTime": "2021-09-12T03:30:00Z",
+        "Title": "Beginner Stretch Class",
+        "Instructor": "Pavel",
+        "Intensity": "Beginner to Intermediate",
+        "Registrant": null
+      },
+      {
+        "Uuid": "jksajklgs98043jgjakjghasd",
+        "LiveId": "1245842574",
+        "HostId": "goXmjgoiw9WD6vYia3PdgA",
+        "Topic": "Lorem ipsum dolor sit amet, consectetur.",
+        "Type": 5,
+        "Duration": 214,
+        "Timezone": "America/Phoenix",
+        "CreatedAt": "2026-04-23T18:11:43Z",
+        "JoinUrl": "https://tivityhealth.zoom.us/j/871363068",
+        "Agenda": "Tilt",
+        "StartTime": "2026-09-12T03:30:00Z",
+        "Title": "Advanced Fitness Workout",
+        "Instructor": "Simmons",
+        "Intensity": "Intermediate to Advanced",
+        "Registrant": null
+      }
+    ]
+  },
+  "locations": {
+    "NumberOfLocations": 2,
+    "Locations": [
+      {
+        "Id": "35455",
+        "Name": "Planet Fitness - Sibley",
+        "Phone": "(336) 402-5775",
+        "Address": "2417 West 7th St",
+        "City": "St Paul",
+        "State": "MN",
+        "Zip": "55116",
+        "Longitude": -93.168338,
+        "Latitude": 44.902973,
+        "Distance": 1.89,
+        "GenderSpecific": "Coed",
+        "TierNumber": 1,
+        "TierName": "Standard SilverSneakers Network",
+        "LocationType": "Network",
+        "FlexProperties": null,
+        "NetworkProperties": {
+          "Website": "www.planetfitness.com",
+          "CorpIdCode": "Planet Fitness - MAK Management Corp",
+          "IsHomeLocationTier": false,
+          "MarketingNotes": "Human Sacrifices bi-weekly on Fridays",
+          "TierLocationStartDate": "2020-02-02T00:00:00",
+          "HasSsfpClass": true,
+          "HasBoomClass": false,
+          "UpmcPersonalTrainer": true,
+          "Amenities": [
+            {
+              "Id": 10,
+              "Name": "Cardiovascular Equipment",
+              "Type": "AMENITIES",
+              "CategoryName": "Cardiovascular Equipment",
+              "AdditionalCost": false
+            },
+            {
+              "Id": 35,
+              "Name": "Free Weights",
+              "Type": "AMENITIES",
+              "CategoryName": "Resistance Equipment",
+              "AdditionalCost": false
+            },
+            {
+              "Id": 20,
+              "Name": "Stretch Bands",
+              "Type": "AMENITIES",
+              "CategoryName": "Resistance Equipment",
+              "AdditionalCost": false
+            },
+            {
+              "Id": 5,
+              "Name": "Strength Training Equipment",
+              "Type": "AMENITIES",
+              "CategoryName": "Strength Equipment",
+              "AdditionalCost": false
+            }
+          ],
+          "Attributes": [
+            {
+              "AttributeName": "",
+              "AttributeValue": ""
+            }
+          ]
+        }
+      },
+      {
+        "Id": "23652",
+        "Name": "Pioneer Senior Cottages",
+        "Phone": "(336) 402-5775",
+        "Address": "1317 Mabelle Ave S ",
+        "City": "Fergus Falls",
+        "State": "MN",
+        "Zip": "56537",
+        "Longitude": -96.06011,
+        "Latitude": 46.27094,
+        "Distance": 0,
+        "GenderSpecific": null,
+        "TierNumber": 1,
+        "TierName": "Standard SilverSneakers Network",
+        "LocationType": "Flex",
+        "FlexProperties": {
+          "FlexClasses": [
+            {
+              "FlexEvents": [
+                {
+                  "EventId": 1234,
+                  "StartDateTime": "2023-10-28T21:39:51.6521576-07:00",
+                  "Tracked": false,
+                  "Cancelled": false,
+                  "VirtualLink": null
+                }
+              ],
+              "CourseId": 1234,
+              "CourseType": "ILA",
+              "CourseName": "Strength and Balance",
+              "CourseDescription": "Strength and balance is important in everyday life and this class will help you improve your ability to feel strong and stable. Strength exercises may include lifting hand-held weights, stretching resistive tubing and using your own body’s resistance while also using your core muscles to improve balance and stability.",
+              "CourseLength": null,
+              "CourseLevel": null,
+              "CourseMarketingCategory": null,
+              "ClassId": 46862,
+              "ValidProducts": null,
+              "MarketingSuspended": false,
+              "MarketingSuspendedPrime": false,
+              "Delivery": "In-Person",
+              "VirtualType": null,
+              "VenueTimezone": null,
+              "FirstName": "Cory",
+              "LastName": "Czepa",
+              "InstructorId": 1521,
+              "LanguageName": null,
+              "LocalizedLanguageName": null,
+              "Schedule": "Mondays at 8:00 AM"
+            }
+          ]
+        },
+        "NetworkProperties": null
+      },
+      {
+        "Id": "35455",
+        "Name": "Planet Fitness - Sibley",
+        "Phone": "(336) 402-5775",
+        "Address": "2417 West 7th St",
+        "City": "St Paul",
+        "State": "MN",
+        "Zip": "55116",
+        "Longitude": -93.168338,
+        "Latitude": 44.902973,
+        "Distance": 1.89,
+        "GenderSpecific": "Coed",
+        "TierNumber": 1,
+        "TierName": "Standard SilverSneakers Network",
+        "LocationType": "Network",
+        "FlexProperties": null,
+        "NetworkProperties": {
+          "Website": "www.planetfitness.com",
+          "CorpIdCode": "Planet Fitness - MAK Management Corp",
+          "IsHomeLocationTier": false,
+          "MarketingNotes": "Human Sacrifices bi-weekly on Fridays",
+          "TierLocationStartDate": "2020-02-02T00:00:00",
+          "HasSsfpClass": true,
+          "HasBoomClass": false,
+          "UpmcPersonalTrainer": true,
+          "Amenities": [
+            {
+              "Id": 10,
+              "Name": "Cardiovascular Equipment",
+              "Type": "AMENITIES",
+              "CategoryName": "Cardiovascular Equipment",
+              "AdditionalCost": false
+            },
+            {
+              "Id": 35,
+              "Name": "Free Weights",
+              "Type": "AMENITIES",
+              "CategoryName": "Resistance Equipment",
+              "AdditionalCost": false
+            },
+            {
+              "Id": 20,
+              "Name": "Stretch Bands",
+              "Type": "AMENITIES",
+              "CategoryName": "Resistance Equipment",
+              "AdditionalCost": false
+            },
+            {
+              "Id": 5,
+              "Name": "Strength Training Equipment",
+              "Type": "AMENITIES",
+              "CategoryName": "Strength Equipment",
+              "AdditionalCost": false
+            }
+          ],
+          "Attributes": [
+            {
+              "AttributeName": "",
+              "AttributeValue": ""
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "member": {
+    "firstName": "string",
+    "lastName": "string",
+    "middleInitial": "string",
+    "nickname": "string",
+    "gender": "Male",
+    "zipCode": "string",
+    "dateOfBirth": "2023-10-30T17:01:19.085Z",
+    "accountCreationDate": "2023-10-30T17:01:19.085Z",
+    "eligibility": {
+      "hasSilverSneakers": true,
+      "cardNumber": "string",
+      "cardImageUrl": "string",
+      "benefitProviderId": "string",
+      "startDate": "2023-10-30T17:01:19.085Z",
+      "endDate": "2023-10-30T17:01:19.085Z",
+      "eligibilityId": "string",
+      "costCenter": "string",
+      "SubscriberId": "string",
+      "Source": "string",
+      "DependentId": "string",
+      "ActiveMemberTier": {
+        "HwEligibilityId": 0,
+        "ProgramCode": "string",
+        "Tier": 0,
+        "TierEndDate": "2023-10-30T17:01:19.085Z",
+        "TierLpdDate": "2023-10-30T17:01:19.085Z",
+        "TierStartDate": "2023-10-30T17:01:19.085Z"
+      }
+    },
+    "email": {
+      "address": "string",
+      "verified": true
+    },
+    "phone": {
+      "number": "string",
+      "numberToVerify": "string",
+      "verified": true
+    },
+    "credentials": {
+      "lastPasswordChangeDate": "2023-10-30T17:01:19.085Z",
+      "lastLoginDate": "2023-10-30T17:01:19.085Z",
+      "remainingLockoutMinutes": 0,
+      "remainingLoginAttempts": 0
+    },
+    "stepsKitBenefit": {
+      "hasBenefit": true,
+      "orderLimitReached": true,
+      "ordersHistory": [
+        {
+          "kit": "string",
+          "orderDate": "2023-10-30T17:01:19.085Z",
+          "orderStatus": "string",
+          "address1": "string",
+          "address2": "string",
+          "city": "string",
+          "state": "string",
+          "zip": "string"
+        }
+      ]
+    },
+    "campaigns": [
+      {
+        "Participated": true,
+        "CampaignType": "AppleFitness+",
+        "Eligible": true,
+        "MaxBookings": "string"
+      },
+      {
+        "Participated": true,
+        "CampaignType": "GetSetUp",
+        "Eligible": true,
+        "MaxBookings": "string"
+      },
+      {
+        "Participated": true,
+        "CampaignType": "Burnalong",
+        "Eligible": true,
+        "MaxBookings": "string"
+      },
+      {
+        "Participated": true,
+        "CampaignType": "Stitch",
+        "Eligible": true,
+        "MaxBookings": "string"
+      }
+    ],
+    "EngagementColor": 0,
+    "EngagementContact": 0,
+    "workoutPreference": "Group"
+  }
 }

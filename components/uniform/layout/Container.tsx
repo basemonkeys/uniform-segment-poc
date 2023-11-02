@@ -16,12 +16,13 @@ export type ContainerProps = ComponentProps<BaseContainerProps> & {
 
 export function Container(props: ContainerProps) {
   const { showAsPageTitle, component, context } = props;
+  const { parameters } = component;
 
   return (
     <BaseContainer {...props} containerVariant={component?.variant}>
       {showAsPageTitle && (
         <h2 className="mb-2 mt-12">
-          {component.parameters?.title.value as React.ReactNode[]}
+          {parameters?.title.value as React.ReactNode[]}
         </h2>
       )}
       <UniformSlot name="containerInner" data={component} context={context} />

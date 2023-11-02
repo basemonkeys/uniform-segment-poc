@@ -5,13 +5,12 @@ import { useQuery } from "@tanstack/react-query";
 
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/primitives/card";
+import { Button } from "@/components/ui/primitives/button";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPrint, faDownload } from "@fortawesome/free-solid-svg-icons";
@@ -26,10 +25,7 @@ export async function MemberIdCard(props: { user: Types.UserProps }) {
   });
   const { eligibility } = data;
 
-  const memberCardNumber = data.eligibility.cardNumber.replace(
-    /(.{4})\B/g,
-    "$1-",
-  );
+  const memberCardNumber = eligibility.cardNumber.replace(/(.{4})\B/g, "$1-");
 
   return (
     <Card className="flex flex-col justify-between gap-6 md:flex-row lg:h-[294px] lg:max-h-[294px]">

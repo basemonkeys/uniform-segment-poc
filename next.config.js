@@ -10,6 +10,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "images.ctfassets.net", // Contentful
       },
+      // TODO: check this API url with the new API
       // this allows next Image component to display member cards from the SilverSneakers API
       {
         protocol: "https",

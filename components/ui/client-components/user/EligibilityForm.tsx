@@ -19,13 +19,13 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
-} from "@/components/ui/card";
+} from "@/components/ui/primitives/card";
 import {
   StepperTabs,
   StepperTabsList,
   StepperTabsTrigger,
   StepperTabsContent,
-} from "@/components/ui/stepper-tabs";
+} from "@/components/ui/primitives/stepper-tabs";
 import {
   Form,
   FormField,
@@ -33,10 +33,10 @@ import {
   FormLabel,
   FormControl,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/primitives/form";
+import { Input } from "@/components/ui/primitives/input";
+import { Checkbox } from "@/components/ui/primitives/checkbox";
+import { Button } from "@/components/ui/primitives/button";
 import {
   Dialog,
   DialogContent,
@@ -45,7 +45,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogClose,
-} from "@/components/ui/dialog";
+} from "@/components/ui/primitives/dialog";
 
 import {
   XCircleIcon,

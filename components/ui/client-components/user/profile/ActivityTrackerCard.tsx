@@ -11,8 +11,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import ActivityChart from "@/components/ui/user/ActivityChart";
+} from "@/components/ui/primitives/card";
+import ActivityChart from "@/components/ui/client-components/user/profile/ActivityChart";
 
 import { InformationCircleIcon } from "@heroicons/react/20/solid";
 

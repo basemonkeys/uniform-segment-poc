@@ -17,15 +17,17 @@ import {
   NavigationMenuTrigger,
   NavigationMenuContent,
   NavigationMenuLink,
-} from "@/components/ui/navigation-menu";
+} from "@/components/ui/primitives/navigation-menu";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/components/ui/primitives/accordion";
+import { Separator } from "@/components/ui/primitives/separator";
 
-import { Separator } from "@/components/ui/separator";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 export type LinkProps = Omit<ComponentProps, "context"> & {
   title: string;
@@ -93,7 +95,7 @@ export const SSFooterLink = ({ link, title }: Omit<LinkProps, "component">) => {
       rel={link?.path?.startsWith("http") ? "noopener noreferrer" : ""}
     >
       <div className="text-sm text-white hover:underline">{title}</div>
-      <div className="divider mt-0.5 h-2/3 bg-white md:visible">
+      <div className="separator mt-0.5 h-2/3 bg-white md:visible">
         <Separator orientation="vertical" />
       </div>
     </Link>
@@ -108,7 +110,7 @@ export const SSNavigationGroup = ({ component, title }: LinkProps) => {
     const { title, link, description } = item.parameters;
     const subNavItemTitle = title.value;
     const subNavItemLink = link.value;
-    const subNavItemDescription = description.value;
+    const subNavItemDescription = description?.value;
     return { subNavItemTitle, subNavItemLink, subNavItemDescription };
   });
 
@@ -197,13 +199,21 @@ export const SSNavigationGroup = ({ component, title }: LinkProps) => {
                             href={subNavItemLink.path}
                             className="gap-4 px-3 hover:bg-default-hover"
                           >
-                            {subNavItemTitle}
+                            <div className="flex items-center gap-2">
+                              {subNavItemTitle}
+                              {subNavItemLink.type === "url" && (
+                                <FontAwesomeIcon
+                                  icon={faUpRightFromSquare}
+                                  className="h-3 w-3"
+                                />
+                              )}
+                            </div>
                           </Link>
                           <span className="px-3 text-sm text-foreground">
                             {subNavItemDescription}
                           </span>
                           {/* {index === subNavItems.length && (
-                            <div className="divider mt-[20px] h-2/3 bg-black md:visible">
+                            <div className="separator mt-[20px] h-2/3 bg-black md:visible">
                               <Separator orientation="horizontal" />
                             </div>
                           )} */}

@@ -13,7 +13,7 @@ export default function Loading() {
         alt="Loading"
         width={250}
         height={100}
-      ></CloudinaryImage>
+      />
       <h3 className="flex animate-pulse items-center text-primary">
         <FontAwesomeIcon
           icon={faCircleNotch}

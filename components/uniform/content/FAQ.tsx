@@ -4,13 +4,13 @@ import {
   UniformSlot,
 } from "@uniformdev/canvas-next-rsc";
 
-import { Accordion } from "@/components/ui/accordion";
+import { Accordion } from "@/components/ui/primitives/accordion";
 
 type FAQProps = ComponentProps<{
   title: string;
 }>;
 
-export function FAQContainer({ title, component, context }: FAQProps) {
+export function FAQ({ title, component, context }: FAQProps) {
   return (
     <div className="my-12 rounded-t-lg bg-white">
       <h3 className="p-4 px-6">{title}</h3>
@@ -23,5 +23,5 @@ export function FAQContainer({ title, component, context }: FAQProps) {
 
 registerUniformComponent({
   type: "faqContainer",
-  component: FAQContainer,
+  component: FAQ,
 });

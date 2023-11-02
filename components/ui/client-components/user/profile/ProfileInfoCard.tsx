@@ -6,15 +6,15 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
+  // CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/primitives/card";
+import { Button } from "@/components/ui/primitives/button";
 
 import {
   InformationCircleIcon,
-  ArrowRightIcon,
+  // ArrowRightIcon,
 } from "@heroicons/react/20/solid";
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 

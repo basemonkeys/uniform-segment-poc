@@ -6,7 +6,7 @@ import "./global/pages/Page";
 import "./layout/Container";
 import "./layout/Grid";
 import "./content/RichTextContentCard";
-import "./content/FAQContainer";
+import "./content/FAQ";
 import "./content/FAQItem";
 import "./global/Header";
 import {
@@ -24,6 +24,9 @@ import "./content/StepItem";
 import "./user/LoginForm";
 import "./user/EligibilityForm";
 import "./user/MemberProfile";
+import "./user/MemberDashboard";
+import "./user/Campaigns";
+import "./user/CampaignItem";
 import "./contact/ContactUsForm";
 import "./contact/ContactCard";
 import "./content/PrivacyPolicy";

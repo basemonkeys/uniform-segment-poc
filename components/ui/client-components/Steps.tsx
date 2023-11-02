@@ -6,7 +6,7 @@ import { useAtom } from "jotai";
 import { cn } from "@/utils";
 import { stepsBackgroundAtom } from "@/utils/uiState";
 
-import { Button } from "../button";
+import { Button } from "@/components/ui/primitives/button";
 import { LightBackground, DarkBackground } from "@/components/ui/Backgrounds";
 
 import {

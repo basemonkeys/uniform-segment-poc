@@ -3,6 +3,8 @@ import {
   UniformSlot,
 } from "@uniformdev/canvas-next-rsc";
 
+import { getGlobalComponent, getGlobalMemberComponent } from "@/utils";
+
 // Google Font via next/font
 import { Open_Sans } from "next/font/google";
 
@@ -17,11 +19,13 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
 // Providers
-import { Providers } from "../components/providers";
+import { Providers } from "@/components/providers";
 
 // Uniform Canvas Components index
 import "@/components/uniform";
-import { getGlobalComponent } from "@/utils";
+
+// Global Visiter and Member Header and Footer Components
+import { GlobalHeader } from "@/components/ui/client-components/global/GlobalComponents";
 
 // SilverSneakers Components
 import { LanguageSelector } from "@/components/ui/client-components/navigation/LanguageSelector";
@@ -41,14 +45,12 @@ type LayoutProps = {
 };
 
 export default async function RootLayout({ children }: LayoutProps) {
-  void getGlobalComponent();
-
   return (
     <html lang="en" className={openSans.className}>
       <body className={openSans.className}>
         <Providers>
           <LanguageSelector />
-          <Header />
+          <GlobalHeader Header={<Header />} MemberHeader={<MemberHeader />} />
           {children}
           <Footer />
         </Providers>
@@ -57,8 +59,7 @@ export default async function RootLayout({ children }: LayoutProps) {
   );
 }
 
-// These functions grab the Header and Footer slots from the Home composition (see utils directory) to allow for the header and footer components to be loaded in layout.tsx
-const Header = async () => {
+export const Header = async () => {
   const globalComponent = await getGlobalComponent();
 
   const context: UniformSlotProps<string>["context"] = {
@@ -70,7 +71,19 @@ const Header = async () => {
   return <UniformSlot name="header" data={globalComponent} context={context} />;
 };
 
-const Footer = async () => {
+export const MemberHeader = async () => {
+  const globalComponent = await getGlobalMemberComponent();
+
+  const context: UniformSlotProps<string>["context"] = {
+    composition: globalComponent,
+    path: "global",
+    searchParams: {},
+  };
+
+  return <UniformSlot name="header" data={globalComponent} context={context} />;
+};
+
+export const Footer = async () => {
   const globalComponent = await getGlobalComponent();
 
   const context: UniformSlotProps<string>["context"] = {

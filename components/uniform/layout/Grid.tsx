@@ -41,7 +41,7 @@ const getGridColumnsClass = (columnsCount: Types.AvailableColumnCount) => {
   }
 };
 
-const Grid = ({ columnsCount, component, context }: GridProps) => (
+export const Grid = ({ columnsCount, component, context }: GridProps) => (
   <div
     className={cn(
       "grid w-full auto-rows-max grid-cols-3 lg:gap-6",
@@ -56,5 +56,3 @@ registerUniformComponent({
   type: "grid",
   component: Grid,
 });
-
-export default Grid;
