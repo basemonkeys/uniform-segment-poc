@@ -3,7 +3,10 @@
 import { cn } from "@/utils";
 
 // TODO: make these into utils?
-import { getStateClasses, getTextClass } from "../../uniform/global/Banner";
+import {
+  getStateClasses,
+  getTextClass,
+} from "@/components/uniform/global/Banner";
 
 import { XMarkIcon } from "@heroicons/react/20/solid";
 

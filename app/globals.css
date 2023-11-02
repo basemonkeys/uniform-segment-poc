@@ -54,7 +54,7 @@
     @apply !cursor-pointer text-link;
   }
 
-  .footer-links a:last-of-type > .divider {
+  .footer-links a:last-of-type > .separator {
     display: none;
   }
 

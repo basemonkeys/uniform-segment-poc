@@ -16,7 +16,7 @@ import { cn } from "@/utils";
 
 import type { LoginFormProps } from "@/components/uniform/user/LoginForm";
 
-import { Card } from "@/components/ui/card";
+import { Card } from "@/components/ui/primitives/card";
 import {
   Form,
   FormField,
@@ -24,10 +24,10 @@ import {
   FormLabel,
   FormControl,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/primitives/form";
+import { Input } from "@/components/ui/primitives/input";
+import { Checkbox } from "@/components/ui/primitives/checkbox";
+import { Button } from "@/components/ui/primitives/button";
 
 import {
   EyeIcon,

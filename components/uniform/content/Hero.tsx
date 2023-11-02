@@ -8,7 +8,8 @@ import Image from "next/image";
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/primitives/button";
+import { Separator } from "@/components/ui/primitives/separator";
 import {
   CloudinaryImage,
   CloudinaryVideo,
@@ -82,6 +83,8 @@ const Hero = ({
 }: HeroProps) => {
   const { variant } = component;
   const isCentered = textAlignment === HeroAlignment.Center;
+
+  console.log(image);
 
   return (
     <div
@@ -170,13 +173,14 @@ const Hero = ({
             >
               {title}
             </h1>
-            {/* orange divider */}
-            <span
+            {/* orange separator */}
+            <Separator
+              orientation="horizontal"
               className={cn(
                 "mb-6 w-24 border-3 border-orange-500 xs:mb-10 sm:max-w-[100px] lg:mb-10",
                 isCentered && "max-sm:mx-auto",
               )}
-            ></span>
+            />
             <div
               className={cn("prose flex flex-col", getBackgroundClass(variant))}
             >

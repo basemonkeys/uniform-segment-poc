@@ -1,16 +1,16 @@
 import { Suspense } from "react";
 import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/components/ui/primitives/skeleton";
 import { ComponentError } from "@/components/ui/client-components/ComponentError";
-import { ProfileInfoCard } from "@/components/ui/user/ProfileInfoCard";
-import { MemberIdCard } from "@/components/ui/user/MemberIdCard";
-import { ActivityTrackerCard } from "@/components/ui/user/ActivityTrackerCard";
+import { ProfileInfoCard } from "@/components/ui/client-components/user/profile/ProfileInfoCard";
+import { MemberIdCard } from "@/components/ui/client-components/user/profile/MemberIdCard";
+import { ActivityTrackerCard } from "@/components/ui/client-components/user/profile/ActivityTrackerCard";
 
 import { ErrorBoundary } from "@/utils";
 import { getUser, getVisits } from "@/utils/api";
 
-export async function MemberProfile() {
+export default async function MemberProfile() {
   const user: Types.UserProps = await getUser();
   const visits: Types.VisitsProps = await getVisits();
 
@@ -51,5 +51,3 @@ registerUniformComponent({
   type: "memberProfile",
   component: MemberProfile,
 });
-
-export default MemberProfile;

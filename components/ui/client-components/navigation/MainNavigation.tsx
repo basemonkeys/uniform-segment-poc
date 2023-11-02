@@ -17,22 +17,22 @@ import {
 } from "@heroicons/react/20/solid";
 
 import { Logo } from "@/components/ui/client-components/Logo";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/primitives/button";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
   NavigationMenuContent,
-} from "@/components/ui/navigation-menu";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+} from "@/components/ui/primitives/navigation-menu";
+import { Avatar, AvatarFallback } from "@/components/ui/primitives/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/primitives/dropdown-menu";
 import { HeaderSkeleton } from "../../skeletons/HeaderSkeleton";
 
 type MainNavigationProps = ComponentProps & {
@@ -42,7 +42,16 @@ type MainNavigationProps = ComponentProps & {
 
 const MainNavigation = ({ children, logo }: MainNavigationProps) => {
   const { user, error, isLoading } = useUser();
+  const userInitials = user?.name
+    ?.split(" ")
+    .map((n) => n[0])
+    .join("");
+
   const [showButton, setShowButton] = useState(false);
+
+  const returnLink = `/api/auth/login?returnTo=${encodeURIComponent(
+    "/member/dashboard",
+  )}`;
 
   useEffect(() => {
     const handleScrollButtonVisibility = () => {
@@ -107,7 +116,9 @@ const MainNavigation = ({ children, logo }: MainNavigationProps) => {
                     <Avatar className="h-8 w-8">
                       {/* <AvatarImage src="https://github.com/shadcn.png" /> */}
                       <AvatarFallback className="bg-primary text-white">
-                        <UserIcon className="h-6 w-6 text-white" />
+                        {/* <UserIcon className="h-6 w-6 text-white" /> */}
+                        {/* get user first and last initials */}
+                        <span className="text-sm">{userInitials}</span>
                       </AvatarFallback>
                     </Avatar>
                     {user.name}
@@ -115,7 +126,7 @@ const MainNavigation = ({ children, logo }: MainNavigationProps) => {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     <DropdownMenuItem asChild>
-                      <Link href="/member-profile">
+                      <Link href="/member/profile">
                         <UserIcon className="mr-2 h-4 w-4" />
                         <span>Profile</span>
                       </Link>
@@ -136,7 +147,7 @@ const MainNavigation = ({ children, logo }: MainNavigationProps) => {
             ) : (
               <div className="flex gap-3">
                 <Button variant="secondaryWhite" asChild>
-                  <a href="/api/auth/login">Log in</a>
+                  <a href={returnLink}>Log in</a>
                 </Button>
                 <Button className="max-sm:hidden" asChild>
                   <Link href="/eligibility/check-eligibility">

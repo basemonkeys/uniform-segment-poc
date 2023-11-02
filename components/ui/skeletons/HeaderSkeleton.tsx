@@ -1,6 +1,6 @@
 // This skeleton belongs to components/ui/client-components/navigation/MainNavigation.tsx
 
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/components/ui/primitives/skeleton";
 
 export function HeaderSkeleton() {
   return (

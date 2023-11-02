@@ -98,6 +98,116 @@
       ]
     },
     {
+      "id": "campaignItem",
+      "name": "Campaign Item",
+      "icon": "profile",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "json",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "callToAction",
+          "name": "Call To Action",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "callToActionUrl",
+          "name": "Call To Action Url",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "image",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "logo",
+          "name": "Logo",
+          "type": "image",
+          "helpText": "",
+          "typeConfig": null
+        }
+      ],
+      "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
+      "useTeamPermissions": true,
+      "slots": [],
+      "titleParameter": "title",
+      "canBeComposition": false,
+      "created": "2023-11-02T10:51:28.027286+00:00",
+      "updated": "2023-11-02T10:57:57.994683+00:00"
+    },
+    {
+      "id": "campaigns",
+      "name": "Campaigns",
+      "icon": "profile",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
+      "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "campaignItems",
+          "name": "Campaign Items",
+          "allowedComponents": [
+            "$loop",
+            "campaignItem"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
+        }
+      ],
+      "titleParameter": "title",
+      "canBeComposition": false,
+      "created": "2023-11-02T10:45:38.583284+00:00",
+      "updated": "2023-11-02T11:32:30.634567+00:00"
+    },
+    {
       "id": "contactCard",
       "name": "Contact Card",
       "icon": "phone",
@@ -324,7 +434,7 @@
     },
     {
       "id": "faqContainer",
-      "name": "FAQ Container",
+      "name": "FAQs",
       "icon": "layout-list",
       "parameters": [
         {
@@ -342,7 +452,7 @@
       "slots": [
         {
           "id": "faqs",
-          "name": "Frequently Asked Questions",
+          "name": "FAQ Items",
           "allowedComponents": [
             "faqItem",
             "$loop"
@@ -355,7 +465,7 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-10-17T05:13:14.264376+00:00",
-      "updated": "2023-10-17T21:38:06.014893+00:00"
+      "updated": "2023-11-02T11:37:16.312099+00:00"
     },
     {
       "id": "faqItem",
@@ -778,7 +888,8 @@
             "grid",
             "quickLinks",
             "steps",
-            "memberDashboard"
+            "memberDashboard",
+            "$p:5f07b8ad-fbe6-4c10-bb19-7d56b913a72a"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -805,7 +916,7 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-10-05T20:36:58.515615+00:00",
-      "updated": "2023-10-27T06:47:43.869363+00:00"
+      "updated": "2023-11-02T11:21:44.628697+00:00"
     },
     {
       "id": "memberDashboard",
@@ -1361,7 +1472,17 @@
     },
     {
       "composition": {
-        "_name": "FAQ Container",
+        "_name": "Member Dashboard",
+        "_id": "1300c211-0242-4de9-b478-802187c23ff9",
+        "type": "memberDashboard"
+      },
+      "created": "2023-10-30T23:00:15.460534+00:00",
+      "modified": "2023-10-30T23:00:15.460534+00:00",
+      "pattern": true
+    },
+    {
+      "composition": {
+        "_name": "FAQs",
         "_id": "157c3a68-dd5e-4764-88cf-763be74baeb9",
         "type": "faqContainer",
         "parameters": {
@@ -1399,7 +1520,7 @@
                 ]
               },
               "_dataResources": {
-                "FAQs item Loop": {
+                "FAQs items Loop": {
                   "type": "sys-reserved-loop",
                   "variables": {
                     "connectedData": "/FAQs/items"
@@ -1436,7 +1557,7 @@
         }
       },
       "created": "2023-10-17T05:40:19.185951+00:00",
-      "modified": "2023-10-18T17:47:13.138461+00:00",
+      "modified": "2023-11-02T11:35:15.398668+00:00",
       "pattern": true
     },
     {
@@ -1475,6 +1596,11 @@
                   {
                     "_id": "7cec3bcd-c57d-456c-bd7f-de45213f0b24",
                     "type": "memberDashboard"
+                  },
+                  {
+                    "_id": "6fe3116f-4505-41aa-af05-0e7546456f6c",
+                    "type": "campaigns",
+                    "_pattern": "5f07b8ad-fbe6-4c10-bb19-7d56b913a72a"
                   }
                 ]
               },
@@ -1489,7 +1615,7 @@
         }
       },
       "created": "2023-10-27T05:29:38.994848+00:00",
-      "modified": "2023-10-27T06:50:31.231403+00:00",
+      "modified": "2023-11-02T11:11:53.570936+00:00",
       "pattern": false
     },
     {
@@ -1853,6 +1979,95 @@
       "created": "2023-10-04T18:43:22.893333+00:00",
       "modified": "2023-10-20T20:41:14.271531+00:00",
       "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Campaigns",
+        "_id": "5f07b8ad-fbe6-4c10-bb19-7d56b913a72a",
+        "type": "campaigns",
+        "parameters": {
+          "title": {
+            "type": "text",
+            "value": "Get Active"
+          },
+          "description": {
+            "type": "text",
+            "value": "Quick access to everything you need to stay active"
+          }
+        },
+        "slots": {
+          "campaignItems": [
+            {
+              "_id": "854eaa5b-d75f-41bf-bf1a-e62446e86e26",
+              "type": "$loop",
+              "slots": {
+                "body": [
+                  {
+                    "_id": "02348e6f-5282-4735-928d-8031ba946532",
+                    "type": "campaignItem",
+                    "parameters": {
+                      "image": {
+                        "type": "image",
+                        "value": "${#jptr:/Campaign Content/items/0/fields/image/fields/file/url}"
+                      },
+                      "title": {
+                        "type": "text",
+                        "value": "${#jptr:/Campaign Content/items/0/fields/title}"
+                      },
+                      "description": {
+                        "type": "json",
+                        "value": "${#jptr:/Campaign Content/items/0/fields/description}"
+                      },
+                      "callToAction": {
+                        "type": "text",
+                        "value": "${#jptr:/Campaign Content/items/0/fields/callToAction}"
+                      },
+                      "callToActionUrl": {
+                        "type": "text",
+                        "value": "${#jptr:/Campaign Content/items/0/fields/callToActionUrl}"
+                      }
+                    }
+                  }
+                ]
+              },
+              "_dataResources": {
+                "Campaign Items Loop": {
+                  "type": "sys-reserved-loop",
+                  "variables": {
+                    "connectedData": "/Campaign Content/items"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "_dataResources": {
+          "Campaign Content": {
+            "type": "campaign",
+            "variables": {
+              "limit": "5",
+              "order": "",
+              "locale": "",
+              "filters": "",
+              "keyword": "",
+              "sortOrder": "asc",
+              "sortFieldId": "",
+              "contentTypeId": "campaign",
+              "advancedFilters": "[]",
+              "contentTypeQuery": "content_type=campaign"
+            }
+          }
+        },
+        "_overridability": {
+          "parameters": {
+            "title": "yes",
+            "description": "yes"
+          }
+        }
+      },
+      "created": "2023-11-02T10:46:08.028977+00:00",
+      "modified": "2023-11-02T11:33:03.384681+00:00",
+      "pattern": true
     },
     {
       "composition": {

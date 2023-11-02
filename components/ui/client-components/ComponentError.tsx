@@ -6,8 +6,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/primitives/card";
+import { Button } from "@/components/ui/primitives/button";
 
 export function ComponentError() {
   function refreshPage() {
