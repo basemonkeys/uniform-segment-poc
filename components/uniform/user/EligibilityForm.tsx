@@ -3,7 +3,7 @@ import {
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
-import { EligibilityForm as BaseEligibilityForm } from "@/components/ui/client-components/user/EligibilityForm";
+import { EligibilityForm as BaseEligibilityForm } from "@/components/client-components/user/EligibilityForm";
 
 export type EligibilityFormProps = ComponentProps<{
   title: string;

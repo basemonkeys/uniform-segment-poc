@@ -3,7 +3,7 @@ import {
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
-import { ContactUsForm as HubspotContactUsForm } from "@/components/ui/client-components/contact/ContactUsForm";
+import { ContactUsForm as HubspotContactUsForm } from "@/components/client-components/contact/ContactUsForm";
 
 export type ContactUsFormProps = ComponentProps<{
   text: string;

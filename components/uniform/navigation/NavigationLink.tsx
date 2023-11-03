@@ -6,7 +6,7 @@ import {
   SSQuickLink,
   SSFooterLink,
   SSNavigationGroup,
-} from "@/components/ui/client-components/navigation/SSNavigationLinks";
+} from "@/components/client-components/navigation/SSNavigationLinks";
 
 export const HeaderLink = ({ title, link }: LinkProps) => {
   return <SSHeaderLink link={link} title={title} />;

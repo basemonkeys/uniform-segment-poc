@@ -4,7 +4,7 @@ import {
   UniformSlot,
 } from "@uniformdev/canvas-next-rsc";
 
-import { Accordion } from "@/components/ui/primitives/accordion";
+import { Accordion } from "@/components/primitives/accordion";
 
 type FAQProps = ComponentProps<{
   title: string;

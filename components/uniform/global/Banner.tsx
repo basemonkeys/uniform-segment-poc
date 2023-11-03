@@ -7,7 +7,7 @@ import Link from "next/link";
 
 import { cn } from "@/utils";
 
-import { DismissButton } from "@/components/ui/client-components/DismissButton";
+import { DismissButton } from "@/components/client-components/DismissButton";
 
 import {
   CheckCircleIcon,

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   type ComponentProps,
   registerUniformComponent,
@@ -9,11 +10,10 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/primitives/accordion";
+} from "@/components/primitives/accordion";
 
 type FAQItemProps = ComponentProps<{
   question: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   answer: any;
 }>;
 

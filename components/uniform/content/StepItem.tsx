@@ -3,7 +3,7 @@ import {
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
-import { StepItem as BaseStepItem } from "@/components/ui/client-components/StepItem";
+import { StepItem as BaseStepItem } from "@/components/client-components/StepItem";
 
 export type StepItemProps = ComponentProps<{
   stepNumber: number;

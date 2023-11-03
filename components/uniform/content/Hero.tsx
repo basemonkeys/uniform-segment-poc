@@ -8,14 +8,14 @@ import Image from "next/image";
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-import { Button } from "@/components/ui/primitives/button";
-import { Separator } from "@/components/ui/primitives/separator";
+import { Button } from "@/components/primitives/button";
+import { Separator } from "@/components/primitives/separator";
 import {
   CloudinaryImage,
   CloudinaryVideo,
-} from "@/components/ui/client-components/Cloudinary";
+} from "@/components/client-components/Cloudinary";
 
-import { LightBackground, DarkBackground } from "@/components/ui/Backgrounds";
+import { LightBackground, DarkBackground } from "@/components/Backgrounds";
 
 import { cn, getImageUrl } from "@/utils";
 

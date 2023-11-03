@@ -5,7 +5,7 @@ import {
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
-import { LoginForm as BaseLoginForm } from "@/components/ui/client-components/user/LoginForm";
+import { LoginForm as BaseLoginForm } from "@/components/client-components/user/LoginForm";
 
 export type LoginFormProps = ComponentProps<{
   heading: string;

@@ -8,7 +8,7 @@ import {
   type BaseContainerProps,
   Container as BaseContainer,
   ContainerVariants,
-} from "@/components/ui/layout/Container";
+} from "@/components/layout/Container";
 
 export type ContainerProps = ComponentProps<BaseContainerProps> & {
   showAsPageTitle: boolean;

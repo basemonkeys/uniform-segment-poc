@@ -4,7 +4,7 @@ import {
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
-import MainNavigation from "@/components/ui/client-components/navigation/MainNavigation";
+import MainNavigation from "@/components/client-components/navigation/MainNavigation";
 
 import { getImageUrl } from "@/utils";
 

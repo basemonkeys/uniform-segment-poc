@@ -4,7 +4,7 @@ import {
   UniformSlot,
 } from "@uniformdev/canvas-next-rsc";
 
-import { Steps as BaseSteps } from "@/components/ui/client-components/Steps";
+import { Steps as BaseSteps } from "@/components/client-components/Steps";
 
 export type StepsProps = ComponentProps<{
   title: string;

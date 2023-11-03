@@ -1,6 +1,6 @@
 // This is a site wide loading state and can be overriden for component specific loading states with React <Suspense />
 
-import { CloudinaryImage } from "@/components/ui/client-components/Cloudinary";
+import { CloudinaryImage } from "@/components/client-components/Cloudinary";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";

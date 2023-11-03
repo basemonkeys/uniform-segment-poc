@@ -25,10 +25,10 @@ import { Providers } from "@/components/providers";
 import "@/components/uniform";
 
 // Global Visiter and Member Header and Footer Components
-import { GlobalHeader } from "@/components/ui/client-components/global/GlobalComponents";
+import { GlobalHeader } from "@/components/client-components/global/GlobalComponents";
 
 // SilverSneakers Components
-import { LanguageSelector } from "@/components/ui/client-components/navigation/LanguageSelector";
+import { LanguageSelector } from "@/components/client-components/navigation/LanguageSelector";
 
 // Global CSS
 import "./globals.css";

@@ -5,8 +5,8 @@ import {
 import { UniformRichText } from "@uniformdev/canvas-next-rsc";
 import Link from "next/link";
 
-import { Card } from "@/components/ui/primitives/card";
-import { Button } from "@/components/ui/primitives/button";
+import { Card } from "@/components/primitives/card";
+import { Button } from "@/components/primitives/button";
 
 type RichTextContentCardProps = ComponentProps<{
   title: string;

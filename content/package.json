@@ -156,12 +156,13 @@
         }
       ],
       "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
+      "description": "This component is used within the Campaigns Loop.",
       "useTeamPermissions": true,
       "slots": [],
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-11-02T10:51:28.027286+00:00",
-      "updated": "2023-11-02T10:57:57.994683+00:00"
+      "updated": "2023-11-03T06:23:12.412769+00:00"
     },
     {
       "id": "campaigns",
@@ -188,6 +189,7 @@
         }
       ],
       "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
+      "description": "This component has a Campaigns Pattern that loops through all of the Campaign entries from Contentful. Each Campaign Item is displayed dynamically in the frontend.",
       "useTeamPermissions": true,
       "slots": [
         {
@@ -205,7 +207,7 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-11-02T10:45:38.583284+00:00",
-      "updated": "2023-11-02T11:32:30.634567+00:00"
+      "updated": "2023-11-03T06:24:39.641367+00:00"
     },
     {
       "id": "contactCard",
@@ -366,6 +368,7 @@
         }
       ],
       "categoryId": "2abac45c-133a-4310-bf67-52c31d2cfd02",
+      "description": "This component should be included within every Composition. It can be contained on the page with left and right margins or be displayed as full width.",
       "useTeamPermissions": true,
       "slots": [
         {
@@ -380,13 +383,26 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-10-11T17:29:29.389738+00:00",
-      "updated": "2023-10-18T19:31:09.347793+00:00",
+      "updated": "2023-11-03T06:32:30.457774+00:00",
       "variants": [
         {
           "id": "fullWidth",
           "name": "Full Width "
         }
       ]
+    },
+    {
+      "id": "dashboardHeader",
+      "name": "Dashboard Header",
+      "icon": "profile",
+      "parameters": [],
+      "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
+      "description": "This component represents the Member Dashboard header.",
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-11-03T06:48:50.549078+00:00",
+      "updated": "2023-11-03T06:48:50.549078+00:00"
     },
     {
       "id": "eligibilityForm",
@@ -425,12 +441,13 @@
         }
       ],
       "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
+      "description": "The component displays the eligibility form.",
       "useTeamPermissions": true,
       "slots": [],
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-10-13T05:52:41.147927+00:00",
-      "updated": "2023-10-20T20:41:06.486537+00:00"
+      "updated": "2023-11-03T06:28:25.216959+00:00"
     },
     {
       "id": "faqContainer",
@@ -498,6 +515,19 @@
       "canBeComposition": false,
       "created": "2023-10-17T05:14:47.242917+00:00",
       "updated": "2023-10-17T05:14:47.242917+00:00"
+    },
+    {
+      "id": "fitnessLocations",
+      "name": "Fitness Locations",
+      "icon": "profile",
+      "parameters": [],
+      "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
+      "description": "This component displays the top three fitness locations based on the Member's zip code.",
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-11-03T06:08:15.417115+00:00",
+      "updated": "2023-11-03T06:21:59.2532+00:00"
     },
     {
       "id": "footer",
@@ -631,6 +661,7 @@
         }
       ],
       "categoryId": "2abac45c-133a-4310-bf67-52c31d2cfd02",
+      "description": "This component holds Grid Items and provides control of up to twelve grid columns.",
       "useTeamPermissions": true,
       "slots": [
         {
@@ -648,7 +679,7 @@
       ],
       "canBeComposition": false,
       "created": "2023-10-10T22:46:09.012072+00:00",
-      "updated": "2023-10-19T23:51:57.517043+00:00"
+      "updated": "2023-11-03T06:39:09.290761+00:00"
     },
     {
       "id": "header",
@@ -888,8 +919,7 @@
             "grid",
             "quickLinks",
             "steps",
-            "memberDashboard",
-            "$p:5f07b8ad-fbe6-4c10-bb19-7d56b913a72a"
+            "$p:1300c211-0242-4de9-b478-802187c23ff9"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -916,7 +946,20 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-10-05T20:36:58.515615+00:00",
-      "updated": "2023-11-02T11:21:44.628697+00:00"
+      "updated": "2023-11-03T05:51:13.860845+00:00"
+    },
+    {
+      "id": "liveClasses",
+      "name": "Live Classes",
+      "icon": "screen",
+      "parameters": [],
+      "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
+      "description": "This component displays the top three \"LIVE\" or \"Up Next\" online classes from the \"/live\" api endpoint.",
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-11-03T04:37:08.823373+00:00",
+      "updated": "2023-11-03T06:21:31.850073+00:00"
     },
     {
       "id": "memberDashboard",
@@ -924,11 +967,26 @@
       "icon": "profile",
       "parameters": [],
       "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
+      "description": "This is a wrapper component that has a Member Dashboard Pattern which contains all of the Member Dashboard components.",
       "useTeamPermissions": true,
-      "slots": [],
+      "slots": [
+        {
+          "id": "dashboardInner",
+          "name": "Dashboard Inner",
+          "allowedComponents": [
+            "campaigns",
+            "liveClasses",
+            "fitnessLocations",
+            "dashboardHeader"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
+        }
+      ],
       "canBeComposition": false,
       "created": "2023-10-27T06:46:56.697013+00:00",
-      "updated": "2023-10-27T06:46:56.697013+00:00"
+      "updated": "2023-11-03T06:49:03.007452+00:00"
     },
     {
       "id": "memberProfile",
@@ -936,11 +994,12 @@
       "icon": "profile",
       "parameters": [],
       "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
+      "description": "This is a wrapper component that holds all of the Member Profile components.",
       "useTeamPermissions": true,
       "slots": [],
       "canBeComposition": false,
       "created": "2023-10-02T17:09:55.60874+00:00",
-      "updated": "2023-10-10T21:43:33.165721+00:00"
+      "updated": "2023-11-03T06:18:15.70529+00:00"
     },
     {
       "id": "navigationGroup",
@@ -1474,10 +1533,115 @@
       "composition": {
         "_name": "Member Dashboard",
         "_id": "1300c211-0242-4de9-b478-802187c23ff9",
-        "type": "memberDashboard"
+        "type": "memberDashboard",
+        "slots": {
+          "dashboardInner": [
+            {
+              "_id": "2d754c01-9e25-49da-9072-a14a819c660c",
+              "type": "dashboardHeader"
+            },
+            {
+              "_id": "5e044412-d2b6-4565-a6d7-179c4554bde5",
+              "type": "liveClasses"
+            },
+            {
+              "_id": "fde7c268-4af8-4bfb-b607-615dec52f63b",
+              "type": "fitnessLocations"
+            },
+            {
+              "_id": "44ea700c-4c5f-42f7-a94c-20fce665db1d",
+              "type": "campaigns",
+              "slots": {
+                "campaignItems": [
+                  {
+                    "_id": "0c92583f-3e5d-42c7-a591-0817ee4192a6",
+                    "type": "$loop",
+                    "slots": {
+                      "body": [
+                        {
+                          "_id": "ab55ecaf-8a53-4744-b3b6-652bf92ed175",
+                          "type": "campaignItem",
+                          "parameters": {
+                            "logo": {
+                              "type": "image",
+                              "value": "${#jptr:/Campaign Content items Loop Item/fields/logo/fields/file/url}"
+                            },
+                            "image": {
+                              "type": "image",
+                              "value": "${#jptr:/Campaign Content items Loop Item/fields/image/fields/file/url}"
+                            },
+                            "title": {
+                              "type": "text",
+                              "value": "${#jptr:/Campaign Content items Loop Item/fields/title}"
+                            },
+                            "description": {
+                              "type": "json",
+                              "value": "${#jptr:/Campaign Content items Loop Item/fields/description}"
+                            },
+                            "callToAction": {
+                              "type": "text",
+                              "value": "${#jptr:/Campaign Content items Loop Item/fields/callToAction}"
+                            },
+                            "callToActionUrl": {
+                              "type": "text",
+                              "value": "${#jptr:/Campaign Content items Loop Item/fields/callToActionUrl}"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "_dataResources": {
+                      "Campaign Content items Loop Item": {
+                        "type": "sys-reserved-loop",
+                        "variables": {
+                          "connectedData": "/Campaign Content/items"
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "Get Active"
+                },
+                "description": {
+                  "type": "text",
+                  "value": "Quick access to everything you need to stay active"
+                }
+              },
+              "_overridability": {
+                "parameters": {
+                  "title": "yes",
+                  "description": "yes"
+                }
+              }
+            }
+          ]
+        },
+        "_dataResources": {
+          "Campaign Content": {
+            "type": "campaign",
+            "variables": {
+              "limit": "5",
+              "order": "",
+              "locale": "",
+              "filters": "",
+              "keyword": "",
+              "sortOrder": "asc",
+              "sortFieldId": "",
+              "contentTypeId": "campaign",
+              "advancedFilters": "[]",
+              "contentTypeQuery": "content_type=campaign"
+            },
+            "isPatternParameter": false,
+            "ignorePatternParameterDefault": false
+          }
+        }
       },
       "created": "2023-10-30T23:00:15.460534+00:00",
-      "modified": "2023-10-30T23:00:15.460534+00:00",
+      "modified": "2023-11-03T06:49:22.021979+00:00",
       "pattern": true
     },
     {
@@ -1594,13 +1758,9 @@
               "slots": {
                 "containerInner": [
                   {
-                    "_id": "7cec3bcd-c57d-456c-bd7f-de45213f0b24",
-                    "type": "memberDashboard"
-                  },
-                  {
-                    "_id": "6fe3116f-4505-41aa-af05-0e7546456f6c",
-                    "type": "campaigns",
-                    "_pattern": "5f07b8ad-fbe6-4c10-bb19-7d56b913a72a"
+                    "_id": "13055456-1588-447f-a7cd-0b112848265a",
+                    "type": "memberDashboard",
+                    "_pattern": "1300c211-0242-4de9-b478-802187c23ff9"
                   }
                 ]
               },
@@ -1615,7 +1775,7 @@
         }
       },
       "created": "2023-10-27T05:29:38.994848+00:00",
-      "modified": "2023-11-02T11:11:53.570936+00:00",
+      "modified": "2023-11-03T05:52:27.132072+00:00",
       "pattern": false
     },
     {
@@ -2006,25 +2166,29 @@
                     "_id": "02348e6f-5282-4735-928d-8031ba946532",
                     "type": "campaignItem",
                     "parameters": {
+                      "logo": {
+                        "type": "image",
+                        "value": "${#jptr:/Campaign Items Loop/fields/logo/fields/file/url}"
+                      },
                       "image": {
                         "type": "image",
-                        "value": "${#jptr:/Campaign Content/items/0/fields/image/fields/file/url}"
+                        "value": "${#jptr:/Campaign Items Loop/fields/image/fields/file/url}"
                       },
                       "title": {
                         "type": "text",
-                        "value": "${#jptr:/Campaign Content/items/0/fields/title}"
+                        "value": "${#jptr:/Campaign Items Loop/fields/title}"
                       },
                       "description": {
                         "type": "json",
-                        "value": "${#jptr:/Campaign Content/items/0/fields/description}"
+                        "value": "${#jptr:/Campaign Items Loop/fields/description}"
                       },
                       "callToAction": {
                         "type": "text",
-                        "value": "${#jptr:/Campaign Content/items/0/fields/callToAction}"
+                        "value": "${#jptr:/Campaign Items Loop/fields/callToAction}"
                       },
                       "callToActionUrl": {
                         "type": "text",
-                        "value": "${#jptr:/Campaign Content/items/0/fields/callToActionUrl}"
+                        "value": "${#jptr:/Campaign Items Loop/fields/callToActionUrl}"
                       }
                     }
                   }
@@ -2066,7 +2230,7 @@
         }
       },
       "created": "2023-11-02T10:46:08.028977+00:00",
-      "modified": "2023-11-02T11:33:03.384681+00:00",
+      "modified": "2023-11-03T04:06:38.618768+00:00",
       "pattern": true
     },
     {

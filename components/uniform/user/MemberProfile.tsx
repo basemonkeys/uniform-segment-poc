@@ -1,11 +1,11 @@
 import { Suspense } from "react";
 import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 
-import { Skeleton } from "@/components/ui/primitives/skeleton";
-import { ComponentError } from "@/components/ui/client-components/ComponentError";
-import { ProfileInfoCard } from "@/components/ui/client-components/user/profile/ProfileInfoCard";
-import { MemberIdCard } from "@/components/ui/client-components/user/profile/MemberIdCard";
-import { ActivityTrackerCard } from "@/components/ui/client-components/user/profile/ActivityTrackerCard";
+import { Skeleton } from "@/components/primitives/skeleton";
+import { ComponentError } from "@/components/client-components/ComponentError";
+import { ProfileInfoCard } from "@/components/client-components/user/profile/ProfileInfoCard";
+import { MemberIdCard } from "@/components/client-components/user/profile/MemberIdCard";
+import { ActivityTrackerCard } from "@/components/client-components/user/profile/ActivityTrackerCard";
 
 import { ErrorBoundary } from "@/utils";
 import { getUser, getVisits } from "@/utils/api";
