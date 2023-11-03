@@ -84,8 +84,6 @@ const Hero = ({
   const { variant } = component;
   const isCentered = textAlignment === HeroAlignment.Center;
 
-  console.log(image);
-
   return (
     <div
       id={component._id}

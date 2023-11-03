@@ -50,9 +50,9 @@ export function FitnessLocations(props: {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 gap-6 text-foreground lg:grid-cols-3">
-            {Locations.map((item, index) => (
+            {Locations.map((item) => (
               <>
-                <Card key={index} className="flex flex-col p-4">
+                <Card key={item.Id} className="flex flex-col p-4">
                   <CardHeader>
                     <CardTitle className="h4">{item.Name}</CardTitle>
                   </CardHeader>

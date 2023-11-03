@@ -29,7 +29,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/api/auth/[auth0]/route.js",
-    "server.js"
+    "faker/faker.ts",
+    "faker/server.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -64,7 +64,7 @@ export function LiveClasses(props: { classes: Types.LiveClassesProps }) {
   return (
     <div className="flex flex-col gap-4 lg:flex-row">
       {currentLiveStream && (
-        <Card className="relative p-0">
+        <Card className="relative basis-1/2 p-0">
           {/* Background Swoosh */}
           <div className="absolute top-1/2 z-0">
             <CloudinaryImage
@@ -132,7 +132,7 @@ export function LiveClasses(props: { classes: Types.LiveClassesProps }) {
         </Card>
       )}
 
-      <div className="flex flex-col gap-4">
+      <div className="flex basis-1/2 flex-col gap-4">
         <div className="mb-4 flex flex-col">
           <h3>Upcoming LIVE Stream Online Classes</h3>
           <p>The following classes are coming up soon! Reserve a spot now!</p>
@@ -142,7 +142,7 @@ export function LiveClasses(props: { classes: Types.LiveClassesProps }) {
           return (
             <Card
               key={index}
-              className="relative flex flex-col gap-2 p-0 sm:flex-row "
+              className="relative flex w-full flex-col gap-2 p-0 sm:flex-row"
             >
               <div className="relative w-full basis-1/3">
                 {/* Background Swoosh */}

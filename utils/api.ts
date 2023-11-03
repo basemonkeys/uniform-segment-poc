@@ -8,7 +8,6 @@ const userUrl = "http://127.0.0.1:4000/user";
 const visitsUrl = "http://127.0.0.1:4000/visits";
 const liveClassesUrl = "http://127.0.0.1:4000/live";
 const fitnessLocationsUrl = "http://127.0.0.1:4000/locations";
-const memberUrl = "http://127.0.0.1:4000/member";
 
 export async function getUser() {
   try {
@@ -39,15 +38,6 @@ export async function getLiveClasses() {
 
 export async function getFitnessLocations() {
   const res = await fetch(fitnessLocationsUrl);
-  if (res.ok) {
-    return res.json();
-  } else {
-    throw new Error(`Error: ${res.status} ${res.statusText}`);
-  }
-}
-
-export async function getMember() {
-  const res = await fetch(memberUrl);
   if (res.ok) {
     return res.json();
   } else {

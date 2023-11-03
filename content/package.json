@@ -2789,6 +2789,41 @@
     },
     {
       "composition": {
+        "_name": "Fitness Plus",
+        "_id": "791bc400-4e6d-4a4e-9d6b-1999180c2185",
+        "_slug": "fitness-plus",
+        "type": "page",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Apple Fitness Plus"
+          }
+        },
+        "slots": {
+          "banners": [
+            {
+              "_id": "eaadabb2-177e-4cc5-9bbe-e3fc96b95321",
+              "type": "banner",
+              "parameters": {
+                "message": {
+                  "type": "text",
+                  "value": "This is the Apple Fitness + page"
+                },
+                "dismissable": {
+                  "type": "checkbox",
+                  "value": true
+                }
+              }
+            }
+          ]
+        }
+      },
+      "created": "2023-11-03T17:03:11.57263+00:00",
+      "modified": "2023-11-03T17:04:05.159712+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
         "_name": "How It Works",
         "_id": "822eef47-3989-43f9-9e30-14421fa90322",
         "_slug": "how-it-works",
@@ -5335,6 +5370,17 @@
       "order": 637,
       "path": "/learn",
       "pathSegment": "learn",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "f970ab1e-f3f2-458c-8e37-3654b1d454a2",
+      "name": "Fitness Plus",
+      "type": "composition",
+      "data": {},
+      "order": 850,
+      "path": "/fitness-plus",
+      "compositionId": "791bc400-4e6d-4a4e-9d6b-1999180c2185",
+      "pathSegment": "fitness-plus",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
