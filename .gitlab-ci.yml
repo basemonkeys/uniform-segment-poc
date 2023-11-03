@@ -7,7 +7,7 @@ image:
 
 stages:
   - test
-  - mockServer
+  - json_server
   - build
   - deploy
 
@@ -63,8 +63,8 @@ checkmarx-scan:
       --file-filter "${CX_FILE_FILTERS}"
       "${args[@]}"
 
-mockServer:
-  stage: testing
+json_server:
+  stage: json_server
   script:
     - faker/server.js
 
