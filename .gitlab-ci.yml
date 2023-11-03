@@ -63,17 +63,10 @@ checkmarx-scan:
       --file-filter "${CX_FILE_FILTERS}"
       "${args[@]}"
 
-# mockServer:
-#   stage: mockServer
-#   image: registry.gitlab.com/tivityhealth/container-images/nodejs16-build-container:552a03c2
-#   cache:
-#     - <<: *node-modules-cache
-#       policy: pull-push
-#   needs: []
-#   before_script:
-#     - npm install
-#   script:
-#     - node server.js
+mockServer:
+  stage: testing
+  script:
+    - faker/server.js
 
 build:
   stage: build
