@@ -1,96 +1,107 @@
 {
   "user": {
-    "firstName": "Jazmin",
-    "lastName": "Keeling",
+    "firstName": "Lon",
+    "lastName": "D'Amore",
     "email": {
-      "address": "Armando_Hackett@yahoo.com",
+      "address": "Destin92@hotmail.com",
       "verified": true
     },
     "eligibility": {
       "cardNumber": "2300103854957548",
       "cardImageUrl": "https://devapi.silversneakers.com/member-cards?a=Ktzzvk9H8zkTZaE5Zq%2BMBmR9nO4SWXweJNrN4btm567I4fjpvrIG7%2FWTnb0FYALn2ubPiogDgCk9yQ6TjPSykjmmM0wP2mjI%2FjTll58vr2wnBv8DGgt2VYJYRqpjsw2sajLfIeKf5vsKT2EpfPqVZRyzDymqe20K%2Bfe%2BXqPEjMc%3D&b=0d2fdbbfcb824ce31ad42144773b939025aa797826dc1d5365b9b9a7f8038df5"
-    }
+    },
+    "campaigns": [
+      {
+        "Participated": true,
+        "CampaignType": "MpcCampaign",
+        "Eligible": true,
+        "MaxBookings": null,
+        "GoalWeightLoss": 1,
+        "GoalAcheived": false,
+        "CurrentWeightLost": 0
+      }
+    ]
   },
   "visits": [
     {
-      "date": "2023-07-19T11:27:00.347Z",
+      "date": "2023-10-21T23:01:23.139Z",
       "isFlex": false,
-      "locationId": "876",
-      "locationName": "California"
+      "locationId": "131",
+      "locationName": "Kansas"
     },
     {
-      "date": "2023-06-03T17:08:57.844Z",
-      "isFlex": false,
-      "locationId": "298",
-      "locationName": "Rhode Island"
-    },
-    {
-      "date": "2023-09-04T12:26:37.255Z",
-      "isFlex": false,
-      "locationId": "777",
-      "locationName": "Arizona"
-    },
-    {
-      "date": "2023-09-21T03:36:48.711Z",
-      "isFlex": false,
-      "locationId": "065",
-      "locationName": "Nevada"
-    },
-    {
-      "date": "2023-05-23T07:51:23.135Z",
-      "isFlex": false,
-      "locationId": "033",
-      "locationName": "Missouri"
-    },
-    {
-      "date": "2022-11-20T00:05:22.269Z",
+      "date": "2023-06-24T18:59:55.524Z",
       "isFlex": true,
-      "locationId": "910",
-      "locationName": "Maine"
+      "locationId": "032",
+      "locationName": "Ohio"
     },
     {
-      "date": "2023-05-29T03:28:10.151Z",
-      "isFlex": true,
-      "locationId": "070",
-      "locationName": "New York"
-    },
-    {
-      "date": "2023-02-20T00:09:40.708Z",
+      "date": "2023-06-01T19:43:51.237Z",
       "isFlex": false,
-      "locationId": "255",
-      "locationName": "Maryland"
+      "locationId": "510",
+      "locationName": "Wyoming"
     },
     {
-      "date": "2023-02-10T19:40:19.436Z",
+      "date": "2023-02-14T02:02:05.967Z",
       "isFlex": true,
-      "locationId": "730",
-      "locationName": "Missouri"
+      "locationId": "063",
+      "locationName": "New Hampshire"
     },
     {
-      "date": "2023-01-01T19:55:25.590Z",
+      "date": "2023-02-02T04:15:55.495Z",
+      "isFlex": true,
+      "locationId": "658",
+      "locationName": "North Carolina"
+    },
+    {
+      "date": "2022-12-23T21:10:51.389Z",
       "isFlex": false,
-      "locationId": "301",
-      "locationName": "Illinois"
+      "locationId": "235",
+      "locationName": "North Carolina"
+    },
+    {
+      "date": "2023-08-10T11:47:41.458Z",
+      "isFlex": false,
+      "locationId": "365",
+      "locationName": "South Carolina"
+    },
+    {
+      "date": "2023-01-05T10:33:26.134Z",
+      "isFlex": true,
+      "locationId": "631",
+      "locationName": "Alaska"
+    },
+    {
+      "date": "2023-01-06T00:13:53.440Z",
+      "isFlex": true,
+      "locationId": "156",
+      "locationName": "Mississippi"
+    },
+    {
+      "date": "2023-03-29T12:29:21.633Z",
+      "isFlex": false,
+      "locationId": "206",
+      "locationName": "Massachusetts"
     }
   ],
   "live": {
     "LiveStreams": [
       {
         "Title": "Morning Routine",
-        "Topic": "Amaritudo delectatio patrocinor voluptates vinitor eum verumtamen crapula valeo.",
-        "Instructor": "Rashawn",
+        "Topic": "Unus culpo hic tamisium causa.",
+        "Instructor": "Alex",
         "Intensity": "Beginner"
       },
       {
         "Title": "Strength Training",
-        "Topic": "Crudelis pariatur voluntarius conduco pecus pariatur damnatio.",
-        "Instructor": "Elvis",
+        "Topic": "Doloremque supellex thesaurus temperantia accusamus textor tolero solium.",
+        "Instructor": "Eulah",
         "Intensity": "Intermediate"
       },
       {
         "Title": "Yoga Flow",
-        "Topic": "Vesco aurum videlicet crapula non occaecati volo tum deserunt certe.",
-        "Instructor": "Alva",
+        "Topic": "Certus allatus aureus taedium deludo cubitum conqueror.",
+        "Instructor": "Shanon",
         "Intensity": "Advanced"
       }
     ]
@@ -98,12 +109,36 @@
   "locations": {
     "Locations": [
       {
-        "Id": "11353",
+        "Id": "47556",
         "Name": "Planet Fitness",
-        "Phone": "1-963-290-1151",
-        "Address": "27588 Cayla Meadows",
-        "Longitude": 121.3804,
-        "Latitude": -20.378,
+        "Phone": "1-270-320-9210 x37595",
+        "Address": "5371 Post Road",
+        "Longitude": 117.2447,
+        "Latitude": 82.2293,
+        "NetworkProperties": {
+          "Amenities": [
+            {
+              "Id": 5,
+              "Name": "Resistance Equipment"
+            },
+            {
+              "Id": 3,
+              "Name": "Cardiovascular Equipment"
+            },
+            {
+              "Id": 4,
+              "Name": "Strength Equipment"
+            }
+          ]
+        }
+      },
+      {
+        "Id": "79854",
+        "Name": "Community Gym",
+        "Phone": "350-624-0977 x3974",
+        "Address": "34324 Muhammad Trafficway",
+        "Longitude": 42.2502,
+        "Latitude": -75.4194,
         "NetworkProperties": {
           "Amenities": [
             {
@@ -111,59 +146,35 @@
               "Name": "Resistance Equipment"
             },
             {
-              "Id": 5,
+              "Id": 3,
               "Name": "Cardiovascular Equipment"
             },
             {
-              "Id": 3,
+              "Id": 1,
               "Name": "Strength Equipment"
             }
           ]
         }
       },
       {
-        "Id": "68175",
-        "Name": "Community Gym",
-        "Phone": "(599) 930-0776 x37786",
-        "Address": "64363 Jammie Harbors",
-        "Longitude": -13.7822,
-        "Latitude": 62.169,
-        "NetworkProperties": {
-          "Amenities": [
-            {
-              "Id": 3,
-              "Name": "Resistance Equipment"
-            },
-            {
-              "Id": 4,
-              "Name": "Cardiovascular Equipment"
-            },
-            {
-              "Id": 3,
-              "Name": "Strength Equipment"
-            }
-          ]
-        }
-      },
-      {
-        "Id": "98140",
+        "Id": "16575",
         "Name": "Get Moving Studios",
-        "Phone": "1-849-983-3877 x68483",
-        "Address": "62151 Callie Field",
-        "Longitude": -121.5632,
-        "Latitude": 53.6706,
+        "Phone": "438-689-3423 x39148",
+        "Address": "5197 Garden Street",
+        "Longitude": -136.4957,
+        "Latitude": -54.0648,
         "NetworkProperties": {
           "Amenities": [
             {
-              "Id": 4,
+              "Id": 1,
               "Name": "Resistance Equipment"
             },
             {
-              "Id": 3,
+              "Id": 2,
               "Name": "Cardiovascular Equipment"
             },
             {
-              "Id": 5,
+              "Id": 3,
               "Name": "Strength Equipment"
             }
           ]

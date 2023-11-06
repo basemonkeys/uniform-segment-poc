@@ -15,6 +15,17 @@ const user = {
     cardImageUrl:
       "https://devapi.silversneakers.com/member-cards?a=Ktzzvk9H8zkTZaE5Zq%2BMBmR9nO4SWXweJNrN4btm567I4fjpvrIG7%2FWTnb0FYALn2ubPiogDgCk9yQ6TjPSykjmmM0wP2mjI%2FjTll58vr2wnBv8DGgt2VYJYRqpjsw2sajLfIeKf5vsKT2EpfPqVZRyzDymqe20K%2Bfe%2BXqPEjMc%3D&b=0d2fdbbfcb824ce31ad42144773b939025aa797826dc1d5365b9b9a7f8038df5",
   },
+  campaigns: [
+    {
+      Participated: true,
+      CampaignType: "MpcCampaign",
+      Eligible: true,
+      MaxBookings: null,
+      GoalWeightLoss: 1,
+      GoalAcheived: false,
+      CurrentWeightLost: 0,
+    },
+  ],
 };
 
 // Visits Array

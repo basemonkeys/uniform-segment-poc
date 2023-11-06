@@ -49,10 +49,6 @@ const MainNavigation = ({ children, logo }: MainNavigationProps) => {
 
   const [showButton, setShowButton] = useState(false);
 
-  const returnLink = `/api/auth/login?returnTo=${encodeURIComponent(
-    "/member/dashboard",
-  )}`;
-
   useEffect(() => {
     const handleScrollButtonVisibility = () => {
       window.scrollY > 300 ? setShowButton(true) : setShowButton(false);
@@ -83,7 +79,7 @@ const MainNavigation = ({ children, logo }: MainNavigationProps) => {
           <NavigationMenuItem className="w-5 min-w-[139px] border-r-2 border-solid border-gray-300 py-6 lg:border-none">
             <Logo
               isLink
-              href="/"
+              href={user ? "/member/dashboard" : "/"}
               src={getImageUrl(logo)}
               className="flex max-lg:mr-4"
             />
@@ -147,7 +143,7 @@ const MainNavigation = ({ children, logo }: MainNavigationProps) => {
             ) : (
               <div className="flex gap-3">
                 <Button variant="secondaryWhite" asChild>
-                  <a href={returnLink}>Log in</a>
+                  <a href="/api/auth/login">Log in</a>
                 </Button>
                 <Button className="max-sm:hidden" asChild>
                   <Link href="/eligibility/check-eligibility">

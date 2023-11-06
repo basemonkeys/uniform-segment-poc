@@ -4,6 +4,8 @@
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 
+import { getVisits } from "@/utils/api";
+
 import {
   Card,
   CardContent,
@@ -15,8 +17,6 @@ import {
 import ActivityChart from "@/components/client-components/user/profile/ActivityChart";
 
 import { InformationCircleIcon } from "@heroicons/react/20/solid";
-
-import { getVisits } from "@/utils/api";
 
 export async function ActivityTrackerCard(props: {
   visits: Types.VisitsProps;

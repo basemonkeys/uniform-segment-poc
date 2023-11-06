@@ -3,7 +3,7 @@
 
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 // import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { useAtom } from "jotai";
@@ -13,6 +13,7 @@ import { parseISO, addMinutes } from "date-fns";
 
 import { getLiveClasses } from "@/utils/api";
 import { liveClassStatusAtom } from "@/utils/uiState";
+import { ErrorBoundary } from "@/utils";
 
 import {
   Card,
@@ -24,10 +25,12 @@ import {
 } from "@/components/primitives/card";
 import { Separator } from "@/components/primitives/separator";
 import { Button } from "@/components/primitives/button";
+import { Skeleton } from "@/components/primitives/skeleton";
 
 import { CloudinaryImage } from "@/components/client-components/Cloudinary";
 import { LiveNowBanner } from "@/components/LiveNowBanner";
 import { IntensityMeter } from "@/components/IntensityMeter";
+import { ComponentError } from "@/components/client-components/ComponentError";
 
 import { UserCircleIcon, CalendarDaysIcon } from "@heroicons/react/20/solid";
 
@@ -63,74 +66,83 @@ export function LiveClasses(props: { classes: Types.LiveClassesProps }) {
   // TODO: break these into specific card variant components
   return (
     <div className="flex flex-col gap-4 lg:flex-row">
-      {currentLiveStream && (
-        <Card className="relative basis-1/2 p-0">
-          {/* Background Swoosh */}
-          <div className="absolute top-1/2 z-0">
-            <CloudinaryImage
-              fill
-              src="silversneakers/shape_icvqcn"
-              alt="Background Shape for styling purposes"
-              className="!relative"
-            />
-          </div>
-          {/* Background Gradiant */}
-          <div className="absolute z-20 h-full w-full rounded-b-md bg-gradient-to-t from-black from-5% to-40% opacity-90"></div>
-          {/* Live Now/Up Next Tag */}
-          <div className="absolute top-4 z-30 bg-primary px-2 py-1 text-white">
-            <LiveNowBanner />
-          </div>
-          <div className="flex h-full flex-col items-end p-6 lg:flex-row">
-            {/* Instructor Image */}
-            <div className="relative z-10 order-2 w-full max-sm:flex max-sm:justify-center max-sm:pb-[150px] lg:order-1">
-              {/* <Image
+      {/* TODO: work with this ErrorBoundary and Suspense/Skeleton */}
+      <ErrorBoundary fallBack={<ComponentError />}>
+        <Suspense fallback={<Skeleton className="h-[420px] w-full" />}>
+          {currentLiveStream && (
+            <Card className="relative basis-1/2 p-0">
+              {/* Background Swoosh */}
+              <div className="absolute top-1/2 z-0">
+                <CloudinaryImage
+                  fill
+                  src="silversneakers/shape_icvqcn"
+                  alt="Background Shape for styling purposes"
+                  className="!relative"
+                />
+              </div>
+              {/* Background Gradiant */}
+              <div className="absolute z-20 h-full w-full rounded-b-md bg-gradient-to-t from-black from-5% to-40% opacity-90"></div>
+              {/* Live Now/Up Next Tag */}
+              <div className="absolute top-4 z-30 bg-primary px-2 py-1 text-white">
+                <LiveNowBanner />
+              </div>
+              <div className="flex h-full flex-col items-end p-6 lg:flex-row">
+                {/* Instructor Image */}
+                <div className="relative z-10 order-2 w-full max-sm:flex max-sm:justify-center max-sm:pb-[150px] lg:order-1">
+                  {/* <Image
           src="https://tools.silversneakers.com/Content/images/featured-instructor/brenda.png"
           width={400}
           height={288}
           alt="Sample Instructor Image"
         /> */}
-              <img
-                src="https://tools.silversneakers.com/Content/images/featured-instructor/brenda.png"
-                alt=""
-              />
-            </div>
-            <div className="relative z-30 order-1 w-full self-start text-right max-sm:pt-16 lg:order-2 lg:text-left">
-              <CardHeader>
-                <CardTitle className="h3">{currentLiveStream.Title}</CardTitle>
-              </CardHeader>
-            </div>
-          </div>
-          <CardFooter className="absolute bottom-0 z-30 w-full p-6 text-white">
-            <div className="flex w-full flex-col gap-4">
-              <div className="flex justify-end">
-                <Button size="xl">Join Now</Button>
-              </div>
-              <div className="flex w-full flex-col gap-2 text-sm">
-                <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-1">
-                    <CalendarDaysIcon className="h-5 w-5" />
-                    <span className="font-bold">12:00 pm - 12:45pm</span>
-                    <span> (EDT)</span>
-                  </div>
-                  <Separator
-                    orientation="vertical"
-                    className=" h-[20px] bg-white"
+                  <img
+                    src="https://tools.silversneakers.com/Content/images/featured-instructor/brenda.png"
+                    alt=""
                   />
-                  <div className="flex items-center gap-2 ">
-                    <div className="flex items-end gap-1">
-                      <IntensityMeter intensity={currentLiveStream.Intensity} />
+                </div>
+                <div className="relative z-30 order-1 w-full self-start text-center max-sm:pt-12 sm:pl-28 sm:text-right lg:order-2 lg:pl-0">
+                  <CardHeader>
+                    <CardTitle className="h3">
+                      {currentLiveStream.Title}
+                    </CardTitle>
+                  </CardHeader>
+                </div>
+              </div>
+              <CardFooter className="absolute bottom-0 z-30 w-full p-6 text-white">
+                <div className="flex w-full flex-col gap-4">
+                  <div className="flex justify-end">
+                    <Button size="xl">Join Now</Button>
+                  </div>
+                  <div className="flex w-full flex-col gap-2 text-sm">
+                    <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1">
+                        <CalendarDaysIcon className="h-5 w-5" />
+                        <span className="font-bold">12:00 pm - 12:45pm</span>
+                        <span> (EDT)</span>
+                      </div>
+                      <Separator
+                        orientation="vertical"
+                        className=" h-[20px] bg-white"
+                      />
+                      <div className="flex items-center gap-2 ">
+                        <div className="flex items-end gap-1">
+                          <IntensityMeter
+                            intensity={currentLiveStream.Intensity}
+                          />
+                        </div>
+                        <span className="text-sm">
+                          {currentLiveStream.Intensity}
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-sm">
-                      {currentLiveStream.Intensity}
-                    </span>
+                    <div>{currentLiveStream.Topic}</div>
                   </div>
                 </div>
-                <div>{currentLiveStream.Topic}</div>
-              </div>
-            </div>
-          </CardFooter>
-        </Card>
-      )}
+              </CardFooter>
+            </Card>
+          )}
+        </Suspense>
+      </ErrorBoundary>
 
       <div className="flex basis-1/2 flex-col gap-4">
         <div className="mb-4 flex flex-col">

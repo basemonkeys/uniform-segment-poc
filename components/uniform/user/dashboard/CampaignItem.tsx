@@ -21,6 +21,7 @@ import {
 import { Button } from "@/components/primitives/button";
 
 type CampaignItemProps = ComponentProps<{
+  id: string;
   title: string;
   description: any;
   callToAction: string;
@@ -30,6 +31,7 @@ type CampaignItemProps = ComponentProps<{
 }>;
 
 export function CampaignItem({
+  id,
   title,
   description,
   callToAction,
@@ -51,9 +53,10 @@ export function CampaignItem({
       </div>
       <div className="flex flex-col">
         {logo && (
-          <div className="relative h-full w-[196px]">
+          <div className="relative w-[196px] pb-1">
             <Image
-              fill
+              width={196}
+              height={196}
               src={getImageUrl(logo)}
               alt="Campaign Logo"
               className="object-contain"

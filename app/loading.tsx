@@ -19,7 +19,7 @@ export default function Loading() {
           icon={faCircleNotch}
           className="mr-2 h-5 w-5 animate-spin"
         />
-        loading content...
+        One moment please, we are lacing up our sneakers.
       </h3>
     </main>
   );
