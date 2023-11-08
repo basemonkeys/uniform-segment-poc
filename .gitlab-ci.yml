@@ -128,10 +128,10 @@ deploy_dev:
   when: manual
   variables:
     ENVIRONMENT: dev
-    AWS_ACCOUNT_ID: 252517740372
-    AWS_ACCOUNT_NAME: test
+    AWS_ACCOUNT_ID: 714897921351
+    AWS_ACCOUNT_NAME: dev
     BUCKET_URL: s3://tivityhealth-dev-silversneakers-frontend-source
-    CLOUDFRONT_DISTRIBUTION_ID: placeholder
+    CLOUDFRONT_DISTRIBUTION_ID: E3MTNF60QO016Q
   environment:
     name: $ENVIRONMENT
   needs:
