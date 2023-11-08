@@ -1,29 +1,21 @@
 import {
   type ComponentProps,
-  UniformSlot,
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
-type CampaignsProps = ComponentProps<{
+import { getUser } from "@/utils/api";
+
+import { Campaigns as BaseCampaigns } from "@/components/client-components/user/dashboard/Campaigns";
+
+export type CampaignsProps = ComponentProps<{
   title: string;
   description: string;
 }>;
 
-export function Campaigns({
-  title,
-  description,
-  component,
-  context,
-}: CampaignsProps) {
-  return (
-    <div className="flex flex-col gap-6">
-      <div>
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-      <UniformSlot name="campaignItems" data={component} context={context} />
-    </div>
-  );
+export default async function Campaigns(props: CampaignsProps) {
+  const user: Types.UserProps = await getUser();
+
+  return <BaseCampaigns user={user} {...props} />;
 }
 
 registerUniformComponent({

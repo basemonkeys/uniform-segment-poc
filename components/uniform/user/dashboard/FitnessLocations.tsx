@@ -4,11 +4,18 @@ import { FitnessLocations as BaseFitnessLocations } from "@/components/client-co
 
 import { getFitnessLocations } from "@/utils/api";
 
-export default async function FitnessLocations(): Promise<React.ReactElement> {
+export type FitnessLocationsProps = {
+  title: string;
+  description: string;
+};
+
+export default async function FitnessLocations(
+  props: FitnessLocationsProps,
+): Promise<React.ReactElement> {
   const fitnessLocations: Types.FitnessLocationsProps =
     await getFitnessLocations();
 
-  return <BaseFitnessLocations locations={fitnessLocations} />;
+  return <BaseFitnessLocations locations={fitnessLocations} {...props} />;
 }
 
 registerUniformComponent({

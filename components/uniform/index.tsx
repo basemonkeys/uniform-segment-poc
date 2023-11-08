@@ -5,6 +5,7 @@ import "./global/pages/HomePage";
 import "./global/pages/Page";
 import "./layout/Container";
 import "./layout/Grid";
+import "./layout/LinkCardGrid";
 import "./content/RichTextContentCard";
 import "./content/FAQ";
 import "./content/FAQItem";
@@ -16,6 +17,7 @@ import {
   NavigationGroup,
 } from "./navigation/NavigationLink";
 import "./navigation/QuickLinks";
+import "./navigation/LinkCard";
 import "./global/Footer";
 import "./global/Banner";
 import "./content/Hero";

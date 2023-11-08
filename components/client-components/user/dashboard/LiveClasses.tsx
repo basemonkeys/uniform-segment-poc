@@ -6,7 +6,7 @@
 import { useEffect, Suspense } from "react";
 // import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
-import { useAtom } from "jotai";
+import { useSetAtom } from "jotai";
 import { slice } from "lodash";
 import { parseISO, addMinutes } from "date-fns";
 // import { formatInTimeZone } from "date-fns-tz";
@@ -34,23 +34,25 @@ import { ComponentError } from "@/components/client-components/ComponentError";
 
 import { UserCircleIcon, CalendarDaysIcon } from "@heroicons/react/20/solid";
 
-export function LiveClasses(props: { classes: Types.LiveClassesProps }) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isLive, setIsLive] = useAtom(liveClassStatusAtom);
+import type { LiveClassesProps as BaseLiveClassesProps } from "@/components/uniform/user/dashboard/LiveClasses";
+
+type LiveClassesProps = BaseLiveClassesProps & {
+  classes: Types.LiveClassesProps;
+};
+
+export function LiveClasses({ title, description, classes }: LiveClassesProps) {
+  const setIsLive = useSetAtom(liveClassStatusAtom);
 
   const { data } = useQuery<Types.LiveClassesProps, Error>({
     queryKey: ["live"],
     queryFn: getLiveClasses,
-    initialData: props.classes,
+    initialData: classes,
+    // gcTime: 0,
   });
 
   const { LiveStreams }: Types.LiveClassesProps = data;
   const currentLiveStream = LiveStreams[0];
   const upcomingLiveStreams = slice(LiveStreams, 1, 3);
-
-  // const streams = LiveStreams.map((item) => {
-  //   return item;
-  // });
 
   useEffect(() => {
     const now = new Date();
@@ -90,11 +92,11 @@ export function LiveClasses(props: { classes: Types.LiveClassesProps }) {
                 {/* Instructor Image */}
                 <div className="relative z-10 order-2 w-full max-sm:flex max-sm:justify-center max-sm:pb-[150px] lg:order-1">
                   {/* <Image
-          src="https://tools.silversneakers.com/Content/images/featured-instructor/brenda.png"
-          width={400}
-          height={288}
-          alt="Sample Instructor Image"
-        /> */}
+                    src="https://tools.silversneakers.com/Content/images/featured-instructor/brenda.png"
+                    width={400}
+                    height={288}
+                    alt="Sample Instructor Image"
+                  /> */}
                   <img
                     src="https://tools.silversneakers.com/Content/images/featured-instructor/brenda.png"
                     alt=""
@@ -146,8 +148,8 @@ export function LiveClasses(props: { classes: Types.LiveClassesProps }) {
 
       <div className="flex basis-1/2 flex-col gap-4">
         <div className="mb-4 flex flex-col">
-          <h3>Upcoming LIVE Stream Online Classes</h3>
-          <p>The following classes are coming up soon! Reserve a spot now!</p>
+          <h3>{title}</h3>
+          <p>{description}</p>
         </div>
 
         {upcomingLiveStreams.map((item, index) => {
@@ -173,11 +175,11 @@ export function LiveClasses(props: { classes: Types.LiveClassesProps }) {
                 <div className="flex h-full w-full items-end justify-center ">
                   <div className="relative z-10 w-[121px]">
                     {/* <Image
-                  src="https://tools.silversneakers.com/Content/images/featured-instructor/brenda.png"
-                  width={400}
-                  height={288}
-                  alt="Sample Instructor Image"
-                /> */}
+                      src="https://tools.silversneakers.com/Content/images/featured-instructor/brenda.png"
+                      width={400}
+                      height={288}
+                      alt="Sample Instructor Image"
+                    /> */}
                     <img
                       src="https://tools.silversneakers.com/Content/images/featured-instructor/brenda.png"
                       alt=""

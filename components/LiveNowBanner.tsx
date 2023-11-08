@@ -1,8 +1,9 @@
 import { useAtomValue } from "jotai";
 
+import { liveClassStatusAtom } from "@/utils/uiState";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
-import { liveClassStatusAtom } from "@/utils/uiState";
 
 export function LiveNowBanner() {
   const status = useAtomValue(liveClassStatusAtom);

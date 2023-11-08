@@ -18,7 +18,16 @@ const user = {
   campaigns: [
     {
       Participated: true,
-      CampaignType: "MpcCampaign",
+      CampaignType: "Stitch",
+      Eligible: true,
+      MaxBookings: null,
+      GoalWeightLoss: 1,
+      GoalAcheived: false,
+      CurrentWeightLost: 0,
+    },
+    {
+      Participated: true,
+      CampaignType: "GetSetUp",
       Eligible: true,
       MaxBookings: null,
       GoalWeightLoss: 1,

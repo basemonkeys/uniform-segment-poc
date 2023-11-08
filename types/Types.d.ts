@@ -48,6 +48,17 @@ declare namespace Types {
       cardNumber: string;
       cardImageUrl: string;
     };
+    campaigns: [
+      {
+        Participated: boolean;
+        CampaignType: string;
+        Eligible: boolean;
+        MaxBookings: null;
+        GoalWeightLoss: number;
+        GoalAcheived: boolean;
+        CurrentWeightLost: number;
+      },
+    ];
   };
 
   type VisitsProps = {

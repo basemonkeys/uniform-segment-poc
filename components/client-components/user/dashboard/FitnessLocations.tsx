@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 
+import { getFitnessLocations } from "@/utils/api";
+
 import {
   Card,
   CardContent,
@@ -12,32 +14,32 @@ import {
   CardTitle,
 } from "@/components/primitives/card";
 import { Button } from "@/components/primitives/button";
-
 import { DarkBackground } from "@/components/Backgrounds";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
-import { getFitnessLocations } from "@/utils/api";
+import type { FitnessLocationsProps as BaseFitnessLocationProps } from "@/components/uniform/user/dashboard/FitnessLocations";
 
-export function FitnessLocations(props: {
+type FitnessLocationsProps = BaseFitnessLocationProps & {
   locations: Types.FitnessLocationsProps;
-}) {
-  const { data, error, isLoading } = useQuery<
-    Types.FitnessLocationsProps,
-    Error
-  >({
+};
+
+export function FitnessLocations({
+  title,
+  description,
+  locations,
+}: FitnessLocationsProps) {
+  const { data } = useQuery<Types.FitnessLocationsProps, Error>({
     queryKey: ["locations"],
     queryFn: getFitnessLocations,
-    initialData: props.locations,
+    initialData: locations,
   });
-
-  console.log(data, error, isLoading);
 
   const { Locations }: Types.FitnessLocationsProps = data;
 
+  // TODO: is this component used more than once, can it be reused and how would we name it?
   return (
-    // TODO: is this component used more than once, can it be reused and how would we name it?
     <div className="relative text-background">
       <DarkBackground />
       <Card className="relative space-y-2 bg-transparent p-10">
@@ -105,12 +107,8 @@ export function FitnessLocations(props: {
           </div>
         </CardContent>
         <CardFooter className="flex flex-col items-center gap-2 text-center">
-          <h3>What do I need to attend these locations?</h3>
-          <p className="max-w-[630px]">
-            Download or print your membership ID and bring it with you to any of
-            the participating locations within our network. Show the membership
-            ID to the front desk attendant and enjoy!
-          </p>
+          <h3>{title}</h3>
+          <p className="max-w-[630px]">{description}</p>
           <Button variant={"primaryWhite"} className="mt-4" asChild>
             <Link href="https://www.google.com/maps/search/?api=1&query=33.306160,-111.841250">
               Download Member ID

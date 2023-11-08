@@ -6,7 +6,9 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 
 import { Button } from "@/components/primitives/button";
 
-export function DashboardHeader() {
+import type { DashboardHeaderProps } from "@/components/uniform/user/dashboard/DashboardHeader";
+
+export function DashboardHeader({ description }: DashboardHeaderProps) {
   const { user } = useUser();
   const firstName = user?.name?.split(" ")[0];
 
@@ -14,7 +16,7 @@ export function DashboardHeader() {
     <div className="flex flex-col justify-between gap-4 md:flex-row lg:gap-0">
       <div className="flex flex-col text-center md:text-left">
         <h2>Hello, {firstName}!</h2>
-        <p>Here's what's happening right now</p>
+        <p>{description}</p>
       </div>
 
       <div className="flex flex-col gap-2">

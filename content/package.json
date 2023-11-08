@@ -121,6 +121,15 @@
           }
         },
         {
+          "id": "campaignType",
+          "name": "Campaign Type",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
           "id": "callToAction",
           "name": "Call To Action",
           "type": "text",
@@ -162,7 +171,7 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-11-02T10:51:28.027286+00:00",
-      "updated": "2023-11-03T06:23:12.412769+00:00"
+      "updated": "2023-11-07T01:27:04.180936+00:00"
     },
     {
       "id": "campaigns",
@@ -189,7 +198,7 @@
         }
       ],
       "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
-      "description": "This component has a Campaigns Pattern that loops through all of the Campaign entries from Contentful. Each Campaign Item is displayed dynamically in the frontend.",
+      "description": "This component contains a Campaigns Pattern that loops through all of the Campaign entries from Contentful. Each Campaign Item is displayed dynamically per Member in the frontend.",
       "useTeamPermissions": true,
       "slots": [
         {
@@ -207,7 +216,7 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-11-02T10:45:38.583284+00:00",
-      "updated": "2023-11-03T06:24:39.641367+00:00"
+      "updated": "2023-11-07T19:10:33.620807+00:00"
     },
     {
       "id": "contactCard",
@@ -393,16 +402,26 @@
     },
     {
       "id": "dashboardHeader",
-      "name": "Dashboard Header",
+      "name": "Header",
       "icon": "profile",
-      "parameters": [],
+      "parameters": [
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
       "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
       "description": "This component represents the Member Dashboard header.",
       "useTeamPermissions": true,
       "slots": [],
       "canBeComposition": false,
       "created": "2023-11-03T06:48:50.549078+00:00",
-      "updated": "2023-11-03T06:48:50.549078+00:00"
+      "updated": "2023-11-07T01:43:19.090834+00:00"
     },
     {
       "id": "eligibilityForm",
@@ -520,14 +539,33 @@
       "id": "fitnessLocations",
       "name": "Fitness Locations",
       "icon": "profile",
-      "parameters": [],
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
       "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
       "description": "This component displays the top three fitness locations based on the Member's zip code.",
       "useTeamPermissions": true,
       "slots": [],
       "canBeComposition": false,
       "created": "2023-11-03T06:08:15.417115+00:00",
-      "updated": "2023-11-03T06:21:59.2532+00:00"
+      "updated": "2023-11-07T05:17:32.816809+00:00"
     },
     {
       "id": "footer",
@@ -919,6 +957,7 @@
             "grid",
             "quickLinks",
             "steps",
+            "memberDashboard",
             "$p:1300c211-0242-4de9-b478-802187c23ff9"
           ],
           "allowAllComponents": false,
@@ -946,20 +985,185 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-10-05T20:36:58.515615+00:00",
-      "updated": "2023-11-03T05:51:13.860845+00:00"
+      "updated": "2023-11-07T18:51:28.464408+00:00"
+    },
+    {
+      "id": "linkCard",
+      "name": "Link Card",
+      "icon": "link",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "richText",
+          "helpText": "",
+          "typeConfig": {
+            "elements": {
+              "builtIn": [
+                "link"
+              ]
+            },
+            "required": true,
+            "formatting": {
+              "builtIn": [
+                "bold",
+                "italic",
+                "underline",
+                "superscript",
+                "subscript"
+              ]
+            }
+          }
+        },
+        {
+          "id": "cta",
+          "name": "CTA",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "ctaLink",
+          "name": "CTA Link",
+          "type": "link",
+          "helpText": "",
+          "typeConfig": {
+            "required": true,
+            "linkTypes": {
+              "tel": false,
+              "url": false,
+              "email": false
+            }
+          }
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "cloudinary-image",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
+      "categoryId": "4c3ee642-b971-45a9-af35-e22e53e9cf29",
+      "description": "This is a card component that includes an internal CTA link.",
+      "useTeamPermissions": true,
+      "slots": [],
+      "titleParameter": "title",
+      "canBeComposition": false,
+      "created": "2023-11-07T16:52:06.158335+00:00",
+      "updated": "2023-11-07T18:44:48.214142+00:00"
+    },
+    {
+      "id": "linkCardGrid",
+      "name": "Link Card Grid",
+      "icon": "display-grid",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "cardCount",
+          "name": "Card Count",
+          "type": "select",
+          "helpText": "",
+          "typeConfig": {
+            "options": [
+              {
+                "text": "2",
+                "value": "2"
+              },
+              {
+                "text": "3",
+                "value": "3"
+              },
+              {
+                "text": "4",
+                "value": "4"
+              }
+            ],
+            "required": true
+          }
+        }
+      ],
+      "categoryId": "2abac45c-133a-4310-bf67-52c31d2cfd02",
+      "description": "This is a grid component that holds 2, 3, or 4 Link Cards.",
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "gridItems",
+          "name": "Grid Items",
+          "allowedComponents": [
+            "linkCard"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
+        }
+      ],
+      "titleParameter": "title",
+      "canBeComposition": false,
+      "created": "2023-11-07T18:47:44.458336+00:00",
+      "updated": "2023-11-07T22:42:05.118519+00:00"
     },
     {
       "id": "liveClasses",
       "name": "Live Classes",
       "icon": "screen",
-      "parameters": [],
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
       "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
       "description": "This component displays the top three \"LIVE\" or \"Up Next\" online classes from the \"/live\" api endpoint.",
       "useTeamPermissions": true,
       "slots": [],
       "canBeComposition": false,
       "created": "2023-11-03T04:37:08.823373+00:00",
-      "updated": "2023-11-03T06:21:31.850073+00:00"
+      "updated": "2023-11-07T05:15:45.556693+00:00"
     },
     {
       "id": "memberDashboard",
@@ -977,7 +1181,8 @@
             "campaigns",
             "liveClasses",
             "fitnessLocations",
-            "dashboardHeader"
+            "dashboardHeader",
+            "linkCardGrid"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -986,7 +1191,7 @@
       ],
       "canBeComposition": false,
       "created": "2023-10-27T06:46:56.697013+00:00",
-      "updated": "2023-11-03T06:49:03.007452+00:00"
+      "updated": "2023-11-07T19:07:00.138523+00:00"
     },
     {
       "id": "memberProfile",
@@ -1038,7 +1243,7 @@
     {
       "id": "navigationLink",
       "name": "Navigation Link",
-      "icon": "border-top",
+      "icon": "link",
       "parameters": [
         {
           "id": "title",
@@ -1077,7 +1282,7 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-09-09T23:56:21.493968+00:00",
-      "updated": "2023-10-20T16:25:14.590136+00:00",
+      "updated": "2023-11-07T18:42:02.966694+00:00",
       "variants": [
         {
           "id": "header",
@@ -1217,7 +1422,7 @@
     {
       "id": "quickLinks",
       "name": "Quick Links",
-      "icon": "toolbar-top",
+      "icon": "link",
       "parameters": [],
       "categoryId": "4c3ee642-b971-45a9-af35-e22e53e9cf29",
       "useTeamPermissions": true,
@@ -1235,7 +1440,7 @@
       ],
       "canBeComposition": false,
       "created": "2023-10-20T00:12:28.325824+00:00",
-      "updated": "2023-10-20T05:15:51.785481+00:00"
+      "updated": "2023-11-07T18:41:53.65339+00:00"
     },
     {
       "id": "richTextContentCard",
@@ -1531,121 +1736,6 @@
     },
     {
       "composition": {
-        "_name": "Member Dashboard",
-        "_id": "1300c211-0242-4de9-b478-802187c23ff9",
-        "type": "memberDashboard",
-        "slots": {
-          "dashboardInner": [
-            {
-              "_id": "2d754c01-9e25-49da-9072-a14a819c660c",
-              "type": "dashboardHeader"
-            },
-            {
-              "_id": "5e044412-d2b6-4565-a6d7-179c4554bde5",
-              "type": "liveClasses"
-            },
-            {
-              "_id": "fde7c268-4af8-4bfb-b607-615dec52f63b",
-              "type": "fitnessLocations"
-            },
-            {
-              "_id": "44ea700c-4c5f-42f7-a94c-20fce665db1d",
-              "type": "campaigns",
-              "slots": {
-                "campaignItems": [
-                  {
-                    "_id": "0c92583f-3e5d-42c7-a591-0817ee4192a6",
-                    "type": "$loop",
-                    "slots": {
-                      "body": [
-                        {
-                          "_id": "ab55ecaf-8a53-4744-b3b6-652bf92ed175",
-                          "type": "campaignItem",
-                          "parameters": {
-                            "logo": {
-                              "type": "image",
-                              "value": "${#jptr:/Campaign Content items Loop Item/fields/logo/fields/file/url}"
-                            },
-                            "image": {
-                              "type": "image",
-                              "value": "${#jptr:/Campaign Content items Loop Item/fields/image/fields/file/url}"
-                            },
-                            "title": {
-                              "type": "text",
-                              "value": "${#jptr:/Campaign Content items Loop Item/fields/title}"
-                            },
-                            "description": {
-                              "type": "json",
-                              "value": "${#jptr:/Campaign Content items Loop Item/fields/description}"
-                            },
-                            "callToAction": {
-                              "type": "text",
-                              "value": "${#jptr:/Campaign Content items Loop Item/fields/callToAction}"
-                            },
-                            "callToActionUrl": {
-                              "type": "text",
-                              "value": "${#jptr:/Campaign Content items Loop Item/fields/callToActionUrl}"
-                            }
-                          }
-                        }
-                      ]
-                    },
-                    "_dataResources": {
-                      "Campaign Content items Loop Item": {
-                        "type": "sys-reserved-loop",
-                        "variables": {
-                          "connectedData": "/Campaign Content/items"
-                        }
-                      }
-                    }
-                  }
-                ]
-              },
-              "parameters": {
-                "title": {
-                  "type": "text",
-                  "value": "Get Active"
-                },
-                "description": {
-                  "type": "text",
-                  "value": "Quick access to everything you need to stay active"
-                }
-              },
-              "_overridability": {
-                "parameters": {
-                  "title": "yes",
-                  "description": "yes"
-                }
-              }
-            }
-          ]
-        },
-        "_dataResources": {
-          "Campaign Content": {
-            "type": "campaign",
-            "variables": {
-              "limit": "5",
-              "order": "",
-              "locale": "",
-              "filters": "",
-              "keyword": "",
-              "sortOrder": "asc",
-              "sortFieldId": "",
-              "contentTypeId": "campaign",
-              "advancedFilters": "[]",
-              "contentTypeQuery": "content_type=campaign"
-            },
-            "isPatternParameter": false,
-            "ignorePatternParameterDefault": false
-          }
-        }
-      },
-      "created": "2023-10-30T23:00:15.460534+00:00",
-      "modified": "2023-11-03T06:49:22.021979+00:00",
-      "pattern": true
-    },
-    {
-      "composition": {
         "_name": "FAQs",
         "_id": "157c3a68-dd5e-4764-88cf-763be74baeb9",
         "type": "faqContainer",
@@ -1758,9 +1848,358 @@
               "slots": {
                 "containerInner": [
                   {
-                    "_id": "13055456-1588-447f-a7cd-0b112848265a",
+                    "_id": "c21827ce-0980-476d-ab77-4389865940e4",
                     "type": "memberDashboard",
-                    "_pattern": "1300c211-0242-4de9-b478-802187c23ff9"
+                    "slots": {
+                      "dashboardInner": [
+                        {
+                          "_id": "3749d6c9-ee78-49ad-a465-8b5d56ff3f5e",
+                          "type": "dashboardHeader",
+                          "parameters": {
+                            "description": {
+                              "type": "text",
+                              "value": "Here's what's happening right now."
+                            }
+                          }
+                        },
+                        {
+                          "_id": "e47a9f6e-077c-4eaa-bb9b-0e124f26c35d",
+                          "type": "liveClasses",
+                          "parameters": {
+                            "title": {
+                              "type": "text",
+                              "value": "Upcoming LIVE Stream Online Classes"
+                            },
+                            "description": {
+                              "type": "text",
+                              "value": "The following classes are coming up soon! Reserve a spot now!"
+                            }
+                          }
+                        },
+                        {
+                          "_id": "a640e4e2-3a5f-4856-9ce8-db63a5ff2bcb",
+                          "type": "fitnessLocations",
+                          "parameters": {
+                            "title": {
+                              "type": "text",
+                              "value": "What do I need to attend these locations?"
+                            },
+                            "description": {
+                              "type": "text",
+                              "value": "Download or print your membership ID and bring it with you to any of the participating locations within our network. Show the membership ID to the front desk attendant and enjoy!"
+                            }
+                          }
+                        },
+                        {
+                          "_id": "54905567-4af5-4eea-b94d-4d729b6ea70d",
+                          "type": "campaigns",
+                          "_pattern": "3fb5f604-563a-421f-82e6-996dc8019f82",
+                          "_dataResources": {
+                            "Featured Campaign": {
+                              "type": "featuredCampaign",
+                              "variables": {
+                                "locale": "",
+                                "entryIds": "6AI5Z0iBQrims14y0fmT64"
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "_id": "10540968-ba27-4cf5-ba4c-5f2d150b5e56",
+                          "type": "campaigns",
+                          "_pattern": "50abb713-4454-4ac3-b3c5-85cca2ce58e8"
+                        },
+                        {
+                          "_id": "41ca3e55-cec8-481a-9dd2-0f783f929d0d",
+                          "type": "linkCardGrid",
+                          "slots": {
+                            "gridItems": [
+                              {
+                                "_id": "4187dab5-b7b7-4829-8249-c34e34f1eb15",
+                                "type": "linkCard",
+                                "parameters": {
+                                  "cta": {
+                                    "type": "text",
+                                    "value": "View Schedule"
+                                  },
+                                  "image": {
+                                    "type": "cloudinary-image",
+                                    "value": [
+                                      {
+                                        "alt": "",
+                                        "url": "https://res.cloudinary.com/seth-hall/image/upload/v1699384529/silversneakers/community_classes_qfgmvj.png",
+                                        "uuid": "e592b765-4f78-4593-8c3f-bbd661997dea",
+                                        "width": "1738",
+                                        "format": "png",
+                                        "height": "1197",
+                                        "caption": "",
+                                        "version": 1699384529,
+                                        "publicId": "silversneakers/community_classes_qfgmvj",
+                                        "createdAt": "2023-11-07T19:15:29Z",
+                                        "previewUrl": "https://res.cloudinary.com/seth-hall/image/upload/q_auto,f_auto/silversneakers/community_classes_qfgmvj.png",
+                                        "resourceType": "image",
+                                        "transformation": ""
+                                      }
+                                    ]
+                                  },
+                                  "title": {
+                                    "type": "text",
+                                    "value": "Community Classes"
+                                  },
+                                  "ctaLink": {
+                                    "type": "link",
+                                    "value": {
+                                      "path": "/classes/community-schedule",
+                                      "type": "projectMapNode",
+                                      "nodeId": "31e96268-f21f-4d6e-a89b-4bb33ffd16aa",
+                                      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                                    }
+                                  },
+                                  "description": {
+                                    "type": "richText",
+                                    "value": {
+                                      "root": {
+                                        "type": "root",
+                                        "format": "",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                          {
+                                            "type": "paragraph",
+                                            "format": "",
+                                            "indent": 0,
+                                            "version": 1,
+                                            "children": [
+                                              {
+                                                "mode": "normal",
+                                                "text": "Online and in-person classes taught by instructors in your area.",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                              }
+                                            ],
+                                            "direction": "ltr"
+                                          }
+                                        ],
+                                        "direction": "ltr"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "_id": "47df9f77-1321-4ea1-9246-9bbf1678931f",
+                                "type": "linkCard",
+                                "parameters": {
+                                  "cta": {
+                                    "type": "text",
+                                    "value": "Find Locations"
+                                  },
+                                  "image": {
+                                    "type": "cloudinary-image",
+                                    "value": [
+                                      {
+                                        "alt": "",
+                                        "url": "https://res.cloudinary.com/seth-hall/image/upload/v1699384529/silversneakers/fitness_locations_g5re3o.png",
+                                        "uuid": "338b78ef-ab13-40a9-98b2-f1ec1182ebb6",
+                                        "width": "1738",
+                                        "format": "png",
+                                        "height": "1197",
+                                        "caption": "",
+                                        "version": 1699384529,
+                                        "publicId": "silversneakers/fitness_locations_g5re3o",
+                                        "createdAt": "2023-11-07T19:15:29Z",
+                                        "previewUrl": "https://res.cloudinary.com/seth-hall/image/upload/q_auto,f_auto/silversneakers/fitness_locations_g5re3o.png",
+                                        "resourceType": "image",
+                                        "transformation": ""
+                                      }
+                                    ]
+                                  },
+                                  "title": {
+                                    "type": "text",
+                                    "value": "Fitness Locations"
+                                  },
+                                  "ctaLink": {
+                                    "type": "link",
+                                    "value": {
+                                      "path": "/participating-locations",
+                                      "type": "projectMapNode",
+                                      "nodeId": "648fc6eb-081e-4222-a8c5-79c57ca79e16",
+                                      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                                    }
+                                  },
+                                  "description": {
+                                    "type": "richText",
+                                    "value": {
+                                      "root": {
+                                        "type": "root",
+                                        "format": "",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                          {
+                                            "type": "paragraph",
+                                            "format": "",
+                                            "indent": 0,
+                                            "version": 1,
+                                            "children": [
+                                              {
+                                                "mode": "normal",
+                                                "text": "Get access to 15k+ gyms, community centers, and more",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                              },
+                                              {
+                                                "mode": "normal",
+                                                "text": "*",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 32,
+                                                "version": 1
+                                              }
+                                            ],
+                                            "direction": "ltr"
+                                          }
+                                        ],
+                                        "direction": "ltr"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "_id": "7917e5fa-9020-4ae2-9bd0-e1d3d84adf37",
+                                "type": "linkCard",
+                                "parameters": {
+                                  "cta": {
+                                    "type": "text",
+                                    "value": "Explore Studios"
+                                  },
+                                  "image": {
+                                    "type": "cloudinary-image",
+                                    "value": [
+                                      {
+                                        "alt": "",
+                                        "url": "https://res.cloudinary.com/seth-hall/image/upload/v1699384529/silversneakers/premium_studio_locations_fuspx8.png",
+                                        "uuid": "4c47307d-d8bb-4b8e-9471-f9d60f2aa32f",
+                                        "width": "1738",
+                                        "format": "png",
+                                        "height": "1197",
+                                        "caption": "",
+                                        "version": 1699384529,
+                                        "publicId": "silversneakers/premium_studio_locations_fuspx8",
+                                        "createdAt": "2023-11-07T19:15:29Z",
+                                        "previewUrl": "https://res.cloudinary.com/seth-hall/image/upload/q_auto,f_auto/silversneakers/premium_studio_locations_fuspx8.png",
+                                        "resourceType": "image",
+                                        "transformation": ""
+                                      }
+                                    ]
+                                  },
+                                  "title": {
+                                    "type": "text",
+                                    "value": "Premium Studio Locations"
+                                  },
+                                  "ctaLink": {
+                                    "type": "link",
+                                    "value": {
+                                      "path": "/studios",
+                                      "type": "projectMapNode",
+                                      "nodeId": "92322ac2-5cc4-41af-aabf-a139b61843dd",
+                                      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                                    }
+                                  },
+                                  "description": {
+                                    "type": "richText",
+                                    "value": {
+                                      "root": {
+                                        "type": "root",
+                                        "format": "",
+                                        "indent": 0,
+                                        "version": 1,
+                                        "children": [
+                                          {
+                                            "type": "paragraph",
+                                            "format": "",
+                                            "indent": 0,
+                                            "version": 1,
+                                            "children": [
+                                              {
+                                                "mode": "normal",
+                                                "text": "Reserve an upcoming visit with a studio by ",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                              },
+                                              {
+                                                "link": {
+                                                  "path": "/studios",
+                                                  "type": "projectMapNode",
+                                                  "nodeId": "92322ac2-5cc4-41af-aabf-a139b61843dd",
+                                                  "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+                                                },
+                                                "type": "link",
+                                                "format": "",
+                                                "indent": 0,
+                                                "version": 1,
+                                                "children": [
+                                                  {
+                                                    "mode": "normal",
+                                                    "text": "downloading our SilverSneakers GO mobile app",
+                                                    "type": "text",
+                                                    "style": "",
+                                                    "detail": 0,
+                                                    "format": 0,
+                                                    "version": 1
+                                                  }
+                                                ],
+                                                "direction": "ltr"
+                                              },
+                                              {
+                                                "mode": "normal",
+                                                "text": ".",
+                                                "type": "text",
+                                                "style": "",
+                                                "detail": 0,
+                                                "format": 0,
+                                                "version": 1
+                                              }
+                                            ],
+                                            "direction": "ltr"
+                                          }
+                                        ],
+                                        "direction": "ltr"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          "parameters": {
+                            "title": {
+                              "type": "text",
+                              "value": "This is a Title"
+                            },
+                            "cardCount": {
+                              "type": "select",
+                              "value": "3"
+                            },
+                            "description": {
+                              "type": "text",
+                              "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas pretium aenean pharetra."
+                            }
+                          }
+                        }
+                      ]
+                    }
                   }
                 ]
               },
@@ -1772,10 +2211,53 @@
               }
             }
           ]
+        },
+        "_dataResources": {
+          "Campaign Content": {
+            "type": "campaign",
+            "variables": {
+              "limit": "5",
+              "order": "",
+              "locale": "",
+              "filters": "",
+              "keyword": "",
+              "sortOrder": "asc",
+              "sortFieldId": "",
+              "contentTypeId": "campaign",
+              "advancedFilters": "[]",
+              "contentTypeQuery": "content_type=campaign"
+            }
+          }
+        },
+        "_overrides": {
+          "10540968-ba27-4cf5-ba4c-5f2d150b5e56": {
+            "parameters": {
+              "title": {
+                "type": "text",
+                "value": "Wellness Classes"
+              },
+              "description": {
+                "type": "text",
+                "value": "Looking for a more specialized type of class? Check out these classes for a more diverse experience from independent instructors"
+              }
+            }
+          }
         }
       },
       "created": "2023-10-27T05:29:38.994848+00:00",
-      "modified": "2023-11-03T05:52:27.132072+00:00",
+      "modified": "2023-11-07T20:31:57.386764+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Studios",
+        "_id": "349b9a0d-8c0b-48e4-884c-7eb98b51b800",
+        "_slug": "studios",
+        "type": "page",
+        "parameters": {}
+      },
+      "created": "2023-11-07T06:15:46.10623+00:00",
+      "modified": "2023-11-07T06:15:46.10623+00:00",
       "pattern": false
     },
     {
@@ -1811,6 +2293,77 @@
       "created": "2023-10-16T16:46:04.328578+00:00",
       "modified": "2023-10-16T16:48:35.110015+00:00",
       "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Featured Campaign",
+        "_id": "3fb5f604-563a-421f-82e6-996dc8019f82",
+        "type": "campaigns",
+        "parameters": {
+          "title": {
+            "type": "text",
+            "value": "Featured Content"
+          },
+          "description": {
+            "type": "text",
+            "value": "Quick access to everything you need to stay active"
+          }
+        },
+        "slots": {
+          "campaignItems": [
+            {
+              "_id": "4b5870ff-260e-4b91-86ff-2a031dbd872e",
+              "type": "campaignItem",
+              "parameters": {
+                "image": {
+                  "type": "image",
+                  "value": "${#jptr:/Featured Campaign/fields/image/fields/file/url}"
+                },
+                "title": {
+                  "type": "text",
+                  "value": "${#jptr:/Featured Campaign/fields/title}"
+                },
+                "description": {
+                  "type": "json",
+                  "value": "${#jptr:/Featured Campaign/fields/description}"
+                },
+                "callToAction": {
+                  "type": "text",
+                  "value": "${#jptr:/Featured Campaign/fields/callToAction}"
+                },
+                "campaignType": {
+                  "type": "text",
+                  "value": "${#jptr:/Featured Campaign/fields/campaignType/fields/campaignType}"
+                },
+                "callToActionUrl": {
+                  "type": "text",
+                  "value": "${#jptr:/Featured Campaign/fields/callToActionUrl}"
+                }
+              }
+            }
+          ]
+        },
+        "_dataResources": {
+          "Featured Campaign": {
+            "type": "featuredCampaign",
+            "variables": {
+              "locale": "",
+              "entryIds": "6AI5Z0iBQrims14y0fmT64"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": false
+          }
+        },
+        "_overridability": {
+          "parameters": {
+            "title": "yes",
+            "description": "yes"
+          }
+        }
+      },
+      "created": "2023-11-07T20:13:54.181249+00:00",
+      "modified": "2023-11-07T21:11:50.562929+00:00",
+      "pattern": true
     },
     {
       "composition": {
@@ -2142,28 +2695,54 @@
     },
     {
       "composition": {
+        "_name": "Stitch",
+        "_id": "4e56d042-27d2-463f-8bea-afa623c7ab29",
+        "_slug": "stitch",
+        "type": "page",
+        "slots": {
+          "banners": [
+            {
+              "_id": "b0f52a30-5c3d-4585-88c5-1d93b8d9a193",
+              "type": "banner",
+              "variant": "primary",
+              "parameters": {
+                "message": {
+                  "type": "text",
+                  "value": "This is the Stitch page"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "created": "2023-11-07T06:13:09.379211+00:00",
+      "modified": "2023-11-07T06:21:42.920692+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
         "_name": "Campaigns",
-        "_id": "5f07b8ad-fbe6-4c10-bb19-7d56b913a72a",
+        "_id": "50abb713-4454-4ac3-b3c5-85cca2ce58e8",
         "type": "campaigns",
         "parameters": {
           "title": {
             "type": "text",
-            "value": "Get Active"
+            "value": "Campaign Title"
           },
           "description": {
             "type": "text",
-            "value": "Quick access to everything you need to stay active"
+            "value": "Campaign Description"
           }
         },
         "slots": {
           "campaignItems": [
             {
-              "_id": "854eaa5b-d75f-41bf-bf1a-e62446e86e26",
+              "_id": "406dddcf-1259-40ed-a1be-55476074196f",
               "type": "$loop",
               "slots": {
                 "body": [
                   {
-                    "_id": "02348e6f-5282-4735-928d-8031ba946532",
+                    "_id": "fc02f031-fb52-4a44-8103-5b96a4d7bc00",
                     "type": "campaignItem",
                     "parameters": {
                       "logo": {
@@ -2186,9 +2765,18 @@
                         "type": "text",
                         "value": "${#jptr:/Campaign Items Loop/fields/callToAction}"
                       },
+                      "campaignType": {
+                        "type": "text",
+                        "value": "${#jptr:/Campaign Items Loop/fields/campaignType/fields/campaignType}"
+                      },
                       "callToActionUrl": {
                         "type": "text",
                         "value": "${#jptr:/Campaign Items Loop/fields/callToActionUrl}"
+                      }
+                    },
+                    "_overridability": {
+                      "parameters": {
+                        "title": "no"
                       }
                     }
                   }
@@ -2198,7 +2786,7 @@
                 "Campaign Items Loop": {
                   "type": "sys-reserved-loop",
                   "variables": {
-                    "connectedData": "/Campaign Content/items"
+                    "connectedData": "/Campaign Items/items"
                   }
                 }
               }
@@ -2206,7 +2794,7 @@
           ]
         },
         "_dataResources": {
-          "Campaign Content": {
+          "Campaign Items": {
             "type": "campaign",
             "variables": {
               "limit": "5",
@@ -2219,7 +2807,9 @@
               "contentTypeId": "campaign",
               "advancedFilters": "[]",
               "contentTypeQuery": "content_type=campaign"
-            }
+            },
+            "isPatternParameter": false,
+            "ignorePatternParameterDefault": false
           }
         },
         "_overridability": {
@@ -2229,8 +2819,8 @@
           }
         }
       },
-      "created": "2023-11-02T10:46:08.028977+00:00",
-      "modified": "2023-11-03T04:06:38.618768+00:00",
+      "created": "2023-11-07T18:59:39.789126+00:00",
+      "modified": "2023-11-07T21:08:55.958496+00:00",
       "pattern": true
     },
     {
@@ -2804,6 +3394,7 @@
             {
               "_id": "eaadabb2-177e-4cc5-9bbe-e3fc96b95321",
               "type": "banner",
+              "variant": "primary",
               "parameters": {
                 "message": {
                   "type": "text",
@@ -2819,7 +3410,7 @@
         }
       },
       "created": "2023-11-03T17:03:11.57263+00:00",
-      "modified": "2023-11-03T17:04:05.159712+00:00",
+      "modified": "2023-11-07T06:21:05.28964+00:00",
       "pattern": false
     },
     {
@@ -4076,6 +4667,32 @@
     },
     {
       "composition": {
+        "_name": "GetSetUp",
+        "_id": "c98fc310-9de8-4499-bd5b-4acb1f09ac96",
+        "_slug": "getsetup",
+        "type": "page",
+        "slots": {
+          "banners": [
+            {
+              "_id": "4ad214a1-d61e-4a8d-a2fb-541b70ce7fb5",
+              "type": "banner",
+              "variant": "primary",
+              "parameters": {
+                "message": {
+                  "type": "text",
+                  "value": "This is the GetSetUp Page"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "created": "2023-11-07T06:09:52.396142+00:00",
+      "modified": "2023-11-07T06:20:41.799064+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
         "_name": "Instructors",
         "_id": "cb4f466a-026a-4d56-b461-7a97e5b23fd0",
         "_slug": "instructors",
@@ -5085,7 +5702,7 @@
       "name": "Terms of Use",
       "type": "composition",
       "data": {},
-      "order": 800,
+      "order": 1000,
       "path": "/terms-of-use",
       "compositionId": "6ce411e3-7f42-43ec-b106-22825db17338",
       "pathSegment": "terms-of-use",
@@ -5111,6 +5728,17 @@
       "path": "/",
       "compositionId": "4562edb4-2801-4ebf-8f17-11b62a94a30a",
       "pathSegment": "",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "219271f4-5bd4-4d9a-b71a-88d149783f96",
+      "name": "GetSetUp",
+      "type": "composition",
+      "data": {},
+      "order": 900,
+      "path": "/getsetup",
+      "compositionId": "c98fc310-9de8-4499-bd5b-4acb1f09ac96",
+      "pathSegment": "getsetup",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
@@ -5222,6 +5850,17 @@
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
+      "id": "92322ac2-5cc4-41af-aabf-a139b61843dd",
+      "name": "Studios",
+      "type": "composition",
+      "data": {},
+      "order": 800,
+      "path": "/studios",
+      "compositionId": "349b9a0d-8c0b-48e4-884c-7eb98b51b800",
+      "pathSegment": "studios",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
       "id": "96f19db7-ac28-4e36-9c3a-a5bb0606db3d",
       "name": "Instructors",
       "type": "composition",
@@ -5269,10 +5908,21 @@
       "name": "Member of the Year",
       "type": "composition",
       "data": {},
-      "order": 750,
+      "order": 837,
       "path": "/member-of-the-year",
       "compositionId": "3541b332-4338-48d9-b8f2-7c761a6f6308",
       "pathSegment": "member-of-the-year",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "b84c6d49-779e-48df-be90-39e2c3b69bd8",
+      "name": "Stitch",
+      "type": "composition",
+      "data": {},
+      "order": 900,
+      "path": "/stitch",
+      "compositionId": "4e56d042-27d2-463f-8bea-afa623c7ab29",
+      "pathSegment": "stitch",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
@@ -5335,7 +5985,7 @@
       "name": "Sitemap",
       "type": "composition",
       "data": {},
-      "order": 775,
+      "order": 1100,
       "path": "/sitemap",
       "compositionId": "f2cb5180-b7d1-41c5-8116-d20cb771a222",
       "pathSegment": "sitemap",
@@ -5378,9 +6028,9 @@
       "type": "composition",
       "data": {},
       "order": 850,
-      "path": "/fitness-plus",
+      "path": "/fitnessplus",
       "compositionId": "791bc400-4e6d-4a4e-9d6b-1999180c2185",
-      "pathSegment": "fitness-plus",
+      "pathSegment": "fitnessplus",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {

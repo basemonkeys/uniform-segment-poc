@@ -2,8 +2,8 @@
 
 import { CloudinaryImage } from "@/components/client-components/Cloudinary";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 export default function Loading() {
   return (
@@ -14,13 +14,13 @@ export default function Loading() {
         width={250}
         height={100}
       />
-      <h3 className="flex animate-pulse items-center text-primary">
+      {/* <h3 className="flex animate-pulse items-center text-primary">
         <FontAwesomeIcon
           icon={faCircleNotch}
           className="mr-2 h-5 w-5 animate-spin"
         />
         One moment please, we are lacing up our sneakers.
-      </h3>
+      </h3> */}
     </main>
   );
 }

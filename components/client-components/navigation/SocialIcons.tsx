@@ -64,7 +64,7 @@ const SocialIcons = ({ color = "white" }: SocialIconsProps) => {
     <div className="flex items-center justify-center gap-4">
       {socialIcons.map((icon) => (
         <Link
-          key={icon.url}
+          key={icon.name}
           href={icon.url}
           target="_blank"
           rel="noopener noreferrer"
