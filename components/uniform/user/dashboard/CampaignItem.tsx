@@ -23,8 +23,6 @@ import { Button } from "@/components/primitives/button";
 
 export enum CampaignType {
   AppleFitnessPlus = "Apple Fitness+",
-  GetSetUp = "GetSetUp",
-  Stitch = "Stitch",
 }
 
 const CampaignTypeToComponent: Record<
@@ -32,7 +30,6 @@ const CampaignTypeToComponent: Record<
   ElementType<CampaignItemProps>
 > = {
   [CampaignType.AppleFitnessPlus.toString()]: AppleFitnessPlusCampaignitem,
-  [CampaignType.GetSetUp.toString()]: GetSetUpCampaignitem,
 };
 
 type CampaignItemProps = ComponentProps<{
@@ -84,55 +81,7 @@ function AppleFitnessPlusCampaignitem({
           {documentToReactComponents(description)}
         </CardContent>
         <CardFooter className="mt-auto">
-          <Button size="xl" asChild>
-            <Link href={callToActionUrl}>{callToAction}</Link>
-          </Button>
-        </CardFooter>
-      </div>
-    </Card>
-  );
-}
-
-function GetSetUpCampaignitem({
-  title,
-  description,
-  callToAction,
-  callToActionUrl,
-  image,
-  logo,
-}: CampaignItemProps) {
-  return (
-    <Card key={title} className="flex flex-col gap-6 sm:flex-row">
-      <div className="w-full md:max-w-[250px]">
-        <Image
-          width={250}
-          height={250}
-          sizes="100vw"
-          src={getImageUrl(image)}
-          alt="Campaign Image"
-          className="h-auto w-full object-contain"
-        />
-      </div>
-      <div className="flex flex-col">
-        {logo && (
-          <div className="relative w-[196px] pb-1">
-            <Image
-              width={196}
-              height={196}
-              src={getImageUrl(logo)}
-              alt="Campaign Logo"
-              className="object-contain"
-            />
-          </div>
-        )}
-        <CardHeader>
-          <CardTitle className="h3 p-0">{title}</CardTitle>
-        </CardHeader>
-        <CardContent className="pt-2">
-          {documentToReactComponents(description)}
-        </CardContent>
-        <CardFooter className="mt-auto">
-          <Button size="xl" asChild>
+          <Button asChild>
             <Link href={callToActionUrl}>{callToAction}</Link>
           </Button>
         </CardFooter>
@@ -180,7 +129,7 @@ function DefaultCampaignItem({
           {documentToReactComponents(description)}
         </CardContent>
         <CardFooter className="mt-auto">
-          <Button size="xl" asChild>
+          <Button asChild>
             <Link href={callToActionUrl}>{callToAction}</Link>
             {/* TODO: if href is internal do this, or do this */}
           </Button>

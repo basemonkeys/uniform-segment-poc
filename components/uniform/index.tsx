@@ -32,6 +32,7 @@ import "./user/dashboard/LiveClasses";
 import "./user/dashboard/FitnessLocations";
 import "./user/dashboard/Campaigns";
 import "./user/dashboard/CampaignItem";
+import "./user/dashboard/CampaignItemAlt";
 import "./contact/ContactUsForm";
 import "./contact/ContactCard";
 import "./content/PrivacyPolicy";

@@ -6,8 +6,6 @@ import { gridCardCountAtom, lastGridItemIdAtom } from "@/utils/uiState";
 import { type LinkCardGridProps } from "@/components/uniform/layout/LinkCardGrid";
 
 export function LinkCardGrid({
-  title,
-  description,
   cardCount,
   component,
   children,
@@ -22,10 +20,6 @@ export function LinkCardGrid({
 
   return (
     <div className="space-y-6">
-      <div>
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">{children}</div>
     </div>
   );
