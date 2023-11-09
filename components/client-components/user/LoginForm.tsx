@@ -206,7 +206,7 @@ export function LoginForm({ heading, text }: LoginFormProps) {
                 </FormItem>
               )}
             />
-            <Button type="submit" size="xl" className="w-full">
+            <Button type="submit" className="w-full">
               Log In
             </Button>
 

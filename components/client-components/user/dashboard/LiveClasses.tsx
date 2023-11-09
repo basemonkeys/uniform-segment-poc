@@ -113,7 +113,7 @@ export function LiveClasses({ title, description, classes }: LiveClassesProps) {
               <CardFooter className="absolute bottom-0 z-30 w-full p-6 text-white">
                 <div className="flex w-full flex-col gap-4">
                   <div className="flex justify-end">
-                    <Button size="xl">Join Now</Button>
+                    <Button>Join Now</Button>
                   </div>
                   <div className="flex w-full flex-col gap-2 text-sm">
                     <div className="flex items-center gap-2">
@@ -213,7 +213,7 @@ export function LiveClasses({ title, description, classes }: LiveClassesProps) {
                     </div>
                     <span className="text-sm">{item.Intensity}</span>
                   </div>
-                  <Button size="xl">RSVP</Button>
+                  <Button>RSVP</Button>
                 </CardFooter>
               </div>
             </Card>

@@ -97,9 +97,7 @@ export function FitnessLocations({
                     </>
                   </CardContent>
                   <CardFooter className="mt-auto">
-                    <Button className="max-sm:w-full lg:w-full">
-                      View Details
-                    </Button>
+                    <Button className="max-sm:w-full">View Details</Button>
                   </CardFooter>
                 </Card>
               </>

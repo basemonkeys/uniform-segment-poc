@@ -213,7 +213,6 @@ const Hero = ({
                           ? "primary"
                           : "primaryWhite"
                       }
-                      size="xl"
                       asChild
                     >
                       <Link href={primaryUrl}>{primarycta}</Link>
@@ -225,7 +224,6 @@ const Hero = ({
                             ? "secondaryWhite"
                             : "secondary"
                         }
-                        size="xl"
                         asChild
                       >
                         {/* this syntax within hreg is needed because secondaryUrl could be undefined. */}

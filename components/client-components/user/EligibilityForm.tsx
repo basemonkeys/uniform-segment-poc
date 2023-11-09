@@ -580,7 +580,6 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
               {activeStep > 0 && (
                 <Button
                   variant="secondaryWhite"
-                  size="xl"
                   className="w-full"
                   onClick={() => setActiveStep(activeStep - 1)}
                 >
@@ -592,8 +591,6 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
               )}
               <Button
                 type={activeStep === 3 ? "submit" : "button"}
-                variant="primary"
-                size="xl"
                 className="w-full"
                 onClick={handleButtonClick}
               >
@@ -621,9 +618,7 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                 <a href="/api/auth/login">Log In</a>
               </Button>
               <DialogClose asChild>
-                <Button variant="primary" size="lg">
-                  Continue
-                </Button>
+                <Button size="lg">Continue</Button>
               </DialogClose>
             </DialogFooter>
           </DialogContent>

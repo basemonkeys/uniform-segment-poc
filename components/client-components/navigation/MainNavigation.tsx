@@ -158,7 +158,7 @@ const MainNavigation = ({ children, logo }: MainNavigationProps) => {
 
       {/* Check Eligibility Mobile Button */}
       <div className="fixed bottom-0 z-50 w-full bg-white p-2 px-6 sm:hidden">
-        <Button className="w-full" size="xl" asChild>
+        <Button className="w-full" asChild>
           <Link href="/eligibility/check-eligibility">Check Eligibility</Link>
         </Button>
       </div>

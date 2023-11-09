@@ -26,11 +26,11 @@ const buttonVariants = cva(
         link: "underline-offset-4 hover:underline text-link",
       },
       size: {
-        xs: "px-3 py-3 text-xs h-4 rounded-sm",
-        sm: "px-3 py-3 text-sm h-5 rounded-sm",
-        md: "px-2.5 py-1.5 h-8 text-base rounded-md",
-        lg: "px-3 py-2 h-9 text-base rounded-md",
-        xl: "px-4 py-3 h-11 text-base rounded-md",
+        xs: "px-3 py-3 text-xs h-4 rounded-sm min-w-[160px]",
+        sm: "px-3 py-3 text-sm h-5 rounded-sm min-w-[160px]",
+        md: "px-2.5 py-1.5 h-8 text-base rounded-md min-w-[160px]",
+        lg: "px-3 py-2 h-9 text-base rounded-md min-w-[160px]",
+        xl: "px-4 py-3 h-11 text-base rounded-md min-w-[160px]",
         icon: "h-10 w-10",
       },
       radius: {
@@ -40,7 +40,7 @@ const buttonVariants = cva(
     },
     defaultVariants: {
       variant: "primary",
-      size: "lg",
+      size: "xl",
       radius: "md",
     },
   },

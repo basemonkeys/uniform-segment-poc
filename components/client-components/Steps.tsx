@@ -40,7 +40,7 @@ export function Steps(props: StepsProps) {
           {/* <Provider store={store}>{children}</Provider> */}
           {children}
         </div>
-        <Button variant={isDark ? "primaryWhite" : "primary"} size="xl" asChild>
+        <Button variant={isDark ? "primaryWhite" : "primary"} asChild>
           <Link href="/eligibility/check-eligibility">Check Eligibility</Link>
         </Button>
       </div>
