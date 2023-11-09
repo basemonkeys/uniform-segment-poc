@@ -174,6 +174,125 @@
       "updated": "2023-11-07T01:27:04.180936+00:00"
     },
     {
+      "id": "campaignItemAlt",
+      "name": "Campaign Item Alt",
+      "icon": "profile",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": false
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "json",
+          "helpText": "",
+          "typeConfig": {}
+        },
+        {
+          "id": "campaignType",
+          "name": "Campaign Type",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "imageOne",
+          "name": "Image One",
+          "type": "image",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "imageOneTitle",
+          "name": "Image One Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "imageTwo",
+          "name": "Image Two",
+          "type": "image",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "imageTwoTitle",
+          "name": "Image Two Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "imageThree",
+          "name": "Image Three",
+          "type": "image",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "imageThreeTitle",
+          "name": "Image Three Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "cta",
+          "name": "CTA",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "ctaLink",
+          "name": "CTA Link",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "logo",
+          "name": "Logo",
+          "type": "image",
+          "helpText": "",
+          "typeConfig": null
+        }
+      ],
+      "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
+      "description": "This component represents a Campaign Item alt variant",
+      "useTeamPermissions": true,
+      "slots": [],
+      "titleParameter": "title",
+      "canBeComposition": false,
+      "created": "2023-11-08T20:33:17.867028+00:00",
+      "updated": "2023-11-08T23:57:48.478472+00:00"
+    },
+    {
       "id": "campaigns",
       "name": "Campaigns",
       "icon": "profile",
@@ -205,18 +324,18 @@
           "id": "campaignItems",
           "name": "Campaign Items",
           "allowedComponents": [
-            "$loop",
-            "campaignItem"
+            "$p:5d54a362-8f9b-4d9d-8806-9b7e8608cf1f",
+            "$p:9d00e9e1-2296-4d9d-8c67-833081513f1b"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
-          "patternsInAllowedComponents": false
+          "patternsInAllowedComponents": true
         }
       ],
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-11-02T10:45:38.583284+00:00",
-      "updated": "2023-11-07T19:10:33.620807+00:00"
+      "updated": "2023-11-08T21:06:15.735212+00:00"
     },
     {
       "id": "contactCard",
@@ -1072,28 +1191,10 @@
       "icon": "display-grid",
       "parameters": [
         {
-          "id": "title",
-          "name": "Title",
-          "type": "text",
-          "helpText": "",
-          "typeConfig": {
-            "required": true
-          }
-        },
-        {
-          "id": "description",
-          "name": "Description",
-          "type": "text",
-          "helpText": "",
-          "typeConfig": {
-            "required": true
-          }
-        },
-        {
           "id": "cardCount",
           "name": "Card Count",
           "type": "select",
-          "helpText": "",
+          "helpText": "This should match the number of cards in Grid Items ",
           "typeConfig": {
             "options": [
               {
@@ -1128,10 +1229,9 @@
           "patternsInAllowedComponents": false
         }
       ],
-      "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-11-07T18:47:44.458336+00:00",
-      "updated": "2023-11-07T22:42:05.118519+00:00"
+      "updated": "2023-11-08T18:32:18.478312+00:00"
     },
     {
       "id": "liveClasses",
@@ -1178,20 +1278,20 @@
           "id": "dashboardInner",
           "name": "Dashboard Inner",
           "allowedComponents": [
-            "campaigns",
             "liveClasses",
             "fitnessLocations",
             "dashboardHeader",
-            "linkCardGrid"
+            "linkCardGrid",
+            "campaigns"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
-          "patternsInAllowedComponents": false
+          "patternsInAllowedComponents": true
         }
       ],
       "canBeComposition": false,
       "created": "2023-10-27T06:46:56.697013+00:00",
-      "updated": "2023-11-07T19:07:00.138523+00:00"
+      "updated": "2023-11-08T21:02:51.87625+00:00"
     },
     {
       "id": "memberProfile",
@@ -1877,6 +1977,29 @@
                           }
                         },
                         {
+                          "_id": "5f5af8ac-4789-4241-91c2-67c6b7ba32d6",
+                          "type": "campaigns",
+                          "slots": {
+                            "campaignItems": [
+                              {
+                                "_id": "5132a8a7-f336-486c-bd9b-18559a871d69",
+                                "type": "campaignItemAlt",
+                                "_pattern": "9d00e9e1-2296-4d9d-8c67-833081513f1b"
+                              }
+                            ]
+                          },
+                          "parameters": {
+                            "title": {
+                              "type": "text",
+                              "value": "Check Out Even More Online Classes"
+                            },
+                            "description": {
+                              "type": "text",
+                              "value": "Join your peers for a variety of fun, easy-to-follow, live online classes at no extra cost. Check back often for classes made available to you!^"
+                            }
+                          }
+                        },
+                        {
                           "_id": "a640e4e2-3a5f-4856-9ce8-db63a5ff2bcb",
                           "type": "fitnessLocations",
                           "parameters": {
@@ -1891,23 +2014,96 @@
                           }
                         },
                         {
-                          "_id": "54905567-4af5-4eea-b94d-4d729b6ea70d",
+                          "_id": "0ca13f66-8b5e-486f-b1bd-6bfbf7e51a7b",
                           "type": "campaigns",
-                          "_pattern": "3fb5f604-563a-421f-82e6-996dc8019f82",
-                          "_dataResources": {
-                            "Featured Campaign": {
-                              "type": "featuredCampaign",
-                              "variables": {
-                                "locale": "",
-                                "entryIds": "6AI5Z0iBQrims14y0fmT64"
+                          "slots": {
+                            "campaignItems": [
+                              {
+                                "_id": "19f197f1-ab26-4da2-9271-f6db83f21a7a",
+                                "type": "campaignItem",
+                                "_pattern": "5d54a362-8f9b-4d9d-8806-9b7e8608cf1f",
+                                "_dataResources": {
+                                  "Campaign Item": {
+                                    "type": "campaignItem",
+                                    "variables": {
+                                      "locale": "",
+                                      "entryIds": "6AI5Z0iBQrims14y0fmT64"
+                                    }
+                                  }
+                                }
                               }
+                            ]
+                          },
+                          "parameters": {
+                            "title": {
+                              "type": "text",
+                              "value": "Featured Content"
+                            },
+                            "description": {
+                              "type": "text",
+                              "value": "Quick access to everything you need to stay active"
                             }
                           }
                         },
                         {
-                          "_id": "10540968-ba27-4cf5-ba4c-5f2d150b5e56",
+                          "_id": "80589823-4f09-41c4-a185-14eba374e68f",
                           "type": "campaigns",
-                          "_pattern": "50abb713-4454-4ac3-b3c5-85cca2ce58e8"
+                          "slots": {
+                            "campaignItems": [
+                              {
+                                "_id": "16b853d2-031b-402a-ac46-192e9b9e61e3",
+                                "type": "campaignItem",
+                                "_pattern": "5d54a362-8f9b-4d9d-8806-9b7e8608cf1f",
+                                "_dataResources": {
+                                  "Campaign Item": {
+                                    "type": "campaignItem",
+                                    "variables": {
+                                      "locale": "",
+                                      "entryIds": "5Md2u5I7r2YBvrtEgoxkmR"
+                                    }
+                                  },
+                                  "Campaign Item Content": {
+                                    "type": "campaignItem",
+                                    "variables": {
+                                      "locale": "",
+                                      "entryIds": "5Md2u5I7r2YBvrtEgoxkmR"
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "_id": "5c27891b-e77f-4e17-948b-2ced807c159b",
+                                "type": "campaignItem",
+                                "_pattern": "5d54a362-8f9b-4d9d-8806-9b7e8608cf1f",
+                                "_dataResources": {
+                                  "Campaign Item": {
+                                    "type": "campaignItem",
+                                    "variables": {
+                                      "locale": "",
+                                      "entryIds": "3YHGJKW0BbWnEuki82JzcF"
+                                    }
+                                  },
+                                  "Campaign Item Content": {
+                                    "type": "campaignItem",
+                                    "variables": {
+                                      "locale": "",
+                                      "entryIds": "3YHGJKW0BbWnEuki82JzcF"
+                                    }
+                                  }
+                                }
+                              }
+                            ]
+                          },
+                          "parameters": {
+                            "title": {
+                              "type": "text",
+                              "value": "Wellness Classes"
+                            },
+                            "description": {
+                              "type": "text",
+                              "value": "Looking for a more specialized type of class? Check out these classes for a more diverse experience from independent instructors"
+                            }
+                          }
                         },
                         {
                           "_id": "41ca3e55-cec8-481a-9dd2-0f783f929d0d",
@@ -2184,17 +2380,9 @@
                             ]
                           },
                           "parameters": {
-                            "title": {
-                              "type": "text",
-                              "value": "This is a Title"
-                            },
                             "cardCount": {
                               "type": "select",
                               "value": "3"
-                            },
-                            "description": {
-                              "type": "text",
-                              "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas pretium aenean pharetra."
                             }
                           }
                         }
@@ -2212,40 +2400,10 @@
             }
           ]
         },
-        "_dataResources": {
-          "Campaign Content": {
-            "type": "campaign",
-            "variables": {
-              "limit": "5",
-              "order": "",
-              "locale": "",
-              "filters": "",
-              "keyword": "",
-              "sortOrder": "asc",
-              "sortFieldId": "",
-              "contentTypeId": "campaign",
-              "advancedFilters": "[]",
-              "contentTypeQuery": "content_type=campaign"
-            }
-          }
-        },
-        "_overrides": {
-          "10540968-ba27-4cf5-ba4c-5f2d150b5e56": {
-            "parameters": {
-              "title": {
-                "type": "text",
-                "value": "Wellness Classes"
-              },
-              "description": {
-                "type": "text",
-                "value": "Looking for a more specialized type of class? Check out these classes for a more diverse experience from independent instructors"
-              }
-            }
-          }
-        }
+        "_dataResources": {}
       },
       "created": "2023-10-27T05:29:38.994848+00:00",
-      "modified": "2023-11-07T20:31:57.386764+00:00",
+      "modified": "2023-11-08T21:22:45.596191+00:00",
       "pattern": false
     },
     {
@@ -2296,74 +2454,28 @@
     },
     {
       "composition": {
-        "_name": "Featured Campaign",
-        "_id": "3fb5f604-563a-421f-82e6-996dc8019f82",
-        "type": "campaigns",
-        "parameters": {
-          "title": {
-            "type": "text",
-            "value": "Featured Content"
-          },
-          "description": {
-            "type": "text",
-            "value": "Quick access to everything you need to stay active"
-          }
-        },
+        "_name": "Wellbeing",
+        "_id": "3a140c3c-8774-445d-ae04-a3c8cf622755",
+        "_slug": "wellbeing",
+        "type": "page",
         "slots": {
-          "campaignItems": [
+          "banners": [
             {
-              "_id": "4b5870ff-260e-4b91-86ff-2a031dbd872e",
-              "type": "campaignItem",
+              "_id": "f87754d6-5ba7-41c4-b0ad-d4645e3b75ff",
+              "type": "banner",
               "parameters": {
-                "image": {
-                  "type": "image",
-                  "value": "${#jptr:/Featured Campaign/fields/image/fields/file/url}"
-                },
-                "title": {
+                "message": {
                   "type": "text",
-                  "value": "${#jptr:/Featured Campaign/fields/title}"
-                },
-                "description": {
-                  "type": "json",
-                  "value": "${#jptr:/Featured Campaign/fields/description}"
-                },
-                "callToAction": {
-                  "type": "text",
-                  "value": "${#jptr:/Featured Campaign/fields/callToAction}"
-                },
-                "campaignType": {
-                  "type": "text",
-                  "value": "${#jptr:/Featured Campaign/fields/campaignType/fields/campaignType}"
-                },
-                "callToActionUrl": {
-                  "type": "text",
-                  "value": "${#jptr:/Featured Campaign/fields/callToActionUrl}"
+                  "value": "This is the wellbeing classes page"
                 }
               }
             }
           ]
-        },
-        "_dataResources": {
-          "Featured Campaign": {
-            "type": "featuredCampaign",
-            "variables": {
-              "locale": "",
-              "entryIds": "6AI5Z0iBQrims14y0fmT64"
-            },
-            "isPatternParameter": true,
-            "ignorePatternParameterDefault": false
-          }
-        },
-        "_overridability": {
-          "parameters": {
-            "title": "yes",
-            "description": "yes"
-          }
         }
       },
-      "created": "2023-11-07T20:13:54.181249+00:00",
-      "modified": "2023-11-07T21:11:50.562929+00:00",
-      "pattern": true
+      "created": "2023-11-08T21:25:31.854076+00:00",
+      "modified": "2023-11-08T21:26:09.29844+00:00",
+      "pattern": false
     },
     {
       "composition": {
@@ -2721,106 +2833,53 @@
     },
     {
       "composition": {
-        "_name": "Campaigns",
-        "_id": "50abb713-4454-4ac3-b3c5-85cca2ce58e8",
-        "type": "campaigns",
+        "_name": "Campaign Item",
+        "_id": "5d54a362-8f9b-4d9d-8806-9b7e8608cf1f",
+        "type": "campaignItem",
         "parameters": {
+          "logo": {
+            "type": "image",
+            "value": "${#jptr:/Campaign Item/fields/logo/fields/file/url}"
+          },
+          "image": {
+            "type": "image",
+            "value": "${#jptr:/Campaign Item/fields/image/fields/file/url}"
+          },
           "title": {
             "type": "text",
-            "value": "Campaign Title"
+            "value": "${#jptr:/Campaign Item/fields/title}"
           },
           "description": {
+            "type": "json",
+            "value": "${#jptr:/Campaign Item/fields/description}"
+          },
+          "callToAction": {
             "type": "text",
-            "value": "Campaign Description"
+            "value": "${#jptr:/Campaign Item/fields/callToAction}"
+          },
+          "campaignType": {
+            "type": "text",
+            "value": "${#jptr:/Campaign Item/fields/campaignType/fields/campaignType}"
+          },
+          "callToActionUrl": {
+            "type": "text",
+            "value": "${#jptr:/Campaign Item/fields/callToActionUrl}"
           }
-        },
-        "slots": {
-          "campaignItems": [
-            {
-              "_id": "406dddcf-1259-40ed-a1be-55476074196f",
-              "type": "$loop",
-              "slots": {
-                "body": [
-                  {
-                    "_id": "fc02f031-fb52-4a44-8103-5b96a4d7bc00",
-                    "type": "campaignItem",
-                    "parameters": {
-                      "logo": {
-                        "type": "image",
-                        "value": "${#jptr:/Campaign Items Loop/fields/logo/fields/file/url}"
-                      },
-                      "image": {
-                        "type": "image",
-                        "value": "${#jptr:/Campaign Items Loop/fields/image/fields/file/url}"
-                      },
-                      "title": {
-                        "type": "text",
-                        "value": "${#jptr:/Campaign Items Loop/fields/title}"
-                      },
-                      "description": {
-                        "type": "json",
-                        "value": "${#jptr:/Campaign Items Loop/fields/description}"
-                      },
-                      "callToAction": {
-                        "type": "text",
-                        "value": "${#jptr:/Campaign Items Loop/fields/callToAction}"
-                      },
-                      "campaignType": {
-                        "type": "text",
-                        "value": "${#jptr:/Campaign Items Loop/fields/campaignType/fields/campaignType}"
-                      },
-                      "callToActionUrl": {
-                        "type": "text",
-                        "value": "${#jptr:/Campaign Items Loop/fields/callToActionUrl}"
-                      }
-                    },
-                    "_overridability": {
-                      "parameters": {
-                        "title": "no"
-                      }
-                    }
-                  }
-                ]
-              },
-              "_dataResources": {
-                "Campaign Items Loop": {
-                  "type": "sys-reserved-loop",
-                  "variables": {
-                    "connectedData": "/Campaign Items/items"
-                  }
-                }
-              }
-            }
-          ]
         },
         "_dataResources": {
-          "Campaign Items": {
-            "type": "campaign",
+          "Campaign Item": {
+            "type": "campaignItem",
             "variables": {
-              "limit": "5",
-              "order": "",
               "locale": "",
-              "filters": "",
-              "keyword": "",
-              "sortOrder": "asc",
-              "sortFieldId": "",
-              "contentTypeId": "campaign",
-              "advancedFilters": "[]",
-              "contentTypeQuery": "content_type=campaign"
+              "entryIds": "6AI5Z0iBQrims14y0fmT64"
             },
-            "isPatternParameter": false,
+            "isPatternParameter": true,
             "ignorePatternParameterDefault": false
-          }
-        },
-        "_overridability": {
-          "parameters": {
-            "title": "yes",
-            "description": "yes"
           }
         }
       },
-      "created": "2023-11-07T18:59:39.789126+00:00",
-      "modified": "2023-11-07T21:08:55.958496+00:00",
+      "created": "2023-11-08T19:22:35.603139+00:00",
+      "modified": "2023-11-08T21:17:48.372383+00:00",
       "pattern": true
     },
     {
@@ -3739,6 +3798,77 @@
       "created": "2023-09-11T22:05:13.94218+00:00",
       "modified": "2023-10-05T20:51:28.744147+00:00",
       "pattern": false
+    },
+    {
+      "composition": {
+        "_name": "Campaign Item Alt",
+        "_id": "9d00e9e1-2296-4d9d-8c67-833081513f1b",
+        "type": "campaignItemAlt",
+        "parameters": {
+          "cta": {
+            "type": "text",
+            "value": "${#jptr:/Campaign Item Content/fields/cta}"
+          },
+          "logo": {
+            "type": "image",
+            "value": "${#jptr:/Campaign Item Content/fields/logo/fields/file/url}"
+          },
+          "title": {
+            "type": "text",
+            "value": "${#jptr:/Campaign Item Content/fields/title}"
+          },
+          "ctaLink": {
+            "type": "text",
+            "value": "${#jptr:/Campaign Item Content/fields/ctaLink}"
+          },
+          "imageOne": {
+            "type": "image",
+            "value": "${#jptr:/Campaign Item Content/fields/images/0/fields/file/url}"
+          },
+          "imageTwo": {
+            "type": "image",
+            "value": "${#jptr:/Campaign Item Content/fields/images/1/fields/file/url}"
+          },
+          "imageThree": {
+            "type": "image",
+            "value": "${#jptr:/Campaign Item Content/fields/images/2/fields/file/url}"
+          },
+          "description": {
+            "type": "json",
+            "value": "${#jptr:/Campaign Item Content/fields/description}"
+          },
+          "campaignType": {
+            "type": "text",
+            "value": "${#jptr:/Campaign Item Content/fields/campaignType/fields/campaignType}"
+          },
+          "imageOneTitle": {
+            "type": "text",
+            "value": "${#jptr:/Campaign Item Content/fields/images/0/fields/title}"
+          },
+          "imageTwoTitle": {
+            "type": "text",
+            "value": "${#jptr:/Campaign Item Content/fields/images/1/fields/title}"
+          },
+          "imageThreeTitle": {
+            "type": "text",
+            "value": "${#jptr:/Campaign Item Content/fields/images/2/fields/title}"
+          }
+        },
+        "_dataResources": {
+          "Campaign Item Content": {
+            "type": "campaignItem",
+            "variables": {
+              "locale": "",
+              "entryIds": "5amhsDdGn8tFbOQdAfjP6O"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": false
+          }
+        }
+      },
+      "created": "2023-11-08T20:50:11.969868+00:00",
+      "modified": "2023-11-08T23:23:10.843871+00:00",
+      "pattern": true
     },
     {
       "composition": {
@@ -5750,6 +5880,17 @@
       "path": "/classes/community-schedule",
       "compositionId": "4018282a-96b1-4204-b814-f05848f7d45b",
       "pathSegment": "community-schedule",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "38293225-1aaf-428f-b24b-a6f4ad1f61c8",
+      "name": "Wellbeing",
+      "type": "composition",
+      "data": {},
+      "order": 1100,
+      "path": "/classes/wellbeing",
+      "compositionId": "3a140c3c-8774-445d-ae04-a3c8cf622755",
+      "pathSegment": "wellbeing",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {

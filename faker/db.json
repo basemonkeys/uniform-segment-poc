@@ -1,9 +1,9 @@
 {
   "user": {
-    "firstName": "Joaquin",
-    "lastName": "Ledner",
+    "firstName": "Melyssa",
+    "lastName": "Turner",
     "email": {
-      "address": "Eloise.OReilly75@hotmail.com",
+      "address": "Cecile_Pouros-Bartell76@hotmail.com",
       "verified": false
     },
     "eligibility": {
@@ -13,7 +13,7 @@
     "campaigns": [
       {
         "Participated": true,
-        "CampaignType": "Stitch",
+        "CampaignType": "",
         "Eligible": true,
         "MaxBookings": null,
         "GoalWeightLoss": 1,
@@ -22,7 +22,16 @@
       },
       {
         "Participated": true,
-        "CampaignType": "GetSetUp",
+        "CampaignType": "",
+        "Eligible": true,
+        "MaxBookings": null,
+        "GoalWeightLoss": 1,
+        "GoalAcheived": false,
+        "CurrentWeightLost": 0
+      },
+      {
+        "Participated": true,
+        "CampaignType": "",
         "Eligible": true,
         "MaxBookings": null,
         "GoalWeightLoss": 1,
@@ -33,84 +42,84 @@
   },
   "visits": [
     {
-      "date": "2022-12-30T12:32:02.690Z",
+      "date": "2023-01-17T17:04:42.890Z",
       "isFlex": false,
-      "locationId": "627",
-      "locationName": "Colorado"
+      "locationId": "007",
+      "locationName": "Tennessee"
     },
     {
-      "date": "2023-05-03T05:36:29.783Z",
-      "isFlex": false,
-      "locationId": "195",
-      "locationName": "New Hampshire"
-    },
-    {
-      "date": "2023-05-08T12:28:51.212Z",
-      "isFlex": false,
-      "locationId": "203",
-      "locationName": "California"
-    },
-    {
-      "date": "2023-03-16T20:05:37.043Z",
-      "isFlex": false,
-      "locationId": "966",
-      "locationName": "Hawaii"
-    },
-    {
-      "date": "2023-10-28T12:59:19.863Z",
+      "date": "2023-08-22T17:14:42.217Z",
       "isFlex": true,
-      "locationId": "096",
-      "locationName": "North Dakota"
+      "locationId": "324",
+      "locationName": "New York"
     },
     {
-      "date": "2023-03-06T17:00:56.035Z",
-      "isFlex": false,
-      "locationId": "506",
-      "locationName": "Rhode Island"
-    },
-    {
-      "date": "2023-11-02T19:56:37.461Z",
+      "date": "2022-12-16T14:42:48.671Z",
       "isFlex": true,
-      "locationId": "630",
-      "locationName": "Georgia"
+      "locationId": "232",
+      "locationName": "Connecticut"
     },
     {
-      "date": "2023-07-31T19:53:35.569Z",
+      "date": "2023-04-24T15:47:17.475Z",
       "isFlex": false,
-      "locationId": "441",
-      "locationName": "Michigan"
+      "locationId": "856",
+      "locationName": "Kentucky"
     },
     {
-      "date": "2023-05-27T13:42:37.908Z",
+      "date": "2023-08-30T08:54:11.557Z",
+      "isFlex": false,
+      "locationId": "763",
+      "locationName": "New York"
+    },
+    {
+      "date": "2023-08-27T21:51:57.335Z",
       "isFlex": true,
-      "locationId": "932",
+      "locationId": "528",
+      "locationName": "Ohio"
+    },
+    {
+      "date": "2023-05-28T09:17:25.155Z",
+      "isFlex": true,
+      "locationId": "297",
+      "locationName": "Maine"
+    },
+    {
+      "date": "2023-05-20T11:41:40.560Z",
+      "isFlex": false,
+      "locationId": "804",
+      "locationName": "Alabama"
+    },
+    {
+      "date": "2023-02-09T11:57:04.150Z",
+      "isFlex": true,
+      "locationId": "991",
       "locationName": "Montana"
     },
     {
-      "date": "2023-10-24T13:44:44.574Z",
-      "isFlex": true,
-      "locationId": "487",
-      "locationName": "Washington"
+      "date": "2023-02-04T10:11:52.756Z",
+      "isFlex": false,
+      "locationId": "776",
+      "locationName": "Virginia"
     }
   ],
   "live": {
     "LiveStreams": [
       {
         "Title": "Morning Routine",
-        "Topic": "Ex desparatus umquam surculus.",
-        "Instructor": "Trevion",
+        "Topic": "Turba infit sursum desino.",
+        "Instructor": "Donnell",
         "Intensity": "Beginner"
       },
       {
         "Title": "Strength Training",
-        "Topic": "Calco vulpes subvenio textor abutor cuius pectus sperno amiculum.",
-        "Instructor": "Odessa",
+        "Topic": "Venia qui ager minima acies vos supplanto abbas.",
+        "Instructor": "Marjolaine",
         "Intensity": "Intermediate"
       },
       {
         "Title": "Yoga Flow",
-        "Topic": "Demoror subiungo ceno volva ullus virgo cuppedia aperiam ad.",
-        "Instructor": "Lavern",
+        "Topic": "Clamo ipsam stabilis nam aut iure sum.",
+        "Instructor": "Lewis",
         "Intensity": "Advanced"
       }
     ]
@@ -118,72 +127,72 @@
   "locations": {
     "Locations": [
       {
-        "Id": "84369",
+        "Id": "93008",
         "Name": "Planet Fitness",
-        "Phone": "384.569.9345",
-        "Address": "472 The Oval",
-        "Longitude": -97.2514,
-        "Latitude": 13.2192,
+        "Phone": "857.443.0221 x8421",
+        "Address": "3279 N Union Street",
+        "Longitude": -2.3665,
+        "Latitude": 84.8171,
         "NetworkProperties": {
           "Amenities": [
             {
-              "Id": 1,
+              "Id": 3,
               "Name": "Resistance Equipment"
             },
             {
-              "Id": 5,
+              "Id": 3,
               "Name": "Cardiovascular Equipment"
             },
             {
-              "Id": 2,
+              "Id": 4,
               "Name": "Strength Equipment"
             }
           ]
         }
       },
       {
-        "Id": "35178",
+        "Id": "05385",
         "Name": "Community Gym",
-        "Phone": "1-909-260-9963 x853",
-        "Address": "706 Torp Avenue",
-        "Longitude": -33.048,
-        "Latitude": -14.0993,
+        "Phone": "1-817-788-6761 x6593",
+        "Address": "516 Muller Canyon",
+        "Longitude": -150.7076,
+        "Latitude": 16.219,
         "NetworkProperties": {
           "Amenities": [
             {
-              "Id": 2,
+              "Id": 4,
               "Name": "Resistance Equipment"
             },
             {
-              "Id": 1,
+              "Id": 2,
               "Name": "Cardiovascular Equipment"
             },
             {
-              "Id": 2,
+              "Id": 3,
               "Name": "Strength Equipment"
             }
           ]
         }
       },
       {
-        "Id": "92069",
+        "Id": "98850",
         "Name": "Get Moving Studios",
-        "Phone": "403.976.5357 x20971",
-        "Address": "2306 Ressie Route",
-        "Longitude": 106.3493,
-        "Latitude": -34.6921,
+        "Phone": "704.783.2337 x4617",
+        "Address": "9646 Gerhold Forks",
+        "Longitude": -148.7444,
+        "Latitude": -25.4043,
         "NetworkProperties": {
           "Amenities": [
             {
-              "Id": 5,
+              "Id": 4,
               "Name": "Resistance Equipment"
             },
             {
-              "Id": 4,
+              "Id": 2,
               "Name": "Cardiovascular Equipment"
             },
             {
-              "Id": 4,
+              "Id": 5,
               "Name": "Strength Equipment"
             }
           ]

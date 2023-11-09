@@ -18,6 +18,15 @@ const user = {
   campaigns: [
     {
       Participated: true,
+      CampaignType: "Fitness+",
+      Eligible: true,
+      MaxBookings: null,
+      GoalWeightLoss: 1,
+      GoalAcheived: false,
+      CurrentWeightLost: 0,
+    },
+    {
+      Participated: true,
       CampaignType: "Stitch",
       Eligible: true,
       MaxBookings: null,
