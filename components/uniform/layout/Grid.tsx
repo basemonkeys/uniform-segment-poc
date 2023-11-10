@@ -6,7 +6,7 @@ import {
 
 import { cn } from "@/utils";
 
-export type GridProps = ComponentProps<{
+type GridProps = ComponentProps<{
   columnsCount: Types.AvailableColumnCount;
 }>;
 

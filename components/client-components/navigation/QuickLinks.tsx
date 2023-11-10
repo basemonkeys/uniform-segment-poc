@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { cn } from "@/utils";
 
-export type QuickLinksProps = {
+type QuickLinksProps = {
   children: React.ReactNode;
 };
 

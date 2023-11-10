@@ -12,7 +12,7 @@ export type LiveClassesProps = {
 export default async function LiveClasses(
   props: LiveClassesProps,
 ): Promise<React.ReactElement> {
-  const liveClasses: Types.LiveClassesProps = await getLiveClasses();
+  const liveClasses: Types.LiveClassesApiProps = await getLiveClasses();
 
   return <BaseLiveClasses classes={liveClasses} {...props} />;
 }

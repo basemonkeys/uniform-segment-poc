@@ -10,7 +10,7 @@ import {
   ContainerVariants,
 } from "@/components/layout/Container";
 
-export type ContainerProps = ComponentProps<BaseContainerProps> & {
+type ContainerProps = ComponentProps<BaseContainerProps> & {
   showAsPageTitle: boolean;
 };
 

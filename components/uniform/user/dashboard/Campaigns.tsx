@@ -13,7 +13,7 @@ export type CampaignsProps = ComponentProps<{
 }>;
 
 export default async function Campaigns(props: CampaignsProps) {
-  const user: Types.UserProps = await getUser();
+  const user: Types.UserApiProps = await getUser();
 
   return <BaseCampaigns user={user} {...props} />;
 }

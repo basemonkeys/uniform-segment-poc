@@ -19,7 +19,7 @@ import ActivityChart from "@/components/client-components/user/profile/ActivityC
 import { InformationCircleIcon } from "@heroicons/react/20/solid";
 
 export async function ActivityTrackerCard(props: {
-  visits: Types.VisitsProps;
+  visits: Types.VisitsApiProps;
 }) {
   const { data } = useQuery({
     queryKey: ["visits"],
@@ -29,7 +29,7 @@ export async function ActivityTrackerCard(props: {
 
   // maps data to determine how many visits per month, then return a new array of objects with month and visits
   const visitsPerMonth = (await data)
-    .map((item: Types.VisitsProps) => {
+    .map((item: Types.VisitsApiProps) => {
       const date = new Date(item.date);
       const month = date.toLocaleString("default", { month: "long" });
       return { month, visits: 1 };

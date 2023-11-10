@@ -38,7 +38,7 @@ declare namespace Types {
     text: any;
   };
 
-  type UserProps = {
+  type UserApiProps = {
     firstName: string;
     lastName: string;
     email: {
@@ -61,14 +61,14 @@ declare namespace Types {
     ];
   };
 
-  type VisitsProps = {
+  type VisitsApiProps = {
     date: string;
     isFlex: boolean;
     locationId: string;
     locationName: string;
   };
 
-  type LiveClassesProps = {
+  type LiveClassesApiProps = {
     void: string;
     PageCount: number;
     PageNumber: number;
@@ -89,13 +89,14 @@ declare namespace Types {
         StartTime: string;
         Title: string;
         Instructor: string;
+        InstructorImage: string;
         Intensity: string;
         Registrant: null;
       },
     ];
   };
 
-  type FitnessLocationsProps = {
+  type FitnessLocationsApiProps = {
     NumberOfLocations: number;
     Locations: [
       {
@@ -177,7 +178,7 @@ declare namespace Types {
     ];
   };
 
-  type MemberProps = {
+  type MemberApiProps = {
     firstName: string;
     lastName: string;
     middleInitial: string;

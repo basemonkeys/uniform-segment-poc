@@ -17,7 +17,7 @@ import { faPrint, faDownload } from "@fortawesome/free-solid-svg-icons";
 
 import { getUser } from "@/utils/api";
 
-export async function MemberIdCard(props: { user: Types.UserProps }) {
+export async function MemberIdCard(props: { user: Types.UserApiProps }) {
   const { data } = useQuery({
     queryKey: ["user"],
     queryFn: getUser,

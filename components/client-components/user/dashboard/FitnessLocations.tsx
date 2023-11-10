@@ -22,7 +22,7 @@ import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import type { FitnessLocationsProps as BaseFitnessLocationProps } from "@/components/uniform/user/dashboard/FitnessLocations";
 
 type FitnessLocationsProps = BaseFitnessLocationProps & {
-  locations: Types.FitnessLocationsProps;
+  locations: Types.FitnessLocationsApiProps;
 };
 
 export function FitnessLocations({
@@ -30,15 +30,14 @@ export function FitnessLocations({
   description,
   locations,
 }: FitnessLocationsProps) {
-  const { data } = useQuery<Types.FitnessLocationsProps, Error>({
+  const { data } = useQuery<Types.FitnessLocationsApiProps, Error>({
     queryKey: ["locations"],
     queryFn: getFitnessLocations,
     initialData: locations,
   });
 
-  const { Locations }: Types.FitnessLocationsProps = data;
+  const { Locations }: Types.FitnessLocationsApiProps = data;
 
-  // TODO: is this component used more than once, can it be reused and how would we name it?
   return (
     <div className="relative text-background">
       <DarkBackground />

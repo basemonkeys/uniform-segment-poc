@@ -11,8 +11,8 @@ import { ErrorBoundary } from "@/utils";
 import { getUser, getVisits } from "@/utils/api";
 
 export default async function MemberProfile() {
-  const user: Types.UserProps = await getUser();
-  const visits: Types.VisitsProps = await getVisits();
+  const user: Types.UserApiProps = await getUser();
+  const visits: Types.VisitsApiProps = await getVisits();
 
   return (
     <div className="my-12 grid grid-cols-1 justify-evenly gap-8 lg:grid-cols-3">

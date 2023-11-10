@@ -12,7 +12,7 @@ export type FitnessLocationsProps = {
 export default async function FitnessLocations(
   props: FitnessLocationsProps,
 ): Promise<React.ReactElement> {
-  const fitnessLocations: Types.FitnessLocationsProps =
+  const fitnessLocations: Types.FitnessLocationsApiProps =
     await getFitnessLocations();
 
   return <BaseFitnessLocations locations={fitnessLocations} {...props} />;
