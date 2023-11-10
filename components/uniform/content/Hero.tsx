@@ -19,7 +19,7 @@ import { LightBackground, DarkBackground } from "@/components/Backgrounds";
 
 import { cn, getImageUrl } from "@/utils";
 
-export type HeroProps = ComponentProps<{
+type HeroProps = ComponentProps<{
   textAlignment?: string;
   title: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -136,7 +136,13 @@ const Hero = ({
               />
               {video && (
                 <div className="absolute top-[20%] w-full">
-                  <CloudinaryVideo width="1920px" height="1080px" src={video} />
+                  <CloudinaryVideo
+                    width="1920px"
+                    height="1080px"
+                    src={video}
+                    // TODO: figure out how to display this dynamically based on the video
+                    poster="https://res.cloudinary.com/seth-hall/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1699571358/silversneakers/thumbnail1_uyjane.jpg?_s=public-apps"
+                  />
                 </div>
               )}
             </>

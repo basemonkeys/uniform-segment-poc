@@ -16,6 +16,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "devapi.silversneakers.com",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.silversneakers.com",
+      },
     ],
   },
   transpilePackages: ["jotai-devtools"],

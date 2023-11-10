@@ -5,7 +5,7 @@ import { UniformSlot } from "@uniformdev/canvas-next-rsc";
 import type { CampaignsProps as BaseCampaignsProps } from "@/components/uniform/user/dashboard/Campaigns";
 
 type CampaignsProps = BaseCampaignsProps & {
-  user: Types.UserProps;
+  user: Types.UserApiProps;
 };
 
 export function Campaigns({
@@ -54,19 +54,25 @@ export function Campaigns({
     },
   };
 
+  const hasCampaignItems = (campaignItems?.length ?? 0) > 0;
+
   return (
-    <div className="flex flex-col gap-6">
-      <div>
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-      <UniformSlot
-        name="campaignItems"
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        data={modifiedComponent}
-        context={context}
-      />
-    </div>
+    <>
+      {hasCampaignItems && (
+        <div className="flex flex-col gap-6">
+          <div>
+            <h3>{title}</h3>
+            <p>{description}</p>
+          </div>
+          <UniformSlot
+            name="campaignItems"
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            data={modifiedComponent}
+            context={context}
+          />
+        </div>
+      )}
+    </>
   );
 }

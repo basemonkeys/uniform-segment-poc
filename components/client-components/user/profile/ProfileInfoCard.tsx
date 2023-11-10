@@ -20,7 +20,7 @@ import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 
 import { getUser } from "@/utils/api";
 
-export async function ProfileInfoCard(props: { user: Types.UserProps }) {
+export async function ProfileInfoCard(props: { user: Types.UserApiProps }) {
   const { data } = useSuspenseQuery({
     queryKey: ["user"],
     queryFn: getUser,

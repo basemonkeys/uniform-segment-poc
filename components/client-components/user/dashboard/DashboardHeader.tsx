@@ -20,7 +20,9 @@ export function DashboardHeader({ description }: DashboardHeaderProps) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <Button variant="secondaryWhite">Get Member ID</Button>
+        <Button variant="secondaryWhite" asChild>
+          <Link href="/member/profile">Get Member ID</Link>
+        </Button>
         <Link
           href="/classes/live-class-schedule"
           className="link text-right text-sm"
