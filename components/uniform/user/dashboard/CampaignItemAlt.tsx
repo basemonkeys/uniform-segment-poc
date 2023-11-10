@@ -1,4 +1,3 @@
-// TODO: combine this with CampaignItem.tsx?
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ElementType } from "react";
 import {
@@ -23,8 +22,21 @@ import {
 } from "@/components/primitives/card";
 import { Button } from "@/components/primitives/button";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHeart,
+  faDumbbell,
+  faUtensils,
+} from "@fortawesome/free-solid-svg-icons";
+
 export enum CampaignType {
   GetSetUp = "GetSetUp",
+}
+
+enum ClassTypeIcon {
+  faHeart = "Wellbeing",
+  faDumbbell = "Fitness",
+  faUtensils = "More",
 }
 
 const CampaignTypeToComponent: Record<
@@ -38,12 +50,27 @@ type CampaignItemProps = ComponentProps<{
   title?: string;
   description?: any;
   campaignType: CampaignType;
-  imageOne: string;
-  imageOneTitle: string;
-  imageTwo: string;
-  imageTwoTitle: string;
-  imageThree: string;
-  imageThreeTitle: string;
+  images: [
+    {
+      sys: {
+        id: string;
+      };
+      fields: {
+        title: string;
+        file: {
+          url: string;
+        };
+      };
+    },
+  ];
+  mobileImage: {
+    fields: {
+      title: string;
+      file: {
+        url: string;
+      };
+    };
+  };
   cta: string;
   ctaLink: string;
   logo?: string;
@@ -52,12 +79,8 @@ type CampaignItemProps = ComponentProps<{
 function GetSetUpCampaignItem({
   title,
   description,
-  imageOne,
-  imageOneTitle,
-  imageTwo,
-  imageTwoTitle,
-  imageThree,
-  imageThreeTitle,
+  images,
+  mobileImage,
   cta,
   ctaLink,
   logo,
@@ -84,32 +107,57 @@ function GetSetUpCampaignItem({
       <CardContent
         className={cn("flex flex-col gap-4 lg:flex-row", !hasHeader && "pt-0")}
       >
-        <div className="flex gap-6">
-          <div className="w-full md:max-w-[400px]">
-            <Image
-              width={400}
-              height={256}
-              src={getImageUrl(imageOne)}
-              alt={`${imageOneTitle} Image`}
-              className="object-contain"
-            />
-          </div>
-          <div className="w-full md:max-w-[400px]">
-            <Image
-              width={400}
-              height={256}
-              src={getImageUrl(imageTwo)}
-              alt={`${imageTwoTitle} Image`}
-            />
-          </div>
-          <div className="w-full md:max-w-[400px]">
-            <Image
-              width={400}
-              height={256}
-              src={getImageUrl(imageThree)}
-              alt={`${imageThreeTitle} Image`}
-            />
-          </div>
+        {/* mobile image */}
+        <div className="md:hidden">
+          <Image
+            width={800}
+            height={256}
+            src={getImageUrl(mobileImage)}
+            alt={`${title} Image`}
+            className="object-contain"
+          />
+        </div>
+
+        {/* desktop images */}
+        <div className="hidden w-full gap-6 md:flex">
+          {images.map((image) => (
+            <>
+              <div className="relative md:max-w-[400px]">
+                <div className="absolute w-1/2 bg-gradient-to-r from-black px-4 py-2 text-white">
+                  <div className="flex items-center gap-2">
+                    {/* loop through by image title */}
+                    {Object.values(ClassTypeIcon).map((value) => {
+                      if (image.fields.title.includes(value)) {
+                        return (
+                          <>
+                            <FontAwesomeIcon
+                              icon={
+                                value === "Wellbeing"
+                                  ? faHeart
+                                  : value === "Fitness"
+                                  ? faDumbbell
+                                  : faUtensils
+                              }
+                              className="h-4 w-4"
+                            />
+                          </>
+                        );
+                      }
+                    })}
+                    {image.fields.title}
+                  </div>
+                </div>
+                <Image
+                  key={image.sys.id}
+                  width={400}
+                  height={256}
+                  src={getImageUrl(image.fields.file.url)}
+                  alt={`${image.fields.title} Image`}
+                  className="object-contain"
+                />
+              </div>
+            </>
+          ))}
         </div>
       </CardContent>
       <CardFooter className="mt-auto">
@@ -125,12 +173,7 @@ function GetSetUpCampaignItem({
 function DefaultCampaignItem({
   title,
   description,
-  imageOne,
-  imageOneTitle,
-  imageTwo,
-  imageTwoTitle,
-  imageThree,
-  imageThreeTitle,
+  images,
   cta,
   ctaLink,
   logo,
@@ -156,32 +199,24 @@ function DefaultCampaignItem({
       <CardContent
         className={cn("flex flex-col gap-4 lg:flex-row", !hasHeader && "pt-0")}
       >
-        <div className="flex gap-6">
-          <div className="w-full md:max-w-[400px]">
-            <Image
-              width={400}
-              height={256}
-              src={getImageUrl(imageOne)}
-              alt={`${imageOneTitle} Image`}
-              className="object-contain"
-            />
-          </div>
-          <div className="w-full md:max-w-[400px]">
-            <Image
-              width={400}
-              height={256}
-              src={getImageUrl(imageTwo)}
-              alt={`${imageTwoTitle} Image`}
-            />
-          </div>
-          <div className="w-full md:max-w-[400px]">
-            <Image
-              width={400}
-              height={256}
-              src={getImageUrl(imageThree)}
-              alt={`${imageThreeTitle} Image`}
-            />
-          </div>
+        <div className="flex w-full gap-6">
+          {images.map((image) => (
+            <>
+              <div className="relative md:max-w-[400px]">
+                <div className="absolute w-1/2 bg-gradient-to-r from-black px-4 py-2 text-white">
+                  {image.fields.title}
+                </div>
+                <Image
+                  key={image.sys.id}
+                  width={400}
+                  height={256}
+                  src={getImageUrl(image.fields.file.url)}
+                  alt={`${image.fields.title} Image`}
+                  className="object-contain"
+                />
+              </div>
+            </>
+          ))}
         </div>
       </CardContent>
       <CardFooter className="mt-auto">

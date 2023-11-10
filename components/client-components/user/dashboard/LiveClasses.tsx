@@ -4,12 +4,14 @@
 "use client";
 
 import { useEffect, Suspense } from "react";
-// import Image from "next/image";
+import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { useSetAtom } from "jotai";
 import { slice } from "lodash";
 import { parseISO, addMinutes } from "date-fns";
 // import { formatInTimeZone } from "date-fns-tz";
+
+import { getImageUrl } from "@/utils";
 
 import { getLiveClasses } from "@/utils/api";
 import { liveClassStatusAtom } from "@/utils/uiState";
@@ -18,7 +20,6 @@ import { ErrorBoundary } from "@/utils";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -37,20 +38,19 @@ import { UserCircleIcon, CalendarDaysIcon } from "@heroicons/react/20/solid";
 import type { LiveClassesProps as BaseLiveClassesProps } from "@/components/uniform/user/dashboard/LiveClasses";
 
 type LiveClassesProps = BaseLiveClassesProps & {
-  classes: Types.LiveClassesProps;
+  classes: Types.LiveClassesApiProps;
 };
 
 export function LiveClasses({ title, description, classes }: LiveClassesProps) {
   const setIsLive = useSetAtom(liveClassStatusAtom);
 
-  const { data } = useQuery<Types.LiveClassesProps, Error>({
+  const { data } = useQuery<Types.LiveClassesApiProps, Error>({
     queryKey: ["live"],
     queryFn: getLiveClasses,
     initialData: classes,
     // gcTime: 0,
   });
-
-  const { LiveStreams }: Types.LiveClassesProps = data;
+  const { LiveStreams }: Types.LiveClassesApiProps = data;
   const currentLiveStream = LiveStreams[0];
   const upcomingLiveStreams = slice(LiveStreams, 1, 3);
 
@@ -61,11 +61,11 @@ export function LiveClasses({ title, description, classes }: LiveClassesProps) {
     if (now >= startTime && now < endTime) {
       setIsLive(true);
     } else {
-      setIsLive(false);
+      setIsLive(true);
     }
   }, [setIsLive, LiveStreams]);
 
-  // TODO: break these into specific card variant components
+  // TODO: consider breaking these into specific featured and default card variant components,
   return (
     <div className="flex flex-col gap-4 lg:flex-row">
       {/* TODO: work with this ErrorBoundary and Suspense/Skeleton */}
@@ -91,21 +91,17 @@ export function LiveClasses({ title, description, classes }: LiveClassesProps) {
               <div className="flex h-full flex-col items-end p-6 lg:flex-row">
                 {/* Instructor Image */}
                 <div className="relative z-10 order-2 w-full max-sm:flex max-sm:justify-center max-sm:pb-[150px] lg:order-1">
-                  {/* <Image
-                    src="https://tools.silversneakers.com/Content/images/featured-instructor/brenda.png"
+                  <Image
+                    src={currentLiveStream.InstructorImage}
                     width={400}
                     height={288}
                     alt="Sample Instructor Image"
-                  /> */}
-                  <img
-                    src="https://tools.silversneakers.com/Content/images/featured-instructor/brenda.png"
-                    alt=""
                   />
                 </div>
                 <div className="relative z-30 order-1 w-full self-start text-center max-sm:pt-12 sm:pl-28 sm:text-right lg:order-2 lg:pl-0">
                   <CardHeader>
                     <CardTitle className="h3">
-                      {currentLiveStream.Title}
+                      {`${currentLiveStream.Title} with ${currentLiveStream.Instructor}`}
                     </CardTitle>
                   </CardHeader>
                 </div>
@@ -174,15 +170,11 @@ export function LiveClasses({ title, description, classes }: LiveClassesProps) {
                 {/* Instructor Image */}
                 <div className="flex h-full w-full items-end justify-center ">
                   <div className="relative z-10 w-[121px]">
-                    {/* <Image
-                      src="https://tools.silversneakers.com/Content/images/featured-instructor/brenda.png"
+                    <Image
+                      src={getImageUrl(item.InstructorImage)}
                       width={400}
                       height={288}
                       alt="Sample Instructor Image"
-                    /> */}
-                    <img
-                      src="https://tools.silversneakers.com/Content/images/featured-instructor/brenda.png"
-                      alt=""
                     />
                   </div>
                 </div>
@@ -190,18 +182,18 @@ export function LiveClasses({ title, description, classes }: LiveClassesProps) {
               <div className="flex flex-1 flex-col p-4 lg:p-2">
                 <CardHeader>
                   <CardTitle className="h4 pb-1">{item.Title}</CardTitle>
-                  <CardDescription className="flex h-3 items-center space-x-2 text-foreground">
-                    <div className="flex items-center gap-1">
+                  <div className="flex h-3 items-center space-x-2 text-sm text-foreground">
+                    <span className="flex items-center gap-1">
                       <UserCircleIcon className="h-5 w-5" />
                       <span>{item.Instructor}</span>
-                    </div>
+                    </span>
                     <Separator orientation="vertical" className=" bg-default" />
                     <div className="flex items-center gap-1">
                       <CalendarDaysIcon className="h-5 w-5" />
                       <span className="font-bold">12:00 pm - 12:45pm</span>
                       <span> (EDT)</span>
                     </div>
-                  </CardDescription>
+                  </div>
                 </CardHeader>
                 <CardContent className="pt-2">
                   <p className="text-sm">{item.Topic}</p>
