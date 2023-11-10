@@ -3,10 +3,13 @@ import fs from "fs";
 
 // User Object
 const user = {
-  firstName: faker.person.firstName(),
-  lastName: faker.person.lastName(),
+  // firstName: faker.person.firstName(),
+  // lastName: faker.person.lastName(),
+  firstName: "Seth",
+  lastName: "Hall",
   email: {
-    address: faker.internet.email(),
+    // address: faker.internet.email(),
+    address: "seth.hall@internetemail.com",
     verified: faker.datatype.boolean(),
   },
   eligibility: {
@@ -69,20 +72,32 @@ const liveClasses = {
     {
       Title: "Morning Routine",
       Topic: faker.lorem.sentence(),
-      Instructor: faker.person.firstName(),
+      Instructor: "Caroline",
+      InstructorImage:
+        "https://cdn.silversneakers.com/images/featured-instructor/caroline.png",
       Intensity: "Beginner",
+      StartTime: faker.date.soon({ days: 1 }),
+      Duration: faker.number.int({ min: 30, max: 60 }),
     },
     {
-      Title: "Strength Training",
+      Title: "SilverSneakers Member Orientation",
       Topic: faker.lorem.sentence(),
-      Instructor: faker.person.firstName(),
+      Instructor: "Will",
+      InstructorImage:
+        "https://cdn.silversneakers.com/images/featured-instructor/Will.png",
       Intensity: "Intermediate",
+      StartTime: faker.date.between({ from: new Date(), to: new Date() }),
+      Duration: faker.number.int({ min: 30, max: 60 }),
     },
     {
       Title: "Yoga Flow",
       Topic: faker.lorem.sentence(),
-      Instructor: faker.person.firstName(),
+      Instructor: "Beth",
+      InstructorImage:
+        "https://cdn.silversneakers.com/images/featured-instructor/brenda.png",
       Intensity: "Advanced",
+      StartTime: faker.date.soon({ days: 1 }),
+      Duration: faker.number.int({ min: 30, max: 60 }),
     },
   ],
 };

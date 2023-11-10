@@ -73,7 +73,7 @@
     "lodash": "^4.17.21",
     "lucide-react": "^0.279.0",
     "next": "^13.4.19",
-    "next-cloudinary": "^4.22.0",
+    "next-cloudinary": "^5.4.0",
     "open-next": "^2.1.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",

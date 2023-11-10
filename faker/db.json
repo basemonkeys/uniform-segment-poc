@@ -1,10 +1,10 @@
 {
   "user": {
-    "firstName": "Melyssa",
-    "lastName": "Turner",
+    "firstName": "Seth",
+    "lastName": "Hall",
     "email": {
-      "address": "Cecile_Pouros-Bartell76@hotmail.com",
-      "verified": false
+      "address": "seth.hall@internetemail.com",
+      "verified": true
     },
     "eligibility": {
       "cardNumber": "2300103854957548",
@@ -13,7 +13,7 @@
     "campaigns": [
       {
         "Participated": true,
-        "CampaignType": "",
+        "CampaignType": "Fitness+",
         "Eligible": true,
         "MaxBookings": null,
         "GoalWeightLoss": 1,
@@ -22,7 +22,7 @@
       },
       {
         "Participated": true,
-        "CampaignType": "",
+        "CampaignType": "Stitch",
         "Eligible": true,
         "MaxBookings": null,
         "GoalWeightLoss": 1,
@@ -31,7 +31,7 @@
       },
       {
         "Participated": true,
-        "CampaignType": "",
+        "CampaignType": "GetSetUp",
         "Eligible": true,
         "MaxBookings": null,
         "GoalWeightLoss": 1,
@@ -42,97 +42,106 @@
   },
   "visits": [
     {
-      "date": "2023-01-17T17:04:42.890Z",
-      "isFlex": false,
-      "locationId": "007",
-      "locationName": "Tennessee"
-    },
-    {
-      "date": "2023-08-22T17:14:42.217Z",
+      "date": "2022-12-01T23:53:44.224Z",
       "isFlex": true,
-      "locationId": "324",
-      "locationName": "New York"
+      "locationId": "209",
+      "locationName": "South Carolina"
     },
     {
-      "date": "2022-12-16T14:42:48.671Z",
+      "date": "2023-03-09T00:14:04.101Z",
       "isFlex": true,
-      "locationId": "232",
-      "locationName": "Connecticut"
+      "locationId": "639",
+      "locationName": "Vermont"
     },
     {
-      "date": "2023-04-24T15:47:17.475Z",
+      "date": "2023-07-10T05:37:07.416Z",
       "isFlex": false,
-      "locationId": "856",
-      "locationName": "Kentucky"
+      "locationId": "304",
+      "locationName": "Wyoming"
     },
     {
-      "date": "2023-08-30T08:54:11.557Z",
-      "isFlex": false,
-      "locationId": "763",
-      "locationName": "New York"
-    },
-    {
-      "date": "2023-08-27T21:51:57.335Z",
+      "date": "2023-02-27T18:04:41.479Z",
       "isFlex": true,
-      "locationId": "528",
-      "locationName": "Ohio"
-    },
-    {
-      "date": "2023-05-28T09:17:25.155Z",
-      "isFlex": true,
-      "locationId": "297",
-      "locationName": "Maine"
-    },
-    {
-      "date": "2023-05-20T11:41:40.560Z",
-      "isFlex": false,
-      "locationId": "804",
+      "locationId": "168",
       "locationName": "Alabama"
     },
     {
-      "date": "2023-02-09T11:57:04.150Z",
+      "date": "2023-04-08T01:35:51.310Z",
       "isFlex": true,
-      "locationId": "991",
-      "locationName": "Montana"
+      "locationId": "080",
+      "locationName": "Indiana"
     },
     {
-      "date": "2023-02-04T10:11:52.756Z",
+      "date": "2022-12-25T18:35:33.863Z",
+      "isFlex": true,
+      "locationId": "158",
+      "locationName": "New Hampshire"
+    },
+    {
+      "date": "2023-03-12T01:08:55.528Z",
+      "isFlex": true,
+      "locationId": "977",
+      "locationName": "Oklahoma"
+    },
+    {
+      "date": "2023-02-18T14:54:17.353Z",
+      "isFlex": true,
+      "locationId": "875",
+      "locationName": "Colorado"
+    },
+    {
+      "date": "2023-03-27T22:50:14.338Z",
       "isFlex": false,
-      "locationId": "776",
-      "locationName": "Virginia"
+      "locationId": "225",
+      "locationName": "Tennessee"
+    },
+    {
+      "date": "2023-07-13T07:24:16.101Z",
+      "isFlex": true,
+      "locationId": "477",
+      "locationName": "Delaware"
     }
   ],
   "live": {
     "LiveStreams": [
       {
         "Title": "Morning Routine",
-        "Topic": "Turba infit sursum desino.",
-        "Instructor": "Donnell",
-        "Intensity": "Beginner"
+        "Topic": "Ullus vitae altus turbo capto peior tui.",
+        "Instructor": "Caroline",
+        "InstructorImage": "https://cdn.silversneakers.com/images/featured-instructor/caroline.png",
+        "Intensity": "Beginner",
+        "StartTime": "2023-11-11T04:23:42.257Z",
+        "Duration": 53
       },
       {
-        "Title": "Strength Training",
-        "Topic": "Venia qui ager minima acies vos supplanto abbas.",
-        "Instructor": "Marjolaine",
-        "Intensity": "Intermediate"
+        "Title": "SilverSneakers Member Orientation",
+        "Topic": "Cunae clibanus vinco defessus conatus eveniet neque.",
+        "Instructor": "Will",
+        "InstructorImage": "https://cdn.silversneakers.com/images/featured-instructor/Will.png",
+        "Intensity": "Intermediate",
+        "StartTime": "2023-11-10T16:11:14.589Z",
+        "Duration": 38
       },
       {
         "Title": "Yoga Flow",
-        "Topic": "Clamo ipsam stabilis nam aut iure sum.",
-        "Instructor": "Lewis",
-        "Intensity": "Advanced"
+        "Topic": "Amplus velut amo optio cruciamentum vicissitudo carpo custodia.",
+        "Instructor": "Beth",
+        "InstructorImage": "https://cdn.silversneakers.com/images/featured-instructor/brenda.png",
+        "Intensity": "Advanced",
+        "StartTime": "2023-11-11T15:41:35.394Z",
+        "Duration": 30
       }
     ]
   },
   "locations": {
     "Locations": [
       {
-        "Id": "93008",
+        "Id": "31360",
         "Name": "Planet Fitness",
-        "Phone": "857.443.0221 x8421",
-        "Address": "3279 N Union Street",
-        "Longitude": -2.3665,
-        "Latitude": 84.8171,
+        "Phone": "852-589-1466 x4421",
+        "Address": "574 Yundt Freeway",
+        "Longitude": -163.5282,
+        "Latitude": 25.6248,
         "NetworkProperties": {
           "Amenities": [
             {
@@ -140,59 +149,59 @@
               "Name": "Resistance Equipment"
             },
             {
-              "Id": 3,
+              "Id": 1,
               "Name": "Cardiovascular Equipment"
             },
             {
-              "Id": 4,
+              "Id": 2,
               "Name": "Strength Equipment"
             }
           ]
         }
       },
       {
-        "Id": "05385",
+        "Id": "64111",
         "Name": "Community Gym",
-        "Phone": "1-817-788-6761 x6593",
-        "Address": "516 Muller Canyon",
-        "Longitude": -150.7076,
-        "Latitude": 16.219,
+        "Phone": "610-776-6631",
+        "Address": "9055 Wiegand Spring",
+        "Longitude": -2.1524,
+        "Latitude": 8.9168,
         "NetworkProperties": {
           "Amenities": [
-            {
-              "Id": 4,
-              "Name": "Resistance Equipment"
-            },
-            {
-              "Id": 2,
-              "Name": "Cardiovascular Equipment"
-            },
             {
               "Id": 3,
-              "Name": "Strength Equipment"
-            }
-          ]
-        }
-      },
-      {
-        "Id": "98850",
-        "Name": "Get Moving Studios",
-        "Phone": "704.783.2337 x4617",
-        "Address": "9646 Gerhold Forks",
-        "Longitude": -148.7444,
-        "Latitude": -25.4043,
-        "NetworkProperties": {
-          "Amenities": [
-            {
-              "Id": 4,
               "Name": "Resistance Equipment"
             },
             {
-              "Id": 2,
+              "Id": 1,
               "Name": "Cardiovascular Equipment"
             },
             {
               "Id": 5,
+              "Name": "Strength Equipment"
+            }
+          ]
+        }
+      },
+      {
+        "Id": "30825",
+        "Name": "Get Moving Studios",
+        "Phone": "599-438-7983",
+        "Address": "824 Ferry Road",
+        "Longitude": -18.0393,
+        "Latitude": -36.8413,
+        "NetworkProperties": {
+          "Amenities": [
+            {
+              "Id": 2,
+              "Name": "Resistance Equipment"
+            },
+            {
+              "Id": 2,
+              "Name": "Cardiovascular Equipment"
+            },
+            {
+              "Id": 1,
               "Name": "Strength Equipment"
             }
           ]
