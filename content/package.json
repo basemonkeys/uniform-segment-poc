@@ -204,54 +204,18 @@
           }
         },
         {
-          "id": "imageOne",
-          "name": "Image One",
+          "id": "images",
+          "name": "Images",
+          "type": "json",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "mobileImage",
+          "name": "Mobile Image",
           "type": "image",
-          "helpText": "",
-          "typeConfig": {
-            "required": true
-          }
-        },
-        {
-          "id": "imageOneTitle",
-          "name": "Image One Title",
-          "type": "text",
-          "helpText": "",
-          "typeConfig": {
-            "required": true
-          }
-        },
-        {
-          "id": "imageTwo",
-          "name": "Image Two",
-          "type": "image",
-          "helpText": "",
-          "typeConfig": {
-            "required": true
-          }
-        },
-        {
-          "id": "imageTwoTitle",
-          "name": "Image Two Title",
-          "type": "text",
-          "helpText": "",
-          "typeConfig": {
-            "required": true
-          }
-        },
-        {
-          "id": "imageThree",
-          "name": "Image Three",
-          "type": "image",
-          "helpText": "",
-          "typeConfig": {
-            "required": true
-          }
-        },
-        {
-          "id": "imageThreeTitle",
-          "name": "Image Three Title",
-          "type": "text",
           "helpText": "",
           "typeConfig": {
             "required": true
@@ -290,7 +254,7 @@
       "titleParameter": "title",
       "canBeComposition": false,
       "created": "2023-11-08T20:33:17.867028+00:00",
-      "updated": "2023-11-08T23:57:48.478472+00:00"
+      "updated": "2023-11-09T19:40:04.895996+00:00"
     },
     {
       "id": "campaigns",
@@ -1941,6 +1905,30 @@
               "_pattern": "c7b7d708-21da-4a40-a1e8-ca235b0c7379"
             }
           ],
+          "banners": [
+            {
+              "_id": "74f55d87-42df-4e58-902d-3e24de1b401f",
+              "type": "banner",
+              "variant": "warning",
+              "parameters": {
+                "message": {
+                  "type": "text",
+                  "value": "Your email has not been verified."
+                },
+                "callToAction": {
+                  "type": "text",
+                  "value": "Please verify your email"
+                },
+                "callToActionLink": {
+                  "type": "link",
+                  "value": {
+                    "path": "https://tools.silversneakers.com/Member",
+                    "type": "url"
+                  }
+                }
+              }
+            }
+          ],
           "content": [
             {
               "_id": "bb622e58-2e4b-4873-9094-f5a2e9ea0104",
@@ -1958,7 +1946,7 @@
                           "parameters": {
                             "description": {
                               "type": "text",
-                              "value": "Here's what's happening right now."
+                              "value": "Here's what's happening right now. Hope you are having a great day!!!"
                             }
                           }
                         },
@@ -2051,27 +2039,6 @@
                           "slots": {
                             "campaignItems": [
                               {
-                                "_id": "16b853d2-031b-402a-ac46-192e9b9e61e3",
-                                "type": "campaignItem",
-                                "_pattern": "5d54a362-8f9b-4d9d-8806-9b7e8608cf1f",
-                                "_dataResources": {
-                                  "Campaign Item": {
-                                    "type": "campaignItem",
-                                    "variables": {
-                                      "locale": "",
-                                      "entryIds": "5Md2u5I7r2YBvrtEgoxkmR"
-                                    }
-                                  },
-                                  "Campaign Item Content": {
-                                    "type": "campaignItem",
-                                    "variables": {
-                                      "locale": "",
-                                      "entryIds": "5Md2u5I7r2YBvrtEgoxkmR"
-                                    }
-                                  }
-                                }
-                              },
-                              {
                                 "_id": "5c27891b-e77f-4e17-948b-2ced807c159b",
                                 "type": "campaignItem",
                                 "_pattern": "5d54a362-8f9b-4d9d-8806-9b7e8608cf1f",
@@ -2088,6 +2055,27 @@
                                     "variables": {
                                       "locale": "",
                                       "entryIds": "3YHGJKW0BbWnEuki82JzcF"
+                                    }
+                                  }
+                                }
+                              },
+                              {
+                                "_id": "16b853d2-031b-402a-ac46-192e9b9e61e3",
+                                "type": "campaignItem",
+                                "_pattern": "5d54a362-8f9b-4d9d-8806-9b7e8608cf1f",
+                                "_dataResources": {
+                                  "Campaign Item": {
+                                    "type": "campaignItem",
+                                    "variables": {
+                                      "locale": "",
+                                      "entryIds": "5Md2u5I7r2YBvrtEgoxkmR"
+                                    }
+                                  },
+                                  "Campaign Item Content": {
+                                    "type": "campaignItem",
+                                    "variables": {
+                                      "locale": "",
+                                      "entryIds": "5Md2u5I7r2YBvrtEgoxkmR"
                                     }
                                   }
                                 }
@@ -2403,7 +2391,7 @@
         "_dataResources": {}
       },
       "created": "2023-10-27T05:29:38.994848+00:00",
-      "modified": "2023-11-08T21:22:45.596191+00:00",
+      "modified": "2023-11-10T17:58:08.290336+00:00",
       "pattern": false
     },
     {
@@ -2500,6 +2488,12 @@
         "_id": "4562edb4-2801-4ebf-8f17-11b62a94a30a",
         "_slug": "/",
         "type": "homePage",
+        "parameters": {
+          "metaTitle": {
+            "type": "text",
+            "value": "Home Page"
+          }
+        },
         "slots": {
           "footer": [
             {
@@ -2725,7 +2719,7 @@
         }
       },
       "created": "2023-10-05T20:41:13.37617+00:00",
-      "modified": "2023-10-24T18:00:49.500391+00:00",
+      "modified": "2023-11-10T17:31:36.703383+00:00",
       "pattern": false
     },
     {
@@ -3817,41 +3811,25 @@
             "type": "text",
             "value": "${#jptr:/Campaign Item Content/fields/title}"
           },
+          "images": {
+            "type": "json",
+            "value": "${#jptr:/Campaign Item Content/fields/images}"
+          },
           "ctaLink": {
             "type": "text",
             "value": "${#jptr:/Campaign Item Content/fields/ctaLink}"
-          },
-          "imageOne": {
-            "type": "image",
-            "value": "${#jptr:/Campaign Item Content/fields/images/0/fields/file/url}"
-          },
-          "imageTwo": {
-            "type": "image",
-            "value": "${#jptr:/Campaign Item Content/fields/images/1/fields/file/url}"
-          },
-          "imageThree": {
-            "type": "image",
-            "value": "${#jptr:/Campaign Item Content/fields/images/2/fields/file/url}"
           },
           "description": {
             "type": "json",
             "value": "${#jptr:/Campaign Item Content/fields/description}"
           },
+          "mobileImage": {
+            "type": "image",
+            "value": "${#jptr:/Campaign Item Content/fields/mobileImage/fields/file/url}"
+          },
           "campaignType": {
             "type": "text",
             "value": "${#jptr:/Campaign Item Content/fields/campaignType/fields/campaignType}"
-          },
-          "imageOneTitle": {
-            "type": "text",
-            "value": "${#jptr:/Campaign Item Content/fields/images/0/fields/title}"
-          },
-          "imageTwoTitle": {
-            "type": "text",
-            "value": "${#jptr:/Campaign Item Content/fields/images/1/fields/title}"
-          },
-          "imageThreeTitle": {
-            "type": "text",
-            "value": "${#jptr:/Campaign Item Content/fields/images/2/fields/title}"
           }
         },
         "_dataResources": {
@@ -3867,7 +3845,7 @@
         }
       },
       "created": "2023-11-08T20:50:11.969868+00:00",
-      "modified": "2023-11-08T23:23:10.843871+00:00",
+      "modified": "2023-11-09T19:43:21.063229+00:00",
       "pattern": true
     },
     {
@@ -3887,7 +3865,7 @@
           },
           "video": {
             "type": "text",
-            "value": "${#jptr:/Hero/fields/inlineVideo/0/original_url}"
+            "value": "${#jptr:/Hero/fields/backgroundVideo/0/url}"
           },
           "primaryUrl": {
             "type": "text",
@@ -3940,7 +3918,7 @@
         }
       },
       "created": "2023-08-29T20:06:37.045329+00:00",
-      "modified": "2023-10-24T17:59:56.88577+00:00",
+      "modified": "2023-11-09T23:16:19.861149+00:00",
       "pattern": true
     },
     {

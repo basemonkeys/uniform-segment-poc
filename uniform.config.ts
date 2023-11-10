@@ -20,6 +20,12 @@ export default async function getUniformConfig() {
   };
 
   const uniformApiKey = await getSecret(process.env.UNIFORM_API_KEY || "");
+  const uniformProjectId = await getSecret(
+    process.env.UNIFORM_PROJECT_ID || "",
+  );
+  const uniformPreviewSecret = await getSecret(
+    process.env.UNIFORM_PREVIEW_SECRET || "",
+  );
   const auth0Secret = await getSecret(process.env.AUTH0_SECRET || "");
   const aut0ClientSecret = await getSecret(
     process.env.AUTH0_CLIENT_SECRET || "",
@@ -30,6 +36,8 @@ export default async function getUniformConfig() {
 
   const defaults: Record<string, string> = {
     UNIFORM_API_KEY: uniformApiKey,
+    UNIFORM_PROJECT_ID: uniformProjectId,
+    UNIFORM_PREVIEW_SECRET: uniformPreviewSecret,
     AUTH0_SECRET: auth0Secret,
     AUTH0_CLIENT_SECRET: aut0ClientSecret,
     AMAZON_S3_BUCKET_NAME: amazonS3BucketName,
