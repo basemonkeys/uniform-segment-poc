@@ -1230,6 +1230,61 @@
       "updated": "2023-11-07T05:15:45.556693+00:00"
     },
     {
+      "id": "memberActivityTrackerCard",
+      "name": "Member Activity Tracker Card",
+      "icon": "profile",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "content",
+          "name": "Content",
+          "type": "richText",
+          "helpText": "",
+          "typeConfig": {
+            "elements": {
+              "builtIn": [
+                "unorderedList",
+                "orderedList",
+                "link"
+              ]
+            },
+            "required": true,
+            "formatting": {
+              "builtIn": [
+                "bold",
+                "italic",
+                "underline",
+                "superscript",
+                "subscript"
+              ]
+            }
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-11-11T05:56:16.426667+00:00",
+      "updated": "2023-11-11T06:38:42.941926+00:00"
+    },
+    {
       "id": "memberDashboard",
       "name": "Member Dashboard",
       "icon": "profile",
@@ -1258,6 +1313,36 @@
       "updated": "2023-11-08T21:02:51.87625+00:00"
     },
     {
+      "id": "memberIdCard",
+      "name": "Member ID Card",
+      "icon": "profile",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-11-11T05:52:15.260468+00:00",
+      "updated": "2023-11-11T06:38:26.7126+00:00"
+    },
+    {
       "id": "memberProfile",
       "name": "Member Profile",
       "icon": "profile",
@@ -1265,10 +1350,53 @@
       "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
       "description": "This is a wrapper component that holds all of the Member Profile components.",
       "useTeamPermissions": true,
-      "slots": [],
+      "slots": [
+        {
+          "id": "profileInner",
+          "name": "Profile Inner",
+          "allowedComponents": [
+            "memberProfileCard",
+            "memberActivityTrackerCard",
+            "memberIdCard"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
+        }
+      ],
       "canBeComposition": false,
       "created": "2023-10-02T17:09:55.60874+00:00",
-      "updated": "2023-11-03T06:18:15.70529+00:00"
+      "updated": "2023-11-11T05:57:40.597078+00:00"
+    },
+    {
+      "id": "memberProfileCard",
+      "name": "Member Profile Card",
+      "icon": "profile",
+      "parameters": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "text",
+          "helpText": "",
+          "typeConfig": {
+            "required": true
+          }
+        }
+      ],
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-11-11T05:50:44.309461+00:00",
+      "updated": "2023-11-11T06:38:11.256102+00:00"
     },
     {
       "id": "navigationGroup",
@@ -3347,6 +3475,30 @@
           }
         },
         "slots": {
+          "banners": [
+            {
+              "_id": "792398a5-6db8-4729-9a31-973c84141aa5",
+              "type": "banner",
+              "variant": "warning",
+              "parameters": {
+                "message": {
+                  "type": "text",
+                  "value": "Your email has not been verified."
+                },
+                "callToAction": {
+                  "type": "text",
+                  "value": "Verify Email Address"
+                },
+                "callToActionLink": {
+                  "type": "link",
+                  "value": {
+                    "path": "https://tools.silversneakers.com/Member",
+                    "type": "url"
+                  }
+                }
+              }
+            }
+          ],
           "content": [
             {
               "_id": "08880245-0df8-4b20-8f2d-661b5b69a2fd",
@@ -3355,7 +3507,193 @@
                 "containerInner": [
                   {
                     "_id": "2746b5d7-9b6c-4586-95f2-b4f69349b0b9",
-                    "type": "memberProfile"
+                    "type": "memberProfile",
+                    "slots": {
+                      "profileInner": [
+                        {
+                          "_id": "6f13ee92-be5a-4ccd-80bc-bdc242453595",
+                          "type": "memberProfileCard",
+                          "parameters": {
+                            "title": {
+                              "type": "text",
+                              "value": "Personal Info"
+                            },
+                            "description": {
+                              "type": "text",
+                              "value": "Change your name with your health plan provider"
+                            }
+                          }
+                        },
+                        {
+                          "_id": "bde11d3f-c983-4feb-98aa-8ec3bb4b7c49",
+                          "type": "memberIdCard",
+                          "parameters": {
+                            "title": {
+                              "type": "text",
+                              "value": "Member ID"
+                            },
+                            "description": {
+                              "type": "text",
+                              "value": "Your member ID gets you into thousands of fitness locations and classes. Just download or print your member ID and share it at your favorite location."
+                            }
+                          }
+                        },
+                        {
+                          "_id": "e58f8751-d9e4-4d50-84fa-c59b7eb6a8b9",
+                          "type": "memberActivityTrackerCard",
+                          "parameters": {
+                            "title": {
+                              "type": "text",
+                              "value": "Activity Tracker"
+                            },
+                            "content": {
+                              "type": "richText",
+                              "value": {
+                                "root": {
+                                  "type": "root",
+                                  "format": "",
+                                  "indent": 0,
+                                  "version": 1,
+                                  "children": [
+                                    {
+                                      "type": "paragraph",
+                                      "format": "",
+                                      "indent": 0,
+                                      "version": 1,
+                                      "children": [
+                                        {
+                                          "mode": "normal",
+                                          "text": "Here are some ways to keep moving:",
+                                          "type": "text",
+                                          "style": "",
+                                          "detail": 0,
+                                          "format": 0,
+                                          "version": 1
+                                        }
+                                      ],
+                                      "direction": "ltr"
+                                    },
+                                    {
+                                      "tag": "ul",
+                                      "type": "list",
+                                      "start": 1,
+                                      "format": "",
+                                      "indent": 0,
+                                      "version": 1,
+                                      "children": [
+                                        {
+                                          "type": "listitem",
+                                          "value": 1,
+                                          "format": "",
+                                          "indent": 0,
+                                          "version": 1,
+                                          "children": [
+                                            {
+                                              "link": {
+                                                "path": "http://localhost:3000/participating-locations",
+                                                "type": "url"
+                                              },
+                                              "type": "link",
+                                              "format": "",
+                                              "indent": 0,
+                                              "version": 1,
+                                              "children": [
+                                                {
+                                                  "mode": "normal",
+                                                  "text": "Find a place to work out in person",
+                                                  "type": "text",
+                                                  "style": "",
+                                                  "detail": 0,
+                                                  "format": 0,
+                                                  "version": 1
+                                                }
+                                              ],
+                                              "direction": "ltr"
+                                            }
+                                          ],
+                                          "direction": "ltr"
+                                        },
+                                        {
+                                          "type": "listitem",
+                                          "value": 2,
+                                          "format": "",
+                                          "indent": 0,
+                                          "version": 1,
+                                          "children": [
+                                            {
+                                              "link": {
+                                                "path": "http://localhost:3000/live-class-schedule",
+                                                "type": "url"
+                                              },
+                                              "type": "link",
+                                              "format": "",
+                                              "indent": 0,
+                                              "version": 1,
+                                              "children": [
+                                                {
+                                                  "mode": "normal",
+                                                  "text": "Attend a LIVE online class",
+                                                  "type": "text",
+                                                  "style": "",
+                                                  "detail": 0,
+                                                  "format": 0,
+                                                  "version": 1
+                                                }
+                                              ],
+                                              "direction": "ltr"
+                                            }
+                                          ],
+                                          "direction": "ltr"
+                                        },
+                                        {
+                                          "type": "listitem",
+                                          "value": 3,
+                                          "format": "",
+                                          "indent": 0,
+                                          "version": 1,
+                                          "children": [
+                                            {
+                                              "link": {
+                                                "path": "http://localhost:3000/member/profile#",
+                                                "type": "url"
+                                              },
+                                              "type": "link",
+                                              "format": "",
+                                              "indent": 0,
+                                              "version": 1,
+                                              "children": [
+                                                {
+                                                  "mode": "normal",
+                                                  "text": "Log a workout with the SilverSneakers GO app",
+                                                  "type": "text",
+                                                  "style": "",
+                                                  "detail": 0,
+                                                  "format": 0,
+                                                  "version": 1
+                                                }
+                                              ],
+                                              "direction": "ltr"
+                                            }
+                                          ],
+                                          "direction": "ltr"
+                                        }
+                                      ],
+                                      "listType": "bullet",
+                                      "direction": "ltr"
+                                    }
+                                  ],
+                                  "direction": "ltr"
+                                }
+                              }
+                            },
+                            "description": {
+                              "type": "text",
+                              "value": "There may be up to a 2 month delay in displaying your activity history"
+                            }
+                          }
+                        }
+                      ]
+                    }
                   }
                 ]
               },
@@ -3371,7 +3709,7 @@
         }
       },
       "created": "2023-09-20T05:42:55.206309+00:00",
-      "modified": "2023-10-27T04:03:57.106833+00:00",
+      "modified": "2023-11-11T06:39:18.593832+00:00",
       "pattern": false
     },
     {

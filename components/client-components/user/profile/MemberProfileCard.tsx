@@ -6,25 +6,31 @@ import {
   Card,
   CardContent,
   CardDescription,
-  // CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/primitives/card";
 import { Button } from "@/components/primitives/button";
 
-import {
-  InformationCircleIcon,
-  // ArrowRightIcon,
-} from "@heroicons/react/20/solid";
+import { InformationCircleIcon } from "@heroicons/react/20/solid";
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 
 import { getUser } from "@/utils/api";
 
-export async function ProfileInfoCard(props: { user: Types.UserApiProps }) {
+import type { MemberProfileCardProps } from "@/components/uniform/user/profile/MemberProfileCard";
+
+type BaseMemberProfileCardProps = MemberProfileCardProps & {
+  user: Types.UserApiProps;
+};
+
+export async function MemberProfileCard({
+  title,
+  description,
+  user,
+}: BaseMemberProfileCardProps) {
   const { data } = useSuspenseQuery({
     queryKey: ["user"],
     queryFn: getUser,
-    initialData: props.user,
+    initialData: user,
   });
 
   const { firstName, lastName, email } = data;
@@ -33,13 +39,13 @@ export async function ProfileInfoCard(props: { user: Types.UserApiProps }) {
     <Card className="lg:h-[294px] lg:max-h-[294px]">
       <div className="flex h-full flex-col gap-6">
         <CardHeader>
-          <CardTitle>Personal Info</CardTitle>
+          <CardTitle>{title}</CardTitle>
           <h4>
             {firstName} {lastName}
           </h4>
           <CardDescription className="flex items-center gap-2">
             <InformationCircleIcon className="h-4 w-4" />
-            <p>Change your name with your health plan provider</p>
+            <p>{description}</p>
           </CardDescription>
         </CardHeader>
         <CardContent className="mt-auto pt-2">
@@ -62,12 +68,6 @@ export async function ProfileInfoCard(props: { user: Types.UserApiProps }) {
             </Button>
           </div>
         </CardContent>
-        {/* <CardFooter>
-        <Button variant="link" className="gap-2">
-          <ArrowRightIcon className="h-5 w-5" />
-          <span>Log Off</span>
-        </Button>
-      </CardFooter> */}
       </div>
     </Card>
   );

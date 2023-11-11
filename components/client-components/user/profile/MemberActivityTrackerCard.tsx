@@ -1,7 +1,7 @@
 "use client";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Link from "next/link";
+import { UniformRichText } from "@uniformdev/canvas-next-rsc";
 import { useQuery } from "@tanstack/react-query";
 
 import { getVisits } from "@/utils/api";
@@ -18,13 +18,22 @@ import ActivityChart from "@/components/client-components/user/profile/ActivityC
 
 import { InformationCircleIcon } from "@heroicons/react/20/solid";
 
-export async function ActivityTrackerCard(props: {
+import type { MemberActivityTrackerCardProps } from "@/components/uniform/user/profile/MemberActivityTrackerCard";
+
+type BaseMemberActivityTrackerCardProps = MemberActivityTrackerCardProps & {
   visits: Types.VisitsApiProps;
-}) {
+};
+
+export async function MemberActivityTrackerCard({
+  title,
+  description,
+  component,
+  visits,
+}: BaseMemberActivityTrackerCardProps) {
   const { data } = useQuery({
     queryKey: ["visits"],
     queryFn: getVisits,
-    initialData: props.visits,
+    initialData: visits,
   });
 
   // maps data to determine how many visits per month, then return a new array of objects with month and visits
@@ -47,13 +56,10 @@ export async function ActivityTrackerCard(props: {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Activity Tracker</CardTitle>
+        <CardTitle>{title}</CardTitle>
         <CardDescription className="flex items-center gap-2">
           <InformationCircleIcon className="h-4 w-4" />
-          <p>
-            There may be up to a 2 month delay in displaying your activity
-            history
-          </p>
+          <p>{description}</p>
         </CardDescription>
       </CardHeader>
       <div className="mt-6 rounded-md bg-gray-100 p-6">
@@ -61,22 +67,13 @@ export async function ActivityTrackerCard(props: {
           <ActivityChart data={visitsPerMonth} />
         </CardContent>
         <CardFooter className="flex flex-col items-start text-sm">
-          <p>Here are some ways to keep moving:</p>
-          <ul className="ml-2 mt-2 list-inside list-disc">
-            <li>
-              <Link href="/participating-locations">
-                Find a place to work out in person
-              </Link>
-            </li>
-            <li>
-              <Link href="/live-class-schedule">
-                Attend a LIVE online class
-              </Link>
-            </li>
-            <li>
-              <Link href="#">Log a workout with the SilverSneakers GO app</Link>
-            </li>
-          </ul>
+          <div className="prose">
+            <UniformRichText
+              parameterId="content"
+              component={component}
+              className="text-sm"
+            />
+          </div>
         </CardFooter>
       </div>
     </Card>

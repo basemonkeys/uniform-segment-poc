@@ -1,4 +1,3 @@
-// TODO: remove this eslint disable once the component is complete
 /* eslint-disable @next/next/no-img-element */
 
 "use client";

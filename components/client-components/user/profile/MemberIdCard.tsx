@@ -17,11 +17,21 @@ import { faPrint, faDownload } from "@fortawesome/free-solid-svg-icons";
 
 import { getUser } from "@/utils/api";
 
-export async function MemberIdCard(props: { user: Types.UserApiProps }) {
+import type { MemberIdCardProps } from "@/components/uniform/user/profile/MemberIdCard";
+
+type BaseMemberIdCardProps = MemberIdCardProps & {
+  user: Types.UserApiProps;
+};
+
+export async function MemberIdCard({
+  title,
+  description,
+  user,
+}: BaseMemberIdCardProps) {
   const { data } = useQuery({
     queryKey: ["user"],
     queryFn: getUser,
-    initialData: props.user,
+    initialData: user,
   });
   const { eligibility } = data;
 
@@ -31,18 +41,14 @@ export async function MemberIdCard(props: { user: Types.UserApiProps }) {
     <Card className="flex flex-col justify-between gap-6 md:flex-row lg:h-[294px] lg:max-h-[294px]">
       <div className="flex flex-col">
         <CardHeader>
-          <CardTitle>Member ID</CardTitle>
+          <CardTitle>{title}</CardTitle>
           <span className="space-x-1 text-lg tracking-wider">
             <span>#</span>
             <span>{memberCardNumber}</span>
           </span>
         </CardHeader>
         <CardDescription className="pt-2 md:max-w-sm">
-          <p>
-            Your member ID gets you into thousands of fitness locations and
-            classes. Just download or print your member ID and share it at your
-            favorite location.
-          </p>
+          <p>{description}</p>
         </CardDescription>
 
         {/* TODO: write the Print and Download functions */}
