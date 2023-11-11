@@ -10,7 +10,6 @@ export function LiveNowBanner() {
   return (
     <>
       {status ? (
-        // TODO: break this out into a component
         <div className="flex items-center gap-2">
           <FontAwesomeIcon icon={faCircle} className="h-3 w-3 text-red-500" />
           <span>Live Now</span>

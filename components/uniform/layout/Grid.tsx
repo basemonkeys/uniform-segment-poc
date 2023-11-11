@@ -6,11 +6,25 @@ import {
 
 import { cn } from "@/utils";
 
+type AvailableColumnCount =
+  | "1"
+  | "2"
+  | "3"
+  | "4"
+  | "5"
+  | "6"
+  | "7"
+  | "8"
+  | "9"
+  | "10"
+  | "11"
+  | "12";
+
 type GridProps = ComponentProps<{
-  columnsCount: Types.AvailableColumnCount;
+  columnsCount: AvailableColumnCount;
 }>;
 
-const getGridColumnsClass = (columnsCount: Types.AvailableColumnCount) => {
+const getGridColumnsClass = (columnsCount: AvailableColumnCount) => {
   switch (columnsCount) {
     case "1":
       return "grid-cols-1";

@@ -2,7 +2,6 @@
 
 import { cn } from "@/utils";
 
-// TODO: make these into utils?
 import {
   getStateClasses,
   getTextClass,

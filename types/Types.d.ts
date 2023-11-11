@@ -1,5 +1,3 @@
-// TODO: Clean up these types. Double check if they are being used.
-
 declare namespace Types {
   // Image Props
   type CloudinaryImage = {
@@ -227,19 +225,4 @@ declare namespace Types {
     EngagementContact: number;
     workoutPreference: string;
   };
-
-  // Layout Props
-  type AvailableColumnCount =
-    | "1"
-    | "2"
-    | "3"
-    | "4"
-    | "5"
-    | "6"
-    | "7"
-    | "8"
-    | "9"
-    | "10"
-    | "11"
-    | "12";
 }

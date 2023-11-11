@@ -1,12 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { cn } from "@/utils";
+import { useState } from "react";
 
 import type { ComponentProps } from "@uniformdev/canvas-next-rsc";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
+import { cn } from "@/utils";
 
 import { Link as ScrollLink } from "react-scroll";
 
@@ -104,6 +106,7 @@ export const SSFooterLink = ({ link, title }: Omit<LinkProps, "component">) => {
 
 // This component displays either the accordion group in the mobile navigation or the dropdown group in the Header navigation.
 export const SSNavigationGroup = ({ component, title }: LinkProps) => {
+  const [value, setValue] = useState("");
   const pathname = usePathname();
 
   const subNavItems = component?.slots?.subNavItems?.map((item: any) => {
@@ -161,6 +164,8 @@ export const SSNavigationGroup = ({ component, title }: LinkProps) => {
 
       {/* this is the dropdown in the non-mobile header navigation */}
       <NavigationMenu
+        value={value}
+        onValueChange={setValue}
         className={cn(
           "h-full px-2 py-3 hover:bg-default-hover max-lg:hidden",
           title === "Classes" &&
@@ -193,7 +198,7 @@ export const SSNavigationGroup = ({ component, title }: LinkProps) => {
                           "border-t border-default-light",
                       )}
                     >
-                      <NavigationMenuLink asChild>
+                      <NavigationMenuLink onClick={() => setValue("")} asChild>
                         <>
                           <Link
                             href={subNavItemLink.path}
@@ -212,11 +217,11 @@ export const SSNavigationGroup = ({ component, title }: LinkProps) => {
                           <span className="px-3 text-sm text-foreground">
                             {subNavItemDescription}
                           </span>
-                          {/* {index === subNavItems.length && (
-                            <div className="separator mt-[20px] h-2/3 bg-black md:visible">
+                          {index === subNavItems.length && (
+                            <div className="separator mt-[20px] h-2/3 bg-red-900 md:visible">
                               <Separator orientation="horizontal" />
                             </div>
-                          )} */}
+                          )}
                         </>
                       </NavigationMenuLink>
                     </li>

@@ -77,8 +77,8 @@ const NavigationMenuContent = React.forwardRef<
     )}
     {...props}
     onPointerEnter={(event) => event.preventDefault()}
-    onPointerLeave={(event) => event.preventDefault()}
-    onPointerDownOutside={(event) => event.preventDefault()}
+    // onPointerLeave={(event) => event.preventDefault()}
+    // onPointerDownOutside={(event) => event.preventDefault()}
   />
 ));
 NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;

@@ -21,6 +21,9 @@ import {
 } from "@/components/primitives/card";
 import { Button } from "@/components/primitives/button";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
+
 export enum CampaignType {
   AppleFitnessPlus = "Apple Fitness+",
 }
@@ -130,8 +133,12 @@ function DefaultCampaignItem({
         </CardContent>
         <CardFooter className="mt-auto">
           <Button asChild>
-            <Link href={callToActionUrl}>{callToAction}</Link>
-            {/* TODO: if href is internal do this, or do this */}
+            <Link href={callToActionUrl} className="flex items-center gap-2">
+              <span>{callToAction}</span>
+              {callToActionUrl.includes("partner=") && (
+                <FontAwesomeIcon icon={faExternalLink} className="h-3 w-3" />
+              )}
+            </Link>
           </Button>
         </CardFooter>
       </div>
