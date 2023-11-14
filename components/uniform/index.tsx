@@ -30,7 +30,7 @@ import "./user/profile/MemberIdCard";
 import "./user/profile/MemberActivityTrackerCard";
 import "./user/dashboard/MemberDashboard";
 import "./user/dashboard/DashboardHeader";
-import "./user/dashboard/LiveClasses";
+import "./user/dashboard/FeaturedLiveClasses";
 import "./user/dashboard/FitnessLocations";
 import "./user/dashboard/Campaigns";
 import "./user/dashboard/CampaignItem";

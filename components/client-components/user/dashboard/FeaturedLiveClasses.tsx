@@ -34,13 +34,17 @@ import { ComponentError } from "@/components/client-components/ComponentError";
 
 import { UserCircleIcon, CalendarDaysIcon } from "@heroicons/react/20/solid";
 
-import type { LiveClassesProps as BaseLiveClassesProps } from "@/components/uniform/user/dashboard/LiveClasses";
+import type { FeaturedLiveClassesProps as BaseFeaturedLiveClassesProps } from "@/components/uniform/user/dashboard/FeaturedLiveClasses";
 
-type LiveClassesProps = BaseLiveClassesProps & {
+type FeaturedLiveClassesProps = BaseFeaturedLiveClassesProps & {
   classes: Types.LiveClassesApiProps;
 };
 
-export function LiveClasses({ title, description, classes }: LiveClassesProps) {
+export function FeaturedLiveClasses({
+  title,
+  description,
+  classes,
+}: FeaturedLiveClassesProps) {
   const setIsLive = useSetAtom(liveClassStatusAtom);
 
   const { data } = useQuery<Types.LiveClassesApiProps, Error>({

@@ -10,7 +10,7 @@ type Variant = undefined | StepsVariant.DarkBackground;
 export const stepsBackgroundAtom = atom<Variant>(StepsVariant.DarkBackground);
 stepsBackgroundAtom.debugLabel = "stepsBackgroundAtom";
 
-// This is the live class status state of the LiveClasses component set by the live class start and end times.
+// This is the live class status state of the FeaturedLiveClasses component set by the live class start and end times.
 export const liveClassStatusAtom = atom<boolean>(false);
 liveClassStatusAtom.debugLabel = "liveClassStatusAtom";
 
