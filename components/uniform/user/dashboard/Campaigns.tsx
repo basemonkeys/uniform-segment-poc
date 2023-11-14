@@ -3,7 +3,7 @@ import {
   registerUniformComponent,
 } from "@uniformdev/canvas-next-rsc";
 
-import { getUser } from "@/utils/api";
+import { getApiData } from "@/utils/api";
 
 import { Campaigns as BaseCampaigns } from "@/components/client-components/user/dashboard/Campaigns";
 
@@ -13,7 +13,7 @@ export type CampaignsProps = ComponentProps<{
 }>;
 
 export default async function Campaigns(props: CampaignsProps) {
-  const user: Types.UserApiProps = await getUser();
+  const user: Types.UserApiProps = await getApiData("user");
 
   return <BaseCampaigns user={user} {...props} />;
 }

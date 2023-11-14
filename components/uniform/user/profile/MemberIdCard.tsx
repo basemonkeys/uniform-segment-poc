@@ -6,7 +6,7 @@ import { ComponentError } from "@/components/client-components/ComponentError";
 import { MemberIdCard as BaseMemberIdCard } from "@/components/client-components/user/profile/MemberIdCard";
 
 import { ErrorBoundary } from "@/utils";
-import { getUser } from "@/utils/api";
+import { getApiData } from "@/utils/api";
 
 export type MemberIdCardProps = {
   title: string;
@@ -14,7 +14,7 @@ export type MemberIdCardProps = {
 };
 
 export async function MemberIdCard(props: MemberIdCardProps) {
-  const user: Types.UserApiProps = await getUser();
+  const user: Types.UserApiProps = await getApiData("user");
 
   return (
     <div className="col-span-2 lg:col-span-1">

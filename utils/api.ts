@@ -4,43 +4,11 @@
 
 import axios from "axios";
 
-const userUrl = "http://127.0.0.1:4000/user";
-const visitsUrl = "http://127.0.0.1:4000/visits";
-const liveClassesUrl = "http://127.0.0.1:4000/live";
-const fitnessLocationsUrl = "http://127.0.0.1:4000/locations";
-
-export async function getUser() {
+export async function getApiData(id: string) {
   try {
-    const res = await axios.get(userUrl);
+    const res = await axios.get(`http://127.0.0.1:4000/${id}`);
     return res.data;
   } catch (error) {
     throw new Error(`Error:${error}`);
-  }
-}
-
-export async function getVisits() {
-  try {
-    const res = await axios.get(visitsUrl);
-    return res.data;
-  } catch (error) {
-    throw new Error(`Error:${error}`);
-  }
-}
-
-export async function getLiveClasses() {
-  const res = await fetch(liveClassesUrl);
-  if (res.ok) {
-    return res.json();
-  } else {
-    throw new Error(`Error: ${res.status} ${res.statusText}`);
-  }
-}
-
-export async function getFitnessLocations() {
-  const res = await fetch(fitnessLocationsUrl);
-  if (res.ok) {
-    return res.json();
-  } else {
-    throw new Error(`Error: ${res.status} ${res.statusText}`);
   }
 }

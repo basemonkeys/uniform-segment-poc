@@ -2,7 +2,7 @@ import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 
 import { LiveClasses as BaseLiveClasses } from "@/components/client-components/user/dashboard/LiveClasses";
 
-import { getLiveClasses } from "@/utils/api";
+import { getApiData } from "@/utils/api";
 
 export type LiveClassesProps = {
   title: string;
@@ -12,7 +12,7 @@ export type LiveClassesProps = {
 export default async function LiveClasses(
   props: LiveClassesProps,
 ): Promise<React.ReactElement> {
-  const liveClasses: Types.LiveClassesApiProps = await getLiveClasses();
+  const liveClasses: Types.LiveClassesApiProps = await getApiData("live");
 
   return <BaseLiveClasses classes={liveClasses} {...props} />;
 }

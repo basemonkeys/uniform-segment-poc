@@ -12,7 +12,7 @@ import { parseISO, addMinutes } from "date-fns";
 
 import { getImageUrl } from "@/utils";
 
-import { getLiveClasses } from "@/utils/api";
+import { getApiData } from "@/utils/api";
 import { liveClassStatusAtom } from "@/utils/uiState";
 import { ErrorBoundary } from "@/utils";
 
@@ -45,7 +45,7 @@ export function LiveClasses({ title, description, classes }: LiveClassesProps) {
 
   const { data } = useQuery<Types.LiveClassesApiProps, Error>({
     queryKey: ["live"],
-    queryFn: getLiveClasses,
+    queryFn: () => getApiData("live"),
     initialData: classes,
     // gcTime: 0,
   });

@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 
-import { getFitnessLocations } from "@/utils/api";
+// import { getFitnessLocations } from "@/utils/api";
+import { getApiData } from "@/utils/api";
 
 import {
   Card,
@@ -32,7 +33,7 @@ export function FitnessLocations({
 }: FitnessLocationsProps) {
   const { data } = useQuery<Types.FitnessLocationsApiProps, Error>({
     queryKey: ["locations"],
-    queryFn: getFitnessLocations,
+    queryFn: () => getApiData("locations"),
     initialData: locations,
   });
 

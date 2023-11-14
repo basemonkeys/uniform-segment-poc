@@ -6,7 +6,7 @@ import { Skeleton } from "@/components/primitives/skeleton";
 import { MemberProfileCard as BaseMemberProfileCard } from "@/components/client-components/user/profile/MemberProfileCard";
 
 import { ErrorBoundary } from "@/utils";
-import { getUser } from "@/utils/api";
+import { getApiData } from "@/utils/api";
 
 export type MemberProfileCardProps = {
   title: string;
@@ -14,7 +14,7 @@ export type MemberProfileCardProps = {
 };
 
 export async function MemberProfileCard(props: MemberProfileCardProps) {
-  const user: Types.UserApiProps = await getUser();
+  const user: Types.UserApiProps = await getApiData("user");
 
   return (
     <div className="col-span-2 lg:col-span-1">

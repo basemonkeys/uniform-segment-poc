@@ -14,7 +14,7 @@ import { Button } from "@/components/primitives/button";
 import { InformationCircleIcon } from "@heroicons/react/20/solid";
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 
-import { getUser } from "@/utils/api";
+import { getApiData } from "@/utils/api";
 
 import type { MemberProfileCardProps } from "@/components/uniform/user/profile/MemberProfileCard";
 
@@ -29,7 +29,7 @@ export async function MemberProfileCard({
 }: BaseMemberProfileCardProps) {
   const { data } = useSuspenseQuery({
     queryKey: ["user"],
-    queryFn: getUser,
+    queryFn: () => getApiData("user"),
     initialData: user,
   });
 

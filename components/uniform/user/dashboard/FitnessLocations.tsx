@@ -2,7 +2,7 @@ import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 
 import { FitnessLocations as BaseFitnessLocations } from "@/components/client-components/user/dashboard/FitnessLocations";
 
-import { getFitnessLocations } from "@/utils/api";
+import { getApiData } from "@/utils/api";
 
 export type FitnessLocationsProps = {
   title: string;
@@ -13,7 +13,7 @@ export default async function FitnessLocations(
   props: FitnessLocationsProps,
 ): Promise<React.ReactElement> {
   const fitnessLocations: Types.FitnessLocationsApiProps =
-    await getFitnessLocations();
+    await getApiData("locations");
 
   return <BaseFitnessLocations locations={fitnessLocations} {...props} />;
 }

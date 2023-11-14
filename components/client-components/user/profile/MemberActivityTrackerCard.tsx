@@ -4,7 +4,7 @@
 import { UniformRichText } from "@uniformdev/canvas-next-rsc";
 import { useQuery } from "@tanstack/react-query";
 
-import { getVisits } from "@/utils/api";
+import { getApiData } from "@/utils/api";
 
 import {
   Card,
@@ -32,7 +32,7 @@ export async function MemberActivityTrackerCard({
 }: BaseMemberActivityTrackerCardProps) {
   const { data } = useQuery({
     queryKey: ["visits"],
-    queryFn: getVisits,
+    queryFn: () => getApiData("visits"),
     initialData: visits,
   });
 

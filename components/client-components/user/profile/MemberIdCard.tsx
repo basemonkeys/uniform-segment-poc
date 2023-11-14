@@ -15,7 +15,7 @@ import { Button } from "@/components/primitives/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPrint, faDownload } from "@fortawesome/free-solid-svg-icons";
 
-import { getUser } from "@/utils/api";
+import { getApiData } from "@/utils/api";
 
 import type { MemberIdCardProps } from "@/components/uniform/user/profile/MemberIdCard";
 
@@ -30,7 +30,7 @@ export async function MemberIdCard({
 }: BaseMemberIdCardProps) {
   const { data } = useQuery({
     queryKey: ["user"],
-    queryFn: getUser,
+    queryFn: () => getApiData("user"),
     initialData: user,
   });
   const { eligibility } = data;
