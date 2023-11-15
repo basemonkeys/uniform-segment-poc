@@ -3,7 +3,7 @@
 // https://ui.shadcn.com/docs/components/form
 
 import { useState } from "react";
-import { UniformRichText } from "@uniformdev/canvas-next-rsc";
+import { UniformRichText } from "@uniformdev/canvas-next-rsc/component";
 import { setCookie, getCookie } from "cookies-next";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";

@@ -1,8 +1,7 @@
 import {
   type ComponentProps,
   UniformRichText,
-  registerUniformComponent,
-} from "@uniformdev/canvas-next-rsc";
+} from "@uniformdev/canvas-next-rsc/component";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -97,8 +96,3 @@ export function ContactCard({
     </div>
   );
 }
-
-registerUniformComponent({
-  type: "contactCard",
-  component: ContactCard,
-});

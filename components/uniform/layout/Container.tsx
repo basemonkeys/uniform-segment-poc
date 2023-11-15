@@ -1,21 +1,22 @@
 import {
   type ComponentProps,
   UniformSlot,
-  registerUniformComponent,
-} from "@uniformdev/canvas-next-rsc";
+} from "@uniformdev/canvas-next-rsc/component";
 
 import {
   type BaseContainerProps,
   Container as BaseContainer,
-  ContainerVariants,
 } from "@/components/layout/Container";
 
-type ContainerProps = ComponentProps<BaseContainerProps> & {
-  showAsPageTitle: boolean;
-};
+type ContainerProps = ComponentProps<
+  BaseContainerProps & {
+    showAsPageTitle: boolean;
+  },
+  "containerInner"
+>;
 
 export function Container(props: ContainerProps) {
-  const { showAsPageTitle, component, context } = props;
+  const { showAsPageTitle, component, context, slots } = props;
   const { parameters } = component;
 
   return (
@@ -25,17 +26,11 @@ export function Container(props: ContainerProps) {
           {parameters?.title.value as React.ReactNode[]}
         </h2>
       )}
-      <UniformSlot name="containerInner" data={component} context={context} />
+      <UniformSlot
+        data={component}
+        context={context}
+        slot={slots.containerInner}
+      />
     </BaseContainer>
   );
 }
-
-[undefined, ContainerVariants.FullWidth].forEach((variantId) => {
-  registerUniformComponent({
-    type: "container",
-    component: Container,
-    variantId,
-  });
-});
-
-export default Container;

@@ -1,8 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  type ComponentProps,
-  registerUniformComponent,
-} from "@uniformdev/canvas-next-rsc";
+import { type ComponentProps } from "@uniformdev/canvas-next-rsc/component";
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
@@ -29,8 +26,3 @@ export function FAQItem({ question, answer, component }: FAQItemProps) {
     </AccordionItem>
   );
 }
-
-registerUniformComponent({
-  type: "faqItem",
-  component: FAQItem,
-});

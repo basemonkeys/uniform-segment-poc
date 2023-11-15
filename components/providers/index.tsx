@@ -1,14 +1,17 @@
-import { TanstackQueryProvider } from "@/components/providers/TanstackQuery";
-import { JotaiProvider } from "@/components/providers/JotaiProvider";
-import { SessionProvider } from "@/components/providers/SessionProvider";
+import { UniformContextProvider } from "./UniformContext";
+import { TanstackQueryProvider } from "./TanstackQuery";
+import { JotaiProvider } from "./JotaiProvider";
+import { SessionProvider } from "./SessionProvider";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <div>
-      <TanstackQueryProvider>
-        <SessionProvider>{children}</SessionProvider>
-        <JotaiProvider />
-      </TanstackQueryProvider>
+      <UniformContextProvider>
+        <TanstackQueryProvider>
+          <SessionProvider>{children}</SessionProvider>
+          <JotaiProvider />
+        </TanstackQueryProvider>
+      </UniformContextProvider>
     </div>
   );
 }

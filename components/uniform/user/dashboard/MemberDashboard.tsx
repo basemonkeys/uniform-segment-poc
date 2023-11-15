@@ -1,18 +1,22 @@
 import {
   type ComponentProps,
   UniformSlot,
-  registerUniformComponent,
-} from "@uniformdev/canvas-next-rsc";
+} from "@uniformdev/canvas-next-rsc/component";
 
-export function MemberDashboard({ component, context }: ComponentProps) {
+type MemberDashboardProps = ComponentProps<"dashboardInner">;
+
+export function MemberDashboard({
+  component,
+  context,
+  slots,
+}: MemberDashboardProps) {
   return (
     <div className="my-12 flex flex-col gap-12">
-      <UniformSlot name="dashboardInner" data={component} context={context} />
+      <UniformSlot
+        data={component}
+        context={context}
+        slot={slots.dashboardInner}
+      />
     </div>
   );
 }
-
-registerUniformComponent({
-  type: "memberDashboard",
-  component: MemberDashboard,
-});

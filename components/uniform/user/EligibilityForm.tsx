@@ -1,7 +1,4 @@
-import {
-  type ComponentProps,
-  registerUniformComponent,
-} from "@uniformdev/canvas-next-rsc";
+import { type ComponentProps } from "@uniformdev/canvas-next-rsc/component";
 
 import { EligibilityForm as BaseEligibilityForm } from "@/components/client-components/user/EligibilityForm";
 
@@ -17,8 +14,3 @@ export function EligibilityForm(props: EligibilityFormProps) {
     </>
   );
 }
-
-registerUniformComponent({
-  type: "eligibilityForm",
-  component: EligibilityForm,
-});

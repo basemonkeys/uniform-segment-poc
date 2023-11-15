@@ -1,9 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ElementType } from "react";
-import {
-  type ComponentProps,
-  registerUniformComponent,
-} from "@uniformdev/canvas-next-rsc";
+import { type ComponentProps } from "@uniformdev/canvas-next-rsc/component";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -153,8 +150,3 @@ export function CampaignItem(props: CampaignItemProps) {
     CampaignTypeToComponent[campaignType] || DefaultCampaignItem;
   return <Component {...props} />;
 }
-
-registerUniformComponent({
-  type: "campaignItem",
-  component: CampaignItem,
-});

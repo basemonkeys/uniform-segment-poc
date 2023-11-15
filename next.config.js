@@ -24,7 +24,6 @@ const nextConfig = {
   },
   transpilePackages: ["jotai-devtools"],
   experimental: {
-    serverActions: true,
     swcPlugins: [["@swc-jotai/react-refresh", {}]],
   },
 };

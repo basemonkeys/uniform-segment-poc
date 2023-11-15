@@ -2,19 +2,19 @@
 import {
   type ComponentProps,
   UniformSlot,
-  registerUniformComponent,
-} from "@uniformdev/canvas-next-rsc";
+} from "@uniformdev/canvas-next-rsc/component";
 
-export async function MemberHomePage({ component, context }: ComponentProps) {
+type MemberHomePageProps = ComponentProps<"banners" | "content">;
+
+export async function MemberHomePage({
+  component,
+  context,
+  slots,
+}: MemberHomePageProps) {
   return (
     <main className="main">
-      <UniformSlot name="banners" data={component} context={context} />
-      <UniformSlot name="content" data={component} context={context} />
+      <UniformSlot data={component} context={context} slot={slots.content} />
+      <UniformSlot data={component} context={context} slot={slots.banners} />
     </main>
   );
 }
-
-registerUniformComponent({
-  type: "memberHomePage",
-  component: MemberHomePage as React.ComponentType<ComponentProps<any>>,
-});
