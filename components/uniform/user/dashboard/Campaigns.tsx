@@ -9,7 +9,7 @@ export type CampaignsProps = ComponentProps<
     title: string;
     description: string;
   },
-  "faqs"
+  "campaignItems"
 >;
 
 export async function Campaigns(props: CampaignsProps) {

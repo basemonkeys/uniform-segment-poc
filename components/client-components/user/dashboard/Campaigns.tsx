@@ -70,7 +70,7 @@ export function Campaigns({
             // @ts-ignore
             data={modifiedComponent}
             context={context}
-            slot={slots.faqs}
+            slot={slots.campaignItems}
           />
         </div>
       )}
