@@ -1,22 +1,22 @@
 import {
   type ComponentProps,
   UniformSlot,
-  registerUniformComponent,
-} from "@uniformdev/canvas-next-rsc";
+} from "@uniformdev/canvas-next-rsc/component";
 
 import { QuickLinks as BaseQuickLinks } from "@/components/client-components/navigation/QuickLinks";
 
-export default function QuickLinks({ component, context }: ComponentProps) {
+type QuickLinksProps = ComponentProps<"navigation">;
+
+export function QuickLinks({ component, context, slots }: QuickLinksProps) {
   return (
     <>
       <BaseQuickLinks>
-        <UniformSlot name="navigation" data={component} context={context} />
+        <UniformSlot
+          data={component}
+          context={context}
+          slot={slots.navigation}
+        />
       </BaseQuickLinks>
     </>
   );
 }
-
-registerUniformComponent({
-  type: "quickLinks",
-  component: QuickLinks,
-});

@@ -1,8 +1,5 @@
 import { Suspense } from "react";
-import {
-  type ComponentProps,
-  registerUniformComponent,
-} from "@uniformdev/canvas-next-rsc";
+import { type ComponentProps } from "@uniformdev/canvas-next-rsc/component";
 
 import { Skeleton } from "@/components/primitives/skeleton";
 import { ComponentError } from "@/components/client-components/ComponentError";
@@ -37,8 +34,3 @@ export async function MemberActivityTrackerCard(
     </div>
   );
 }
-
-registerUniformComponent({
-  type: "memberActivityTrackerCard",
-  component: MemberActivityTrackerCard,
-});

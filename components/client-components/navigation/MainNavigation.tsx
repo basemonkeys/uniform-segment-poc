@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import type { ComponentProps } from "@uniformdev/canvas-next-rsc";
+import type { ComponentProps } from "@uniformdev/canvas-next-rsc/component";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
 import { animateScroll } from "react-scroll";

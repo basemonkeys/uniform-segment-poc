@@ -1,7 +1,7 @@
 "use client";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { UniformRichText } from "@uniformdev/canvas-next-rsc";
+import { UniformRichText } from "@uniformdev/canvas-next-rsc/component";
 import { useQuery } from "@tanstack/react-query";
 
 import { getApiData } from "@/utils/api";

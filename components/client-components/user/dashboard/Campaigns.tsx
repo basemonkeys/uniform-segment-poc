@@ -1,6 +1,6 @@
 /* eslint-disable no-constant-condition */
 
-import { UniformSlot } from "@uniformdev/canvas-next-rsc";
+import { UniformSlot } from "@uniformdev/canvas-next-rsc/component";
 
 import type { CampaignsProps as BaseCampaignsProps } from "@/components/uniform/user/dashboard/Campaigns";
 
@@ -14,6 +14,7 @@ export function Campaigns({
   user,
   component,
   context,
+  slots,
 }: CampaignsProps) {
   const hasAppleFitness = user.campaigns?.some(
     (campaign) => campaign.CampaignType === "Fitness+",
@@ -65,11 +66,11 @@ export function Campaigns({
             <p>{description}</p>
           </div>
           <UniformSlot
-            name="campaignItems"
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             data={modifiedComponent}
             context={context}
+            slot={slots.campaignItems}
           />
         </div>
       )}

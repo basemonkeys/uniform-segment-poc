@@ -1,21 +1,22 @@
 import {
   type ComponentProps,
   UniformSlot,
-  registerUniformComponent,
-} from "@uniformdev/canvas-next-rsc";
+} from "@uniformdev/canvas-next-rsc/component";
 
-export default async function MemberProfile({
+type MemberProfileProps = ComponentProps<"profileInner">;
+
+export async function MemberProfile({
   component,
   context,
-}: ComponentProps) {
+  slots,
+}: MemberProfileProps) {
   return (
     <div className="my-12 grid grid-cols-1 justify-evenly gap-8 lg:grid-cols-2">
-      <UniformSlot name="profileInner" data={component} context={context} />
+      <UniformSlot
+        data={component}
+        context={context}
+        slot={slots.profileInner}
+      />
     </div>
   );
 }
-
-registerUniformComponent({
-  type: "memberProfile",
-  component: MemberProfile,
-});

@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 
 import { Skeleton } from "@/components/primitives/skeleton";
 import { ComponentError } from "@/components/client-components/ComponentError";
@@ -26,8 +25,3 @@ export async function MemberIdCard(props: MemberIdCardProps) {
     </div>
   );
 }
-
-registerUniformComponent({
-  type: "memberIdCard",
-  component: MemberIdCard,
-});

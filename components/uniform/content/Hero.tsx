@@ -1,7 +1,4 @@
-import {
-  type ComponentProps,
-  registerUniformComponent,
-} from "@uniformdev/canvas-next-rsc";
+import { type ComponentProps } from "@uniformdev/canvas-next-rsc/component";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -67,7 +64,7 @@ const getAlignmentClass = (alignmentId?: string) => {
   }
 };
 
-const Hero = ({
+export const Hero = ({
   component,
   textAlignment,
   title,
@@ -246,19 +243,3 @@ const Hero = ({
     </div>
   );
 };
-
-[
-  undefined,
-  HeroVariant.ImageBackground,
-  HeroVariant.VideoBackground,
-  HeroVariant.DarkBackground,
-  HeroVariant.LightBackground,
-].forEach((variantId) => {
-  registerUniformComponent({
-    type: "hero",
-    component: Hero,
-    variantId,
-  });
-});
-
-export default Hero;

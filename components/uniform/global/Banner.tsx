@@ -1,7 +1,4 @@
-import {
-  type ComponentProps,
-  registerUniformComponent,
-} from "@uniformdev/canvas-next-rsc";
+import { type ComponentProps } from "@uniformdev/canvas-next-rsc/component";
 
 import Link from "next/link";
 
@@ -84,7 +81,7 @@ export const getStateClasses = (variantId?: string) => {
   }
 };
 
-const Banner = ({
+export const Banner = ({
   component,
   message,
   callToAction,
@@ -134,20 +131,3 @@ const Banner = ({
     </div>
   );
 };
-
-[
-  undefined,
-  BannerVariant.Primary,
-  BannerVariant.Success,
-  BannerVariant.Danger,
-  BannerVariant.Warning,
-  BannerVariant.Info,
-].forEach((variantId) => {
-  registerUniformComponent({
-    type: "banner",
-    component: Banner,
-    variantId,
-  });
-});
-
-export default Banner;

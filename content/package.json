@@ -552,8 +552,8 @@
       "updated": "2023-11-03T06:28:25.216959+00:00"
     },
     {
-      "id": "faqContainer",
-      "name": "FAQs",
+      "id": "faq",
+      "name": "FAQ",
       "icon": "layout-list",
       "parameters": [
         {
@@ -583,8 +583,8 @@
       ],
       "titleParameter": "title",
       "canBeComposition": false,
-      "created": "2023-10-17T05:13:14.264376+00:00",
-      "updated": "2023-11-02T11:37:16.312099+00:00"
+      "created": "2023-11-15T02:59:52.3748+00:00",
+      "updated": "2023-11-15T02:59:52.3748+00:00"
     },
     {
       "id": "faqItem",
@@ -642,13 +642,13 @@
           }
         }
       ],
-      "categoryId": "bbeb716f-dde9-47fa-a0e4-384d576e711a",
+      "categoryId": "eeca5569-a643-4b23-ad38-f78e978e13ef",
       "description": "This component displays the top three \"LIVE\" or \"Up Next\" online classes from the \"/live\" api endpoint.",
       "useTeamPermissions": true,
       "slots": [],
       "canBeComposition": false,
       "created": "2023-11-14T06:24:33.770979+00:00",
-      "updated": "2023-11-14T06:24:33.770979+00:00"
+      "updated": "2023-11-14T06:40:25.921019+00:00"
     },
     {
       "id": "fitnessLocations",
@@ -1092,15 +1092,15 @@
         }
       ],
       "slugSettings": {
-        "unique": "global",
-        "required": "yes",
+        "unique": "no",
+        "required": "no",
         "regularExpression": "",
         "regularExpressionMessage": ""
       },
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-10-05T20:36:58.515615+00:00",
-      "updated": "2023-11-07T18:51:28.464408+00:00"
+      "updated": "2023-11-14T22:30:03.790742+00:00"
     },
     {
       "id": "infoHeader",
@@ -1284,6 +1284,31 @@
       "canBeComposition": false,
       "created": "2023-11-07T18:47:44.458336+00:00",
       "updated": "2023-11-08T18:32:18.478312+00:00"
+    },
+    {
+      "id": "liveClasses",
+      "name": "Live Classes",
+      "icon": "screen",
+      "parameters": [],
+      "categoryId": "eeca5569-a643-4b23-ad38-f78e978e13ef",
+      "description": "This component holds all other components on '/classes/live-class-schedule'",
+      "useTeamPermissions": true,
+      "slots": [
+        {
+          "id": "liveClassesInner",
+          "name": "Live Classes Inner",
+          "allowedComponents": [
+            "infoHeader",
+            "liveClassesFilter"
+          ],
+          "allowAllComponents": false,
+          "inheritAllowedComponents": false,
+          "patternsInAllowedComponents": false
+        }
+      ],
+      "canBeComposition": false,
+      "created": "2023-11-14T06:42:25.797506+00:00",
+      "updated": "2023-11-14T06:46:28.898646+00:00"
     },
     {
       "id": "liveClassesFilter",
@@ -1622,10 +1647,11 @@
             "eligibilityForm",
             "richTextContentCard",
             "$loop",
-            "$p:157c3a68-dd5e-4764-88cf-763be74baeb9",
             "quickLinks",
             "steps",
-            "infoHeader"
+            "infoHeader",
+            "liveClasses",
+            "$p:8f703b87-fdcc-4550-9383-65e4a20d3035"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -1641,7 +1667,7 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-08-29T20:06:33.571497+00:00",
-      "updated": "2023-11-14T06:21:29.841553+00:00"
+      "updated": "2023-11-15T03:16:48.97283+00:00"
     },
     {
       "id": "privacyPolicy",
@@ -1998,86 +2024,6 @@
       "created": "2023-09-11T04:42:51.887782+00:00",
       "modified": "2023-10-05T20:52:14.433398+00:00",
       "pattern": false
-    },
-    {
-      "composition": {
-        "_name": "FAQs",
-        "_id": "157c3a68-dd5e-4764-88cf-763be74baeb9",
-        "type": "faqContainer",
-        "parameters": {
-          "title": {
-            "type": "text",
-            "value": "General"
-          }
-        },
-        "slots": {
-          "faqs": [
-            {
-              "_id": "57770ec4-b2b6-49b3-944b-24fc0ccb58e3",
-              "type": "$loop",
-              "slots": {
-                "body": [
-                  {
-                    "_id": "f884ae43-20e4-4ff4-a9a5-18415992355e",
-                    "type": "faqItem",
-                    "parameters": {
-                      "answer": {
-                        "type": "json",
-                        "value": "${#jptr:/FAQs item Loop/fields/answer}"
-                      },
-                      "question": {
-                        "type": "text",
-                        "value": "${#jptr:/FAQs item Loop/fields/question}"
-                      }
-                    },
-                    "_overridability": {
-                      "parameters": {
-                        "question": "no"
-                      }
-                    }
-                  }
-                ]
-              },
-              "_dataResources": {
-                "FAQs items Loop": {
-                  "type": "sys-reserved-loop",
-                  "variables": {
-                    "connectedData": "/FAQs/items"
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "_dataResources": {
-          "FAQs": {
-            "type": "faqs",
-            "variables": {
-              "limit": "20",
-              "order": "",
-              "locale": "",
-              "filters": "metadata.tags.sys.id[in]=general",
-              "keyword": "",
-              "sortOrder": "asc",
-              "sortFieldId": "",
-              "contentTypeId": "faqs",
-              "advancedFilters": "[{\"key\":\"metadata.tags\",\"operator\":\".sys.id[in]\",\"value\":\"general\",\"id\":\"param-0.3628896236239938\"}]",
-              "contentTypeQuery": "content_type=faqs"
-            },
-            "isPatternParameter": true,
-            "ignorePatternParameterDefault": true
-          }
-        },
-        "_overridability": {
-          "parameters": {
-            "title": "yes",
-            "category": "yes"
-          }
-        }
-      },
-      "created": "2023-10-17T05:40:19.185951+00:00",
-      "modified": "2023-11-02T11:35:15.398668+00:00",
-      "pattern": true
     },
     {
       "composition": {
@@ -4189,6 +4135,76 @@
     },
     {
       "composition": {
+        "_name": "FAQ",
+        "_id": "8f703b87-fdcc-4550-9383-65e4a20d3035",
+        "type": "faq",
+        "parameters": {
+          "title": {
+            "type": "text",
+            "value": "General"
+          }
+        },
+        "slots": {
+          "faqs": [
+            {
+              "_id": "4b442f2f-1a12-4588-a43c-c8a5b9a6b9e9",
+              "type": "$loop",
+              "slots": {
+                "body": [
+                  {
+                    "_id": "77ad16b0-d896-4cbd-948c-dd35f624bcfc",
+                    "type": "faqItem",
+                    "parameters": {
+                      "question": {
+                        "type": "text",
+                        "value": "${#jptr:/FAQs item Loop/fields/question}"
+                      }
+                    }
+                  }
+                ]
+              },
+              "_dataResources": {
+                "FAQ items Loop": {
+                  "type": "sys-reserved-loop",
+                  "variables": {
+                    "connectedData": "/FAQ/items"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "_dataResources": {
+          "FAQ": {
+            "type": "faqs",
+            "variables": {
+              "limit": "20",
+              "order": "",
+              "locale": "",
+              "filters": "metadata.tags.sys.id[in]=general",
+              "keyword": "",
+              "sortOrder": "asc",
+              "sortFieldId": "",
+              "contentTypeId": "faqs",
+              "advancedFilters": "[{\"key\":\"metadata.tags\",\"operator\":\".sys.id[in]\",\"value\":\"general\",\"id\":\"param-0.6979881790986413\"}]",
+              "contentTypeQuery": "content_type=faqs"
+            },
+            "isPatternParameter": true,
+            "ignorePatternParameterDefault": true
+          }
+        },
+        "_overridability": {
+          "parameters": {
+            "title": "yes"
+          }
+        }
+      },
+      "created": "2023-11-15T03:04:24.194676+00:00",
+      "modified": "2023-11-15T03:12:57.959746+00:00",
+      "pattern": true
+    },
+    {
+      "composition": {
         "_name": "Health Plan Partners",
         "_id": "93986af7-3568-4ee3-8076-11828f0499e5",
         "_slug": "health-plan-partners",
@@ -4499,14 +4515,14 @@
               "slots": {
                 "containerInner": [
                   {
-                    "_id": "75da0b2e-cffb-4099-959a-676c7ea9d056",
-                    "type": "faqContainer",
-                    "_pattern": "157c3a68-dd5e-4764-88cf-763be74baeb9",
+                    "_id": "e24b1d90-08a6-4677-b106-1bb76141b78d",
+                    "type": "faq",
+                    "_pattern": "8f703b87-fdcc-4550-9383-65e4a20d3035",
                     "_dataResources": {
-                      "FAQs": {
+                      "FAQ": {
                         "type": "faqs",
                         "variables": {
-                          "limit": "20",
+                          "limit": "5",
                           "order": "",
                           "locale": "",
                           "filters": "metadata.tags.sys.id[in]=general",
@@ -4514,21 +4530,21 @@
                           "sortOrder": "asc",
                           "sortFieldId": "",
                           "contentTypeId": "faqs",
-                          "advancedFilters": "[{\"key\":\"metadata.tags\",\"operator\":\".sys.id[in]\",\"value\":\"general\",\"id\":\"param-0.1526752826635447\"}]",
+                          "advancedFilters": "[{\"key\":\"metadata.tags\",\"operator\":\".sys.id[in]\",\"value\":\"general\",\"id\":\"param-0.48779376293125454\"}]",
                           "contentTypeQuery": "content_type=faqs"
                         }
                       }
                     }
                   },
                   {
-                    "_id": "98de46aa-273a-4dc2-b5e8-e67770c4c97f",
-                    "type": "faqContainer",
-                    "_pattern": "157c3a68-dd5e-4764-88cf-763be74baeb9",
+                    "_id": "f66f8770-7b0f-4f50-88fe-cd83c9eee735",
+                    "type": "faq",
+                    "_pattern": "8f703b87-fdcc-4550-9383-65e4a20d3035",
                     "_dataResources": {
-                      "FAQs": {
+                      "FAQ": {
                         "type": "faqs",
                         "variables": {
-                          "limit": "20",
+                          "limit": "5",
                           "order": "",
                           "locale": "",
                           "filters": "metadata.tags.sys.id[in]=classes",
@@ -4536,21 +4552,21 @@
                           "sortOrder": "asc",
                           "sortFieldId": "",
                           "contentTypeId": "faqs",
-                          "advancedFilters": "[{\"key\":\"metadata.tags\",\"operator\":\".sys.id[in]\",\"value\":\"classes\",\"id\":\"param-0.8860510121119214\"}]",
+                          "advancedFilters": "[{\"key\":\"metadata.tags\",\"operator\":\".sys.id[in]\",\"value\":\"classes\",\"id\":\"param-0.16171325823069327\"}]",
                           "contentTypeQuery": "content_type=faqs"
                         }
                       }
                     }
                   },
                   {
-                    "_id": "ae5de44f-8fb3-49a9-93bd-6ac4ddaf9c10",
-                    "type": "faqContainer",
-                    "_pattern": "157c3a68-dd5e-4764-88cf-763be74baeb9",
+                    "_id": "c8624493-3804-47cc-b991-10ccba9ca585",
+                    "type": "faq",
+                    "_pattern": "8f703b87-fdcc-4550-9383-65e4a20d3035",
                     "_dataResources": {
-                      "FAQs": {
+                      "FAQ": {
                         "type": "faqs",
                         "variables": {
-                          "limit": "20",
+                          "limit": "5",
                           "order": "",
                           "locale": "",
                           "filters": "metadata.tags.sys.id[in]=locations",
@@ -4558,21 +4574,21 @@
                           "sortOrder": "asc",
                           "sortFieldId": "",
                           "contentTypeId": "faqs",
-                          "advancedFilters": "[{\"key\":\"metadata.tags\",\"operator\":\".sys.id[in]\",\"value\":\"locations\",\"id\":\"param-0.7644381652956549\"}]",
+                          "advancedFilters": "[{\"key\":\"metadata.tags\",\"operator\":\".sys.id[in]\",\"value\":\"locations\",\"id\":\"param-0.5346265349716468\"}]",
                           "contentTypeQuery": "content_type=faqs"
                         }
                       }
                     }
                   },
                   {
-                    "_id": "0c555d8a-9032-4f71-a8c9-7d99f09e623a",
-                    "type": "faqContainer",
-                    "_pattern": "157c3a68-dd5e-4764-88cf-763be74baeb9",
+                    "_id": "a943351f-692e-4362-b087-e79b4f1514df",
+                    "type": "faq",
+                    "_pattern": "8f703b87-fdcc-4550-9383-65e4a20d3035",
                     "_dataResources": {
-                      "FAQs": {
+                      "FAQ": {
                         "type": "faqs",
                         "variables": {
-                          "limit": "20",
+                          "limit": "5",
                           "order": "",
                           "locale": "",
                           "filters": "metadata.tags.sys.id[in]=account",
@@ -4580,7 +4596,7 @@
                           "sortOrder": "asc",
                           "sortFieldId": "",
                           "contentTypeId": "faqs",
-                          "advancedFilters": "[{\"key\":\"metadata.tags\",\"operator\":\".sys.id[in]\",\"value\":\"account\",\"id\":\"param-0.4495136842626257\"}]",
+                          "advancedFilters": "[{\"key\":\"metadata.tags\",\"operator\":\".sys.id[in]\",\"value\":\"account\",\"id\":\"param-0.021117630260786058\"}]",
                           "contentTypeQuery": "content_type=faqs"
                         }
                       }
@@ -4657,7 +4673,7 @@
           ]
         },
         "_overrides": {
-          "0c555d8a-9032-4f71-a8c9-7d99f09e623a": {
+          "a943351f-692e-4362-b087-e79b4f1514df": {
             "parameters": {
               "title": {
                 "type": "text",
@@ -4665,26 +4681,26 @@
               }
             }
           },
-          "98de46aa-273a-4dc2-b5e8-e67770c4c97f": {
-            "parameters": {
-              "title": {
-                "type": "text",
-                "value": "Classes"
-              }
-            }
-          },
-          "ae5de44f-8fb3-49a9-93bd-6ac4ddaf9c10": {
+          "c8624493-3804-47cc-b991-10ccba9ca585": {
             "parameters": {
               "title": {
                 "type": "text",
                 "value": "Fitness Locations"
               }
             }
+          },
+          "f66f8770-7b0f-4f50-88fe-cd83c9eee735": {
+            "parameters": {
+              "title": {
+                "type": "text",
+                "value": "Classes"
+              }
+            }
           }
         }
       },
       "created": "2023-10-16T16:41:37.434964+00:00",
-      "modified": "2023-10-19T23:54:36.05821+00:00",
+      "modified": "2023-11-15T03:16:42.543265+00:00",
       "pattern": false
     },
     {
@@ -4724,11 +4740,200 @@
                 }
               }
             }
+          ],
+          "content": [
+            {
+              "_id": "d1c8dafb-a980-4c00-ba72-cfb304ecebda",
+              "type": "container",
+              "slots": {
+                "containerInner": [
+                  {
+                    "_id": "cf8f4bf4-7444-4a14-9701-e34796ecfbe5",
+                    "type": "liveClasses",
+                    "slots": {
+                      "liveClassesInner": [
+                        {
+                          "_id": "413dd098-78ef-4bf1-8c2b-a6e7774fdbe6",
+                          "type": "liveClassesFilter"
+                        },
+                        {
+                          "_id": "a56d42c4-7940-4185-a680-0135606ce0c0",
+                          "type": "infoHeader",
+                          "parameters": {
+                            "title": {
+                              "type": "text",
+                              "value": "LIVE Online Classes"
+                            },
+                            "description": {
+                              "type": "richText",
+                              "value": {
+                                "root": {
+                                  "type": "root",
+                                  "format": "",
+                                  "indent": 0,
+                                  "version": 1,
+                                  "children": [
+                                    {
+                                      "type": "paragraph",
+                                      "format": "",
+                                      "indent": 0,
+                                      "version": 1,
+                                      "children": [
+                                        {
+                                          "mode": "normal",
+                                          "text": "Enjoy LIVE online classes and workshops from the comfort of home.",
+                                          "type": "text",
+                                          "style": "",
+                                          "detail": 0,
+                                          "format": 0,
+                                          "version": 1
+                                        }
+                                      ],
+                                      "direction": "ltr"
+                                    },
+                                    {
+                                      "tag": "ul",
+                                      "type": "list",
+                                      "start": 1,
+                                      "format": "",
+                                      "indent": 0,
+                                      "version": 1,
+                                      "children": [
+                                        {
+                                          "type": "listitem",
+                                          "value": 1,
+                                          "format": "",
+                                          "indent": 0,
+                                          "version": 1,
+                                          "children": [
+                                            {
+                                              "mode": "normal",
+                                              "text": "Instructors that cater to all skill levels",
+                                              "type": "text",
+                                              "style": "",
+                                              "detail": 0,
+                                              "format": 0,
+                                              "version": 1
+                                            }
+                                          ],
+                                          "direction": "ltr"
+                                        },
+                                        {
+                                          "type": "listitem",
+                                          "value": 2,
+                                          "format": "",
+                                          "indent": 0,
+                                          "version": 1,
+                                          "children": [
+                                            {
+                                              "mode": "normal",
+                                              "text": "A large variety of fun and interactive classes",
+                                              "type": "text",
+                                              "style": "",
+                                              "detail": 0,
+                                              "format": 0,
+                                              "version": 1
+                                            }
+                                          ],
+                                          "direction": "ltr"
+                                        },
+                                        {
+                                          "type": "listitem",
+                                          "value": 3,
+                                          "format": "",
+                                          "indent": 0,
+                                          "version": 1,
+                                          "children": [
+                                            {
+                                              "mode": "normal",
+                                              "text": "Easy-to-use filters so you can find exactly what you're looking for",
+                                              "type": "text",
+                                              "style": "",
+                                              "detail": 0,
+                                              "format": 0,
+                                              "version": 1
+                                            }
+                                          ],
+                                          "direction": "ltr"
+                                        },
+                                        {
+                                          "type": "listitem",
+                                          "value": 4,
+                                          "format": "",
+                                          "indent": 0,
+                                          "version": 1,
+                                          "children": [
+                                            {
+                                              "mode": "normal",
+                                              "text": "Don't worry. You won't be seen on camera but you can join the optional group chat.",
+                                              "type": "text",
+                                              "style": "",
+                                              "detail": 0,
+                                              "format": 0,
+                                              "version": 1
+                                            }
+                                          ],
+                                          "direction": "ltr"
+                                        }
+                                      ],
+                                      "listType": "bullet",
+                                      "direction": "ltr"
+                                    },
+                                    {
+                                      "type": "paragraph",
+                                      "format": "",
+                                      "indent": 0,
+                                      "version": 1,
+                                      "children": [
+                                        {
+                                          "link": {
+                                            "path": "https://tools.silversneakers.com/Help/LiveClasses",
+                                            "type": "url"
+                                          },
+                                          "type": "link",
+                                          "format": "",
+                                          "indent": 0,
+                                          "version": 1,
+                                          "children": [
+                                            {
+                                              "mode": "normal",
+                                              "text": " How to join a class ",
+                                              "type": "text",
+                                              "style": "",
+                                              "detail": 0,
+                                              "format": 0,
+                                              "version": 1
+                                            }
+                                          ],
+                                          "direction": "ltr"
+                                        }
+                                      ],
+                                      "direction": "ltr"
+                                    }
+                                  ],
+                                  "direction": "ltr"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "Live Class Schedule"
+                }
+              }
+            }
           ]
         }
       },
       "created": "2023-08-29T20:06:39.528811+00:00",
-      "modified": "2023-10-05T20:52:04.145589+00:00",
+      "modified": "2023-11-14T06:44:37.444571+00:00",
       "pattern": false
     },
     {

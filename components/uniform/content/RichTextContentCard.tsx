@@ -1,8 +1,7 @@
 import {
   type ComponentProps,
-  registerUniformComponent,
-} from "@uniformdev/canvas-next-rsc";
-import { UniformRichText } from "@uniformdev/canvas-next-rsc";
+  UniformRichText,
+} from "@uniformdev/canvas-next-rsc/component";
 import Link from "next/link";
 
 import { Card } from "@/components/primitives/card";
@@ -37,8 +36,3 @@ export function RichTextContentCard({
     </>
   );
 }
-
-registerUniformComponent({
-  type: "richTextContentCard",
-  component: RichTextContentCard,
-});

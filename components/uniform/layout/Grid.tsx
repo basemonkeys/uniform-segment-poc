@@ -1,8 +1,7 @@
 import {
   type ComponentProps,
   UniformSlot,
-  registerUniformComponent,
-} from "@uniformdev/canvas-next-rsc";
+} from "@uniformdev/canvas-next-rsc/component";
 
 import { cn } from "@/utils";
 
@@ -20,9 +19,12 @@ type AvailableColumnCount =
   | "11"
   | "12";
 
-type GridProps = ComponentProps<{
-  columnsCount: AvailableColumnCount;
-}>;
+type GridProps = ComponentProps<
+  {
+    columnsCount: AvailableColumnCount;
+  },
+  "gridInner"
+>;
 
 const getGridColumnsClass = (columnsCount: AvailableColumnCount) => {
   switch (columnsCount) {
@@ -55,18 +57,18 @@ const getGridColumnsClass = (columnsCount: AvailableColumnCount) => {
   }
 };
 
-export const Grid = ({ columnsCount, component, context }: GridProps) => (
+export const Grid = ({
+  columnsCount,
+  component,
+  context,
+  slots,
+}: GridProps) => (
   <div
     className={cn(
       "grid w-full auto-rows-max grid-cols-3 lg:gap-6",
       getGridColumnsClass(columnsCount),
     )}
   >
-    <UniformSlot name="gridInner" data={component} context={context} />
+    <UniformSlot data={component} context={context} slot={slots.gridInner} />
   </div>
 );
-
-registerUniformComponent({
-  type: "grid",
-  component: Grid,
-});

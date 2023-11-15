@@ -1,6 +1,5 @@
 "use client";
 
-import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
 import { useAtomValue } from "jotai";
 
 import { cn } from "@/utils";
@@ -33,8 +32,3 @@ export function StepItem(props: StepItemProps) {
     </div>
   );
 }
-
-registerUniformComponent({
-  type: "stepItem",
-  component: StepItem,
-});

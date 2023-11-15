@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 
-import type { ComponentProps } from "@uniformdev/canvas-next-rsc";
+import type { ComponentProps } from "@uniformdev/canvas-next-rsc/component";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -31,7 +31,7 @@ import { Separator } from "@/components/primitives/separator";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
-export type LinkProps = Omit<ComponentProps, "context"> & {
+export type LinkProps = Omit<ComponentProps, "context" | "slots"> & {
   title: string;
   link: {
     path: string;

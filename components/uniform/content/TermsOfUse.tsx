@@ -1,10 +1,8 @@
-import { registerUniformComponent } from "@uniformdev/canvas-next-rsc";
-
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { format } from "date-fns";
 
-const TermsOfUse = ({ lastUpdated, text }: Types.PolicyUseProps) => {
+export const TermsOfUse = ({ lastUpdated, text }: Types.PolicyUseProps) => {
   return (
     <div className="mb-12">
       <p className="mb-6 text-sm italic text-gray-500">
@@ -16,10 +14,3 @@ const TermsOfUse = ({ lastUpdated, text }: Types.PolicyUseProps) => {
     </div>
   );
 };
-
-registerUniformComponent({
-  type: "termsOfUse",
-  component: TermsOfUse,
-});
-
-export default TermsOfUse;

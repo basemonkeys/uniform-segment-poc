@@ -1,6 +1,6 @@
 "use client";
 
-import { UniformRichText } from "@uniformdev/canvas-next-rsc";
+import { UniformRichText } from "@uniformdev/canvas-next-rsc/component";
 
 import Link from "next/link";
 
@@ -47,8 +47,8 @@ export function LinkCard({
         </CardHeader>
         <CardContent className="pt-0">
           <UniformRichText
-            parameterId="description"
             component={component}
+            parameterId="description"
             className="text-sm"
           />
         </CardContent>
