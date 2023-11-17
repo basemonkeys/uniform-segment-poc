@@ -26,6 +26,7 @@ const config: StorybookConfig = {
       },
     },
     getAbsolutePath("@storybook/addon-mdx-gfm"),
+    getAbsolutePath("@storybook/addon-mdx-gfm")
   ],
   docs: {
     autodocs: "tag",
