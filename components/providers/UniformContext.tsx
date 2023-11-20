@@ -5,5 +5,6 @@ export function UniformContextProvider({
 }: {
   children: React.ReactNode;
 }) {
-  return <UniformContext>{children}</UniformContext>;
+  return <UniformContext>
+    {children}</UniformContext>;
 }

@@ -1,13 +1,15 @@
+'use client'
+import { useUniformContext } from '@uniformdev/canvas-next-rsc/component';
 import { useEffect } from 'react';
-import { useUniformContext } from '@uniformdev/context-react';
 
-const TrackerScoreSync = () => {
+
+export const TrackerScoreSync = () => {
   const { context } = useUniformContext();
   useEffect(() => {
     const fetchTraits = async () => {
       const response = await fetch('/api/uniform/traits');
       const { traits } = await response.json();
-      await context.update({
+      await context?.update({
         quirks: {
           ...traits,
         },
@@ -17,5 +19,3 @@ const TrackerScoreSync = () => {
   }, [context]);
   return null;
 };
-
-export default TrackerScoreSync;
