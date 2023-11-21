@@ -2,6 +2,26 @@
   "project": {
     "pz": {
       "sig": {
+        "fan": {
+          "str": 1,
+          "cap": 1,
+          "dur": "p",
+          "crit": {
+            "op": "&",
+            "type": "G",
+            "clauses": [
+              {
+                "type": "QS",
+                "match": {
+                  "cs": false,
+                  "op": "=",
+                  "rhs": 1
+                },
+                "queryName": "fan"
+              }
+            ]
+          }
+        },
         "launchCampaign": {
           "str": 50,
           "cap": 100,

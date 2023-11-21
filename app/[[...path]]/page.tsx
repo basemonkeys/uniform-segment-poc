@@ -1,9 +1,7 @@
 import {
   type PageParameters,
   retrieveRoute,
-  createServerUniformContext,
-  UniformComposition,
-  ContextUpdateTransfer
+  UniformComposition
 } from "@uniformdev/canvas-next-rsc";
 import { resolveComponent } from "@/components/index";
 
@@ -26,21 +24,12 @@ function renderSnippet() {
 
 export default async function Home(props: PageParameters) {
   const route = await retrieveRoute(props);
-  const serverContext = await createServerUniformContext({
-    searchParams: props.searchParams, 
-  });
+  
   
   return (
     <><Script id="segment-script" dangerouslySetInnerHTML={{ __html: renderSnippet() }} />
     
-      <ContextUpdateTransfer
-        serverContext={serverContext}
-        update={{
-          quirks: {
-            'country': 'US',
-          }
-        }}
-      />
+      
 
       <UniformComposition
         {...props}
