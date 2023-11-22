@@ -1,11 +1,14 @@
 "use client";
-
+import { Provider } from "jotai";
 import { DevTools } from "jotai-devtools";
 
-export function JotaiProvider(): JSX.Element {
+export function JotaiProvider({ children }: { children: React.ReactNode }): JSX.Element {
   return (
     <div>
-      <DevTools theme="dark" />
+      <Provider>
+        {children}
+        <DevTools theme="dark" />
+      </Provider>
     </div>
   );
 }

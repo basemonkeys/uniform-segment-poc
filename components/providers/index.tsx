@@ -9,18 +9,17 @@ import { TrackerScoreSync } from "./TrackerScoreSync";
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <div>
-     
-      <UniformContextProvider>
-      
 
+      <UniformContextProvider>
         <TanstackQueryProvider>
-          <SessionProvider>{children}</SessionProvider>
-           <JotaiProvider />  
-           <TrackerScoreSync/> 
-         </TanstackQueryProvider>
+          <JotaiProvider>
+            <SessionProvider>{children}</SessionProvider>
+          </JotaiProvider>
+          <TrackerScoreSync />
+        </TanstackQueryProvider>
 
       </UniformContextProvider>
-      
+
     </div>
   );
 }

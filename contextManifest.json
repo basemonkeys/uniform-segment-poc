@@ -5,7 +5,7 @@
         "fan": {
           "str": 1,
           "cap": 1,
-          "dur": "p",
+          "dur": "s",
           "crit": {
             "op": "&",
             "type": "G",
