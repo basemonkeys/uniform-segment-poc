@@ -18,22 +18,22 @@ import {
 import { Button } from "@/components/primitives/button";
 import { CloudinaryImage } from "@/components/client-components/Cloudinary";
 
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faHeart,
-//   faDumbbell,
-//   faUtensils,
-// } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHeart,
+  faDumbbell,
+  faUtensils,
+} from "@fortawesome/free-solid-svg-icons";
 
 export enum CampaignType {
   GetSetUp = "GetSetUp",
 }
 
-// enum ClassTypeIcon {
-//   faHeart = "Wellbeing",
-//   faDumbbell = "Fitness",
-//   faUtensils = "More",
-// }
+enum ClassTypeIcon {
+  faHeart = "Wellbeing",
+  faDumbbell = "Fitness",
+  faUtensils = "More",
+}
 
 const CampaignTypeToComponent: Record<
   string,
@@ -52,8 +52,10 @@ type CampaignItemProps = ComponentProps<{
       public_id: string;
       fields: {
         title: string;
-        file: {
-          url: string;
+      };
+      context: {
+        custom: {
+          caption: string;
         };
       };
     },
@@ -112,9 +114,10 @@ function GetSetUpCampaignItem({
             <>
               <div className="relative md:max-w-[400px]">
                 <div className="absolute w-1/2 bg-gradient-to-r from-black px-4 py-2 text-white">
-                  {/* <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2">
                     {Object.values(ClassTypeIcon).map((value) => {
-                      if (image.fields.title.includes(value)) {
+                      console.log(image.context.custom.caption);
+                      if (image.context.custom.caption.includes(value)) {
                         return (
                           <>
                             <FontAwesomeIcon
@@ -131,8 +134,8 @@ function GetSetUpCampaignItem({
                         );
                       }
                     })}
-                    {image.fields.title}
-                  </div> */}
+                    {image.context.custom.caption}
+                  </div>
                 </div>
                 <CloudinaryImage
                   key={image.public_id}
