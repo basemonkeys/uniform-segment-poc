@@ -18,22 +18,22 @@ import {
 import { Button } from "@/components/primitives/button";
 import { CloudinaryImage } from "@/components/client-components/Cloudinary";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHeart,
-  faDumbbell,
-  faUtensils,
-} from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   faHeart,
+//   faDumbbell,
+//   faUtensils,
+// } from "@fortawesome/free-solid-svg-icons";
 
 export enum CampaignType {
   GetSetUp = "GetSetUp",
 }
 
-enum ClassTypeIcon {
-  faHeart = "Wellbeing",
-  faDumbbell = "Fitness",
-  faUtensils = "More",
-}
+// enum ClassTypeIcon {
+//   faHeart = "Wellbeing",
+//   faDumbbell = "Fitness",
+//   faUtensils = "More",
+// }
 
 const CampaignTypeToComponent: Record<
   string,
