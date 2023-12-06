@@ -116,7 +116,6 @@ function GetSetUpCampaignItem({
                 <div className="absolute w-1/2 bg-gradient-to-r from-black px-4 py-2 text-white">
                   <div className="flex items-center gap-2">
                     {Object.values(ClassTypeIcon).map((value) => {
-                      console.log(image.context.custom.caption);
                       if (image.context.custom.caption.includes(value)) {
                         return (
                           <>

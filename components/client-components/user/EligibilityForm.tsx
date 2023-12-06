@@ -105,14 +105,9 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
   });
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
-    console.log(form.formState.isSubmitting);
+    console.log("isSubmitting =", form.formState.isSubmitting);
     console.log("data:", data);
-    // await new Promise<void>((resolve) => {
-    //   setTimeout(() => {
-    //     resolve();
-    //   }, 2000);
-    // });
-    // router.push("/tweets");
+    // TODO: submit data to API
   }
 
   const handleButtonClick = async () => {
