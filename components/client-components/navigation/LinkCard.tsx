@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useAtomValue } from "jotai";
 
 import { cn } from "@/utils";
+import { getImageUrl } from "@/utils";
 import { gridCardCountAtom, lastGridItemIdAtom } from "@/utils/uiState";
 
 import {
@@ -60,8 +61,8 @@ export function LinkCard({
       </div>
       <div className="absolute bottom-0 right-0 z-0">
         <CloudinaryImage
-          src={image[0].publicId}
-          alt="Loading"
+          src={getImageUrl(image[0].url)}
+          alt="an illustration"
           width={125}
           height={100}
         />

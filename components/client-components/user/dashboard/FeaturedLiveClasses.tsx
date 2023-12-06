@@ -10,8 +10,6 @@ import { slice } from "lodash";
 import { parseISO, addMinutes } from "date-fns";
 // import { formatInTimeZone } from "date-fns-tz";
 
-import { getImageUrl } from "@/utils";
-
 import { getApiData } from "@/utils/api";
 import { liveClassStatusAtom } from "@/utils/uiState";
 import { ErrorBoundary } from "@/utils";
@@ -80,7 +78,7 @@ export function FeaturedLiveClasses({
               <div className="absolute top-1/2 z-0">
                 <CloudinaryImage
                   fill
-                  src="silversneakers/shape_icvqcn"
+                  src="SilverSneakers/Graphics/bg_swoosh"
                   alt="Background Shape for styling purposes"
                   className="!relative"
                 />
@@ -162,7 +160,7 @@ export function FeaturedLiveClasses({
                 <div className="absolute top-1/2 z-0">
                   <CloudinaryImage
                     fill
-                    src="silversneakers/shape_icvqcn"
+                    src="SilverSneakers/Graphics/bg_swoosh"
                     alt="Background Shape for styling purposes"
                     className="!relative"
                   />
@@ -174,7 +172,7 @@ export function FeaturedLiveClasses({
                 <div className="flex h-full w-full items-end justify-center ">
                   <div className="relative z-10 w-[121px]">
                     <Image
-                      src={getImageUrl(item.InstructorImage)}
+                      src={item.InstructorImage}
                       width={400}
                       height={288}
                       alt="Sample Instructor Image"

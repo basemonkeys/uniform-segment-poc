@@ -3,11 +3,8 @@ import type { ElementType } from "react";
 import { type ComponentProps } from "@uniformdev/canvas-next-rsc/component";
 
 import Link from "next/link";
-import Image from "next/image";
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-
-import { getImageUrl } from "@/utils";
 
 import {
   Card,
@@ -17,6 +14,7 @@ import {
   CardTitle,
 } from "@/components/primitives/card";
 import { Button } from "@/components/primitives/button";
+import { CloudinaryImage } from "@/components/client-components/Cloudinary";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
@@ -52,23 +50,25 @@ function AppleFitnessPlusCampaignitem({
 }: CampaignItemProps) {
   return (
     <Card key={title} className="flex flex-col gap-6 sm:flex-row">
-      <div className="w-full md:max-w-[250px]">
-        <Image
-          width={250}
-          height={250}
-          sizes="100vw"
-          src={getImageUrl(image)}
-          alt="Campaign Image"
-          className="h-auto w-full object-contain"
-        />
-      </div>
+      {image && (
+        <div className="w-full md:max-w-[250px]">
+          <CloudinaryImage
+            width={250}
+            height={250}
+            sizes="100vw"
+            src={image}
+            alt="Campaign Image"
+            className="h-auto w-full object-contain"
+          />
+        </div>
+      )}
       <div className="flex flex-col">
         {logo && (
           <div className="relative w-[196px] pb-1">
-            <Image
+            <CloudinaryImage
+              src={logo}
               width={196}
               height={196}
-              src={getImageUrl(logo)}
               alt="Campaign Logo"
               className="object-contain"
             />
@@ -100,23 +100,25 @@ function DefaultCampaignItem({
 }: CampaignItemProps) {
   return (
     <Card key={title} className="flex flex-col gap-6 sm:flex-row">
-      <div className="w-full md:max-w-[250px]">
-        <Image
-          width={250}
-          height={250}
-          sizes="100vw"
-          src={getImageUrl(image)}
-          alt="Campaign Image"
-          className="h-auto w-full object-contain"
-        />
-      </div>
+      {image && (
+        <div className="w-full md:max-w-[250px]">
+          <CloudinaryImage
+            width={250}
+            height={250}
+            sizes="100vw"
+            src={image}
+            alt="Campaign Image"
+            className="h-auto w-full object-contain"
+          />
+        </div>
+      )}
       <div className="flex flex-col">
         {logo && (
           <div className="relative w-[196px] pb-1">
-            <Image
+            <CloudinaryImage
+              src={logo}
               width={196}
               height={196}
-              src={getImageUrl(logo)}
               alt="Campaign Logo"
               className="object-contain"
             />

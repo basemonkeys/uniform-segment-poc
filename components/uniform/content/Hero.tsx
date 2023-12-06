@@ -138,7 +138,7 @@ export const Hero = ({
                     height="1080px"
                     src={video}
                     // TODO: figure out how to display this dynamically based on the video
-                    poster="https://res.cloudinary.com/seth-hall/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1699571358/silversneakers/thumbnail1_uyjane.jpg?_s=public-apps"
+                    poster="https://res.cloudinary.com/tivityhealth/image/upload/v1701207768/SilverSneakers/Videos/ondemand_featured_video_thumbnail.png"
                   />
                 </div>
               )}
@@ -160,7 +160,7 @@ export const Hero = ({
           >
             {logo && (
               <CloudinaryImage
-                src={getImageUrl(logo)}
+                src={logo}
                 width={280}
                 height={100}
                 alt="Silver Sneakers"
@@ -195,14 +195,14 @@ export const Hero = ({
                 {silversneakersGo ? (
                   <>
                     <CloudinaryImage
-                      src="silversneakers/app_store_logo_ks3dwp"
+                      src="SilverSneakers/Logos/app_store_logo"
                       width={160}
                       height={100}
                       alt="Silver Sneakers"
                     />
 
                     <CloudinaryImage
-                      src="silversneakers/google_play_logo_mxdwse"
+                      src="SilverSneakers/Logos/google_play_logo"
                       width={160}
                       height={100}
                       alt="Silver Sneakers"

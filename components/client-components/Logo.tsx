@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 
-import { CldImage } from "next-cloudinary";
-
 import { getImageUrl } from "@/utils";
+
+import { CloudinaryImage } from "./Cloudinary";
 
 // TODO: replace with Cloudinary
 import logoWordmark from "../../public/logo_wordmark.svg";
@@ -57,8 +57,8 @@ export const Logo = ({
     <>
       {isLink ? (
         <Link className={className} href={href}>
-          <CldImage
-            src={src ? src : getImageUrl(getLogo(variant))}
+          <CloudinaryImage
+            src={src ? src : getLogo(variant)}
             width={width}
             height={height}
             sizes="100vw"
@@ -67,7 +67,7 @@ export const Logo = ({
         </Link>
       ) : (
         <div className={className}>
-          <CldImage
+          <CloudinaryImage
             src={getImageUrl(getLogo(variant))}
             width={width}
             height={height}

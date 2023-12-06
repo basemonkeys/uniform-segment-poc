@@ -3,12 +3,10 @@ import type { ElementType } from "react";
 import { type ComponentProps } from "@uniformdev/canvas-next-rsc/component";
 
 import Link from "next/link";
-import Image from "next/image";
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { cn } from "@/utils";
-import { getImageUrl } from "@/utils";
 
 import {
   Card,
@@ -18,6 +16,7 @@ import {
   CardFooter,
 } from "@/components/primitives/card";
 import { Button } from "@/components/primitives/button";
+import { CloudinaryImage } from "@/components/client-components/Cloudinary";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -49,9 +48,8 @@ type CampaignItemProps = ComponentProps<{
   campaignType: CampaignType;
   images: [
     {
-      sys: {
-        id: string;
-      };
+      secure_url: string;
+      public_id: string;
       fields: {
         title: string;
         file: {
@@ -60,14 +58,7 @@ type CampaignItemProps = ComponentProps<{
       };
     },
   ];
-  mobileImage: {
-    fields: {
-      title: string;
-      file: {
-        url: string;
-      };
-    };
-  };
+  mobileImage: string;
   cta: string;
   ctaLink: string;
   logo?: string;
@@ -87,10 +78,10 @@ function GetSetUpCampaignItem({
   return (
     <Card key={title} className="flex flex-col gap-6">
       {logo && (
-        <Image
+        <CloudinaryImage
           width={196}
           height={196}
-          src={getImageUrl(logo)}
+          src={logo}
           alt="Campaign Logo"
           className="object-contain"
         />
@@ -106,10 +97,10 @@ function GetSetUpCampaignItem({
       >
         {/* mobile image */}
         <div className="md:hidden">
-          <Image
+          <CloudinaryImage
             width={800}
             height={256}
-            src={getImageUrl(mobileImage)}
+            src={mobileImage}
             alt={`${title} Image`}
             className="object-contain"
           />
@@ -121,8 +112,7 @@ function GetSetUpCampaignItem({
             <>
               <div className="relative md:max-w-[400px]">
                 <div className="absolute w-1/2 bg-gradient-to-r from-black px-4 py-2 text-white">
-                  <div className="flex items-center gap-2">
-                    {/* loop through by image title */}
+                  {/* <div className="flex items-center gap-2">
                     {Object.values(ClassTypeIcon).map((value) => {
                       if (image.fields.title.includes(value)) {
                         return (
@@ -142,14 +132,15 @@ function GetSetUpCampaignItem({
                       }
                     })}
                     {image.fields.title}
-                  </div>
+                  </div> */}
                 </div>
-                <Image
-                  key={image.sys.id}
+                <CloudinaryImage
+                  key={image.public_id}
                   width={400}
                   height={256}
-                  src={getImageUrl(image.fields.file.url)}
-                  alt={`${image.fields.title} Image`}
+                  src={image.secure_url}
+                  // alt={`${image.fields.title} Image`}
+                  alt={`${image.public_id} Image`}
                   className="object-contain"
                 />
               </div>
@@ -179,10 +170,10 @@ function DefaultCampaignItem({
   return (
     <Card key={title} className="flex flex-col gap-6">
       {logo && (
-        <Image
+        <CloudinaryImage
           width={196}
           height={196}
-          src={getImageUrl(logo)}
+          src={logo}
           alt="Campaign Logo"
           className="object-contain"
         />
@@ -203,12 +194,13 @@ function DefaultCampaignItem({
                 <div className="absolute w-1/2 bg-gradient-to-r from-black px-4 py-2 text-white">
                   {image.fields.title}
                 </div>
-                <Image
-                  key={image.sys.id}
+                <CloudinaryImage
+                  key={image.public_id}
                   width={400}
                   height={256}
-                  src={getImageUrl(image.fields.file.url)}
-                  alt={`${image.fields.title} Image`}
+                  src={image.secure_url}
+                  // alt={`${image.fields.title} Image`}
+                  alt={`${image.public_id} Image`}
                   className="object-contain"
                 />
               </div>

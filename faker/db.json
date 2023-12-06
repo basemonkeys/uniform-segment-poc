@@ -4,7 +4,7 @@
     "lastName": "Hall",
     "email": {
       "address": "seth.hall@internetemail.com",
-      "verified": false
+      "verified": true
     },
     "eligibility": {
       "cardNumber": "2300103854957548",
@@ -42,114 +42,114 @@
   },
   "visits": [
     {
-      "date": "2023-06-24T05:19:06.604Z",
+      "date": "2023-08-29T03:03:06.179Z",
       "isFlex": false,
-      "locationId": "937",
-      "locationName": "Ohio"
+      "locationId": "851",
+      "locationName": "Oregon"
     },
     {
-      "date": "2023-02-06T17:00:24.320Z",
+      "date": "2022-12-17T22:20:30.258Z",
       "isFlex": false,
-      "locationId": "627",
+      "locationId": "765",
       "locationName": "Alaska"
     },
     {
-      "date": "2023-04-10T09:44:32.445Z",
-      "isFlex": true,
-      "locationId": "180",
-      "locationName": "Nevada"
-    },
-    {
-      "date": "2023-03-17T06:23:13.314Z",
-      "isFlex": true,
-      "locationId": "779",
-      "locationName": "Delaware"
-    },
-    {
-      "date": "2023-05-07T11:22:16.773Z",
+      "date": "2023-09-27T11:02:47.151Z",
       "isFlex": false,
-      "locationId": "049",
-      "locationName": "Missouri"
-    },
-    {
-      "date": "2023-04-10T08:27:53.707Z",
-      "isFlex": true,
-      "locationId": "542",
-      "locationName": "Montana"
-    },
-    {
-      "date": "2022-12-16T21:13:48.417Z",
-      "isFlex": false,
-      "locationId": "416",
-      "locationName": "New Hampshire"
-    },
-    {
-      "date": "2023-10-17T03:14:53.751Z",
-      "isFlex": true,
-      "locationId": "288",
-      "locationName": "New Mexico"
-    },
-    {
-      "date": "2023-06-01T15:11:44.353Z",
-      "isFlex": true,
-      "locationId": "162",
+      "locationId": "060",
       "locationName": "Ohio"
     },
     {
-      "date": "2022-11-22T06:50:42.986Z",
+      "date": "2023-11-21T21:48:51.464Z",
+      "isFlex": true,
+      "locationId": "008",
+      "locationName": "Nebraska"
+    },
+    {
+      "date": "2023-12-02T09:03:11.361Z",
+      "isFlex": true,
+      "locationId": "232",
+      "locationName": "Massachusetts"
+    },
+    {
+      "date": "2023-05-30T07:20:02.910Z",
       "isFlex": false,
-      "locationId": "061",
-      "locationName": "Pennsylvania"
+      "locationId": "039",
+      "locationName": "South Dakota"
+    },
+    {
+      "date": "2023-10-22T01:04:38.320Z",
+      "isFlex": true,
+      "locationId": "185",
+      "locationName": "North Carolina"
+    },
+    {
+      "date": "2023-06-09T07:55:18.748Z",
+      "isFlex": false,
+      "locationId": "186",
+      "locationName": "Ohio"
+    },
+    {
+      "date": "2023-11-05T19:37:50.489Z",
+      "isFlex": true,
+      "locationId": "777",
+      "locationName": "Colorado"
+    },
+    {
+      "date": "2023-03-13T04:28:12.195Z",
+      "isFlex": true,
+      "locationId": "679",
+      "locationName": "New York"
     }
   ],
   "live": {
     "LiveStreams": [
       {
         "Title": "Morning Routine",
-        "Topic": "Terga architecto cinis vacuus aestas.",
+        "Topic": "Aegre bene confugo thesaurus curis atqui theologus.",
         "Instructor": "Caroline",
         "InstructorImage": "https://cdn.silversneakers.com/images/featured-instructor/caroline.png",
         "Intensity": "Beginner",
-        "StartTime": "2023-11-14T19:22:50.436Z",
-        "Duration": 49
+        "StartTime": "2023-12-07T01:07:03.171Z",
+        "Duration": 30
       },
       {
         "Title": "SilverSneakers Member Orientation",
-        "Topic": "Conturbo paulatim cui cohibeo quas capillus.",
+        "Topic": "Autem audax coma tumultus caecus.",
         "Instructor": "Will",
         "InstructorImage": "https://cdn.silversneakers.com/images/featured-instructor/Will.png",
         "Intensity": "Intermediate",
-        "StartTime": "2023-11-14T00:19:54.330Z",
-        "Duration": 54
+        "StartTime": "2023-12-06T17:55:01.965Z",
+        "Duration": 40
       },
       {
         "Title": "Yoga Flow",
-        "Topic": "Deserunt deprecator verto apto blandior ipsa vix vitae vir.",
+        "Topic": "Collum ver ab depromo atque esse recusandae cubicularis tutis.",
         "Instructor": "Beth",
         "InstructorImage": "https://cdn.silversneakers.com/images/featured-instructor/brenda.png",
         "Intensity": "Advanced",
-        "StartTime": "2023-11-14T06:49:46.900Z",
-        "Duration": 57
+        "StartTime": "2023-12-07T15:39:15.688Z",
+        "Duration": 40
       }
     ]
   },
   "locations": {
     "Locations": [
       {
-        "Id": "03549",
+        "Id": "11476",
         "Name": "Planet Fitness",
-        "Phone": "1-656-220-3068 x5211",
-        "Address": "6177 Anahi Flats",
-        "Longitude": -96.6047,
-        "Latitude": 80.4779,
+        "Phone": "1-350-662-0191 x992",
+        "Address": "41345 Bosco Club",
+        "Longitude": 159.2686,
+        "Latitude": 10.2919,
         "NetworkProperties": {
           "Amenities": [
             {
-              "Id": 4,
+              "Id": 5,
               "Name": "Resistance Equipment"
             },
             {
-              "Id": 3,
+              "Id": 2,
               "Name": "Cardiovascular Equipment"
             },
             {
@@ -160,48 +160,48 @@
         }
       },
       {
-        "Id": "92022",
+        "Id": "76868",
         "Name": "Community Gym",
-        "Phone": "(508) 689-2957 x499",
-        "Address": "2698 Alfredo Point",
-        "Longitude": -111.3344,
-        "Latitude": -35.534,
+        "Phone": "1-381-613-8887 x5574",
+        "Address": "111 Spinka Plains",
+        "Longitude": -45.0532,
+        "Latitude": 40.0234,
         "NetworkProperties": {
           "Amenities": [
             {
-              "Id": 4,
+              "Id": 2,
               "Name": "Resistance Equipment"
             },
             {
-              "Id": 4,
+              "Id": 3,
               "Name": "Cardiovascular Equipment"
             },
             {
-              "Id": 3,
+              "Id": 4,
               "Name": "Strength Equipment"
             }
           ]
         }
       },
       {
-        "Id": "67143",
+        "Id": "50416",
         "Name": "Get Moving Studios",
-        "Phone": "(295) 246-0154",
-        "Address": "718 Von Manors",
-        "Longitude": -118.8154,
-        "Latitude": -78.4397,
+        "Phone": "294.755.5276 x0184",
+        "Address": "9170 Hodkiewicz Plains",
+        "Longitude": -115.1386,
+        "Latitude": 13.1311,
         "NetworkProperties": {
           "Amenities": [
             {
-              "Id": 4,
+              "Id": 3,
               "Name": "Resistance Equipment"
             },
             {
-              "Id": 1,
+              "Id": 4,
               "Name": "Cardiovascular Equipment"
             },
             {
-              "Id": 4,
+              "Id": 5,
               "Name": "Strength Equipment"
             }
           ]

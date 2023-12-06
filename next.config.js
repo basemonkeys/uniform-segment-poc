@@ -20,6 +20,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "cdn.silversneakers.com",
       },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
     ],
   },
   transpilePackages: ["jotai-devtools"],

@@ -9,7 +9,7 @@ export default function Loading() {
   return (
     <main className="flex h-screen flex-col items-center justify-center space-y-6">
       <CloudinaryImage
-        src="silversneakers/logo_primary_vk0ca4"
+        src="SilverSneakers/Logos/logo_primary"
         alt="Loading"
         width={250}
         height={100}

@@ -182,7 +182,7 @@ const locations = {
 };
 
 fs.writeFileSync(
-  "./app/data.json",
+  "./faker/db.json",
   JSON.stringify(
     {
       user: user,

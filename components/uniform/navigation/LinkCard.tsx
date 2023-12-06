@@ -11,7 +11,7 @@ export type LinkCardProps = ComponentProps<{
   };
   image: [
     {
-      publicId: string;
+      url: string;
     },
   ];
 }>;
