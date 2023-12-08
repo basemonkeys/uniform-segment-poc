@@ -3,8 +3,6 @@ import Link from "next/link";
 
 import { Separator } from "@/components/primitives/separator";
 
-import { cn } from "@/utils";
-
 import { Button } from "@/components/primitives/button";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

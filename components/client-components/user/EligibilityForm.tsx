@@ -114,12 +114,12 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
     console.log("data:", data);
     // TODO: submit data to API. Page should not redirect before call execute. Redirect to specific.
     analytics.identify({
-      anonymousId: "ddff1c0d-44d1-4833-8bd4-0001-000000001",
+      anonymousId: "44kuryda-88du-4567-9932-4444-000000001",
       context: {
         ip: "199.99.99.101",
       },
       timestamp: "",
-      fan_id: "fan-ddff1c0d-44d1-4833-8bd4-0001-000000001",
+      fan_id: "fan-44kuryda-88du-4567-9932-4444-000000001",
       EmailOptIn: "True",
       firstName: data.firstName,
       lastName: data.lastName,
@@ -128,12 +128,12 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
       Member_Type: "Fan",
     });
     analytics.track({
-      anonymousId: "ddff1c0d-44d1-4833-8bd4-0001-000000001",
+      anonymousId: "44kuryda-88du-4567-9932-4444-000000001",
       event: "Eligibility Check",
       timestamp: "{{timestamp}}",
       type: "track",
       traits: {
-        fan_id: "fan-ddff1c0d-44d1-4833-8bd4-0001-000000001",
+        fan_id: "fan-44kuryda-88du-4567-9932-4444-000000001",
       },
       properties: {
         visitorIPAddress: "199.99.99.101",
