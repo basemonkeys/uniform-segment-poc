@@ -3,16 +3,16 @@
 // https://ui.shadcn.com/docs/components/form
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { UniformRichText } from "@uniformdev/canvas-next-rsc/component";
 import { setCookie, getCookie } from "cookies-next";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { AnalyticsBrowser } from "@segment/analytics-next";
 
 import { cn } from "@/utils";
-
-import type { EligibilityFormProps } from "@/components/uniform/user/EligibilityForm";
 
 import {
   Card,
@@ -46,6 +46,7 @@ import {
   DialogTitle,
   DialogClose,
 } from "@/components/primitives/dialog";
+import type { EligibilityFormProps } from "@/components/uniform/user/eligibility/EligibilityForm";
 
 import {
   XCircleIcon,
@@ -80,8 +81,13 @@ const FormRequired = () => {
 };
 
 export function EligibilityForm({ title, component }: EligibilityFormProps) {
+  const router = useRouter();
   const [activeStep, setActiveStep] = useState(0);
   const { register } = useForm();
+
+  const analytics = AnalyticsBrowser.load({
+    writeKey: process.env.NEXT_PUBLIC_ANALYTICS_WRITE_KEY as string,
+  });
 
   // TODO: set this cookie when user logs in
   setCookie("userRole", "member");
@@ -105,9 +111,44 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
   });
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
-    console.log("isSubmitting =", form.formState.isSubmitting);
     console.log("data:", data);
-    // TODO: submit data to API
+    // TODO: submit data to API. Page should not redirect before call execute. Redirect to specific.
+    analytics.identify({
+      anonymousId: "ddff1c0d-44d1-4833-8bd4-0001-000000001",
+      context: {
+        ip: "199.99.99.101",
+      },
+      timestamp: "",
+      fan_id: "fan-ddff1c0d-44d1-4833-8bd4-0001-000000001",
+      EmailOptIn: "True",
+      firstName: data.firstName,
+      lastName: data.lastName,
+      DateOfBirth: `${data.birthMonth}/${data.birthDay}/${data.birthYear}`,
+      email: data.email,
+      Member_Type: "Fan",
+    });
+    analytics.track({
+      anonymousId: "ddff1c0d-44d1-4833-8bd4-0001-000000001",
+      event: "Eligibility Check",
+      timestamp: "{{timestamp}}",
+      type: "track",
+      traits: {
+        fan_id: "fan-ddff1c0d-44d1-4833-8bd4-0001-000000001",
+      },
+      properties: {
+        visitorIPAddress: "199.99.99.101",
+        browserName: "Chrome",
+        browserFullVersion: "119.0.0.0",
+        browserMajorVersion: "119",
+        browserAppName: "Netscape",
+        browserUserAgent:
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
+        browserCookiesEnabled: "true",
+        browserOSName: "MacOS",
+        pageURL: " https://uattools.silversneakers.com/Eligibility/TryAgain",
+      },
+    });
+    router.push("/eligibility/try-again");
   }
 
   const handleButtonClick = async () => {

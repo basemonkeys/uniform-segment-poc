@@ -20,7 +20,8 @@ import { Banner } from "./uniform/global/Banner";
 import { Hero } from "./uniform/content/Hero";
 import { Steps } from "./uniform/content/Steps";
 import { StepItem } from "./uniform/content/StepItem";
-import { EligibilityForm } from "./uniform/user/EligibilityForm";
+import { EligibilityForm } from "./uniform/user/eligibility/EligibilityForm";
+import { EligibilityTryAgain } from "./uniform/user/eligibility/TryAgain";
 import { MemberProfile } from "./uniform/user/profile/MemberProfile";
 import { MemberProfileCard } from "./uniform/user/profile/MemberProfileCard";
 import { MemberIdCard } from "./uniform/user/profile/MemberIdCard";
@@ -91,6 +92,8 @@ export const resolveComponent: ResolveComponentFunction = ({ component }) => {
     resolved = StepItem;
   } else if (component.type === "eligibilityForm") {
     resolved = EligibilityForm;
+  } else if (component.type === "eligibilityTryAgain") {
+    resolved = EligibilityTryAgain;
   } else if (component.type === "memberProfile") {
     resolved = MemberProfile;
   } else if (component.type === "memberProfileCard") {

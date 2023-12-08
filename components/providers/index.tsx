@@ -4,12 +4,9 @@ import { JotaiProvider } from "./JotaiProvider";
 import { SessionProvider } from "./SessionProvider";
 import { TrackerScoreSync } from "./TrackerScoreSync";
 
-
-
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <div>
-
       <UniformContextProvider>
         <TanstackQueryProvider>
           <JotaiProvider>
@@ -17,9 +14,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
           </JotaiProvider>
           <TrackerScoreSync />
         </TanstackQueryProvider>
-
       </UniformContextProvider>
-
     </div>
   );
 }
