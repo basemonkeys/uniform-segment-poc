@@ -11,6 +11,7 @@ import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { AnalyticsBrowser } from "@segment/analytics-next";
+import { v4 as uuidv4 } from "uuid";
 
 import { cn } from "@/utils";
 
@@ -110,33 +111,33 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
     reValidateMode: "onBlur",
   });
 
+  const uniqueId = uuidv4();
+
   async function onSubmit(data: z.infer<typeof formSchema>) {
-    console.log("data:", data);
-    // TODO: submit data to API. Page should not redirect before call execute. Redirect to specific.
+    analytics.reset();
     analytics.identify({
-      anonymousId: "44kuryda-88du-4567-9932-4444-000000001",
-      context: {
-        ip: "199.99.99.101",
-      },
-      timestamp: "",
-      fan_id: "fan-44kuryda-88du-4567-9932-4444-000000001",
-      EmailOptIn: "True",
+      anonymousId: uniqueId,
+      fan_id: `fan-${uniqueId}`,
       firstName: data.firstName,
       lastName: data.lastName,
-      DateOfBirth: `${data.birthMonth}/${data.birthDay}/${data.birthYear}`,
       email: data.email,
+      // todo generate real ip address
+      ipAddress: "98.97.56.37",
+      DateOfBirth: `${data.birthMonth}/${data.birthDay}/${data.birthYear}`,
+      EmailOptIn: "True",
       Member_Type: "Fan",
     });
     analytics.track({
-      anonymousId: "44kuryda-88du-4567-9932-4444-000000001",
+      anonymousId: uniqueId,
       event: "Eligibility Check",
       timestamp: "{{timestamp}}",
       type: "track",
       traits: {
-        fan_id: "fan-44kuryda-88du-4567-9932-4444-000000001",
+        fan_id: `fan-${uniqueId}`,
       },
       properties: {
-        visitorIPAddress: "199.99.99.101",
+        // todo generate real ip address
+        visitorIPAddress: "98.97.56.37",
         browserName: "Chrome",
         browserFullVersion: "119.0.0.0",
         browserMajorVersion: "119",
@@ -145,7 +146,7 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
           "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36",
         browserCookiesEnabled: "true",
         browserOSName: "MacOS",
-        pageURL: " https://uattools.silversneakers.com/Eligibility/TryAgain",
+        pageURL: "https://silversneakers.com/eligibility/check-eligibility",
       },
     });
     router.push("/eligibility/try-again");
@@ -178,7 +179,7 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
           activeStep < 3 && setActiveStep(activeStep + 1);
         }
         break;
-      case 3:
+      default:
         if (!form.formState.errors.email) {
           form.handleSubmit(onSubmit)();
         }
@@ -207,9 +208,7 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
   ];
 
   // TODO: consider removing stepperTabs since the tabs are not clickable
-
-  console.log(activeStep);
-  console.log(form.formState.errors);
+  // TODO: prevent error state jump
 
   return (
     <>
@@ -226,7 +225,7 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
 
         {/* Form */}
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <form className="space-y-8">
             {/* Stepper Tabs */}
             <StepperTabs defaultValue="Name" className="m-auto w-full">
               <div className="mb-6 space-y-2">
@@ -626,9 +625,10 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
                 </Button>
               )}
               <Button
-                type={activeStep === 3 ? "submit" : "button"}
+                type="button"
                 className="w-full"
                 onClick={handleButtonClick}
+                disabled={form.formState.isSubmitting}
               >
                 {activeStep === 3 ? "Check Eligibility" : "Next"}
               </Button>
