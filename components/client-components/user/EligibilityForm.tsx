@@ -116,7 +116,6 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
   async function onSubmit(data: z.infer<typeof formSchema>) {
     analytics.reset();
     analytics.identify({
-      anonymousId: uniqueId,
       fan_id: `fan-${uniqueId}`,
       firstName: data.firstName,
       lastName: data.lastName,
@@ -128,7 +127,6 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
       Member_Type: "Fan",
     });
     analytics.track({
-      anonymousId: uniqueId,
       event: "Eligibility Check",
       timestamp: "{{timestamp}}",
       type: "track",
