@@ -120,10 +120,11 @@ export function EligibilityForm({ title, component }: EligibilityFormProps) {
       firstName: data.firstName,
       lastName: data.lastName,
       email: data.email,
+      zipCode: data.zip,
       // todo generate real ip address
       ipAddress: "98.97.56.37",
       DateOfBirth: `${data.birthMonth}/${data.birthDay}/${data.birthYear}`,
-      EmailOptIn: "True",
+      EmailOptIn: `${data.signUp}`,
       Member_Type: "Fan",
     });
     analytics.track({

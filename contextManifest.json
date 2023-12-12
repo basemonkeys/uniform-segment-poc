@@ -41,6 +41,26 @@
               }
             ]
           }
+        },
+        "optedin": {
+          "str": 1,
+          "cap": 1,
+          "dur": "s",
+          "crit": {
+            "op": "&",
+            "type": "G",
+            "clauses": [
+              {
+                "key": "EmailOptIn",
+                "type": "QK",
+                "match": {
+                  "cs": false,
+                  "op": "=",
+                  "rhs": "true"
+                }
+              }
+            ]
+          }
         }
       }
     },
