@@ -566,6 +566,17 @@
       "updated": "2023-11-16T19:47:47.535229+00:00"
     },
     {
+      "id": "eligibilityTryAgain",
+      "name": "Eligibility Try Again",
+      "icon": "profile",
+      "parameters": [],
+      "useTeamPermissions": true,
+      "slots": [],
+      "canBeComposition": false,
+      "created": "2023-12-08T20:36:08.377287+00:00",
+      "updated": "2023-12-08T20:36:25.957613+00:00"
+    },
+    {
       "id": "faq",
       "name": "FAQ",
       "icon": "layout-list",
@@ -1655,7 +1666,8 @@
             "infoHeader",
             "liveClasses",
             "$p:8f703b87-fdcc-4550-9383-65e4a20d3035",
-            "liveClassesFilter"
+            "liveClassesFilter",
+            "eligibilityTryAgain"
           ],
           "allowAllComponents": false,
           "inheritAllowedComponents": false,
@@ -1671,7 +1683,7 @@
       "titleParameter": "metaTitle",
       "canBeComposition": true,
       "created": "2023-11-16T19:44:26.340237+00:00",
-      "updated": "2023-11-16T19:47:50.147037+00:00"
+      "updated": "2023-12-08T20:40:54.542799+00:00"
     },
     {
       "id": "privacyPolicy",
@@ -6449,6 +6461,39 @@
     },
     {
       "composition": {
+        "_name": "Eligibility Try Again",
+        "_id": "f77e6a02-faef-47aa-8669-a132086080ee",
+        "_slug": "try-again",
+        "type": "page",
+        "slots": {
+          "content": [
+            {
+              "_id": "b3cb2f6f-0421-4fb4-a0f7-728f6b6dc26d",
+              "type": "container",
+              "slots": {
+                "containerInner": [
+                  {
+                    "_id": "5d7630ae-fbef-4fc2-9641-895f718a3517",
+                    "type": "eligibilityTryAgain"
+                  }
+                ]
+              },
+              "parameters": {
+                "title": {
+                  "type": "text",
+                  "value": "Eligibility Try Again"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "created": "2023-12-08T20:25:10.384244+00:00",
+      "modified": "2023-12-08T20:54:12.078159+00:00",
+      "pattern": false
+    },
+    {
+      "composition": {
         "_name": "Terms of Use",
         "_id": "fd518822-182d-4bb7-a1ea-128bb4f463b6",
         "type": "termsOfUse",
@@ -6628,6 +6673,17 @@
       "path": "/participating-locations",
       "compositionId": "c701237f-982e-4138-9641-dc5468ee6350",
       "pathSegment": "participating-locations",
+      "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
+    },
+    {
+      "id": "686e726b-e063-4e8e-8419-e6d3d2e68cb8",
+      "name": "Try Again",
+      "type": "composition",
+      "data": {},
+      "order": 1300,
+      "path": "/eligibility/try-again",
+      "compositionId": "f77e6a02-faef-47aa-8669-a132086080ee",
+      "pathSegment": "try-again",
       "projectMapId": "8a35c419-5150-4f76-aa21-7e4976c9dfcb"
     },
     {
