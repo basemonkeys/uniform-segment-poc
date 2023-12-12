@@ -6,11 +6,14 @@ import { getImageUrl } from "@/utils";
 
 import { CloudinaryImage } from "./Cloudinary";
 
-// TODO: replace with Cloudinary
-import logoWordmark from "../../public/logo_wordmark.svg";
-import logoPrimary from "../../public/logo_primary.svg";
-import logoSymbol from "../../public/logo_symbol.svg";
-import logoTivity from "../../public/logo_tivity.svg";
+const logoWordmark =
+  "https://res.cloudinary.com/tivityhealth/image/upload/v1701723499/SilverSneakers/Logos/silversneakers_logo_wordmark.svg";
+const logoPrimary =
+  "https://res.cloudinary.com/tivityhealth/image/upload/v1701723502/SilverSneakers/Logos/silversneakers_logo_primary.svg";
+const logoSymbol =
+  "https://res.cloudinary.com/tivityhealth/image/upload/v1702342381/SilverSneakers/Logos/silversneakers_logo_symbol.svg";
+const logoTivity =
+  "https://res.cloudinary.com/tivityhealth/image/upload/v1702342381/SilverSneakers/Logos/silversneakers_logo_tivity.svg";
 
 type LogoProps = {
   src?: string | Types.CloudinaryImage;
