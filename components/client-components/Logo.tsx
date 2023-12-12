@@ -35,15 +35,15 @@ export enum LogoVariant {
 const getLogo = (variantId?: string) => {
   switch (variantId) {
     case LogoVariant.Wordmark:
-      return getImageUrl(logoWordmark.src);
+      return getImageUrl(logoWordmark);
     case LogoVariant.Primary:
-      return getImageUrl(logoPrimary.src);
+      return getImageUrl(logoPrimary);
     case LogoVariant.Symbol:
-      return getImageUrl(logoSymbol.src);
+      return getImageUrl(logoSymbol);
     case LogoVariant.Tivity:
-      return getImageUrl(logoTivity.src);
+      return getImageUrl(logoTivity);
     default:
-      return getImageUrl(logoWordmark.src);
+      return getImageUrl(logoWordmark);
   }
 };
 
