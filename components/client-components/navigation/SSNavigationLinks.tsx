@@ -40,7 +40,7 @@ export type LinkProps = Omit<ComponentProps, "context" | "slots"> & {
 };
 
 // This component displays the non-dropdown menu items in the Header navigation and the non-accordion menu items in the mobile navigation.
-export const SSHeaderLink = ({ link, title }: Omit<LinkProps, "component">) => {
+export const SSHeaderLink = ({ link, title }: Pick<LinkProps, "link" | "title">) => {
   const pathname = usePathname();
   const isActive = pathname === link?.path;
 
@@ -62,7 +62,7 @@ export const SSHeaderLink = ({ link, title }: Omit<LinkProps, "component">) => {
   );
 };
 
-export const SSQuickLink = ({ link, title }: Omit<LinkProps, "component">) => {
+export const SSQuickLink = ({ link, title }: Pick<LinkProps, "link" | "title">) => {
   return (
     <ScrollLink
       key={title}
@@ -87,7 +87,7 @@ export const SSQuickLink = ({ link, title }: Omit<LinkProps, "component">) => {
 };
 
 // This component displays the menu items in the Footer.
-export const SSFooterLink = ({ link, title }: Omit<LinkProps, "component">) => {
+export const SSFooterLink = ({ link, title }: Pick<LinkProps, "link" | "title">) => {
   return (
     <Link
       key={link?.path}
